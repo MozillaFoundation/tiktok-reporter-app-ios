@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		689FF00A2AEEB26200C9FE51 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 689FF0092AEEB26200C9FE51 /* Colors.xcassets */; };
 		68CBF9692AEB9F2F006D03FC /* TikTok_ReporterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CBF9682AEB9F2F006D03FC /* TikTok_ReporterApp.swift */; };
 		68CBF96B2AEB9F2F006D03FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CBF96A2AEB9F2F006D03FC /* ContentView.swift */; };
 		68CBF96D2AEB9F31006D03FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68CBF96C2AEB9F31006D03FC /* Assets.xcassets */; };
@@ -14,6 +15,11 @@
 		68CBF97A2AEB9F31006D03FC /* TikTok_ReporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CBF9792AEB9F31006D03FC /* TikTok_ReporterTests.swift */; };
 		68CBF9842AEB9F31006D03FC /* TikTok_ReporterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CBF9832AEB9F31006D03FC /* TikTok_ReporterUITests.swift */; };
 		68CBF9862AEB9F31006D03FC /* TikTok_ReporterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CBF9852AEB9F31006D03FC /* TikTok_ReporterUITestsLaunchTests.swift */; };
+		68CBF99F2AEC17D5006D03FC /* ZillaSlab-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68CBF9952AEC17D5006D03FC /* ZillaSlab-Light.ttf */; };
+		68CBF9A42AEC17D5006D03FC /* ZillaSlab-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68CBF99A2AEC17D5006D03FC /* ZillaSlab-Regular.ttf */; };
+		68CBF9A72AEC17D5006D03FC /* ZillaSlab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68CBF99D2AEC17D5006D03FC /* ZillaSlab-Bold.ttf */; };
+		68CBF9AB2AEC18B0006D03FC /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CBF9AA2AEC18B0006D03FC /* Font+Extension.swift */; };
+		68CBF9AD2AEC1C7A006D03FC /* NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68CBF9AC2AEC1C7A006D03FC /* NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		689FF0092AEEB26200C9FE51 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		68CBF9652AEB9F2F006D03FC /* TikTok Reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TikTok Reporter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68CBF9682AEB9F2F006D03FC /* TikTok_ReporterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTok_ReporterApp.swift; sourceTree = "<group>"; };
 		68CBF96A2AEB9F2F006D03FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +51,12 @@
 		68CBF97F2AEB9F31006D03FC /* TikTok ReporterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TikTok ReporterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68CBF9832AEB9F31006D03FC /* TikTok_ReporterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTok_ReporterUITests.swift; sourceTree = "<group>"; };
 		68CBF9852AEB9F31006D03FC /* TikTok_ReporterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTok_ReporterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		68CBF9952AEC17D5006D03FC /* ZillaSlab-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZillaSlab-Light.ttf"; sourceTree = "<group>"; };
+		68CBF99A2AEC17D5006D03FC /* ZillaSlab-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZillaSlab-Regular.ttf"; sourceTree = "<group>"; };
+		68CBF99D2AEC17D5006D03FC /* ZillaSlab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZillaSlab-Bold.ttf"; sourceTree = "<group>"; };
+		68CBF9A82AEC17FC006D03FC /* TikTok-Reporter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "TikTok-Reporter-Info.plist"; sourceTree = SOURCE_ROOT; };
+		68CBF9AA2AEC18B0006D03FC /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
+		68CBF9AC2AEC1C7A006D03FC /* NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		689FF00C2AEEB27700C9FE51 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				689FF0092AEEB26200C9FE51 /* Colors.xcassets */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
 		68CBF95C2AEB9F2F006D03FC = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +115,9 @@
 		68CBF9672AEB9F2F006D03FC /* TikTok Reporter */ = {
 			isa = PBXGroup;
 			children = (
+				68CBF9A92AEC18A2006D03FC /* Common */,
+				68CBF9A82AEC17FC006D03FC /* TikTok-Reporter-Info.plist */,
+				68CBF9922AEC17AF006D03FC /* Resources */,
 				68CBF9682AEB9F2F006D03FC /* TikTok_ReporterApp.swift */,
 				68CBF96A2AEB9F2F006D03FC /* ContentView.swift */,
 				68CBF96C2AEB9F31006D03FC /* Assets.xcassets */,
@@ -125,6 +149,34 @@
 				68CBF9852AEB9F31006D03FC /* TikTok_ReporterUITestsLaunchTests.swift */,
 			);
 			path = "TikTok ReporterUITests";
+			sourceTree = "<group>";
+		};
+		68CBF9922AEC17AF006D03FC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				689FF00C2AEEB27700C9FE51 /* Colors */,
+				68CBF9932AEC17BA006D03FC /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		68CBF9932AEC17BA006D03FC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				68CBF9AC2AEC1C7A006D03FC /* NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf */,
+				68CBF99D2AEC17D5006D03FC /* ZillaSlab-Bold.ttf */,
+				68CBF9952AEC17D5006D03FC /* ZillaSlab-Light.ttf */,
+				68CBF99A2AEC17D5006D03FC /* ZillaSlab-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		68CBF9A92AEC18A2006D03FC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				68CBF9AA2AEC18B0006D03FC /* Font+Extension.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,8 +283,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68CBF9A72AEC17D5006D03FC /* ZillaSlab-Bold.ttf in Resources */,
 				68CBF9702AEB9F31006D03FC /* Preview Assets.xcassets in Resources */,
+				68CBF9A42AEC17D5006D03FC /* ZillaSlab-Regular.ttf in Resources */,
 				68CBF96D2AEB9F31006D03FC /* Assets.xcassets in Resources */,
+				68CBF99F2AEC17D5006D03FC /* ZillaSlab-Light.ttf in Resources */,
+				68CBF9AD2AEC1C7A006D03FC /* NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf in Resources */,
+				689FF00A2AEEB26200C9FE51 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +316,7 @@
 			files = (
 				68CBF96B2AEB9F2F006D03FC /* ContentView.swift in Sources */,
 				68CBF9692AEB9F2F006D03FC /* TikTok_ReporterApp.swift in Sources */,
+				68CBF9AB2AEC18B0006D03FC /* Font+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +484,7 @@
 				DEVELOPMENT_TEAM = 43AQ936H96;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TikTok-Reporter-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -461,6 +520,7 @@
 				DEVELOPMENT_TEAM = 43AQ936H96;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TikTok-Reporter-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
