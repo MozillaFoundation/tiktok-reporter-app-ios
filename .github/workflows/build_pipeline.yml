@@ -1,11 +1,15 @@
 name: CI build pipeline
 
-on: [ pull_request ]
+on: 
+  pull_request:
+    branches: [ "main", "develop/main" ]
 
 jobs:
   build-and-test:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_15.0.app
       - name: Build & Test
         run: xcodebuild clean build test -project "TikTok Reporter.xcodeproj" -target "TikTok Reporter" -destination "platform=iOS Simulator,name=iPhone 15 Pro,OS=17.0"
