@@ -18,6 +18,10 @@ jobs:
           ruby-version: 3.2.1
           bundler-cache: true
 
+      - name: Bundle install
+        working-directory: ./TikTok Reporter
+        run: bundle install
+
       - name: Build & Test with fastlane
         working-directory: ./TikTok Reporter
         run: bundle exec fastlane ios tests
