@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>ZillaSlab-Bold.ttf</string>
+		<string>ZillaSlab-Light.ttf</string>
+		<string>ZillaSlab-Regular.ttf</string>
+		<string>NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf</string>
+	</array>
+</dict>
+</plist>

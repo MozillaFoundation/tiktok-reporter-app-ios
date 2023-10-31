@@ -38,4 +38,5 @@ final class TikTok_ReporterUITests: XCTestCase {
             }
         }
     }
+
 }

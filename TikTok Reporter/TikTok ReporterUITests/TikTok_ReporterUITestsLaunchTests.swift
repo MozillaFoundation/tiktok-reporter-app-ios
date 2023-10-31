@@ -16,7 +16,7 @@ final class TikTok_ReporterUITestsLaunchTests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
     }
-
+    
     func testLaunch() throws {
         let app = XCUIApplication()
         app.launch()
@@ -29,4 +29,5 @@ final class TikTok_ReporterUITestsLaunchTests: XCTestCase {
         attachment.lifetime = .keepAlways
         add(attachment)
     }
+
 }
