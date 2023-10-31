@@ -19,6 +19,8 @@ platform :ios do
   desc "Description of what the lane does"
   lane :tests do
     xcode_select("/Applications/Xcode_15.0.app")
-    run_tests(scheme: "TikTok Reporter")
+    run_tests(project: "TikTok Reporter.xcodeproj",
+              devices: ["iPhone 15"],
+              scheme: "TikTok Reporter")
   end
 end
