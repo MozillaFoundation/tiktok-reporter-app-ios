@@ -17,7 +17,6 @@
   },
   "testTargets" : [
     {
-      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:TikTok Reporter.xcodeproj",
         "identifier" : "68CBF9742AEB9F31006D03FC",
@@ -25,8 +24,6 @@
       }
     },
     {
-      "enabled" : false,
-      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:TikTok Reporter.xcodeproj",
         "identifier" : "68CBF97E2AEB9F31006D03FC",
