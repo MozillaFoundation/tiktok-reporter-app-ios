@@ -1,0 +1,23 @@
+name: fastlane build and test
+
+on:
+  pull_request:
+    branches: [ "main", "develop/main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-13
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up ruby env
+      - uses: ruby/setup-ruby@v1.138.0
+        with:
+          ruby-version: 3.2.1
+          bundler-cache: true
+
+      - name: Build & Test with fastlane
+        run: bundle exec fastlane ios tests
+
