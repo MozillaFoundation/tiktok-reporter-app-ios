@@ -20,7 +20,7 @@ platform :ios do
   lane :tests do
     xcode_select("/Applications/Xcode_15.0.app")
     run_tests(project: "TikTok Reporter.xcodeproj",
-              devices: ["iPhone 15"],
+              devices: ["iPhone 14"],
               scheme: "TikTok Reporter")
   end
 end
