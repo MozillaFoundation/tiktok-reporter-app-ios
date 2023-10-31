@@ -19,5 +19,6 @@ jobs:
           bundler-cache: true
 
       - name: Build & Test with fastlane
+        working-directory: ./TikTok Reporter
         run: bundle exec fastlane ios tests
 
