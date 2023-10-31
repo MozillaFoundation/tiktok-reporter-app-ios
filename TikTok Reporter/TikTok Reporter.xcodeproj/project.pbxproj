@@ -41,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		689FF0092AEEB26200C9FE51 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		689FF00D2AF1410300C9FE51 /* TikTok Reporter.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "TikTok Reporter.xctestplan"; sourceTree = "<group>"; };
 		68CBF9652AEB9F2F006D03FC /* TikTok Reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TikTok Reporter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68CBF9682AEB9F2F006D03FC /* TikTok_ReporterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTok_ReporterApp.swift; sourceTree = "<group>"; };
 		68CBF96A2AEB9F2F006D03FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 		68CBF95C2AEB9F2F006D03FC = {
 			isa = PBXGroup;
 			children = (
+				689FF00D2AF1410300C9FE51 /* TikTok Reporter.xctestplan */,
 				68CBF9672AEB9F2F006D03FC /* TikTok Reporter */,
 				68CBF9782AEB9F31006D03FC /* TikTok ReporterTests */,
 				68CBF9822AEB9F31006D03FC /* TikTok ReporterUITests */,
