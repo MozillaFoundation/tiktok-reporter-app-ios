@@ -16,11 +16,11 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Description of what the lane does"
+  desc "Test project"
   lane :tests do
-    xcode_select("/Applications/Xcode_15.0.app")
+    xcode_select("/Applications/Xcode_15.0.1.app")
     run_tests(project: "TikTok Reporter.xcodeproj",
-              devices: ["iPhone 14"],
+              devices: ["iPhone 14 (17.0.1)"],
               scheme: "TikTok Reporter")
   end
 end
