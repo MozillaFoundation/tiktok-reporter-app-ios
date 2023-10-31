@@ -8,8 +8,12 @@ jobs:
   build-and-test:
     runs-on: macos-13
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Select Xcode
         run: sudo xcode-select -switch /Applications/Xcode_15.0.1.app
-      - name: Build & Test
-        run: xcodebuild clean build test -project "TikTok Reporter/TikTok Reporter.xcodeproj" -scheme "TikTok Reporter" -destination "platform=iOS Simulator,name=iPhone 15 Pro,OS=17.0.1"
+      - name: Clean
+        run: xcodebuild clean -project "TikTok Reporter/TikTok Reporter.xcodeproj" -scheme "TikTok Reporter" -destination "platform=iOS Simulator,name=iPhone 15 Pro,OS=17.0.1"
+      - name: Build
+        run: xcodebuild build -project "TikTok Reporter/TikTok Reporter.xcodeproj" -scheme "TikTok Reporter" -destination "platform=iOS Simulator,name=iPhone 15 Pro,OS=17.0.1"
+      - name: Test
+        run: xcodebuild test -project "TikTok Reporter/TikTok Reporter.xcodeproj" -scheme "TikTok Reporter" -destination "platform=iOS Simulator,name=iPhone 15 Pro,OS=17.0.1"
