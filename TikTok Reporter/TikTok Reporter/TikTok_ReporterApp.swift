@@ -11,7 +11,7 @@ import SwiftUI
 struct TikTok_ReporterApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TermsAndConditionsView(viewModel: .init())
         }
     }
 }
