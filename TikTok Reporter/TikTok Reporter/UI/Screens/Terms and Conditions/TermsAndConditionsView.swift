@@ -21,20 +21,22 @@ struct TermsAndConditionsView: View {
     
     var body: some View {
         NavigationView {
-            content
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    // Temporary until we receive logo from Mozilla.
-                    ToolbarItem(placement: .topBarLeading) {
-                        HStack {
-                            Image(systemName: "play.rectangle")
-                            Text("TikTok Reporter").font(.heading5)
-                        }
+            PresentationStateView(viewModel: self.viewModel) {
+                self.content
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                // Temporary until we receive logo from Mozilla.
+                ToolbarItem(placement: .topBarLeading) {
+                    HStack {
+                        Image(systemName: "play.rectangle")
+                        Text("TikTok Reporter").font(.heading5)
                     }
                 }
+            }
         }
         .onAppear {
-            viewModel.getTerms()
+            viewModel.load()
         }
     }
     

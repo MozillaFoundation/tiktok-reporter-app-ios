@@ -11,12 +11,15 @@ extension TermsAndConditionsView {
 
     // MARK: - ViewModel
 
-    class ViewModel: ObservableObject {
+    class ViewModel: PresentationStateObject {
 
         // MARK: - Injected
 
         @Injected(\.policiesService)
         var service: PoliciesServicing
+
+        @Published
+        var state: PresentationState = .idle
 
         // MARK: - Properties
 
@@ -25,16 +28,20 @@ extension TermsAndConditionsView {
 
         // MARK: - Methods
 
-        func getTerms() {
+        func load() {
+            state = .loading
+
             Task {
                 do {
                     let termsOfService: Policy? = try await service.getTermsAndConditions()
 
                     await MainActor.run {
                         self.termsOfService = termsOfService
+                        state = .success
                     }
                 } catch let error {
                     // TODO: - Handle error
+                    state = .failed
                     print(error.localizedDescription)
                 }
             }
