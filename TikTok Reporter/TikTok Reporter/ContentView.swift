@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State
+    var isPresented: Bool = false
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            TermsAndConditionsView(viewModel: .init())
         }
-        .padding()
     }
 }
 

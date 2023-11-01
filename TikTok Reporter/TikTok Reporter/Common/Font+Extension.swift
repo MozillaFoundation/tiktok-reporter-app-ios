@@ -51,6 +51,10 @@ extension Font {
         return .variableFont(14.0, axes: [FontVariations.weight.rawValue: 400])
     }
 
+    static var body3: Font {
+        return .variableFont(18.0, axes: [FontVariations.weight.rawValue: 600])
+    }
+
     // MARK: - Helper Methods
 
     private static func variableFont(_ size: CGFloat, axes: [Int: Int] = [:]) -> Font {
