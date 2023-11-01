@@ -18,4 +18,6 @@ extension CGFloat {
     static let l: CGFloat = 16.0
     /// Padding constant. Value of this property is equal to `24.0`
     static let xl: CGFloat = 24.0
+    /// Padding constant. Value of this property is equal to `48.0`
+    static let xxl: CGFloat = 48.0
 }
