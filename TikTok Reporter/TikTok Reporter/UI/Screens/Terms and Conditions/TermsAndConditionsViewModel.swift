@@ -9,6 +9,13 @@ import Combine
 
 extension TermsAndConditionsView {
 
+    // MARK: - Routing
+
+    struct Routing {
+        var alert: Bool = false
+        var studiesSheet: Bool = false
+    }
+
     // MARK: - ViewModel
 
     class ViewModel: PresentationStateObject {
@@ -18,11 +25,12 @@ extension TermsAndConditionsView {
         @Injected(\.policiesService)
         var service: PoliciesServicing
 
-        @Published
-        var state: PresentationState = .idle
-
         // MARK: - Properties
 
+        @Published
+        var routingState: Routing = .init()
+        @Published
+        var state: PresentationState = .idle
         @Published
         var termsOfService: Policy? = nil
 
@@ -45,6 +53,14 @@ extension TermsAndConditionsView {
                     print(error.localizedDescription)
                 }
             }
+        }
+
+        func showAlert() {
+            routingState.alert = true
+        }
+
+        func showStudiesScreen() {
+            routingState.studiesSheet = true
         }
     }
 }

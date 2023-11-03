@@ -20,3 +20,5 @@ struct Policy: Codable {
     let text: String
     let studies: [String]
 }
+
+extension Policy: Hashable {}

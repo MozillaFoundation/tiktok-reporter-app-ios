@@ -27,6 +27,15 @@
 		689FF0492AF3002900C9FE51 /* PresentationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0482AF3002900C9FE51 /* PresentationState.swift */; };
 		689FF04C2AF300C000C9FE51 /* PresentationStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF04B2AF300C000C9FE51 /* PresentationStateView.swift */; };
 		689FF04E2AF3019E00C9FE51 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF04D2AF3019E00C9FE51 /* LoadingView.swift */; };
+		689FF0512AF39CED00C9FE51 /* StudySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0502AF39CED00C9FE51 /* StudySelectionView.swift */; };
+		689FF0542AF3A4EA00C9FE51 /* RadioButtonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0532AF3A4EA00C9FE51 /* RadioButtonGroup.swift */; };
+		689FF0562AF3DEC600C9FE51 /* StudySelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0552AF3DEC600C9FE51 /* StudySelectionViewModel.swift */; };
+		689FF0582AF3E03500C9FE51 /* Study.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0572AF3E03500C9FE51 /* Study.swift */; };
+		689FF05A2AF3E7BF00C9FE51 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0592AF3E7BF00C9FE51 /* Form.swift */; };
+		689FF05C2AF3E7E600C9FE51 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF05B2AF3E7E600C9FE51 /* Onboarding.swift */; };
+		689FF05E2AF3E80300C9FE51 /* StudiesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF05D2AF3E80300C9FE51 /* StudiesAPI.swift */; };
+		689FF0602AF3E83200C9FE51 /* StudiesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF05F2AF3E83200C9FE51 /* StudiesService.swift */; };
+		689FF0622AF5153200C9FE51 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0612AF5153200C9FE51 /* RadioButton.swift */; };
 		68CBF9692AEB9F2F006D03FC /* TikTok_ReporterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CBF9682AEB9F2F006D03FC /* TikTok_ReporterApp.swift */; };
 		68CBF96B2AEB9F2F006D03FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CBF96A2AEB9F2F006D03FC /* ContentView.swift */; };
 		68CBF96D2AEB9F31006D03FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68CBF96C2AEB9F31006D03FC /* Assets.xcassets */; };
@@ -79,6 +88,15 @@
 		689FF0482AF3002900C9FE51 /* PresentationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationState.swift; sourceTree = "<group>"; };
 		689FF04B2AF300C000C9FE51 /* PresentationStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationStateView.swift; sourceTree = "<group>"; };
 		689FF04D2AF3019E00C9FE51 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		689FF0502AF39CED00C9FE51 /* StudySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySelectionView.swift; sourceTree = "<group>"; };
+		689FF0532AF3A4EA00C9FE51 /* RadioButtonGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonGroup.swift; sourceTree = "<group>"; };
+		689FF0552AF3DEC600C9FE51 /* StudySelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySelectionViewModel.swift; sourceTree = "<group>"; };
+		689FF0572AF3E03500C9FE51 /* Study.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Study.swift; sourceTree = "<group>"; };
+		689FF0592AF3E7BF00C9FE51 /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
+		689FF05B2AF3E7E600C9FE51 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		689FF05D2AF3E80300C9FE51 /* StudiesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiesAPI.swift; sourceTree = "<group>"; };
+		689FF05F2AF3E83200C9FE51 /* StudiesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiesService.swift; sourceTree = "<group>"; };
+		689FF0612AF5153200C9FE51 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		68CBF9652AEB9F2F006D03FC /* TikTok Reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TikTok Reporter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68CBF9682AEB9F2F006D03FC /* TikTok_ReporterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTok_ReporterApp.swift; sourceTree = "<group>"; };
 		68CBF96A2AEB9F2F006D03FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -133,6 +151,7 @@
 		689FF0102AF176D400C9FE51 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				689FF0522AF3A4DA00C9FE51 /* Radio Button */,
 				689FF04A2AF300AD00C9FE51 /* PresentationState */,
 				689FF0382AF25D9500C9FE51 /* LoadingView */,
 				689FF0372AF25D8B00C9FE51 /* Alert */,
@@ -146,6 +165,9 @@
 			children = (
 				689FF0142AF178B300C9FE51 /* AlertButtonAction.swift */,
 				689FF0402AF29B7400C9FE51 /* Policy.swift */,
+				689FF0572AF3E03500C9FE51 /* Study.swift */,
+				689FF0592AF3E7BF00C9FE51 /* Form.swift */,
+				689FF05B2AF3E7E600C9FE51 /* Onboarding.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -183,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				689FF0352AF25C4400C9FE51 /* PoliciesAPI.swift */,
+				689FF05D2AF3E80300C9FE51 /* StudiesAPI.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -218,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				689FF0432AF29D3500C9FE51 /* PoliciesService.swift */,
+				689FF05F2AF3E83200C9FE51 /* StudiesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -225,6 +249,7 @@
 		689FF0452AF2EE0E00C9FE51 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				689FF04F2AF39B9C00C9FE51 /* Onboarding */,
 				689FF0202AF259DE00C9FE51 /* Terms and Conditions */,
 			);
 			path = Screens;
@@ -237,6 +262,24 @@
 				689FF04B2AF300C000C9FE51 /* PresentationStateView.swift */,
 			);
 			path = PresentationState;
+			sourceTree = "<group>";
+		};
+		689FF04F2AF39B9C00C9FE51 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				689FF0502AF39CED00C9FE51 /* StudySelectionView.swift */,
+				689FF0552AF3DEC600C9FE51 /* StudySelectionViewModel.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		689FF0522AF3A4DA00C9FE51 /* Radio Button */ = {
+			isa = PBXGroup;
+			children = (
+				689FF0532AF3A4EA00C9FE51 /* RadioButtonGroup.swift */,
+				689FF0612AF5153200C9FE51 /* RadioButton.swift */,
+			);
+			path = "Radio Button";
 			sourceTree = "<group>";
 		};
 		68CBF95C2AEB9F2F006D03FC = {
@@ -468,26 +511,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				689FF01B2AF193D200C9FE51 /* CGFloat+Spacing.swift in Sources */,
+				689FF0622AF5153200C9FE51 /* RadioButton.swift in Sources */,
 				689FF03B2AF297E100C9FE51 /* InjectionKey.swift in Sources */,
 				68CBF96B2AEB9F2F006D03FC /* ContentView.swift in Sources */,
 				689FF04E2AF3019E00C9FE51 /* LoadingView.swift in Sources */,
 				689FF0492AF3002900C9FE51 /* PresentationState.swift in Sources */,
+				689FF0562AF3DEC600C9FE51 /* StudySelectionViewModel.swift in Sources */,
 				689FF03F2AF298AD00C9FE51 /* Injected.swift in Sources */,
 				689FF01F2AF1969900C9FE51 /* TermsAndConditionsView.swift in Sources */,
 				689FF0342AF25B1300C9FE51 /* APIProtocol.swift in Sources */,
+				689FF0582AF3E03500C9FE51 /* Study.swift in Sources */,
+				689FF05C2AF3E7E600C9FE51 /* Onboarding.swift in Sources */,
 				689FF03D2AF2983100C9FE51 /* InjectedValues.swift in Sources */,
+				689FF0542AF3A4EA00C9FE51 /* RadioButtonGroup.swift in Sources */,
 				689FF0122AF176FC00C9FE51 /* AlertView.swift in Sources */,
+				689FF0512AF39CED00C9FE51 /* StudySelectionView.swift in Sources */,
 				689FF0172AF17BCC00C9FE51 /* MainButton.swift in Sources */,
 				689FF0312AF25AFE00C9FE51 /* APIError.swift in Sources */,
 				689FF02F2AF25AEC00C9FE51 /* APIClient.swift in Sources */,
 				689FF0412AF29B7400C9FE51 /* Policy.swift in Sources */,
+				689FF0602AF3E83200C9FE51 /* StudiesService.swift in Sources */,
 				689FF0192AF17EBD00C9FE51 /* CustomAlertModifier.swift in Sources */,
 				689FF04C2AF300C000C9FE51 /* PresentationStateView.swift in Sources */,
 				689FF0222AF259F400C9FE51 /* TermsAndConditionsViewModel.swift in Sources */,
 				68CBF9692AEB9F2F006D03FC /* TikTok_ReporterApp.swift in Sources */,
 				689FF0442AF29D3500C9FE51 /* PoliciesService.swift in Sources */,
+				689FF05A2AF3E7BF00C9FE51 /* Form.swift in Sources */,
 				689FF0362AF25C4400C9FE51 /* PoliciesAPI.swift in Sources */,
 				68CBF9AB2AEC18B0006D03FC /* Font+Extension.swift in Sources */,
+				689FF05E2AF3E80300C9FE51 /* StudiesAPI.swift in Sources */,
 				689FF0152AF178B300C9FE51 /* AlertButtonAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

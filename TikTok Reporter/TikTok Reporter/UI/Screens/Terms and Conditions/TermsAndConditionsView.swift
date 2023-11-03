@@ -14,9 +14,6 @@ struct TermsAndConditionsView: View {
     @ObservedObject
     var viewModel: ViewModel
     
-    @State
-    var isAlertPresented: Bool = false
-    
     // MARK: - Body
     
     var body: some View {
@@ -49,8 +46,11 @@ struct TermsAndConditionsView: View {
         }
         .customAlert(
             alertType: .info(title: "Review the terms & conditions", description: "Please read these terms and conditions carefully before using TikTok Reporter."),
-            isPresented: $isAlertPresented
+            isPresented: $viewModel.routingState.alert
         )
+        .fullScreenCover(isPresented: $viewModel.routingState.studiesSheet, content: {
+            StudySelectionView(viewModel: .init())
+        })
     }
     
     private var textContentView: some View {
@@ -81,12 +81,12 @@ struct TermsAndConditionsView: View {
         VStack(spacing: .m) {
 
             MainButton(text: "I Agree", type: .primary, action: {
-                
+                viewModel.showStudiesScreen()
             })
             MainButton(text: "I Disagree", type: .secondary, action: {
 
                 withAnimation(.spring) {
-                    isAlertPresented = true
+                    viewModel.showAlert()
                 }
             })
         }
