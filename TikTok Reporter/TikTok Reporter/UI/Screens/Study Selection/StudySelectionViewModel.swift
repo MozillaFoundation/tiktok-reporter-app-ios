@@ -9,6 +9,12 @@ import Foundation
 
 extension StudySelectionView {
 
+    // MARK: - Routing
+
+    struct Routing {
+        var onboardingSheet: Bool = false
+    }
+
     // MARK: - ViewModel
 
     class ViewModel: PresentationStateObject {
@@ -20,6 +26,8 @@ extension StudySelectionView {
 
         // MARK: - Properties
 
+        @Published
+        var routingState: Routing = .init()
         @Published
         var state: PresentationState = .idle
         @Published

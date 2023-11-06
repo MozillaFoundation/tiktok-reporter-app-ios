@@ -11,7 +11,7 @@ struct Onboarding: Codable {
     let id: String
     let name: String
     let steps: [OnboardingStep]
-    let form: Form
+    let form: Form?
 }
 
 struct OnboardingStep: Codable {
@@ -20,7 +20,7 @@ struct OnboardingStep: Codable {
     let subtitle: String
     let description: String
     let imageUrl: String
-    let details: String
+    let details: String?
     let order: Int
     let onboardings: [String]
 }

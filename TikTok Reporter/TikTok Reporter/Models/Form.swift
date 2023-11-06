@@ -14,7 +14,9 @@ struct Form: Codable {
 }
 
 enum FormFieldType: String, Codable {
-    case textField = "TextFields"
+    case textField = "TextField"
+    case dropDown = "DropDown"
+    case slider = "Slider"
 }
 
 struct FormField: Codable {

@@ -35,6 +35,14 @@ struct StudySelectionView: View {
         .onAppear {
             viewModel.load()
         }
+        .fullScreenCover(isPresented: $viewModel.routingState.onboardingSheet, content: {
+            if let onboarding = viewModel.selected?.onboarding {
+                OnboardingView(viewModel: .init(onboarding: onboarding))
+            } else {
+                Text("Error")
+            }
+            
+        })
     }
     
     // MARK: - Views
@@ -65,9 +73,9 @@ struct StudySelectionView: View {
     
     private var nextButton: some View {
         MainButton(text: "Next", type: .secondary) {
-            // TODO: - Add action
+            viewModel.routingState.onboardingSheet = true
         }
-        .padding(.horizontal, .xl)
+        .padding([.horizontal, .bottom], .xl)
     }
     
     private var radioButtons: some View {

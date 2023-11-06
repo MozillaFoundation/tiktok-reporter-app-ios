@@ -1,20 +1,17 @@
 //
-//  StudiesAPI.swift
+//  OnboardingAPI.swift
 //  TikTok Reporter
 //
-//  Created by Sergiu Ghiran on 02.11.2023.
+//  Created by Sergiu Ghiran on 04.11.2023.
 //
 
 import Foundation
 
-enum StudiesAPI: APIRequest {
-    case getStudies
+enum OnboardingAPI: APIRequest {
     case getOnboarding(id: String)
 
     var method: APIMethod {
         switch self {
-        case .getStudies:
-            return .GET
         case .getOnboarding:
             return .GET
         }
@@ -22,8 +19,6 @@ enum StudiesAPI: APIRequest {
 
     var path: String {
         switch self {
-        case .getStudies:
-            return "studies/by-country-code"
         case let .getOnboarding(id):
             return "onboarding/".appending(id)
         }
@@ -31,8 +26,6 @@ enum StudiesAPI: APIRequest {
 
     var body: [String : Any]? {
         switch self {
-        case .getStudies:
-            return nil
         case .getOnboarding:
             return nil
         }
