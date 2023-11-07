@@ -9,12 +9,20 @@ import SwiftUI
 
 extension OnboardingView {
 
+    // MARK: - Routing
+
+    struct Routing {
+        var emailSheet: Bool = false
+    }
+
     // MARK: - ViewModel
 
     class ViewModel: ObservableObject {
 
         // MARK: - Properties
 
+        @Published
+        var routingState: Routing = .init()
         @Published
         var onboarding: Onboarding
         @Published

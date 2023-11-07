@@ -41,6 +41,8 @@
 		689FF06A2AF67ED600C9FE51 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0692AF67ED600C9FE51 /* OnboardingViewModel.swift */; };
 		689FF06C2AF67EE100C9FE51 /* OnboardingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF06B2AF67EE100C9FE51 /* OnboardingAPI.swift */; };
 		689FF06E2AF8EFDC00C9FE51 /* OnboardingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF06D2AF8EFDC00C9FE51 /* OnboardingService.swift */; };
+		689FF0722AF977E200C9FE51 /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0712AF977E200C9FE51 /* MainTextField.swift */; };
+		689FF0752AFA2C9200C9FE51 /* EmailSubmissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0742AFA2C9200C9FE51 /* EmailSubmissionView.swift */; };
 		68CBF9692AEB9F2F006D03FC /* TikTok_ReporterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CBF9682AEB9F2F006D03FC /* TikTok_ReporterApp.swift */; };
 		68CBF96B2AEB9F2F006D03FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CBF96A2AEB9F2F006D03FC /* ContentView.swift */; };
 		68CBF96D2AEB9F31006D03FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68CBF96C2AEB9F31006D03FC /* Assets.xcassets */; };
@@ -107,6 +109,8 @@
 		689FF0692AF67ED600C9FE51 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		689FF06B2AF67EE100C9FE51 /* OnboardingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAPI.swift; sourceTree = "<group>"; };
 		689FF06D2AF8EFDC00C9FE51 /* OnboardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingService.swift; sourceTree = "<group>"; };
+		689FF0712AF977E200C9FE51 /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
+		689FF0742AFA2C9200C9FE51 /* EmailSubmissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSubmissionView.swift; sourceTree = "<group>"; };
 		68CBF9652AEB9F2F006D03FC /* TikTok Reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TikTok Reporter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68CBF9682AEB9F2F006D03FC /* TikTok_ReporterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTok_ReporterApp.swift; sourceTree = "<group>"; };
 		68CBF96A2AEB9F2F006D03FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -161,12 +165,12 @@
 		689FF0102AF176D400C9FE51 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				689FF06F2AF977BB00C9FE51 /* Common */,
 				689FF0662AF678B600C9FE51 /* Onboarding Page */,
 				689FF0522AF3A4DA00C9FE51 /* Radio Button */,
 				689FF04A2AF300AD00C9FE51 /* PresentationState */,
 				689FF0382AF25D9500C9FE51 /* LoadingView */,
 				689FF0372AF25D8B00C9FE51 /* Alert */,
-				689FF0162AF17BCC00C9FE51 /* MainButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -262,6 +266,7 @@
 		689FF0452AF2EE0E00C9FE51 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				689FF0732AFA2C7000C9FE51 /* E-mail */,
 				689FF0632AF6786100C9FE51 /* Study Selection */,
 				689FF04F2AF39B9C00C9FE51 /* Onboarding */,
 				689FF0202AF259DE00C9FE51 /* Terms and Conditions */,
@@ -311,6 +316,23 @@
 				689FF0672AF678C500C9FE51 /* OnboardingPageView.swift */,
 			);
 			path = "Onboarding Page";
+			sourceTree = "<group>";
+		};
+		689FF06F2AF977BB00C9FE51 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				689FF0162AF17BCC00C9FE51 /* MainButton.swift */,
+				689FF0712AF977E200C9FE51 /* MainTextField.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		689FF0732AFA2C7000C9FE51 /* E-mail */ = {
+			isa = PBXGroup;
+			children = (
+				689FF0742AFA2C9200C9FE51 /* EmailSubmissionView.swift */,
+			);
+			path = "E-mail";
 			sourceTree = "<group>";
 		};
 		68CBF95C2AEB9F2F006D03FC = {
@@ -542,6 +564,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				689FF01B2AF193D200C9FE51 /* CGFloat+Spacing.swift in Sources */,
+				689FF0752AFA2C9200C9FE51 /* EmailSubmissionView.swift in Sources */,
 				689FF0622AF5153200C9FE51 /* RadioButton.swift in Sources */,
 				689FF03B2AF297E100C9FE51 /* InjectionKey.swift in Sources */,
 				68CBF96B2AEB9F2F006D03FC /* ContentView.swift in Sources */,
@@ -568,6 +591,7 @@
 				689FF0192AF17EBD00C9FE51 /* CustomAlertModifier.swift in Sources */,
 				689FF04C2AF300C000C9FE51 /* PresentationStateView.swift in Sources */,
 				689FF0222AF259F400C9FE51 /* TermsAndConditionsViewModel.swift in Sources */,
+				689FF0722AF977E200C9FE51 /* MainTextField.swift in Sources */,
 				68CBF9692AEB9F2F006D03FC /* TikTok_ReporterApp.swift in Sources */,
 				689FF0442AF29D3500C9FE51 /* PoliciesService.swift in Sources */,
 				689FF0682AF678C500C9FE51 /* OnboardingPageView.swift in Sources */,
@@ -854,6 +878,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 43AQ936H96;
@@ -862,6 +887,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-ReporterUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -876,6 +902,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 43AQ936H96;
@@ -884,6 +911,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-ReporterUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

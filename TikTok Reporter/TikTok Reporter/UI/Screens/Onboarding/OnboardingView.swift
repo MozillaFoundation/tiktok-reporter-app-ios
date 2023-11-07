@@ -34,6 +34,9 @@ struct OnboardingView: View {
                     }
                 }
         }
+        .fullScreenCover(isPresented: $viewModel.routingState.emailSheet, content: {
+            EmailSubmissionView()
+        })
     }
     
     // MARK: - Views
@@ -75,7 +78,7 @@ struct OnboardingView: View {
             }
             
             MainButton(text: "Skip", type: .secondary) {
-                
+                viewModel.routingState.emailSheet = true
             }
         }
         .padding(.xl)
