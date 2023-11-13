@@ -34,8 +34,7 @@ struct PresentationStateView<ViewModel: PresentationStateObject, Content: View>:
                 // TODO: - Add error
                 Text("Error")
             case .idle:
-                // TODO: - Add empty view
-                Text("Empty view")
+                EmptyView()
             case .loading:
                 LoadingView()
                     .frame(width: reader.size.width, height: reader.size.height)
