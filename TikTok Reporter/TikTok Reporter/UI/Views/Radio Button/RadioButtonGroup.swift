@@ -11,9 +11,6 @@ protocol Enabling {
     var isActive: Bool { get }
 }
 
-// TODO: - Move in separate class. RadioButtonGroup shoudn't know about specific models (i.e. `Study`).
-extension Study: Enabling {}
-
 struct RadioButtonGroup<Option, RadioButton>: View where Option: Hashable, RadioButton: View {
 
     // MARK: - Properties

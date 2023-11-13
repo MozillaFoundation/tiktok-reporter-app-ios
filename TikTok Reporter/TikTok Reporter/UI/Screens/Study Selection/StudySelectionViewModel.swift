@@ -5,14 +5,26 @@
 //  Created by Sergiu Ghiran on 02.11.2023.
 //
 
-import Foundation
+import SwiftUI
 
 extension StudySelectionView {
 
     // MARK: - Routing
 
     struct Routing {
-        var onboardingSheet: Bool = false
+
+        enum StudyRoute: Identifiable, Hashable {
+            case policy
+            case onboarding(Onboarding)
+            case onboardingForm(Form)
+            case form(Form)
+
+            var id: Self {
+                return self
+            }
+        }
+
+        var studySheet: StudyRoute? = nil
     }
 
     // MARK: - ViewModel
@@ -26,8 +38,7 @@ extension StudySelectionView {
 
         // MARK: - Properties
 
-        @Published
-        var routingState: Routing = .init()
+        private var appState: AppStateManager
         @Published
         var state: PresentationState = .idle
         @Published
@@ -35,18 +46,33 @@ extension StudySelectionView {
         @Published
         var selected: Study?
 
+        // MARK: - Lifecycle
+
+        init(appState: AppStateManager) {
+            self.appState = appState
+        }
+
         // MARK: - Methods
+    
+        func setup(with appState: AppStateManager) {
+            self.appState = appState
+        }
 
         func load() {
             state = .loading
 
             Task {
                 do {
-                    let studies: [Study]? = try await service.getStudies()
+                    let apiStudies: [Study]? = try await service.getStudies()
 
                     await MainActor.run {
-                        self.studies = studies ?? []
-                        selected = self.studies.first(where: { $0.isActive })
+                        guard let studies = apiStudies, studies.contains(where: { $0.form != nil }) else {
+                            state = .idle
+                            return
+                        }
+                    
+                        self.studies = studies.filter({ $0.form != nil })
+                        selected = studies.first(where: { $0.isActive })
 
                         state = .success
                     }
@@ -55,6 +81,20 @@ extension StudySelectionView {
                     state = .failed
                     print(error.localizedDescription)
                 }
+            }
+        }
+    
+        func saveStudy() {
+            // TODO: - Show error to user
+            guard let study = selected else {
+                return
+            }
+
+            do {
+                try appState.save(study, for: .study)
+            } catch let error {
+                // TODO: - Add error handling
+                print(error.localizedDescription)
             }
         }
     }

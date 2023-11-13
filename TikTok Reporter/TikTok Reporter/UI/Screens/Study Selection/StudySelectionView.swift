@@ -10,7 +10,7 @@ import SwiftUI
 struct StudySelectionView: View {
     
     // MARK: - Properties
-    
+
     @ObservedObject
     var viewModel: ViewModel
     
@@ -23,11 +23,9 @@ struct StudySelectionView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                // Temporary until we receive logo from Mozilla.
                 ToolbarItem(placement: .topBarLeading) {
                     HStack {
-                        Image(systemName: "play.rectangle")
-                        Text("TikTok Reporter").font(.heading5)
+                        Image(.header)
                     }
                 }
             }
@@ -35,14 +33,6 @@ struct StudySelectionView: View {
         .onAppear {
             viewModel.load()
         }
-        .fullScreenCover(isPresented: $viewModel.routingState.onboardingSheet, content: {
-            if let onboarding = viewModel.selected?.onboarding {
-                OnboardingView(viewModel: .init(onboarding: onboarding))
-            } else {
-                Text("Error")
-            }
-            
-        })
     }
     
     // MARK: - Views
@@ -55,25 +45,32 @@ struct StudySelectionView: View {
     }
     
     private var studies: some View {
+        
         ScrollView {
-            
             VStack(alignment: .leading, spacing: .xl) {
-
-                Text("Select a study to participate in")
-                    .font(.heading3)
-                    .foregroundStyle(.text)
-                Text("We may choose to run a few different studies simultaneously. These are the studies available to you based on the information you provided.")
-                    .font(.body2)
-                    .foregroundStyle(.text)
+                studyTitle
+                studyDescription
                 radioButtons
             }
             .padding(.xl)
         }
     }
+
+    private var studyTitle: some View {
+        Text("Select a study to participate in")
+            .font(.heading3)
+            .foregroundStyle(.text)
+    }
+
+    private var studyDescription: some View {
+        Text("We may choose to run a few different studies simultaneously. These are the studies available to you based on the information you provided.")
+            .font(.body2)
+            .foregroundStyle(.text)
+    }
     
     private var nextButton: some View {
         MainButton(text: "Next", type: .secondary) {
-            viewModel.routingState.onboardingSheet = true
+            viewModel.saveStudy()
         }
         .padding([.horizontal, .bottom], .xl)
     }
@@ -86,5 +83,5 @@ struct StudySelectionView: View {
 }
 
 #Preview {
-    StudySelectionView(viewModel: .init())
+    StudySelectionView(viewModel: .init(appState: AppStateManager()))
 }

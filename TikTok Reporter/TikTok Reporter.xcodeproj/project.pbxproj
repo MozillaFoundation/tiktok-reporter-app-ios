@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		685F30412AFE92F500D585C3 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685F30402AFE92F500D585C3 /* EmptyView.swift */; };
 		689FF00A2AEEB26200C9FE51 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 689FF0092AEEB26200C9FE51 /* Colors.xcassets */; };
 		689FF0122AF176FC00C9FE51 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0112AF176FC00C9FE51 /* AlertView.swift */; };
 		689FF0152AF178B300C9FE51 /* AlertButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0142AF178B300C9FE51 /* AlertButtonAction.swift */; };
@@ -42,10 +43,18 @@
 		689FF06C2AF67EE100C9FE51 /* OnboardingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF06B2AF67EE100C9FE51 /* OnboardingAPI.swift */; };
 		689FF06E2AF8EFDC00C9FE51 /* OnboardingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF06D2AF8EFDC00C9FE51 /* OnboardingService.swift */; };
 		689FF0722AF977E200C9FE51 /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0712AF977E200C9FE51 /* MainTextField.swift */; };
-		689FF0752AFA2C9200C9FE51 /* EmailSubmissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0742AFA2C9200C9FE51 /* EmailSubmissionView.swift */; };
+		689FF0752AFA2C9200C9FE51 /* OnboardingFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0742AFA2C9200C9FE51 /* OnboardingFormView.swift */; };
+		689FF0772AFACBFE00C9FE51 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0762AFACBFE00C9FE51 /* FormView.swift */; };
+		689FF07C2AFBE35000C9FE51 /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF07B2AFBE35000C9FE51 /* FormViewModel.swift */; };
+		689FF07E2AFBF6CF00C9FE51 /* OnboardingFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF07D2AFBF6CF00C9FE51 /* OnboardingFormViewModel.swift */; };
+		689FF0812AFCDAF000C9FE51 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0802AFCDAF000C9FE51 /* SliderView.swift */; };
+		689FF0852AFCE86700C9FE51 /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0842AFCE86700C9FE51 /* DropDownView.swift */; };
+		689FF0872AFD379200C9FE51 /* FormUIRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0862AFD379200C9FE51 /* FormUIRepresentable.swift */; };
+		689FF08A2AFD411B00C9FE51 /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0892AFD411B00C9FE51 /* PreviewHelper.swift */; };
+		689FF08D2AFD4F1E00C9FE51 /* AppStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF08C2AFD4F1E00C9FE51 /* AppStateManager.swift */; };
 		68CBF9692AEB9F2F006D03FC /* TikTok_ReporterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CBF9682AEB9F2F006D03FC /* TikTok_ReporterApp.swift */; };
 		68CBF96B2AEB9F2F006D03FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CBF96A2AEB9F2F006D03FC /* ContentView.swift */; };
-		68CBF96D2AEB9F31006D03FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68CBF96C2AEB9F31006D03FC /* Assets.xcassets */; };
+		68CBF96D2AEB9F31006D03FC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68CBF96C2AEB9F31006D03FC /* Images.xcassets */; };
 		68CBF9702AEB9F31006D03FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68CBF96F2AEB9F31006D03FC /* Preview Assets.xcassets */; };
 		68CBF97A2AEB9F31006D03FC /* TikTok_ReporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CBF9792AEB9F31006D03FC /* TikTok_ReporterTests.swift */; };
 		68CBF9842AEB9F31006D03FC /* TikTok_ReporterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CBF9832AEB9F31006D03FC /* TikTok_ReporterUITests.swift */; };
@@ -75,6 +84,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		685F30402AFE92F500D585C3 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		689FF0092AEEB26200C9FE51 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		689FF0112AF176FC00C9FE51 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		689FF0142AF178B300C9FE51 /* AlertButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButtonAction.swift; sourceTree = "<group>"; };
@@ -110,11 +120,19 @@
 		689FF06B2AF67EE100C9FE51 /* OnboardingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAPI.swift; sourceTree = "<group>"; };
 		689FF06D2AF8EFDC00C9FE51 /* OnboardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingService.swift; sourceTree = "<group>"; };
 		689FF0712AF977E200C9FE51 /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
-		689FF0742AFA2C9200C9FE51 /* EmailSubmissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSubmissionView.swift; sourceTree = "<group>"; };
+		689FF0742AFA2C9200C9FE51 /* OnboardingFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFormView.swift; sourceTree = "<group>"; };
+		689FF0762AFACBFE00C9FE51 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
+		689FF07B2AFBE35000C9FE51 /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
+		689FF07D2AFBF6CF00C9FE51 /* OnboardingFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFormViewModel.swift; sourceTree = "<group>"; };
+		689FF0802AFCDAF000C9FE51 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+		689FF0842AFCE86700C9FE51 /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
+		689FF0862AFD379200C9FE51 /* FormUIRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormUIRepresentable.swift; sourceTree = "<group>"; };
+		689FF0892AFD411B00C9FE51 /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
+		689FF08C2AFD4F1E00C9FE51 /* AppStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateManager.swift; sourceTree = "<group>"; };
 		68CBF9652AEB9F2F006D03FC /* TikTok Reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TikTok Reporter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68CBF9682AEB9F2F006D03FC /* TikTok_ReporterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTok_ReporterApp.swift; sourceTree = "<group>"; };
 		68CBF96A2AEB9F2F006D03FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		68CBF96C2AEB9F31006D03FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		68CBF96C2AEB9F31006D03FC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		68CBF96F2AEB9F31006D03FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		68CBF9752AEB9F31006D03FC /* TikTok ReporterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TikTok ReporterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68CBF9792AEB9F31006D03FC /* TikTok_ReporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTok_ReporterTests.swift; sourceTree = "<group>"; };
@@ -154,6 +172,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		685F30422AFE94C100D585C3 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				68CBF96C2AEB9F31006D03FC /* Images.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		685F30432B02554400D585C3 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				689FF0742AFA2C9200C9FE51 /* OnboardingFormView.swift */,
+				689FF07D2AFBF6CF00C9FE51 /* OnboardingFormViewModel.swift */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
 		689FF00C2AEEB27700C9FE51 /* Colors */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,12 +200,14 @@
 		689FF0102AF176D400C9FE51 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				689FF0832AFCE85000C9FE51 /* Form */,
 				689FF06F2AF977BB00C9FE51 /* Common */,
 				689FF0662AF678B600C9FE51 /* Onboarding Page */,
 				689FF0522AF3A4DA00C9FE51 /* Radio Button */,
 				689FF04A2AF300AD00C9FE51 /* PresentationState */,
 				689FF0382AF25D9500C9FE51 /* LoadingView */,
 				689FF0372AF25D8B00C9FE51 /* Alert */,
+				685F30402AFE92F500D585C3 /* EmptyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,6 +220,7 @@
 				689FF0572AF3E03500C9FE51 /* Study.swift */,
 				689FF0592AF3E7BF00C9FE51 /* Form.swift */,
 				689FF05B2AF3E7E600C9FE51 /* Onboarding.swift */,
+				689FF0862AFD379200C9FE51 /* FormUIRepresentable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,7 +304,6 @@
 		689FF0452AF2EE0E00C9FE51 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				689FF0732AFA2C7000C9FE51 /* E-mail */,
 				689FF0632AF6786100C9FE51 /* Study Selection */,
 				689FF04F2AF39B9C00C9FE51 /* Onboarding */,
 				689FF0202AF259DE00C9FE51 /* Terms and Conditions */,
@@ -286,6 +323,7 @@
 		689FF04F2AF39B9C00C9FE51 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				685F30432B02554400D585C3 /* Form */,
 				689FF0642AF6787900C9FE51 /* OnboardingView.swift */,
 				689FF0692AF67ED600C9FE51 /* OnboardingViewModel.swift */,
 			);
@@ -327,12 +365,55 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		689FF0732AFA2C7000C9FE51 /* E-mail */ = {
+		689FF0782AFACC2900C9FE51 /* FormView */ = {
 			isa = PBXGroup;
 			children = (
-				689FF0742AFA2C9200C9FE51 /* EmailSubmissionView.swift */,
+				689FF0762AFACBFE00C9FE51 /* FormView.swift */,
+				689FF07B2AFBE35000C9FE51 /* FormViewModel.swift */,
 			);
-			path = "E-mail";
+			path = FormView;
+			sourceTree = "<group>";
+		};
+		689FF07F2AFCDAE300C9FE51 /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				689FF0802AFCDAF000C9FE51 /* SliderView.swift */,
+			);
+			path = Slider;
+			sourceTree = "<group>";
+		};
+		689FF0822AFCE84900C9FE51 /* DropDown */ = {
+			isa = PBXGroup;
+			children = (
+				689FF0842AFCE86700C9FE51 /* DropDownView.swift */,
+			);
+			path = DropDown;
+			sourceTree = "<group>";
+		};
+		689FF0832AFCE85000C9FE51 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				689FF0782AFACC2900C9FE51 /* FormView */,
+				689FF07F2AFCDAE300C9FE51 /* Slider */,
+				689FF0822AFCE84900C9FE51 /* DropDown */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
+		689FF0882AFD410700C9FE51 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				689FF0892AFD411B00C9FE51 /* PreviewHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		689FF08B2AFD4EBD00C9FE51 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				689FF08C2AFD4F1E00C9FE51 /* AppStateManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		68CBF95C2AEB9F2F006D03FC = {
@@ -358,6 +439,8 @@
 		68CBF9672AEB9F2F006D03FC /* TikTok Reporter */ = {
 			isa = PBXGroup;
 			children = (
+				689FF08B2AFD4EBD00C9FE51 /* Managers */,
+				689FF0882AFD410700C9FE51 /* Helpers */,
 				689FF0422AF29D2700C9FE51 /* Services */,
 				689FF02D2AF25AE000C9FE51 /* Networking */,
 				689FF01D2AF1968700C9FE51 /* UI */,
@@ -367,7 +450,6 @@
 				68CBF9922AEC17AF006D03FC /* Resources */,
 				68CBF9682AEB9F2F006D03FC /* TikTok_ReporterApp.swift */,
 				68CBF96A2AEB9F2F006D03FC /* ContentView.swift */,
-				68CBF96C2AEB9F31006D03FC /* Assets.xcassets */,
 				68CBF96E2AEB9F31006D03FC /* Preview Content */,
 			);
 			path = "TikTok Reporter";
@@ -401,6 +483,7 @@
 		68CBF9922AEC17AF006D03FC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				685F30422AFE94C100D585C3 /* Images */,
 				689FF00C2AEEB27700C9FE51 /* Colors */,
 				68CBF9932AEC17BA006D03FC /* Fonts */,
 			);
@@ -535,7 +618,7 @@
 				68CBF9A72AEC17D5006D03FC /* ZillaSlab-Bold.ttf in Resources */,
 				68CBF9702AEB9F31006D03FC /* Preview Assets.xcassets in Resources */,
 				68CBF9A42AEC17D5006D03FC /* ZillaSlab-Regular.ttf in Resources */,
-				68CBF96D2AEB9F31006D03FC /* Assets.xcassets in Resources */,
+				68CBF96D2AEB9F31006D03FC /* Images.xcassets in Resources */,
 				68CBF99F2AEC17D5006D03FC /* ZillaSlab-Light.ttf in Resources */,
 				68CBF9AD2AEC1C7A006D03FC /* NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf in Resources */,
 				689FF00A2AEEB26200C9FE51 /* Colors.xcassets in Resources */,
@@ -563,18 +646,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				689FF0772AFACBFE00C9FE51 /* FormView.swift in Sources */,
 				689FF01B2AF193D200C9FE51 /* CGFloat+Spacing.swift in Sources */,
-				689FF0752AFA2C9200C9FE51 /* EmailSubmissionView.swift in Sources */,
+				689FF0872AFD379200C9FE51 /* FormUIRepresentable.swift in Sources */,
+				689FF0752AFA2C9200C9FE51 /* OnboardingFormView.swift in Sources */,
 				689FF0622AF5153200C9FE51 /* RadioButton.swift in Sources */,
+				689FF0852AFCE86700C9FE51 /* DropDownView.swift in Sources */,
 				689FF03B2AF297E100C9FE51 /* InjectionKey.swift in Sources */,
 				68CBF96B2AEB9F2F006D03FC /* ContentView.swift in Sources */,
 				689FF04E2AF3019E00C9FE51 /* LoadingView.swift in Sources */,
+				689FF08D2AFD4F1E00C9FE51 /* AppStateManager.swift in Sources */,
 				689FF0492AF3002900C9FE51 /* PresentationState.swift in Sources */,
 				689FF0562AF3DEC600C9FE51 /* StudySelectionViewModel.swift in Sources */,
 				689FF03F2AF298AD00C9FE51 /* Injected.swift in Sources */,
 				689FF01F2AF1969900C9FE51 /* TermsAndConditionsView.swift in Sources */,
 				689FF06A2AF67ED600C9FE51 /* OnboardingViewModel.swift in Sources */,
 				689FF0342AF25B1300C9FE51 /* APIProtocol.swift in Sources */,
+				689FF08A2AFD411B00C9FE51 /* PreviewHelper.swift in Sources */,
 				689FF06C2AF67EE100C9FE51 /* OnboardingAPI.swift in Sources */,
 				689FF0582AF3E03500C9FE51 /* Study.swift in Sources */,
 				689FF05C2AF3E7E600C9FE51 /* Onboarding.swift in Sources */,
@@ -582,12 +670,14 @@
 				689FF0652AF6787900C9FE51 /* OnboardingView.swift in Sources */,
 				689FF0542AF3A4EA00C9FE51 /* RadioButtonGroup.swift in Sources */,
 				689FF0122AF176FC00C9FE51 /* AlertView.swift in Sources */,
+				689FF07E2AFBF6CF00C9FE51 /* OnboardingFormViewModel.swift in Sources */,
 				689FF0512AF39CED00C9FE51 /* StudySelectionView.swift in Sources */,
 				689FF0172AF17BCC00C9FE51 /* MainButton.swift in Sources */,
 				689FF0312AF25AFE00C9FE51 /* APIError.swift in Sources */,
 				689FF02F2AF25AEC00C9FE51 /* APIClient.swift in Sources */,
 				689FF0412AF29B7400C9FE51 /* Policy.swift in Sources */,
 				689FF0602AF3E83200C9FE51 /* StudiesService.swift in Sources */,
+				689FF0812AFCDAF000C9FE51 /* SliderView.swift in Sources */,
 				689FF0192AF17EBD00C9FE51 /* CustomAlertModifier.swift in Sources */,
 				689FF04C2AF300C000C9FE51 /* PresentationStateView.swift in Sources */,
 				689FF0222AF259F400C9FE51 /* TermsAndConditionsViewModel.swift in Sources */,
@@ -598,9 +688,11 @@
 				689FF06E2AF8EFDC00C9FE51 /* OnboardingService.swift in Sources */,
 				689FF05A2AF3E7BF00C9FE51 /* Form.swift in Sources */,
 				689FF0362AF25C4400C9FE51 /* PoliciesAPI.swift in Sources */,
+				689FF07C2AFBE35000C9FE51 /* FormViewModel.swift in Sources */,
 				68CBF9AB2AEC18B0006D03FC /* Font+Extension.swift in Sources */,
 				689FF05E2AF3E80300C9FE51 /* StudiesAPI.swift in Sources */,
 				689FF0152AF178B300C9FE51 /* AlertButtonAction.swift in Sources */,
+				685F30412AFE92F500D585C3 /* EmptyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

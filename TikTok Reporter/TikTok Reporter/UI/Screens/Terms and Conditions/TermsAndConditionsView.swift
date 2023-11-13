@@ -10,7 +10,7 @@ import SwiftUI
 struct TermsAndConditionsView: View {
     
     // MARK: - Properties
-    
+
     @ObservedObject
     var viewModel: ViewModel
     
@@ -23,17 +23,16 @@ struct TermsAndConditionsView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                // Temporary until we receive logo from Mozilla.
                 ToolbarItem(placement: .topBarLeading) {
                     HStack {
-                        Image(systemName: "play.rectangle")
-                        Text("TikTok Reporter").font(.heading5)
+                        Image(.header)
                     }
                 }
             }
-        }
-        .onAppear {
-            viewModel.load()
+            .customAlert(
+                alertType: .info(title: "Review the terms & conditions", description: "Please read these terms and conditions carefully before using TikTok Reporter."),
+                isPresented: $viewModel.routingState.alert
+            )
         }
     }
     
@@ -44,13 +43,6 @@ struct TermsAndConditionsView: View {
             textContentView
             buttonContainerView
         }
-        .customAlert(
-            alertType: .info(title: "Review the terms & conditions", description: "Please read these terms and conditions carefully before using TikTok Reporter."),
-            isPresented: $viewModel.routingState.alert
-        )
-        .fullScreenCover(isPresented: $viewModel.routingState.studiesSheet, content: {
-            StudySelectionView(viewModel: .init())
-        })
     }
     
     private var textContentView: some View {
@@ -95,5 +87,5 @@ struct TermsAndConditionsView: View {
 }
 
 #Preview {
-    TermsAndConditionsView(viewModel: TermsAndConditionsView.ViewModel())
+    TermsAndConditionsView(viewModel: .init(appState: AppStateManager()))
 }

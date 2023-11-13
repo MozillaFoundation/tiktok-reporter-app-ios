@@ -10,7 +10,7 @@ import SwiftUI
 struct OnboardingView: View {
     
     // MARK: - Properties
-    
+
     @ObservedObject
     var viewModel: ViewModel
     
@@ -25,18 +25,13 @@ struct OnboardingView: View {
             self.content
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
-                    // Temporary until we receive logo from Mozilla.
                     ToolbarItem(placement: .topBarLeading) {
                         HStack {
-                            Image(systemName: "play.rectangle")
-                            Text("TikTok Reporter").font(.heading5)
+                            Image(.header)
                         }
                     }
                 }
         }
-        .fullScreenCover(isPresented: $viewModel.routingState.emailSheet, content: {
-            EmailSubmissionView()
-        })
     }
     
     // MARK: - Views
@@ -55,7 +50,7 @@ struct OnboardingView: View {
     private var pageView: some View {
 
         TabView(selection: $viewModel.currentStep) {
-            ForEach(viewModel.onboarding.steps, id: \.self) { step in
+            ForEach(viewModel.steps, id: \.self) { step in
                 OnboardingPageView(onboardingStep: step, contentInset: $buttonStackHeight)
                     .gesture(DragGesture())
                     .tag(viewModel.index(of: step))
@@ -76,9 +71,11 @@ struct OnboardingView: View {
                     viewModel.previousStep()
                 }
             }
-            
-            MainButton(text: "Skip", type: .secondary) {
-                viewModel.routingState.emailSheet = true
+
+            if viewModel.currentStep < viewModel.steps.count - 1 {
+                MainButton(text: "Skip", type: .secondary) {
+                    viewModel.finishOnboarding()
+                }
             }
         }
         .padding(.xl)
@@ -93,5 +90,5 @@ struct OnboardingView: View {
 }
 
 #Preview {
-    OnboardingView(viewModel: .init(onboarding: Onboarding(id: "", name: "Onboarding", steps: [], form: nil)))
+    OnboardingView(viewModel: .init(appState: AppStateManager(), onboarding: PreviewHelper.mockOnboarding))
 }

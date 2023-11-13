@@ -27,4 +27,7 @@ struct CountryCode: Codable {
 }
 
 extension CountryCode: Hashable {}
+
 extension Study: Hashable {}
+extension Study: Enabling {}
+

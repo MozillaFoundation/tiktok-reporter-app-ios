@@ -25,5 +25,5 @@ struct OnboardingStep: Codable {
     let onboardings: [String]
 }
 
-extension Onboarding: Hashable {}
 extension OnboardingStep: Hashable {}
+extension Onboarding: Hashable {}

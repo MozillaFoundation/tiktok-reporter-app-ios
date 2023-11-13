@@ -30,10 +30,15 @@ private struct StudiesServiceKey: InjectionKey {
 // MARK: - Injected Values
 
 extension InjectedValues {
+
+    // MARK: - API Client
+    
     var apiClient: HTTPClient {
         get { Self[APIClientKey.self] }
         set { Self[APIClientKey.self] = newValue }
     }
+    
+    // MARK: - Services
 
     var policiesService: PoliciesServicing {
         get { Self[PoliciesServiceKey.self] }

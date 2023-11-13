@@ -12,9 +12,7 @@ struct ContentView: View {
     var isPresented: Bool = false
 
     var body: some View {
-        NavigationView {
-            TermsAndConditionsView(viewModel: .init())
-        }
+        Text("")
     }
 }
 

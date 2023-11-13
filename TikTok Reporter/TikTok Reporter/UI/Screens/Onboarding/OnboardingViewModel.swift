@@ -21,27 +21,34 @@ extension OnboardingView {
 
         // MARK: - Properties
 
+        private var appState: AppStateManager
         @Published
         var routingState: Routing = .init()
         @Published
-        var onboarding: Onboarding
+        var steps: [OnboardingStep] = []
         @Published
         var currentStep: Int = 0
 
         // MARK: - Lifecycle
 
-        init(onboarding: Onboarding) {
-            self.onboarding = onboarding
+        init(appState: AppStateManager, onboarding: Onboarding) {
+            self.appState = appState
+            self.steps = onboarding.steps
         }
  
         // MARK: - Methods
 
+        func setup(with appState: AppStateManager) {
+            self.appState = appState
+        }
+
         func index(of step: OnboardingStep) -> Int {
-            return onboarding.steps.firstIndex(of: step) ?? 0
+            return steps.firstIndex(of: step) ?? 0
         }
         
         func nextStep() {
-            guard currentStep < onboarding.steps.count - 1 else {
+            guard currentStep < steps.count - 1 else {
+                self.finishOnboarding()
                 return
             }
 
@@ -61,7 +68,12 @@ extension OnboardingView {
         }
 
         func finishOnboarding() {
-            
+            do {
+                try appState.save(true, for: .hasCompletedOnboarding)
+            } catch let error {
+                // TODO: - Add error handling
+                print(error.localizedDescription)
+            }
         }
     }
 }
