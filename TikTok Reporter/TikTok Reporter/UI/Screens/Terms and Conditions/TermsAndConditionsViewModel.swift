@@ -88,7 +88,13 @@ extension TermsAndConditionsView {
 
         func showStudiesScreen() {
             do {
-                try appState.save(true, for: .hasAcceptedGeneralTerms)
+                switch policyType {
+                case .general:
+                    try appState.save(true, for: .hasAcceptedGeneralTerms)
+                case .studySpecific:
+                    try appState.save(true, for: .hasAcceptedStudyTerms)
+                }
+                
             } catch let error {
                 // TODO: - Show Error
                 print(error.localizedDescription)
