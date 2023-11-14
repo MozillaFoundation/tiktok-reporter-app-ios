@@ -26,11 +26,9 @@ struct TikTok_ReporterApp: App {
             } else if appState.study == nil {
 
                 StudySelectionView(viewModel: .init(appState: appState))
-            } else if !appState.hasAcceptedStudyTerms {
-
-                // TODO: - Add study terms once implemented
-                Text("Not implemented")
-
+            } else if !appState.hasAcceptedStudyTerms, let policy = appState.study?.policies.first {
+                
+                TermsAndConditionsView(viewModel: .init(appState: appState, policyType: .studySpecific(policy)))
             } else if !appState.hasCompletedOnboarding, let onboarding = appState.study?.onboarding {
 
                 OnboardingView(viewModel: .init(appState: appState, onboarding: onboarding))
