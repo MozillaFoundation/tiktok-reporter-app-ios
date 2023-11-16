@@ -67,4 +67,14 @@ enum PreviewHelper {
             FormItem(id: "313", label: "Severity", description: nil, isRequired: true, field: .slider(SliderFormField(max: 5, step: 1, leftLabel: "LOW", rightLabel: "HIGH")))
         ]
     )
+
+    static let mockReportForm = Form(
+        id: "9d42d769-15a5-45ab-a1f3-23407db0fc22",
+        name: "QA Form 435 from 2023-11-10~17:03:38",
+        fields: [
+            FormItem(id: "311", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: "TikTok link", maxLines: 1, multiline: false))),
+            FormItem(id: "312", label: nil, description: "Choose a category in which the video you want to report can be included. If you don’t find the category in the list, choose “other”.", isRequired: true, field: .dropDown(DropDownFormField(placeholder: "Category", options: [DropDownOption(id: "3121", title: "Option 1"), DropDownOption(id: "3122", title: "Option 2")], selected: "3121", hasOtherOption: true))),
+            FormItem(id: "313", label: "Severity", description: nil, isRequired: true, field: .slider(SliderFormField(max: 5, step: 1, leftLabel: "LOW", rightLabel: "HIGH")))
+        ]
+    )
 }

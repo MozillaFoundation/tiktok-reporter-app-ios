@@ -20,7 +20,7 @@ struct OnboardingFormView: View {
     // MARK: - Body
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             self.content
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
@@ -30,7 +30,7 @@ struct OnboardingFormView: View {
                         }
                     }
                 }
-        }
+//        }
     }
     
     // MARK: - Views
@@ -60,6 +60,7 @@ struct OnboardingFormView: View {
         VStack(spacing: .m) {
             MainButton(text: "Save", type: .primary) {
                 // TODO: - Add upload to Glean once integrated.
+                viewModel.saveData()
             }
             
             MainButton(text: "Skip", type: .secondary) {

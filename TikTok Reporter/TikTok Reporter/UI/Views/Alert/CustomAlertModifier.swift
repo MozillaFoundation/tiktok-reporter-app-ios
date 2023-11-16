@@ -11,11 +11,14 @@ struct CustomAlertModifier: ViewModifier {
 
     // MARK: - Properties
 
-    @State
-    var alertType: AlertType = .info(title: "", description: "")
-
+    var title: String
+    var description: String
+    
     @Binding
     var isPresented: Bool
+    
+    var secondaryButton: () -> MainButton
+    var primaryButton: (() -> MainButton)?
     
     // MARK: - Methods
 
@@ -23,14 +26,14 @@ struct CustomAlertModifier: ViewModifier {
         ZStack() {
             content
             if isPresented {
-                AlertView(isPresented: $isPresented, alertType: alertType)
+                AlertView(isPresented: $isPresented, title: title, description: description, secondaryButton: secondaryButton, primaryButton: primaryButton)
             }
         }
     }
 }
 
 extension View {
-    func customAlert(alertType: AlertType, isPresented: Binding<Bool>) -> some View {
-        modifier(CustomAlertModifier(alertType: alertType, isPresented: isPresented))
+    func customAlert(title: String, description: String, isPresented: Binding<Bool>, secondaryButton: @escaping () -> MainButton, primaryButton: (() -> MainButton)? = nil) -> some View {
+        modifier(CustomAlertModifier(title: title, description: description, isPresented: isPresented, secondaryButton: secondaryButton, primaryButton: primaryButton))
     }
 }

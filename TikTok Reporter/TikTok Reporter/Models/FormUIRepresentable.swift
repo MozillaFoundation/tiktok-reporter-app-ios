@@ -15,6 +15,8 @@ struct FormUIRepresentable: Hashable, Identifiable {
     var boolValue: Bool = false
     var doubleValue: Double = 0.0
 
+    var isValid: Bool = true
+
     init(formItem: FormItem) {
         self.formItem = formItem
         self.id = formItem.id
@@ -22,6 +24,19 @@ struct FormUIRepresentable: Hashable, Identifiable {
         switch formItem.field {
         case let .dropDown(field):
             stringValue = field.selected
+        default:
+            return
+        }
+    }
+
+    mutating func validate() {
+        guard formItem.isRequired else {
+            return
+        }
+
+        switch formItem.field {
+        case .textField, .dropDown:
+            isValid = !stringValue.isEmpty
         default:
             return
         }

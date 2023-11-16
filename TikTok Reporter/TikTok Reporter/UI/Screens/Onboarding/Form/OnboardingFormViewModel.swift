@@ -28,5 +28,17 @@ extension OnboardingFormView {
             self.appState = appState
             self.form = form
         }
+
+        // MARK: - Methods
+
+        func saveData() {
+            // TODO: - Add Glean integration
+            do {
+                try appState.save(true, for: .hasSentOnboardingForm)
+            } catch let error {
+                // TODO: - Add error handling
+                print(error.localizedDescription)
+            }
+        }
     }
 }

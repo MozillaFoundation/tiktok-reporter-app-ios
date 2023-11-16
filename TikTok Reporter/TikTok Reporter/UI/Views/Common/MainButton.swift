@@ -10,6 +10,7 @@ import SwiftUI
 enum ButtonType {
     case primary
     case secondary
+    case action
     
     var backgroundColor: Color {
         switch self {
@@ -17,6 +18,8 @@ enum ButtonType {
             return .control
         case .secondary:
             return .invertedText
+        case .action:
+            return .basicRed
         }
     }
     
@@ -26,6 +29,8 @@ enum ButtonType {
             return .invertedText
         case .secondary:
             return .text
+        case .action:
+            return .invertedText
         }
     }
     
@@ -35,6 +40,8 @@ enum ButtonType {
             return backgroundColor
         case .secondary:
             return foregroundColor
+        case .action:
+            return backgroundColor
         }
     }
 }

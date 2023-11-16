@@ -1,5 +1,5 @@
 //
-//  TermsAndConditionsView.swift
+//  PolicyView.swift
 //  TikTok Reporter
 //
 //  Created by Sergiu Ghiran on 31.10.2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TermsAndConditionsView: View {
+struct PolicyView: View {
     
     // MARK: - Properties
 
@@ -17,7 +17,7 @@ struct TermsAndConditionsView: View {
     // MARK: - Body
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             PresentationStateView(viewModel: self.viewModel) {
                 self.content
             }
@@ -30,10 +30,14 @@ struct TermsAndConditionsView: View {
                 }
             }
             .customAlert(
-                alertType: .info(title: "Review the terms & conditions", description: "Please read these terms and conditions carefully before using TikTok Reporter."),
-                isPresented: $viewModel.routingState.alert
-            )
-        }
+                title: "Review the terms & conditions",
+                description: "Please read these terms and conditions carefully before using TikTok Reporter.",
+                isPresented: $viewModel.routingState.alert) {
+                    MainButton(text: "Got it", type: .secondary) {
+                        viewModel.routingState.alert = false
+                    }
+                }
+//        }
     }
     
     // MARK: - Views
@@ -41,7 +45,10 @@ struct TermsAndConditionsView: View {
     private var content: some View {
         VStack {
             textContentView
-            buttonContainerView
+
+            if viewModel.hasActions {
+                buttonContainerView
+            }
         }
     }
     
@@ -51,16 +58,16 @@ struct TermsAndConditionsView: View {
             
             VStack(alignment: .leading, spacing: .xl) {
 
-                Text(viewModel.termsOfService?.title ?? "")
+                Text(viewModel.policy?.title ?? "")
                     .font(.heading3)
                     .foregroundStyle(.text)
 
                 VStack(alignment: .leading, spacing: .l) {
 
-                    Text(viewModel.termsOfService?.subtitle ?? "")
+                    Text(viewModel.policy?.subtitle ?? "")
                         .font(.heading5)
                         .foregroundStyle(.text)
-                    Text(viewModel.termsOfService?.text ?? "")
+                    Text(viewModel.policy?.text ?? "")
                         .font(.body2)
                         .foregroundStyle(.text)
                 }
@@ -73,7 +80,7 @@ struct TermsAndConditionsView: View {
         VStack(spacing: .m) {
 
             MainButton(text: "I Agree", type: .primary, action: {
-                viewModel.showStudiesScreen()
+                viewModel.handleAgree()
             })
             MainButton(text: "I Disagree", type: .secondary, action: {
 
@@ -87,5 +94,5 @@ struct TermsAndConditionsView: View {
 }
 
 #Preview {
-    TermsAndConditionsView(viewModel: .init(appState: AppStateManager()))
+    PolicyView(viewModel: .init(appState: AppStateManager()))
 }

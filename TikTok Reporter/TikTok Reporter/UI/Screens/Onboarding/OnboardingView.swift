@@ -21,7 +21,7 @@ struct OnboardingView: View {
     
     var body: some View {
         
-        NavigationView {
+//        NavigationView {
             self.content
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
@@ -31,7 +31,7 @@ struct OnboardingView: View {
                         }
                     }
                 }
-        }
+//        }
     }
     
     // MARK: - Views

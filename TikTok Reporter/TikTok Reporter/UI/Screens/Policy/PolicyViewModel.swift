@@ -1,5 +1,5 @@
 //
-//  TermsAndConditionsViewModel.swift
+//  PolicyViewModel.swift
 //  TikTok Reporter
 //
 //  Created by Sergiu Ghiran on 01.11.2023.
@@ -7,13 +7,12 @@
 
 import SwiftUI
 
-extension TermsAndConditionsView {
+extension PolicyView {
 
     // MARK: - Routing
 
     struct Routing {
         var alert: Bool = false
-        var studiesSheet: Bool = false
     }
 
     // MARK: - ViewModel
@@ -23,13 +22,13 @@ extension TermsAndConditionsView {
         // MARK: - PolicyType
 
         enum PolicyType {
-            case general, studySpecific(Policy)
+            case general, specific(Policy)
         }
 
         // MARK: - Injected
 
         @Injected(\.policiesService)
-        var service: PoliciesServicing
+        private var service: PoliciesServicing
 
         // MARK: - Private Properties
 
@@ -38,25 +37,27 @@ extension TermsAndConditionsView {
         // MARK: - Properties
 
         private var appState: AppStateManager
+
         @Published
         var routingState: Routing = .init()
         @Published
         var state: PresentationState = .idle
-        // TODO: - Rename to `policy` in case we use the same view for Privacy Policy
         @Published
-        var termsOfService: Policy? = nil
+        var policy: Policy? = nil
+        var hasActions: Bool
 
         // MARK: - Lifecycle
     
-        init(appState: AppStateManager, policyType: PolicyType = .general) {
+        init(appState: AppStateManager, policyType: PolicyType = .general, hasActions: Bool = true) {
             self.appState = appState
             self.policyType = policyType
+            self.hasActions = hasActions
 
             switch policyType {
             case .general:
                 self.load()
-            case let .studySpecific(policy):
-                self.termsOfService = policy
+            case let .specific(policy):
+                self.policy = policy
                 state = .success
             }
         }
@@ -71,7 +72,7 @@ extension TermsAndConditionsView {
                     let termsOfService: Policy? = try await service.getTermsAndConditions()
 
                     await MainActor.run {
-                        self.termsOfService = termsOfService
+                        self.policy = termsOfService
                         state = .success
                     }
                 } catch let error {
@@ -86,12 +87,12 @@ extension TermsAndConditionsView {
             routingState.alert = true
         }
 
-        func showStudiesScreen() {
+        func handleAgree() {
             do {
                 switch policyType {
                 case .general:
                     try appState.save(true, for: .hasAcceptedGeneralTerms)
-                case .studySpecific:
+                case .specific:
                     try appState.save(true, for: .hasAcceptedStudyTerms)
                 }
                 
@@ -99,8 +100,6 @@ extension TermsAndConditionsView {
                 // TODO: - Show Error
                 print(error.localizedDescription)
             }
-
-            routingState.studiesSheet = true
         }
     }
 }

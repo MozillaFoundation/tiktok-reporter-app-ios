@@ -34,8 +34,8 @@ struct SliderView: View {
                     .font(.body2)
                     .foregroundStyle(.text)
             }
-            .padding(.horizontal, .xs)
         }
+        .padding(.horizontal, .s)
     }
 }
 
