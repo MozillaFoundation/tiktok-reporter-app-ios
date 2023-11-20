@@ -61,6 +61,7 @@ struct MainTextField: View {
         TextField(placeholder, text: $text)
             .font(.body1)
             .padding(.m)
+            .frame(height: 40.0)
             .border(isValid ? .text : .error, width: 1.0)
             .padding(.top, .s)
     }

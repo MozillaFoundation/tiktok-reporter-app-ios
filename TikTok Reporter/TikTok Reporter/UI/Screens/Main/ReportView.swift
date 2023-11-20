@@ -17,22 +17,24 @@ struct ReportView: View {
     // MARK: - Body
 
     var body: some View {
-//        NavigationView {
-            self.content
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        Image(.header)
-                    }
 
-                    ToolbarItem(placement: .topBarTrailing) {
-                        NavigationLink(destination: SettingsView(viewModel: .init(appState: viewModel.appState))) {
-                            Image(.settings)
-                                .renderingMode(.original)
-                        }
-                    }
+        PresentationStateView(viewModel: viewModel) {
+            self.content
+            
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Image(.header)
+            }
+            
+            ToolbarItem(placement: .topBarTrailing) {
+                NavigationLink(destination: SettingsView(viewModel: .init(appState: viewModel.appState))) {
+                    Image(.settings)
+                        .renderingMode(.original)
                 }
-//        }
+            }
+        }
     }
 
     // MARK: - Views
@@ -46,7 +48,9 @@ struct ReportView: View {
 
             TabView(selection: $viewModel.selectedTab) {
                 reportTab
+                    .tag(0)
                 recordTab
+                    .tag(1)
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
         }
@@ -54,13 +58,27 @@ struct ReportView: View {
 
     private var reportTab: some View {
         
-        FormView(viewModel: .init(form: viewModel.form, hasSubmit: true))
-            .tag(0)
+        VStack {
+            FormView(viewModel: .init(formUIContainer: $viewModel.formUIContainer, didUpdateMainField: $viewModel.didUpdateMainField))
+
+            VStack {
+                MainButton(text: "Submit Report", type: .action) {
+                    let isValid = viewModel.formUIContainer.validate()
+                    print(isValid)
+                }
+            
+                if viewModel.didUpdateMainField {
+                    MainButton(text: "Cancel Report", type: .secondary) {
+                        print("Cancel report tapped")
+                    }
+                }
+            }
+            .padding(.horizontal, .xl)
+        }
     }
 
     private var recordTab: some View {
-        Text("Tab Content 2").tag(1)
-
+        Text("Tab Content 2")
     }
 }
 

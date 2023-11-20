@@ -46,14 +46,13 @@ struct DropDownView: View {
                     .tag(option.id)
             }
         }
+        .onChange(of: selected) { _ in
+            isValid = true
+        }
     }
 
     private var pickerLabel: some View {
 
-        ZStack(alignment: .leading) {
-            Rectangle()
-                .stroke()
-                .frame(height: 40.0)
             HStack {
                 Text(selectedTitle(with: selected))
                     .font(.body1)
@@ -63,7 +62,8 @@ struct DropDownView: View {
                 Image(systemName: "chevron.down")
                     .padding(.trailing, .m)
             }
-        }
+            .frame(height: 40.0)
+            .border(isValid ? .text : .error, width: 1.0)
         .tint(.text)
     }
 

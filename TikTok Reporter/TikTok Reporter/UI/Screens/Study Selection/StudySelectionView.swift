@@ -17,17 +17,16 @@ struct StudySelectionView: View {
     // MARK: - Body
     
     var body: some View {
-//        NavigationView {
-            PresentationStateView(viewModel: self.viewModel) {
-                self.content
+        
+        PresentationStateView(viewModel: self.viewModel) {
+            self.content
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItemGroup(placement: .topBarLeading) {
+                Image(.header)
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItemGroup(placement: .topBarLeading) {
-                    Image(.header)
-                }
-            }
-//        }
+        }
         .onAppear {
             viewModel.load()
         }
@@ -53,6 +52,7 @@ struct StudySelectionView: View {
     // MARK: - Views
     
     private var content: some View {
+
         VStack {
             studies
             if viewModel.viewState == .empty {
@@ -74,18 +74,21 @@ struct StudySelectionView: View {
     }
     
     private var studyTitle: some View {
+
         Text("Select a study to participate in")
             .font(.heading3)
             .foregroundStyle(.text)
     }
     
     private var studyDescription: some View {
+
         Text("We may choose to run a few different studies simultaneously. These are the studies available to you based on the information you provided.")
             .font(.body2)
             .foregroundStyle(.text)
     }
     
     private var nextButton: some View {
+        
         MainButton(text: "Next", type: .secondary) {
             viewModel.saveStudy()
         }
@@ -97,7 +100,8 @@ struct StudySelectionView: View {
             RadioButton(title: study?.name ?? "", description: study?.description ?? "", isActive: study?.isActive ?? true, isSelected: isSelected)
         }
         .onChange(of: viewModel.selected) { [oldValue = viewModel.selected] newValue in
-            guard viewModel.viewState != .empty, oldValue?.id ?? "" == viewModel.prefilledStudy?.id ?? "" else {
+            // TODO: - Clean up if needed
+            guard viewModel.viewState != .empty, (oldValue?.id ?? "") == viewModel.prefilledStudy?.id ?? "" else {
                 return
             }
             

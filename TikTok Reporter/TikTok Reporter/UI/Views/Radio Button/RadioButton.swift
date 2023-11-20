@@ -30,7 +30,9 @@ struct RadioButton: View {
 
     @ViewBuilder
     private var radioCircle: some View {
+
         if isSelected {
+
             ZStack {
                 Circle()
                     .frame(width: 20, height: 20)
@@ -40,6 +42,7 @@ struct RadioButton: View {
                     .foregroundStyle(.invertedText)
             }
         } else {
+
             Circle()
                 .stroke(isActive ? .text : .inactive, lineWidth: 1)
                 .frame(width: 20, height: 20)
@@ -47,6 +50,7 @@ struct RadioButton: View {
     }
 
     private var radioText: some View {
+
         VStack(alignment: .leading, spacing: .s) {
             Text(title)
                 .font(.body1)

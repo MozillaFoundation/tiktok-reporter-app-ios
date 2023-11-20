@@ -33,7 +33,9 @@ struct RadioButtonGroup<Option, RadioButton>: View where Option: Hashable, Radio
     // MARK: - Body
 
     var body: some View {
+
         ForEach(options, id: \.self) { option in
+
             Button(action: {
                 selection = option
             }, label: {

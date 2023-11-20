@@ -32,7 +32,7 @@ extension StudySelectionView {
 
         // MARK: - Properties
 
-        private var appState: AppStateManager
+        private(set) var appState: AppStateManager
 
         @Published
         var routingState: Routing = .init()
@@ -102,10 +102,9 @@ extension StudySelectionView {
 
             do {
                 try appState.save(study, for: .study)
-                
-                try appState.save(false, for: .hasAcceptedStudyTerms)
                 try appState.save(false, for: .hasCompletedOnboarding)
-                try appState.save(false, for: .hasSentOnboardingForm)
+
+                appState.setOnboarding(with: study)
             } catch let error {
                 // TODO: - Add error handling
                 print(error.localizedDescription)
@@ -114,7 +113,6 @@ extension StudySelectionView {
 
         func resetSelected() {
             selected = tempStudy
-//            routingState.alert = false
             tempStudy = nil
         }
     }
@@ -199,8 +197,10 @@ enum TestStudyProvider {
                 name: "Record Test Form",
                 fields: [
                     FormItem(id: "141", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: "TikTok link", maxLines: 1, multiline: false))),
-                    FormItem(id: "142", label: nil, description: "Tell us why you choose to flag this video by selecting a category in the dropdown menu. If you don’t see a category that matches in the list, select “other”.", isRequired: true, field: .dropDown(DropDownFormField(placeholder: "Category", options: [DropDownOption(id: "1421", title: "Age-restricted content"), DropDownOption(id: "1422", title: "Animal abuse"), DropDownOption(id: "1423", title: "Child safety"), DropDownOption(id: "1424", title: "Fake engagement"), DropDownOption(id: "1424", title: "Firearms"), DropDownOption(id: "1425", title: "Harassment & cyber bullying")], selected: "", hasOtherOption: true))),
+                    FormItem(id: "142", label: nil, description: "Tell us why you choose to flag this video by selecting a category in the dropdown menu. If you don’t see a category that matches in the list, select “other”.", isRequired: true, field: .dropDown(DropDownFormField(placeholder: "Category", options: [DropDownOption(id: "1421", title: "Age-restricted content"), DropDownOption(id: "1422", title: "Animal abuse"), DropDownOption(id: "1423", title: "Child safety"), DropDownOption(id: "1424", title: "Fake engagement"), DropDownOption(id: "1425", title: "Firearms"), DropDownOption(id: "1426", title: "Harassment & cyber bullying"), DropDownOption(id: "1427", title: "Other")], selected: "", hasOtherOption: true))),
                     FormItem(id: "143", label: "Severity", description: nil, isRequired: true, field: .slider(SliderFormField(max: 5, step: 1, leftLabel: "LOW", rightLabel: "HIGH"))),
                     FormItem(id: "144", label: nil, description: nil, isRequired: false, field: .textField(TextFieldFormField(placeholder: "Comments (optional)", maxLines: 10, multiline: true)))
-                ]))
+                ]
+            )
+        )
 }

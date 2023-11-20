@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EmptyView: View {
+struct IdleView: View {
 
     // MARK: - Body
 
@@ -31,5 +31,5 @@ struct EmptyView: View {
 // MARK: - Preview
 
 #Preview {
-    EmptyView()
+    IdleView()
 }

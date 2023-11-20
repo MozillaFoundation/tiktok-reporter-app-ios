@@ -11,34 +11,53 @@ extension OnboardingFormView {
 
     // MARK: - ViewModel
 
-    class ViewModel: ObservableObject {
+    final class ViewModel: ObservableObject {
+    
+        // MARK: - Location
+
+        enum Location {
+            case onboarding, settings
+        }
         
         // MARK: - Injected
 
-        // TODO: - Check if we need appState here
         private var appState: AppStateManager
 
         // MARK: - Properties
 
-        var form: Form
+        @Published
+        var formUIContainer: FormUIContainer
+        @Published
+        var didUpdateMainField = false
+        var location: Location
 
         // MARK: - Lifecycle
 
-        init(appState: AppStateManager, form: Form) {
+        init(appState: AppStateManager, form: Form, location: Location = .onboarding) {
             self.appState = appState
-            self.form = form
+            self.location = location
+            self.formUIContainer = FormUIMapper.map(form: form)
         }
 
         // MARK: - Methods
 
         func saveData() {
             // TODO: - Add Glean integration
-            do {
-                try appState.save(true, for: .hasSentOnboardingForm)
-            } catch let error {
-                // TODO: - Add error handling
-                print(error.localizedDescription)
+            guard formUIContainer.validate() else {
+                return
             }
+
+            switch location {
+            case .onboarding:
+                appState.updateOnboarding()
+            case .settings:
+                print("Save tapped")
+            }
+            
+        }
+    
+        func skip() {
+            appState.updateOnboarding()
         }
     }
 }

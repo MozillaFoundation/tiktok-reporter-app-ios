@@ -12,6 +12,7 @@ struct AboutView: View {
     // MARK: - Body
 
     var body: some View {
+
         self.content
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -24,7 +25,9 @@ struct AboutView: View {
     // MARK: - Views
 
     private var content: some View {
+
         ScrollView {
+
             VStack(alignment: .leading, spacing: .xl) {
                 Text("About TikTok Reporter")
                     .font(.heading3)

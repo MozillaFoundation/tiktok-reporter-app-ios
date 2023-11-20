@@ -24,24 +24,30 @@ struct ContentView: View {
     }
 
     // MARK: - Views
-
+    
     @ViewBuilder
     private var content: some View {
         if !appState.hasAcceptedGeneralTerms {
-
+            
             PolicyView(viewModel: .init(appState: appState))
-        } else if appState.study == nil {
+        } else if let currentStep = appState.onboardingFlow?.currentStep {
+
+            switch currentStep {
+            case .policy(let policy):
+
+                PolicyView(viewModel: .init(appState: appState, policyType: .specific(policy), hasActions: true))
+            case .onboarding(let onboarding):
+
+                OnboardingView(viewModel: .init(appState: appState, onboarding: onboarding))
+            case .form(let form):
+
+                OnboardingFormView(viewModel: .init(appState: appState, form: form))
+            }
+
+        } else if !appState.hasCompletedOnboarding {
 
             StudySelectionView(viewModel: .init(appState: appState))
-        } else if !appState.hasAcceptedStudyTerms, let policy = appState.study?.policies.first(where: { $0.type == .termsOfService }) {
-            
-            PolicyView(viewModel: .init(appState: appState, policyType: .specific(policy)))
-        } else if !appState.hasCompletedOnboarding, let onboarding = appState.study?.onboarding {
 
-            OnboardingView(viewModel: .init(appState: appState, onboarding: onboarding))
-        } else if !appState.hasSentOnboardingForm, let form = appState.study?.onboarding?.form {
-
-            OnboardingFormView(viewModel: .init(appState: appState, form: form))
         } else if let form = appState.study?.form {
 
             ReportView(viewModel: .init(form: form, appState: appState))

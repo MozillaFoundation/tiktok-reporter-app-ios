@@ -17,17 +17,14 @@ struct SettingsView: View {
     // MARK: - Body
 
     var body: some View {
-//        NavigationView {
-            self.content
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        HStack {
-                            Image(.header)
-                        }
-                    }
+
+        self.content
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Image(.header)
                 }
-//        }
+            }
     }
 
     // MARK: - Views
@@ -39,7 +36,9 @@ struct SettingsView: View {
             VStack(alignment: .leading) {
 
                 settings
-                aboutRow
+                NavigationLink(destination: AboutView()) {
+                    aboutRow
+                }
 
                 if let study = viewModel.study {
                     NavigationLink(destination: StudySelectionView(viewModel: .init(appState: viewModel.appState, viewState: .prefilled(study)))) {
@@ -47,7 +46,13 @@ struct SettingsView: View {
                     }
                 }
 
-                emailRow
+                if let form = viewModel.onboardingForm {
+                    NavigationLink(
+                        destination: OnboardingFormView(viewModel: .init(appState: viewModel.appState, form: form, location: .settings))
+                    ) {
+                        emailRow
+                    }
+                }
 
                 if let termsAndConditions = viewModel.termsAndConditions {
                     NavigationLink(destination: PolicyView(viewModel: .init(appState: viewModel.appState, policyType: .specific(termsAndConditions), hasActions: false))) {
@@ -76,9 +81,7 @@ struct SettingsView: View {
     }
 
     private var aboutRow: some View {
-        NavigationLink(destination: AboutView()) {
-            SettingsRow(title: "ABOUT TIKTOK REPORTER")
-        }
+        SettingsRow(title: "ABOUT TIKTOK REPORTER")
     }
 
     private var studiesRow: some View {

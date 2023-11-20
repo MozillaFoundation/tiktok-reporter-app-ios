@@ -21,22 +21,19 @@ struct OnboardingView: View {
     
     var body: some View {
         
-//        NavigationView {
-            self.content
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        HStack {
-                            Image(.header)
-                        }
-                    }
+        self.content
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Image(.header)
                 }
-//        }
+            }
     }
     
     // MARK: - Views
     
     private var content: some View {
+
         ZStack {
             pageView
             VStack {
@@ -50,7 +47,9 @@ struct OnboardingView: View {
     private var pageView: some View {
 
         TabView(selection: $viewModel.currentStep) {
+
             ForEach(viewModel.steps, id: \.self) { step in
+
                 OnboardingPageView(onboardingStep: step, contentInset: $buttonStackHeight)
                     .gesture(DragGesture())
                     .tag(viewModel.index(of: step))
@@ -74,7 +73,7 @@ struct OnboardingView: View {
 
             if viewModel.currentStep < viewModel.steps.count - 1 {
                 MainButton(text: "Skip", type: .secondary) {
-                    viewModel.finishOnboarding()
+                    viewModel.skip()
                 }
             }
         }

@@ -17,27 +17,25 @@ struct PolicyView: View {
     // MARK: - Body
     
     var body: some View {
-//        NavigationView {
-            PresentationStateView(viewModel: self.viewModel) {
-                self.content
+
+        PresentationStateView(viewModel: self.viewModel) {
+            self.content
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Image(.header)
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    HStack {
-                        Image(.header)
-                    }
+        }
+        .navigationBarBackButtonHidden(!viewModel.appState.hasCompletedOnboarding)
+        .customAlert(
+            title: "Review the terms & conditions",
+            description: "Please read these terms and conditions carefully before using TikTok Reporter.",
+            isPresented: $viewModel.routingState.alert) {
+                MainButton(text: "Got it", type: .secondary) {
+                    viewModel.routingState.alert = false
                 }
             }
-            .customAlert(
-                title: "Review the terms & conditions",
-                description: "Please read these terms and conditions carefully before using TikTok Reporter.",
-                isPresented: $viewModel.routingState.alert) {
-                    MainButton(text: "Got it", type: .secondary) {
-                        viewModel.routingState.alert = false
-                    }
-                }
-//        }
     }
     
     // MARK: - Views

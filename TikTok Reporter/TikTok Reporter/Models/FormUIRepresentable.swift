@@ -42,3 +42,26 @@ struct FormUIRepresentable: Hashable, Identifiable {
         }
     }
 }
+
+struct FormUIContainer {
+
+    // MARK: - Properties
+
+    var items: [FormUIRepresentable]
+
+    // MARK: - Methods
+
+    mutating func validate() -> Bool {
+        for index in items.indices {
+            items[index].validate()
+        }
+
+        return !items.contains(where: { $0.isValid == false })
+    }
+}
+
+struct FormUIMapper {
+    static func map(form: Form) -> FormUIContainer {
+        return FormUIContainer(items: form.fields.map({ FormUIRepresentable(formItem: $0) }))
+    }
+}

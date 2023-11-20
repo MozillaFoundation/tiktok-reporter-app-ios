@@ -17,7 +17,7 @@ extension PolicyView {
 
     // MARK: - ViewModel
 
-    class ViewModel: PresentationStateObject {
+    final class ViewModel: PresentationStateObject {
 
         // MARK: - PolicyType
 
@@ -30,13 +30,10 @@ extension PolicyView {
         @Injected(\.policiesService)
         private var service: PoliciesServicing
 
-        // MARK: - Private Properties
-
-        private var policyType: PolicyType
-
         // MARK: - Properties
 
-        private var appState: AppStateManager
+        private(set) var appState: AppStateManager
+        private(set) var policyType: PolicyType
 
         @Published
         var routingState: Routing = .init()
@@ -44,6 +41,7 @@ extension PolicyView {
         var state: PresentationState = .idle
         @Published
         var policy: Policy? = nil
+
         var hasActions: Bool
 
         // MARK: - Lifecycle
@@ -93,7 +91,7 @@ extension PolicyView {
                 case .general:
                     try appState.save(true, for: .hasAcceptedGeneralTerms)
                 case .specific:
-                    try appState.save(true, for: .hasAcceptedStudyTerms)
+                    appState.updateOnboarding()
                 }
                 
             } catch let error {

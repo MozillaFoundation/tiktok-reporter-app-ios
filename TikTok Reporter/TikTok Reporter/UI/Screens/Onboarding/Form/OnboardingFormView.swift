@@ -14,28 +14,23 @@ struct OnboardingFormView: View {
     @ObservedObject
     var viewModel: ViewModel
     
-    @FocusState
-    var inFocus: Int?
-    
     // MARK: - Body
     
     var body: some View {
-//        NavigationView {
-            self.content
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        HStack {
-                            Image(.header)
-                        }
-                    }
+
+        self.content
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Image(.header)
                 }
-//        }
+            }
     }
     
     // MARK: - Views
     
     private var content: some View {
+
         VStack {
             emailView
             buttons
@@ -43,28 +38,29 @@ struct OnboardingFormView: View {
     }
     
     private var emailView: some View {
+
         ScrollViewReader { scrollView in
+
             ScrollView {
-                FormView(viewModel: .init(form: viewModel.form))
-                    .padding(.l)
-                    .onChange(of: inFocus) { id in
-                        withAnimation {
-                            scrollView.scrollTo(id)
-                        }
-                    }
+
+                // TODO: - Try to avoid re-initializing ViewModel on each re-draw
+                FormView(viewModel: .init(formUIContainer: $viewModel.formUIContainer, didUpdateMainField: $viewModel.didUpdateMainField))
             }
         }
     }
     
     private var buttons: some View {
         VStack(spacing: .m) {
-            MainButton(text: "Save", type: .primary) {
-                // TODO: - Add upload to Glean once integrated.
-                viewModel.saveData()
+            if viewModel.didUpdateMainField {
+                MainButton(text: "Save", type: .primary) {
+                    viewModel.saveData()
+                }
             }
-            
-            MainButton(text: "Skip", type: .secondary) {
-                
+
+            if viewModel.location == .onboarding {
+                MainButton(text: "Skip", type: .secondary) {
+                    viewModel.skip()
+                }
             }
         }
         .padding(.l)

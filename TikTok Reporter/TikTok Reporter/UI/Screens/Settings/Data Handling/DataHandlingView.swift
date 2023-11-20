@@ -12,17 +12,14 @@ struct DataHandlingView: View {
     // MARK: - Body
 
     var body: some View {
-//        NavigationView {
-            self.content
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        HStack {
-                            Image(.header)
-                        }
-                    }
+
+        self.content
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Image(.header)
                 }
-//        }
+            }
     }
 
     // MARK: -  Views

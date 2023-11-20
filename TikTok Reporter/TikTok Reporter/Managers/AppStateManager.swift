@@ -10,18 +10,8 @@ import SwiftUI
 enum AppStateKey: String, CaseIterable {
     case study
     case hasAcceptedGeneralTerms
-    case hasAcceptedStudyTerms
     case hasCompletedOnboarding
-    case hasSentOnboardingForm
-}
-
-protocol AppStateManaging {
-    var study: Study? { get }
-    var hasCompletedOnboarding: Bool { get }
-    var hasAcceptedGeneralTerms: Bool { get }
-    var hasAcceptedStudyTerms: Bool { get }
-    
-    func save<T: Encodable>(_ value: T, for key: AppStateKey) throws
+    case emailAddress
 }
 
 final class AppStateManager: ObservableObject {
@@ -35,9 +25,9 @@ final class AppStateManager: ObservableObject {
     @Published
     var hasAcceptedGeneralTerms: Bool = false
     @Published
-    var hasAcceptedStudyTerms: Bool = false
+    var emailAddress: String?
     @Published
-    var hasSentOnboardingForm: Bool = false
+    var onboardingFlow: OnboardingFlow? = nil
     
     private lazy var userDefaults = UserDefaults.standard
 
@@ -50,34 +40,29 @@ final class AppStateManager: ObservableObject {
                 self.study = getValue(for: .study)
             case .hasAcceptedGeneralTerms:
                 self.hasAcceptedGeneralTerms = getValue(for: .hasAcceptedGeneralTerms) ?? false
-            case .hasAcceptedStudyTerms:
-                self.hasAcceptedStudyTerms = getValue(for: .hasAcceptedStudyTerms) ?? false
             case .hasCompletedOnboarding:
                 self.hasCompletedOnboarding = getValue(for: .hasCompletedOnboarding) ?? false
-            case .hasSentOnboardingForm:
-                self.hasSentOnboardingForm = getValue(for: .hasSentOnboardingForm) ?? false
+            case .emailAddress:
+                self.emailAddress = getValue(for: .emailAddress)
             }
         })
     }
 
-    // MARK: - Methods
+    // MARK: - CRUD
 
     func save<T: Encodable>(_ value: T, for key: AppStateKey) throws {
         let data = try JSONEncoder().encode(value)
         userDefaults.setValue(data, forKey: key.rawValue)
 
-        // TODO: - Check if `setValue` is failable. If not, use value directly
         switch key {
         case .study:
             self.study = getValue(for: .study)
         case .hasAcceptedGeneralTerms:
             self.hasAcceptedGeneralTerms = getValue(for: .hasAcceptedGeneralTerms) ?? false
-        case .hasAcceptedStudyTerms:
-            self.hasAcceptedStudyTerms = getValue(for: .hasAcceptedStudyTerms) ?? false
         case .hasCompletedOnboarding:
             self.hasCompletedOnboarding = getValue(for: .hasCompletedOnboarding) ?? false
-        case .hasSentOnboardingForm:
-            self.hasSentOnboardingForm = getValue(for: .hasSentOnboardingForm) ?? false
+        case .emailAddress:
+            self.emailAddress = getValue(for: .emailAddress)
         }
     }
 
@@ -88,8 +73,23 @@ final class AppStateManager: ObservableObject {
 
         self.study = nil
         self.hasAcceptedGeneralTerms = false
-        self.hasAcceptedStudyTerms = false
         self.hasCompletedOnboarding = false
+        self.emailAddress = nil
+    }
+
+    // MARK: - Onboarding
+
+    func setOnboarding(with study: Study) {
+        onboardingFlow = OnboardingFlow(study: study)
+    }
+
+    func updateOnboarding() {
+        let isLastStep = onboardingFlow?.nextStep() == nil
+        
+        if isLastStep {
+            try? save(true, for: .hasCompletedOnboarding)
+            onboardingFlow = nil
+        }
     }
 
     // MARK: - Private Methods

@@ -25,13 +25,9 @@ struct FormView: View {
                 }
                 .padding(.xl)
             }
-
-            if viewModel.hasSubmit {
-                MainButton(text: "Submit Report", type: .action) {
-                    viewModel.validate()
-                }
-                .padding(.horizontal, .l)
-            }
+        }
+        .onTapGesture {
+            self.hideKeyboard()
         }
     }
 
@@ -39,7 +35,7 @@ struct FormView: View {
 
     private var formItems: some View {
 
-        ForEach($viewModel.formItems) { $field in
+        ForEach($viewModel.formUIContainer.items) { $field in
             
             VStack(alignment: .leading, spacing: .m) {
 
@@ -72,12 +68,29 @@ struct FormView: View {
                 case let .dropDown(fieldInfo):
                     
                     DropDownView(selected: $field.stringValue, isValid: $field.isValid, options: fieldInfo.options, placeholder: fieldInfo.placeholder)
+                        .onChange(of: field.stringValue) { selected in
+                            guard let otherId = viewModel.otherId, selected == otherId else {
+                                viewModel.removeOther()
+                                return
+                            }
+
+                            viewModel.insertOther()
+                        }
                 }
+            }
+            .onChange(of: viewModel.formUIContainer.items[0].stringValue) { newValue in
+                
+                guard !newValue.isEmpty else {
+                    viewModel.didUpdateMainField = false
+                    return
+                }
+
+                viewModel.didUpdateMainField = true
             }
         }
     }
 }
     
-    #Preview {
-        FormView(viewModel: .init(form: PreviewHelper.mockOnboardingForm))
-    }
+#Preview {
+    FormView(viewModel: .init(formUIContainer: .constant(FormUIMapper.map(form: PreviewHelper.mockReportForm)), didUpdateMainField: .constant(false)))
+}
