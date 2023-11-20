@@ -8,11 +8,50 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State
-    var isPresented: Bool = false
+
+    // MARK: - State
+    
+    @ObservedObject
+    var appState = AppStateManager()
+
+    // MARK: - Body
 
     var body: some View {
-        Text("")
+        NavigationView {
+            content
+        }
+        .tint(.text)
+    }
+
+    // MARK: - Views
+    
+    @ViewBuilder
+    private var content: some View {
+        if !appState.hasAcceptedGeneralTerms {
+            
+            PolicyView(viewModel: .init(appState: appState))
+        } else if let currentStep = appState.onboardingFlow?.currentStep {
+
+            switch currentStep {
+            case .policy(let policy):
+
+                PolicyView(viewModel: .init(appState: appState, policyType: .specific(policy), hasActions: true))
+            case .onboarding(let onboarding):
+
+                OnboardingView(viewModel: .init(appState: appState, onboarding: onboarding))
+            case .form(let form):
+
+                OnboardingFormView(viewModel: .init(appState: appState, form: form))
+            }
+
+        } else if !appState.hasCompletedOnboarding {
+
+            StudySelectionView(viewModel: .init(appState: appState))
+
+        } else if let form = appState.study?.form {
+
+            ReportView(viewModel: .init(form: form, appState: appState))
+        }
     }
 }
 

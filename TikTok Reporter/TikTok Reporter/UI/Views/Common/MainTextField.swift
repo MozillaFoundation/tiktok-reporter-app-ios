@@ -7,68 +7,100 @@
 
 import SwiftUI
 
-enum MainTextFieldType {
-    case standard
-    case email
-
-    var autocapitalization: TextInputAutocapitalization {
-        switch self {
-        case .standard:
-            return .words
-        case .email:
-            return .never
-        }
-    }
-
-    var keyboardType: UIKeyboardType {
-        switch self {
-        case .standard:
-            return .default
-        case .email:
-            return .emailAddress
-        }
-    }
-}
-
 struct MainTextField: View {
-
+    
     // MARK: - Properties
-
+    
     @Binding
     var text: String
+    @Binding
+    var isValid: Bool
+    
     var placeholder: String
-    var type: MainTextFieldType = .standard
-
+    var isMultiline: Bool
+    
     @State
     var opacity: CGFloat = 0.0
-
+    
     // MARK: - Body
-
+    
     var body: some View {
-        ZStack(alignment: .leading) {
-            textField
-                .padding(.vertical, .s)
-            placeholderView
-                .padding(.leading, .s)
-        }
-        .frame(height: 56.0)
-    }
-
-    // MARK: - Views
-
-    private var textField: some View {
-        TextField(placeholder, text: _text)
-            .textInputAutocapitalization(type.autocapitalization)
-            .keyboardType(type.keyboardType)
-            .font(.heading4)
-            .padding(.m)
-            .background {
-                Rectangle()
-                    .stroke(.text)
+        
+        VStack(alignment: .leading) {
+            
+            ZStack(alignment: .leading) {
+                
+                if isMultiline {
+                    multilineTextField
+                } else {
+                    textField
+                        .onChange(of: text) { _ in
+                            isValid = true
+                        }
+                }
+                
+                placeholderView
+                    .padding(.leading, .s)
             }
+            
+            if !isValid {
+                HStack {
+                    Text("This field cannot be empty")
+                        .font(.body2)
+                        .foregroundStyle(.error)
+                    Spacer()
+                }
+            }
+        }
     }
-
+    
+    // MARK: - Views
+    
+    private var textField: some View {
+        
+        TextField(placeholder, text: $text)
+            .font(.body1)
+            .padding(.m)
+            .frame(height: 40.0)
+            .border(isValid ? .text : .error, width: 1.0)
+            .padding(.top, .s)
+    }
+    
+    @ViewBuilder
+    private var multilineTextField: some View {
+        
+        if #available(iOS 16, *) {
+            
+            TextEditor(text: $text)
+                .font(.body1)
+                .padding(.horizontal, .s)
+                .padding(.vertical, .xs)
+                .frame(minHeight: 104.0)
+                .border(.text, width: 1.0)
+                .scrollContentBackground(.hidden)
+                .background {
+                    editorBackground
+                }
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.top, .s)
+        } else {
+            
+            TextEditor(text: $text)
+                .font(.body1)
+                .padding(.horizontal, .s)
+                .padding(.vertical, .xs)
+                .frame(minHeight: 104.0)
+                .border(.text, width: 1.0)
+                .background {
+                    editorBackground
+                }
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.top, .s)
+        }
+    }
+    
     private var placeholderView: some View {
+        
         VStack {
             Text(placeholder)
                 .font(.body2)
@@ -83,8 +115,22 @@ struct MainTextField: View {
             Spacer()
         }
     }
+    
+    private var editorBackground: some View {
+
+        VStack {
+            HStack {
+                Text(placeholder)
+                    .font(.body1)
+                    .foregroundStyle(text.isEmpty ? .inactive : .clear)
+                Spacer()
+            }
+            Spacer()
+        }
+        .padding(.m)
+    }
 }
 
 #Preview {
-    MainTextField(text: .constant(""), placeholder: "Placeholder")
+    MainTextField(text: .constant(""), isValid: .constant(true), placeholder: "Placeholder", isMultiline: true)
 }

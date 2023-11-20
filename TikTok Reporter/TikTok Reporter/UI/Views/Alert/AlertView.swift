@@ -14,10 +14,10 @@ struct AlertView: View {
     @Binding
     var isPresented: Bool
 
-    @State
-    var alertType: AlertType = .info(title: "", description: "")
-    @State
-    var rightButtonAction: (() -> ())?
+    var title: String
+    var description: String
+    var secondaryButton: () -> MainButton
+    var primaryButton: (() -> MainButton)?
 
     // MARK: - Body
 
@@ -30,22 +30,20 @@ struct AlertView: View {
 
             VStack(spacing: .xl) {
 
-                Text(alertType.title)
+                Text(title)
                     .font(.heading5)
                     .foregroundStyle(.text)
                     .padding(.top, .xl)
 
-                Text(alertType.description)
+                Text(description)
                     .font(.body2)
                     .foregroundStyle(.text)
 
                 HStack(spacing: .l) {
-                    MainButton(text: alertType.leftButtonTitle, type: .secondary) {
-                        isPresented = false
-                    }
+                    secondaryButton()
 
-                    if let rightButtonTitle = alertType.rightButtonTitle, let buttonAction = rightButtonAction {
-                        MainButton(text: rightButtonTitle, type: .primary, action: buttonAction)
+                    if let primaryButton = primaryButton {
+                        primaryButton()
                     }
                 }
                 .padding([.horizontal, .bottom], .xl)
@@ -57,5 +55,5 @@ struct AlertView: View {
 }
 
 #Preview {
-    AlertView(isPresented: .constant(true), alertType: .action(title: "Title", description: "Description", leftButtonTitle: "Keep", rightButtonTitle: "Proceed"), rightButtonAction: {})
+    AlertView(isPresented: .constant(true), title: "Title", description: "Description", secondaryButton: { MainButton() {} })
 }

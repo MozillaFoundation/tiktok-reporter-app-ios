@@ -11,35 +11,38 @@ import SwiftUI
 struct TikTok_ReporterApp: App {
 
     // MARK: - State
-    
-    @ObservedObject
-    var appState = AppStateManager()
+
+    @State
+    private var isActive: Bool = false
 
     // MARK: - Body
 
     var body: some Scene {
 
         WindowGroup {
-            if !appState.hasAcceptedGeneralTerms {
-
-                TermsAndConditionsView(viewModel: .init(appState: appState))
-            } else if appState.study == nil {
-
-                StudySelectionView(viewModel: .init(appState: appState))
-            } else if !appState.hasAcceptedStudyTerms, let policy = appState.study?.policies.first {
-                
-                TermsAndConditionsView(viewModel: .init(appState: appState, policyType: .studySpecific(policy)))
-            } else if !appState.hasCompletedOnboarding, let onboarding = appState.study?.onboarding {
-
-                OnboardingView(viewModel: .init(appState: appState, onboarding: onboarding))
-            } else if !appState.hasSentOnboardingForm, let form = appState.study?.onboarding?.form {
-
-                OnboardingFormView(viewModel: .init(appState: appState, form: form))
+            if isActive {
+                ContentView()
+                    .onAppear {
+                        UITextView.appearance().backgroundColor = .clear
+                        // TODO: - Update to use asset
+                        UINavigationBar.appearance().backIndicatorImage = UIImage(named: "backImage")
+                        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "backImage")
+                        UINavigationBar.appearance().tintColor = UIColor(named: "text")
+                    }
             } else {
-
-                // TODO: - Add main screen
-                Text("Not implemented")
+                SplashScreen(isActive: $isActive)
             }
         }
     }
+}
+
+// TODO: - Move in separate class
+
+extension UINavigationController {
+
+  open override func viewWillLayoutSubviews() {
+    super.viewWillLayoutSubviews()
+    navigationBar.topItem?.backButtonDisplayMode = .minimal
+  }
+
 }

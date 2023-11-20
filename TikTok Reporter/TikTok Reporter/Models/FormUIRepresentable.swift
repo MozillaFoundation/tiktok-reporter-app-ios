@@ -15,6 +15,8 @@ struct FormUIRepresentable: Hashable, Identifiable {
     var boolValue: Bool = false
     var doubleValue: Double = 0.0
 
+    var isValid: Bool = true
+
     init(formItem: FormItem) {
         self.formItem = formItem
         self.id = formItem.id
@@ -25,5 +27,41 @@ struct FormUIRepresentable: Hashable, Identifiable {
         default:
             return
         }
+    }
+
+    mutating func validate() {
+        guard formItem.isRequired else {
+            return
+        }
+
+        switch formItem.field {
+        case .textField, .dropDown:
+            isValid = !stringValue.isEmpty
+        default:
+            return
+        }
+    }
+}
+
+struct FormUIContainer {
+
+    // MARK: - Properties
+
+    var items: [FormUIRepresentable]
+
+    // MARK: - Methods
+
+    mutating func validate() -> Bool {
+        for index in items.indices {
+            items[index].validate()
+        }
+
+        return !items.contains(where: { $0.isValid == false })
+    }
+}
+
+struct FormUIMapper {
+    static func map(form: Form) -> FormUIContainer {
+        return FormUIContainer(items: form.fields.map({ FormUIRepresentable(formItem: $0) }))
     }
 }

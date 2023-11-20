@@ -9,12 +9,6 @@ import SwiftUI
 
 extension OnboardingView {
 
-    // MARK: - Routing
-
-    struct Routing {
-        var emailSheet: Bool = false
-    }
-
     // MARK: - ViewModel
 
     class ViewModel: ObservableObject {
@@ -22,8 +16,7 @@ extension OnboardingView {
         // MARK: - Properties
 
         private var appState: AppStateManager
-        @Published
-        var routingState: Routing = .init()
+
         @Published
         var steps: [OnboardingStep] = []
         @Published
@@ -38,17 +31,13 @@ extension OnboardingView {
  
         // MARK: - Methods
 
-        func setup(with appState: AppStateManager) {
-            self.appState = appState
-        }
-
         func index(of step: OnboardingStep) -> Int {
             return steps.firstIndex(of: step) ?? 0
         }
         
         func nextStep() {
             guard currentStep < steps.count - 1 else {
-                self.finishOnboarding()
+                self.skip()
                 return
             }
 
@@ -67,13 +56,8 @@ extension OnboardingView {
             }
         }
 
-        func finishOnboarding() {
-            do {
-                try appState.save(true, for: .hasCompletedOnboarding)
-            } catch let error {
-                // TODO: - Add error handling
-                print(error.localizedDescription)
-            }
+        func skip() {
+            appState.updateOnboarding()
         }
     }
 }
