@@ -73,5 +73,27 @@ extension ReportView {
                 }
             }
         }
+
+        func cancelReport() {
+            formUIContainer.items[0].stringValue = ""
+            formUIContainer.items[0].isEnabled = true
+
+            didUpdateMainField = false
+
+            appState.clearLink()
+        }
+
+        func preFillLink() {
+            appState.refreshLink()
+
+            guard let tikTokLink = appState.tikTokLink, formUIContainer.items.count > 0 else {
+                return
+            }
+
+            formUIContainer.items[0].stringValue = tikTokLink
+            formUIContainer.items[0].isEnabled = false
+
+            didUpdateMainField = true
+        }
     }
 }

@@ -1,8 +1,8 @@
 //
 //  FormView.swift
-//  TikTok Reporter
+//  TikTok ReporterShare
 //
-//  Created by Sergiu Ghiran on 07.11.2023.
+//  Created by Sergiu Ghiran on 21.11.2023.
 //
 
 import SwiftUI
@@ -17,7 +17,24 @@ struct FormView: View {
     // MARK: - Body
     
     var body: some View {
-        
+
+        NavigationView {
+            PresentationStateView(viewModel: viewModel) {
+                self.content
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        ToolbarItem(placement: .topBarLeading) {
+                            Image(.header)
+                        }
+                    }
+            }
+        }
+    }
+
+    // MARK: - Views
+
+    private var content: some View {
+
         VStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: .s) {
@@ -25,13 +42,23 @@ struct FormView: View {
                 }
                 .padding(.xl)
             }
-        }
-        .onTapGesture {
-            self.hideKeyboard()
+
+            VStack {
+                MainButton(text: "Submit Report", type: .action) {
+                    guard viewModel.formUIContainer.validate() else {
+                        return
+                    }
+
+                    NotificationCenter.default.post(name: NSNotification.Name("close"), object: nil)
+                }
+            
+                MainButton(text: "Cancel Report", type: .secondary) {
+                    NotificationCenter.default.post(name: NSNotification.Name("close"), object: nil)
+                }
+            }
+            .padding(.horizontal, .xl)
         }
     }
-
-    // MARK: - Views
 
     private var formItems: some View {
 
@@ -61,13 +88,13 @@ struct FormView: View {
                     
                 case let .textField(fieldInfo):
                     
-                    MainTextField(text: $field.stringValue, isValid: $field.isValid, isEnabled: $field.isEnabled, placeholder: fieldInfo.placeholder, isMultiline: fieldInfo.multiline)
+                    ShareTextField(text: $field.stringValue, isValid: $field.isValid, isEnabled: $field.isEnabled, placeholder: fieldInfo.placeholder, isMultiline: fieldInfo.multiline)
                 case let .slider(fieldInfo):
                     
-                    SliderView(value: $field.doubleValue, max: fieldInfo.max, step: fieldInfo.step, leftLabel: fieldInfo.leftLabel, rightLabel: fieldInfo.rightLabel)
+                    ShareSlider(value: $field.doubleValue, max: fieldInfo.max, step: fieldInfo.step, leftLabel: fieldInfo.leftLabel, rightLabel: fieldInfo.rightLabel)
                 case let .dropDown(fieldInfo):
                     
-                    DropDownView(selected: $field.stringValue, isValid: $field.isValid, options: fieldInfo.options, placeholder: fieldInfo.placeholder)
+                    ShareDropDown(selected: $field.stringValue, isValid: $field.isValid, options: fieldInfo.options, placeholder: fieldInfo.placeholder)
                         .onChange(of: field.stringValue) { selected in
                             guard let otherId = viewModel.otherId, selected == otherId else {
                                 viewModel.removeOther()
@@ -78,19 +105,6 @@ struct FormView: View {
                         }
                 }
             }
-            .onChange(of: viewModel.formUIContainer.items[0].stringValue) { newValue in
-                
-                guard !newValue.isEmpty else {
-                    viewModel.didUpdateMainField = false
-                    return
-                }
-
-                viewModel.didUpdateMainField = true
-            }
         }
     }
-}
-    
-#Preview {
-    FormView(viewModel: .init(formUIContainer: .constant(FormUIMapper.map(form: PreviewHelper.mockReportForm)), didUpdateMainField: .constant(false)))
 }
