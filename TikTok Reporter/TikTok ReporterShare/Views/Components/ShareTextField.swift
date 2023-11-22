@@ -1,13 +1,13 @@
 //
-//  MainTextField.swift
-//  TikTok Reporter
+//  ShareTextField.swift
+//  TikTok ReporterShare
 //
-//  Created by Sergiu Ghiran on 06.11.2023.
+//  Created by Sergiu Ghiran on 21.11.2023.
 //
 
 import SwiftUI
 
-struct MainTextField: View {
+struct ShareTextField: View {
     
     // MARK: - Properties
     
@@ -135,5 +135,6 @@ struct MainTextField: View {
 }
 
 #Preview {
-    MainTextField(text: .constant(""), isValid: .constant(true), isEnabled: .constant(true), placeholder: "Placeholder", isMultiline: true)
+    ShareTextField(text: .constant(""), isValid: .constant(true), isEnabled: .constant(true), placeholder: "Placeholder", isMultiline: true)
 }
+

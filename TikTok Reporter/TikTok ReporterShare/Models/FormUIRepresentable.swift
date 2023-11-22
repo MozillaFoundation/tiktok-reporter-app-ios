@@ -1,8 +1,8 @@
 //
 //  FormUIRepresentable.swift
-//  TikTok Reporter
+//  TikTok ReporterShare
 //
-//  Created by Sergiu Ghiran on 09.11.2023.
+//  Created by Sergiu Ghiran on 21.11.2023.
 //
 
 import Foundation
@@ -66,3 +66,4 @@ struct FormUIMapper {
         return FormUIContainer(items: form.fields.map({ FormUIRepresentable(formItem: $0) }))
     }
 }
+

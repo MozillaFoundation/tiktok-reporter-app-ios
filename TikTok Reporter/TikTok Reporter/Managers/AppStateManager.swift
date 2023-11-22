@@ -28,8 +28,10 @@ final class AppStateManager: ObservableObject {
     var emailAddress: String?
     @Published
     var onboardingFlow: OnboardingFlow? = nil
+    var tikTokLink: String? = nil
     
     private lazy var userDefaults = UserDefaults.standard
+    private lazy var appGroupUserDefaults = UserDefaults(suiteName: "group.org.mozilla.ios.TikTok-Reporter")
 
     // MARK: - Lifecycle
 
@@ -46,6 +48,8 @@ final class AppStateManager: ObservableObject {
                 self.emailAddress = getValue(for: .emailAddress)
             }
         })
+        
+        self.tikTokLink = getLink()
     }
 
     // MARK: - CRUD
@@ -53,6 +57,8 @@ final class AppStateManager: ObservableObject {
     func save<T: Encodable>(_ value: T, for key: AppStateKey) throws {
         let data = try JSONEncoder().encode(value)
         userDefaults.setValue(data, forKey: key.rawValue)
+
+        appGroupUserDefaults?.setValue(data, forKey: key.rawValue)
 
         switch key {
         case .study:
@@ -90,6 +96,21 @@ final class AppStateManager: ObservableObject {
             try? save(true, for: .hasCompletedOnboarding)
             onboardingFlow = nil
         }
+    }
+
+    // MARK: - Link
+
+    func clearLink() {
+        self.tikTokLink = nil
+        self.appGroupUserDefaults?.removeObject(forKey: "TikTokLink")
+    }
+
+    func getLink() -> String? {
+        return appGroupUserDefaults?.value(forKey: "TikTokLink") as? String
+    }
+
+    func refreshLink() {
+        self.tikTokLink = appGroupUserDefaults?.value(forKey: "TikTokLink") as? String
     }
 
     // MARK: - Private Methods

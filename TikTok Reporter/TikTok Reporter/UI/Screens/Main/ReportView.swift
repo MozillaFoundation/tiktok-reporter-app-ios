@@ -20,7 +20,6 @@ struct ReportView: View {
 
         PresentationStateView(viewModel: viewModel) {
             self.content
-            
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -69,7 +68,7 @@ struct ReportView: View {
             
                 if viewModel.didUpdateMainField {
                     MainButton(text: "Cancel Report", type: .secondary) {
-                        print("Cancel report tapped")
+                        viewModel.cancelReport()
                     }
                 }
             }

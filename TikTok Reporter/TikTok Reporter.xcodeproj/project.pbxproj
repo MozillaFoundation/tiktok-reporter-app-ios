@@ -19,6 +19,26 @@
 		688371652B0422AD00542EC7 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688371642B0422AD00542EC7 /* SettingsViewModel.swift */; };
 		688371682B05246100542EC7 /* DataHandlingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688371672B05246100542EC7 /* DataHandlingView.swift */; };
 		6883716A2B06B49800542EC7 /* OnboardingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688371692B06B49800542EC7 /* OnboardingFlow.swift */; };
+		688CA4642B0CC0DD001A7BBE /* ShareTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CA4632B0CC0DD001A7BBE /* ShareTextField.swift */; };
+		688CA4672B0CC117001A7BBE /* CGFloat+Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CA4662B0CC117001A7BBE /* CGFloat+Spacing.swift */; };
+		688CA4692B0CC139001A7BBE /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CA4682B0CC139001A7BBE /* Font+Extension.swift */; };
+		688CA46C2B0CC164001A7BBE /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 688CA46B2B0CC164001A7BBE /* Colors.xcassets */; };
+		688CA46E2B0CC1C5001A7BBE /* ShareSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CA46D2B0CC1C5001A7BBE /* ShareSlider.swift */; };
+		688CA4702B0CC1DD001A7BBE /* ShareDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CA46F2B0CC1DD001A7BBE /* ShareDropDown.swift */; };
+		688CA4752B0CC26F001A7BBE /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CA4742B0CC26F001A7BBE /* ShareButton.swift */; };
+		688CA4772B0CC300001A7BBE /* Study.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CA4762B0CC300001A7BBE /* Study.swift */; };
+		688CA4792B0CC317001A7BBE /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CA4782B0CC317001A7BBE /* Policy.swift */; };
+		688CA47B2B0CC32E001A7BBE /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CA47A2B0CC32E001A7BBE /* Form.swift */; };
+		688CA47D2B0CC34E001A7BBE /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CA47C2B0CC34E001A7BBE /* Onboarding.swift */; };
+		688CA47F2B0CC362001A7BBE /* FormUIRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CA47E2B0CC362001A7BBE /* FormUIRepresentable.swift */; };
+		688CA4832B0CC3A6001A7BBE /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CA4822B0CC3A6001A7BBE /* UserDefaultsManager.swift */; };
+		688CA4852B0CC535001A7BBE /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CA4842B0CC535001A7BBE /* FormView.swift */; };
+		688CA4872B0CC564001A7BBE /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CA4862B0CC564001A7BBE /* FormViewModel.swift */; };
+		688CA48B2B0CEAED001A7BBE /* PresentationStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CA48A2B0CEAED001A7BBE /* PresentationStateView.swift */; };
+		688CA48D2B0CEB07001A7BBE /* PresentationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CA48C2B0CEB07001A7BBE /* PresentationState.swift */; };
+		688CA48F2B0CEB1E001A7BBE /* IdleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CA48E2B0CEB1E001A7BBE /* IdleView.swift */; };
+		688CA4912B0CEB35001A7BBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 688CA4902B0CEB35001A7BBE /* Images.xcassets */; };
+		688CA4932B0CEB5C001A7BBE /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CA4922B0CEB5C001A7BBE /* LoadingView.swift */; };
 		689FF00A2AEEB26200C9FE51 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 689FF0092AEEB26200C9FE51 /* Colors.xcassets */; };
 		689FF0122AF176FC00C9FE51 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0112AF176FC00C9FE51 /* AlertView.swift */; };
 		689FF0152AF178B300C9FE51 /* AlertButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0142AF178B300C9FE51 /* AlertButtonAction.swift */; };
@@ -76,6 +96,8 @@
 		68CBF9AB2AEC18B0006D03FC /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CBF9AA2AEC18B0006D03FC /* Font+Extension.swift */; };
 		68CBF9AD2AEC1C7A006D03FC /* NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68CBF9AC2AEC1C7A006D03FC /* NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf */; };
 		68FA99472B0B69D400D65D43 /* View+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA99462B0B69D400D65D43 /* View+Keyboard.swift */; };
+		68FA99502B0BA34400D65D43 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA994F2B0BA34400D65D43 /* ShareViewController.swift */; };
+		68FA99572B0BA34400D65D43 /* TikTok ReporterShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 68FA994D2B0BA34400D65D43 /* TikTok ReporterShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,9 +115,32 @@
 			remoteGlobalIDString = 68CBF9642AEB9F2F006D03FC;
 			remoteInfo = "TikTok Reporter";
 		};
+		68FA99552B0BA34400D65D43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68CBF95D2AEB9F2F006D03FC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68FA994C2B0BA34400D65D43;
+			remoteInfo = "TikTok ReporterShare";
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		68FA99582B0BA34400D65D43 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				68FA99572B0BA34400D65D43 /* TikTok ReporterShare.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		683A20442B0BB70F006F8AE5 /* TikTok Reporter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TikTok Reporter.entitlements"; sourceTree = "<group>"; };
+		683A20452B0BB7A7006F8AE5 /* TikTok ReporterShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TikTok ReporterShare.entitlements"; sourceTree = "<group>"; };
 		685F30402AFE92F500D585C3 /* IdleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleView.swift; sourceTree = "<group>"; };
 		685F30462B02799600D585C3 /* PagedTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedTabView.swift; sourceTree = "<group>"; };
 		685F30482B027A1B00D585C3 /* PagedTabViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedTabViewItem.swift; sourceTree = "<group>"; };
@@ -108,6 +153,26 @@
 		688371642B0422AD00542EC7 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		688371672B05246100542EC7 /* DataHandlingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandlingView.swift; sourceTree = "<group>"; };
 		688371692B06B49800542EC7 /* OnboardingFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlow.swift; sourceTree = "<group>"; };
+		688CA4632B0CC0DD001A7BBE /* ShareTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareTextField.swift; sourceTree = "<group>"; };
+		688CA4662B0CC117001A7BBE /* CGFloat+Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Spacing.swift"; sourceTree = "<group>"; };
+		688CA4682B0CC139001A7BBE /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
+		688CA46B2B0CC164001A7BBE /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		688CA46D2B0CC1C5001A7BBE /* ShareSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSlider.swift; sourceTree = "<group>"; };
+		688CA46F2B0CC1DD001A7BBE /* ShareDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareDropDown.swift; sourceTree = "<group>"; };
+		688CA4742B0CC26F001A7BBE /* ShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
+		688CA4762B0CC300001A7BBE /* Study.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Study.swift; sourceTree = "<group>"; };
+		688CA4782B0CC317001A7BBE /* Policy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Policy.swift; sourceTree = "<group>"; };
+		688CA47A2B0CC32E001A7BBE /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
+		688CA47C2B0CC34E001A7BBE /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		688CA47E2B0CC362001A7BBE /* FormUIRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormUIRepresentable.swift; sourceTree = "<group>"; };
+		688CA4822B0CC3A6001A7BBE /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		688CA4842B0CC535001A7BBE /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
+		688CA4862B0CC564001A7BBE /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
+		688CA48A2B0CEAED001A7BBE /* PresentationStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationStateView.swift; sourceTree = "<group>"; };
+		688CA48C2B0CEB07001A7BBE /* PresentationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationState.swift; sourceTree = "<group>"; };
+		688CA48E2B0CEB1E001A7BBE /* IdleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleView.swift; sourceTree = "<group>"; };
+		688CA4902B0CEB35001A7BBE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		688CA4922B0CEB5C001A7BBE /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		689FF0092AEEB26200C9FE51 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		689FF0112AF176FC00C9FE51 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		689FF0142AF178B300C9FE51 /* AlertButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButtonAction.swift; sourceTree = "<group>"; };
@@ -169,6 +234,9 @@
 		68CBF9AA2AEC18B0006D03FC /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		68CBF9AC2AEC1C7A006D03FC /* NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf"; sourceTree = "<group>"; };
 		68FA99462B0B69D400D65D43 /* View+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Keyboard.swift"; sourceTree = "<group>"; };
+		68FA994D2B0BA34400D65D43 /* TikTok ReporterShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TikTok ReporterShare.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68FA994F2B0BA34400D65D43 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		68FA99542B0BA34400D65D43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +255,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		68CBF97C2AEB9F31006D03FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68FA994A2B0BA34400D65D43 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -273,6 +348,85 @@
 				688371672B05246100542EC7 /* DataHandlingView.swift */,
 			);
 			path = "Data Handling";
+			sourceTree = "<group>";
+		};
+		688CA4622B0CB3B2001A7BBE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				688CA4962B0CEB97001A7BBE /* PresentationState */,
+				688CA4952B0CEB82001A7BBE /* Components */,
+				688CA4942B0CEB79001A7BBE /* Form */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		688CA4652B0CC0F8001A7BBE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				688CA4662B0CC117001A7BBE /* CGFloat+Spacing.swift */,
+				688CA4682B0CC139001A7BBE /* Font+Extension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		688CA46A2B0CC14C001A7BBE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				688CA46B2B0CC164001A7BBE /* Colors.xcassets */,
+				688CA4902B0CEB35001A7BBE /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		688CA4712B0CC236001A7BBE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				688CA4762B0CC300001A7BBE /* Study.swift */,
+				688CA4782B0CC317001A7BBE /* Policy.swift */,
+				688CA47A2B0CC32E001A7BBE /* Form.swift */,
+				688CA47C2B0CC34E001A7BBE /* Onboarding.swift */,
+				688CA47E2B0CC362001A7BBE /* FormUIRepresentable.swift */,
+				688CA48C2B0CEB07001A7BBE /* PresentationState.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		688CA4802B0CC38D001A7BBE /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				688CA4822B0CC3A6001A7BBE /* UserDefaultsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		688CA4942B0CEB79001A7BBE /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				688CA4842B0CC535001A7BBE /* FormView.swift */,
+				688CA4862B0CC564001A7BBE /* FormViewModel.swift */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
+		688CA4952B0CEB82001A7BBE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				688CA4632B0CC0DD001A7BBE /* ShareTextField.swift */,
+				688CA46D2B0CC1C5001A7BBE /* ShareSlider.swift */,
+				688CA46F2B0CC1DD001A7BBE /* ShareDropDown.swift */,
+				688CA4742B0CC26F001A7BBE /* ShareButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		688CA4962B0CEB97001A7BBE /* PresentationState */ = {
+			isa = PBXGroup;
+			children = (
+				688CA48A2B0CEAED001A7BBE /* PresentationStateView.swift */,
+				688CA48E2B0CEB1E001A7BBE /* IdleView.swift */,
+				688CA4922B0CEB5C001A7BBE /* LoadingView.swift */,
+			);
+			path = PresentationState;
 			sourceTree = "<group>";
 		};
 		689FF00C2AEEB27700C9FE51 /* Colors */ = {
@@ -514,6 +668,7 @@
 				68CBF9672AEB9F2F006D03FC /* TikTok Reporter */,
 				68CBF9782AEB9F31006D03FC /* TikTok ReporterTests */,
 				68CBF9822AEB9F31006D03FC /* TikTok ReporterUITests */,
+				68FA994E2B0BA34400D65D43 /* TikTok ReporterShare */,
 				68CBF9662AEB9F2F006D03FC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -524,6 +679,7 @@
 				68CBF9652AEB9F2F006D03FC /* TikTok Reporter.app */,
 				68CBF9752AEB9F31006D03FC /* TikTok ReporterTests.xctest */,
 				68CBF97F2AEB9F31006D03FC /* TikTok ReporterUITests.xctest */,
+				68FA994D2B0BA34400D65D43 /* TikTok ReporterShare.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -531,6 +687,7 @@
 		68CBF9672AEB9F2F006D03FC /* TikTok Reporter */ = {
 			isa = PBXGroup;
 			children = (
+				683A20442B0BB70F006F8AE5 /* TikTok Reporter.entitlements */,
 				689FF08B2AFD4EBD00C9FE51 /* Managers */,
 				689FF0882AFD410700C9FE51 /* Helpers */,
 				689FF0422AF29D2700C9FE51 /* Services */,
@@ -611,6 +768,21 @@
 			path = "E-mail";
 			sourceTree = "<group>";
 		};
+		68FA994E2B0BA34400D65D43 /* TikTok ReporterShare */ = {
+			isa = PBXGroup;
+			children = (
+				688CA4802B0CC38D001A7BBE /* Managers */,
+				688CA4712B0CC236001A7BBE /* Models */,
+				688CA46A2B0CC14C001A7BBE /* Resources */,
+				688CA4652B0CC0F8001A7BBE /* Helpers */,
+				688CA4622B0CB3B2001A7BBE /* Views */,
+				683A20452B0BB7A7006F8AE5 /* TikTok ReporterShare.entitlements */,
+				68FA994F2B0BA34400D65D43 /* ShareViewController.swift */,
+				68FA99542B0BA34400D65D43 /* Info.plist */,
+			);
+			path = "TikTok ReporterShare";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -621,10 +793,12 @@
 				68CBF9612AEB9F2F006D03FC /* Sources */,
 				68CBF9622AEB9F2F006D03FC /* Frameworks */,
 				68CBF9632AEB9F2F006D03FC /* Resources */,
+				68FA99582B0BA34400D65D43 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				68FA99562B0BA34400D65D43 /* PBXTargetDependency */,
 			);
 			name = "TikTok Reporter";
 			productName = "TikTok Reporter";
@@ -667,6 +841,23 @@
 			productReference = 68CBF97F2AEB9F31006D03FC /* TikTok ReporterUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		68FA994C2B0BA34400D65D43 /* TikTok ReporterShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68FA995B2B0BA34400D65D43 /* Build configuration list for PBXNativeTarget "TikTok ReporterShare" */;
+			buildPhases = (
+				68FA99492B0BA34400D65D43 /* Sources */,
+				68FA994A2B0BA34400D65D43 /* Frameworks */,
+				68FA994B2B0BA34400D65D43 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TikTok ReporterShare";
+			productName = "TikTok ReporterShare";
+			productReference = 68FA994D2B0BA34400D65D43 /* TikTok ReporterShare.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -688,6 +879,9 @@
 						CreatedOnToolsVersion = 15.0;
 						TestTargetID = 68CBF9642AEB9F2F006D03FC;
 					};
+					68FA994C2B0BA34400D65D43 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
 				};
 			};
 			buildConfigurationList = 68CBF9602AEB9F2F006D03FC /* Build configuration list for PBXProject "TikTok Reporter" */;
@@ -706,6 +900,7 @@
 				68CBF9642AEB9F2F006D03FC /* TikTok Reporter */,
 				68CBF9742AEB9F31006D03FC /* TikTok ReporterTests */,
 				68CBF97E2AEB9F31006D03FC /* TikTok ReporterUITests */,
+				68FA994C2B0BA34400D65D43 /* TikTok ReporterShare */,
 			);
 		};
 /* End PBXProject section */
@@ -736,6 +931,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68FA994B2B0BA34400D65D43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				688CA46C2B0CC164001A7BBE /* Colors.xcassets in Resources */,
+				688CA4912B0CEB35001A7BBE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -825,6 +1029,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		68FA99492B0BA34400D65D43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				688CA48D2B0CEB07001A7BBE /* PresentationState.swift in Sources */,
+				688CA4872B0CC564001A7BBE /* FormViewModel.swift in Sources */,
+				688CA4772B0CC300001A7BBE /* Study.swift in Sources */,
+				68FA99502B0BA34400D65D43 /* ShareViewController.swift in Sources */,
+				688CA4852B0CC535001A7BBE /* FormView.swift in Sources */,
+				688CA47F2B0CC362001A7BBE /* FormUIRepresentable.swift in Sources */,
+				688CA4832B0CC3A6001A7BBE /* UserDefaultsManager.swift in Sources */,
+				688CA4672B0CC117001A7BBE /* CGFloat+Spacing.swift in Sources */,
+				688CA4792B0CC317001A7BBE /* Policy.swift in Sources */,
+				688CA4702B0CC1DD001A7BBE /* ShareDropDown.swift in Sources */,
+				688CA47D2B0CC34E001A7BBE /* Onboarding.swift in Sources */,
+				688CA4752B0CC26F001A7BBE /* ShareButton.swift in Sources */,
+				688CA46E2B0CC1C5001A7BBE /* ShareSlider.swift in Sources */,
+				688CA4692B0CC139001A7BBE /* Font+Extension.swift in Sources */,
+				688CA48F2B0CEB1E001A7BBE /* IdleView.swift in Sources */,
+				688CA4642B0CC0DD001A7BBE /* ShareTextField.swift in Sources */,
+				688CA48B2B0CEAED001A7BBE /* PresentationStateView.swift in Sources */,
+				688CA4932B0CEB5C001A7BBE /* LoadingView.swift in Sources */,
+				688CA47B2B0CC32E001A7BBE /* Form.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -837,6 +1067,11 @@
 			isa = PBXTargetDependency;
 			target = 68CBF9642AEB9F2F006D03FC /* TikTok Reporter */;
 			targetProxy = 68CBF9802AEB9F31006D03FC /* PBXContainerItemProxy */;
+		};
+		68FA99562B0BA34400D65D43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68FA994C2B0BA34400D65D43 /* TikTok ReporterShare */;
+			targetProxy = 68FA99552B0BA34400D65D43 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -963,8 +1198,10 @@
 		68CBF98A2AEB9F31006D03FC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "TikTok Reporter/TikTok Reporter.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1000,8 +1237,10 @@
 		68CBF98B2AEB9F31006D03FC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "TikTok Reporter/TikTok Reporter.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1128,6 +1367,62 @@
 			};
 			name = Release;
 		};
+		68FA99592B0BA34400D65D43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "TikTok ReporterShare/TikTok ReporterShare.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 43AQ936H96;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TikTok ReporterShare/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "TikTok ReporterShare";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-Reporter.TikTok-ReporterShare";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		68FA995A2B0BA34400D65D43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "TikTok ReporterShare/TikTok ReporterShare.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 43AQ936H96;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TikTok ReporterShare/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "TikTok ReporterShare";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-Reporter.TikTok-ReporterShare";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1163,6 +1458,15 @@
 			buildConfigurations = (
 				68CBF9902AEB9F31006D03FC /* Debug */,
 				68CBF9912AEB9F31006D03FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68FA995B2B0BA34400D65D43 /* Build configuration list for PBXNativeTarget "TikTok ReporterShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68FA99592B0BA34400D65D43 /* Debug */,
+				68FA995A2B0BA34400D65D43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
