@@ -14,6 +14,13 @@ struct ReportView: View {
     @ObservedObject
     var viewModel: ViewModel
 
+    @State
+    var recordStarted: Bool = false
+    @State
+    var text: String = ""
+
+    @Environment(\.scenePhase) var scenePhase
+
     // MARK: - Body
 
     var body: some View {
@@ -77,7 +84,45 @@ struct ReportView: View {
     }
 
     private var recordTab: some View {
-        Text("Tab Content 2")
+        
+        VStack {
+
+            ScrollView {
+
+                VStack(alignment: .leading, spacing: .xl) {
+                    Text("To start screen recording, tap the button below. Then, open your TikTok app and record your session while you scroll the FYP. To stop recording, press the timer. You’ll be asked to share more information and submit this form.")
+                        .font(.body2)
+                        .foregroundStyle(.text)
+                    
+                    VStack(alignment: .center, spacing: .l) {
+                        Text("Record a TikTok session")
+                            .font(.heading5)
+                        
+                        ZStack {
+                            Circle()
+                                .fill(.divider)
+                                .frame(width: 64, height: 64)
+                            BroadcastPicker()
+                                .frame(height: 64)
+                        }
+                    }
+
+                    MainTextField(text: $text, isValid: .constant(true), isEnabled: .constant(true), placeholder: "Comments(optional)", isMultiline: true)
+                }
+                .padding(.xl)
+            }
+
+            MainButton(text: "Submit Report", type: .action) {
+                
+            }
+            .padding(.horizontal, .xl)
+        }
+        .onChange(of: scenePhase) { newPhase in
+            if newPhase == .active {
+                viewModel.loadRecording()
+                print("Active")
+            }
+        }
     }
 }
 

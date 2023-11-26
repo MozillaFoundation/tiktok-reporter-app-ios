@@ -125,7 +125,7 @@ struct MainTextField: View {
             HStack {
                 Text(placeholder)
                     .font(.body1)
-                    .foregroundStyle(text.isEmpty ? .inactive : .clear)
+                    .foregroundStyle(text.isEmpty ? .disabled : .clear)
                 Spacer()
             }
             Spacer()

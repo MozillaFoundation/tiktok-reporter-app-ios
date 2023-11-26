@@ -80,6 +80,7 @@ class ShareViewController: UIViewController {
 
         NotificationCenter.default.addObserver(forName: NSNotification.Name("close"), object: nil, queue: nil) { _ in
             DispatchQueue.main.async {
+                // TODO: - Modify to treat all cases
                 self.showAlert(withTitle: "Error", description: "Something went wrong, please try again!")
             }
         }

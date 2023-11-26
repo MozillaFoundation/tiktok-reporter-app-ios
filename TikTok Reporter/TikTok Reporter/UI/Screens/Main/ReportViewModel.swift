@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 extension ReportView {
     
@@ -74,6 +75,18 @@ extension ReportView {
             }
         }
 
+        func loadRecording() {
+            guard
+                let fileURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.org.mozilla.ios.TikTok-Reporter")?.appendingPathComponent("screenShare.mov"),
+                FileManager().fileExists(atPath: fileURL.path)
+            else {
+                return
+            }
+        
+            let asset = AVAsset(url: fileURL)
+            let reader = try! AVAssetReader(asset: asset)
+        }
+
         func cancelReport() {
             formUIContainer.items[0].stringValue = ""
             formUIContainer.items[0].isEnabled = true
@@ -81,19 +94,6 @@ extension ReportView {
             didUpdateMainField = false
 
             appState.clearLink()
-        }
-
-        func preFillLink() {
-            appState.refreshLink()
-
-            guard let tikTokLink = appState.tikTokLink, formUIContainer.items.count > 0 else {
-                return
-            }
-
-            formUIContainer.items[0].stringValue = tikTokLink
-            formUIContainer.items[0].isEnabled = false
-
-            didUpdateMainField = true
         }
     }
 }

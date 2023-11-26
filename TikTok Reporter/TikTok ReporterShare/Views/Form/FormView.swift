@@ -70,7 +70,7 @@ struct FormView: View {
 
                 if let label = field.formItem.label, !label.isEmpty {
                     Text(label)
-                        .font(.heading3)
+                        .font(.body1)
                         .foregroundStyle(.text)
                 }
 
