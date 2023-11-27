@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68014FC02B15046A005DE2E2 /* VideoEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68014FBF2B15046A005DE2E2 /* VideoEditorView.swift */; };
 		6858A6942B0E694A0076A91A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6858A6932B0E69490076A91A /* ReplayKit.framework */; };
 		6858A6972B0E694A0076A91A /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858A6962B0E694A0076A91A /* SampleHandler.swift */; };
 		6858A69E2B0E694A0076A91A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6858A6932B0E69490076A91A /* ReplayKit.framework */; };
@@ -46,6 +47,9 @@
 		688CA48F2B0CEB1E001A7BBE /* IdleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CA48E2B0CEB1E001A7BBE /* IdleView.swift */; };
 		688CA4912B0CEB35001A7BBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 688CA4902B0CEB35001A7BBE /* Images.xcassets */; };
 		688CA4932B0CEB5C001A7BBE /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688CA4922B0CEB5C001A7BBE /* LoadingView.swift */; };
+		6892A4F92B1495CD0023BCA8 /* AVAsset+Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6892A4F82B1495CD0023BCA8 /* AVAsset+Thumbnail.swift */; };
+		6892A4FB2B14AC320023BCA8 /* CMTime+Positional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6892A4FA2B14AC320023BCA8 /* CMTime+Positional.swift */; };
+		6892A4FD2B14AE5F0023BCA8 /* Date+Formatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6892A4FC2B14AE5F0023BCA8 /* Date+Formatted.swift */; };
 		689FF00A2AEEB26200C9FE51 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 689FF0092AEEB26200C9FE51 /* Colors.xcassets */; };
 		689FF0122AF176FC00C9FE51 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0112AF176FC00C9FE51 /* AlertView.swift */; };
 		689FF0152AF178B300C9FE51 /* AlertButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0142AF178B300C9FE51 /* AlertButtonAction.swift */; };
@@ -163,6 +167,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		68014FBF2B15046A005DE2E2 /* VideoEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEditorView.swift; sourceTree = "<group>"; };
 		683A20442B0BB70F006F8AE5 /* TikTok Reporter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TikTok Reporter.entitlements"; sourceTree = "<group>"; };
 		683A20452B0BB7A7006F8AE5 /* TikTok ReporterShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TikTok ReporterShare.entitlements"; sourceTree = "<group>"; };
 		6858A6912B0E69490076A91A /* TikTok ReporterScreenCapture.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TikTok ReporterScreenCapture.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +211,9 @@
 		688CA48E2B0CEB1E001A7BBE /* IdleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleView.swift; sourceTree = "<group>"; };
 		688CA4902B0CEB35001A7BBE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		688CA4922B0CEB5C001A7BBE /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		6892A4F82B1495CD0023BCA8 /* AVAsset+Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAsset+Thumbnail.swift"; sourceTree = "<group>"; };
+		6892A4FA2B14AC320023BCA8 /* CMTime+Positional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Positional.swift"; sourceTree = "<group>"; };
+		6892A4FC2B14AE5F0023BCA8 /* Date+Formatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatted.swift"; sourceTree = "<group>"; };
 		689FF0092AEEB26200C9FE51 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		689FF0112AF176FC00C9FE51 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		689FF0142AF178B300C9FE51 /* AlertButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButtonAction.swift; sourceTree = "<group>"; };
@@ -322,6 +330,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		68014FBE2B150457005DE2E2 /* VideoEditor */ = {
+			isa = PBXGroup;
+			children = (
+				68014FBF2B15046A005DE2E2 /* VideoEditorView.swift */,
+			);
+			path = VideoEditor;
+			sourceTree = "<group>";
+		};
 		6858A6922B0E69490076A91A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,6 +535,7 @@
 		689FF0102AF176D400C9FE51 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				68014FBE2B150457005DE2E2 /* VideoEditor */,
 				68C885FE2B0F8F180022043E /* BroadcastPicker */,
 				685F30522B02C44400D585C3 /* Settings Row */,
 				685F30452B02797C00D585C3 /* PagedTabView */,
@@ -850,6 +867,9 @@
 				68CBF9AA2AEC18B0006D03FC /* Font+Extension.swift */,
 				689FF01A2AF193D200C9FE51 /* CGFloat+Spacing.swift */,
 				68FA99462B0B69D400D65D43 /* View+Keyboard.swift */,
+				6892A4F82B1495CD0023BCA8 /* AVAsset+Thumbnail.swift */,
+				6892A4FA2B14AC320023BCA8 /* CMTime+Positional.swift */,
+				6892A4FC2B14AE5F0023BCA8 /* Date+Formatted.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1143,6 +1163,7 @@
 				689FF06C2AF67EE100C9FE51 /* OnboardingAPI.swift in Sources */,
 				689FF0582AF3E03500C9FE51 /* Study.swift in Sources */,
 				688371632B041DDB00542EC7 /* AboutView.swift in Sources */,
+				6892A4FD2B14AE5F0023BCA8 /* Date+Formatted.swift in Sources */,
 				689FF05C2AF3E7E600C9FE51 /* Onboarding.swift in Sources */,
 				689FF03D2AF2983100C9FE51 /* InjectedValues.swift in Sources */,
 				689FF0652AF6787900C9FE51 /* OnboardingView.swift in Sources */,
@@ -1157,7 +1178,9 @@
 				689FF02F2AF25AEC00C9FE51 /* APIClient.swift in Sources */,
 				689FF0412AF29B7400C9FE51 /* Policy.swift in Sources */,
 				689FF0602AF3E83200C9FE51 /* StudiesService.swift in Sources */,
+				68014FC02B15046A005DE2E2 /* VideoEditorView.swift in Sources */,
 				689FF0812AFCDAF000C9FE51 /* SliderView.swift in Sources */,
+				6892A4FB2B14AC320023BCA8 /* CMTime+Positional.swift in Sources */,
 				689FF0192AF17EBD00C9FE51 /* CustomAlertModifier.swift in Sources */,
 				689FF04C2AF300C000C9FE51 /* PresentationStateView.swift in Sources */,
 				689FF0222AF259F400C9FE51 /* PolicyViewModel.swift in Sources */,
@@ -1169,6 +1192,7 @@
 				685F304D2B02B56700D585C3 /* ReportViewModel.swift in Sources */,
 				689FF06E2AF8EFDC00C9FE51 /* OnboardingService.swift in Sources */,
 				689FF05A2AF3E7BF00C9FE51 /* Form.swift in Sources */,
+				6892A4F92B1495CD0023BCA8 /* AVAsset+Thumbnail.swift in Sources */,
 				689FF0362AF25C4400C9FE51 /* PoliciesAPI.swift in Sources */,
 				68FA99472B0B69D400D65D43 /* View+Keyboard.swift in Sources */,
 				689FF07C2AFBE35000C9FE51 /* FormViewModel.swift in Sources */,

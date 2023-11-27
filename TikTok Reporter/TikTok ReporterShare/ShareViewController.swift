@@ -30,10 +30,11 @@ class ShareViewController: UIViewController {
             let study = userDefaultsManager.getStudy(),
             let form = study.form
         else {
-            self.showAlert(withTitle: "Go through the onboarding first", description: "Because this is your first share, please open the TikTok Reporter app, choose a study, and complete the onboarding process before submitting a report. Thank you!")
+            self.showAlert(withTitle: Strings.onboardingErrorTitle, description: Strings.onboardingErrorDescription)
             return
         }
 
+        // TODO: - Add link validation
         guard
             let extensionItem = extensionContext?.inputItems.first as? NSExtensionItem,
             let itemProvider = extensionItem.attachments?.first
@@ -47,6 +48,7 @@ class ShareViewController: UIViewController {
         if itemProvider.hasItemConformingToTypeIdentifier(dataType) {
 
             itemProvider.loadItem(forTypeIdentifier: dataType) { (data, error) in
+
                 guard
                     error == nil,
                     let link = (data as? NSURL)?.absoluteString
@@ -78,10 +80,10 @@ class ShareViewController: UIViewController {
             return
         }
 
-        NotificationCenter.default.addObserver(forName: NSNotification.Name("close"), object: nil, queue: nil) { _ in
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(Strings.closeNotificationName), object: nil, queue: nil) { _ in
             DispatchQueue.main.async {
                 // TODO: - Modify to treat all cases
-                self.showAlert(withTitle: "Error", description: "Something went wrong, please try again!")
+                self.showAlert(withTitle: Strings.genericErrorTitle, description: Strings.genericErrorDescription)
             }
         }
     }
@@ -89,9 +91,12 @@ class ShareViewController: UIViewController {
     // MARK: - Methods
 
     private func showAlert(withTitle: String, description: String) {
+
         DispatchQueue.main.async {
+
             let alertController = UIAlertController(title: withTitle, message: description, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
+
+            alertController.addAction(UIAlertAction(title: Strings.errorActionTitle, style: .cancel, handler: { _ in
                 self.close()
             }))
             
@@ -102,4 +107,17 @@ class ShareViewController: UIViewController {
     private func close() {
         self.extensionContext?.completeRequest(returningItems: [], completionHandler: nil)
     }
+}
+
+private enum Strings {
+
+    // Errors
+    static let onboardingErrorTitle = "Go through the onboarding first"
+    static let onboardingErrorDescription = "Because this is your first share, please open the TikTok Reporter app, choose a study, and complete the onboarding process before submitting a report. Thank you!"
+    static let genericErrorTitle = "Error"
+    static let genericErrorDescription = "Something went wrong, please try again!"
+    static let errorActionTitle = "OK"
+
+    // Notification
+    static let closeNotificationName = "close"
 }

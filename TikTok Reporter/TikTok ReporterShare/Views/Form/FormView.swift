@@ -19,6 +19,7 @@ struct FormView: View {
     var body: some View {
 
         NavigationView {
+
             PresentationStateView(viewModel: viewModel) {
                 self.content
                     .navigationBarTitleDisplayMode(.inline)
@@ -36,28 +37,40 @@ struct FormView: View {
     private var content: some View {
 
         VStack {
-            ScrollView {
-                VStack(alignment: .leading, spacing: .s) {
-                    formItems
-                }
-                .padding(.xl)
-            }
 
-            VStack {
-                MainButton(text: "Submit Report", type: .action) {
-                    guard viewModel.formUIContainer.validate() else {
-                        return
-                    }
-
-                    NotificationCenter.default.post(name: NSNotification.Name("close"), object: nil)
-                }
-            
-                MainButton(text: "Cancel Report", type: .secondary) {
-                    NotificationCenter.default.post(name: NSNotification.Name("close"), object: nil)
-                }
-            }
-            .padding(.horizontal, .xl)
+            self.form
+            self.buttonStack
         }
+    }
+
+    private var form: some View {
+
+        ScrollView {
+
+            VStack(alignment: .leading, spacing: .s) {
+                formItems
+            }
+            .padding(.xl)
+        }
+    }
+
+    private var buttonStack: some View {
+
+        VStack {
+
+            MainButton(text: Strings.submitTitle, type: .action) {
+                guard viewModel.formUIContainer.validate() else {
+                    return
+                }
+
+                NotificationCenter.default.post(name: NSNotification.Name(Strings.closeNotificationName), object: nil)
+            }
+        
+            MainButton(text: Strings.cancelTitle, type: .secondary) {
+                NotificationCenter.default.post(name: NSNotification.Name(Strings.closeNotificationName), object: nil)
+            }
+        }
+        .padding(.horizontal, .xl)
     }
 
     private var formItems: some View {
@@ -66,24 +79,21 @@ struct FormView: View {
             
             VStack(alignment: .leading, spacing: .m) {
 
-                // MARK: - Label
-
+                // Label
                 if let label = field.formItem.label, !label.isEmpty {
                     Text(label)
                         .font(.body1)
                         .foregroundStyle(.text)
                 }
 
-                // MARK: - Description
-
+                // Description
                 if let description = field.formItem.description, !description.isEmpty {
                     Text(description)
                         .font(.body2)
                         .foregroundStyle(.text)
                 }
 
-                // MARK: - Field
-
+                // Field
                 switch field.formItem.field {
                     
                 case let .textField(fieldInfo):
@@ -107,4 +117,16 @@ struct FormView: View {
             }
         }
     }
+}
+
+// MARK: - Strings
+
+private enum Strings {
+
+    // Buttons
+    static let submitTitle = "Submit Report"
+    static let cancelTitle = "Cancel Report"
+
+    // Notification
+    static let closeNotificationName = "close"
 }

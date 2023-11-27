@@ -18,6 +18,8 @@ struct ReportView: View {
     var recordStarted: Bool = false
     @State
     var text: String = ""
+    @State
+    var isVideoEditorPresent: Bool = false
 
     @Environment(\.scenePhase) var scenePhase
 
@@ -60,6 +62,9 @@ struct ReportView: View {
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
         }
+        .sheet(isPresented: $isVideoEditorPresent) {
+            VideoEditorView(videoFilePath: viewModel.videoFileURL!.path)
+        }
     }
 
     private var reportTab: some View {
@@ -94,17 +99,10 @@ struct ReportView: View {
                         .font(.body2)
                         .foregroundStyle(.text)
                     
-                    VStack(alignment: .center, spacing: .l) {
-                        Text("Record a TikTok session")
-                            .font(.heading5)
-                        
-                        ZStack {
-                            Circle()
-                                .fill(.divider)
-                                .frame(width: 64, height: 64)
-                            BroadcastPicker()
-                                .frame(height: 64)
-                        }
+                    if viewModel.screenRecording == nil {
+                        recordScreenView
+                    } else {
+                        screenRecordingView
                     }
 
                     MainTextField(text: $text, isValid: .constant(true), isEnabled: .constant(true), placeholder: "Comments(optional)", isMultiline: true)
@@ -112,8 +110,16 @@ struct ReportView: View {
                 .padding(.xl)
             }
 
-            MainButton(text: "Submit Report", type: .action) {
-                
+            VStack {
+                MainButton(text: "Submit Report", type: .action) {
+                    
+                }
+
+                if viewModel.didUpdateMainField {
+                    MainButton(text: "Cancel Report", type: .secondary) {
+                        viewModel.cancelRecording()
+                    }
+                }
             }
             .padding(.horizontal, .xl)
         }
@@ -121,6 +127,76 @@ struct ReportView: View {
             if newPhase == .active {
                 viewModel.loadRecording()
                 print("Active")
+            }
+        }
+    }
+
+    private var recordScreenView: some View {
+
+        VStack(alignment: .center, spacing: .l) {
+            Text("Record a TikTok session")
+                .font(.heading5)
+            
+            ZStack {
+                Circle()
+                    .fill(.divider)
+                    .frame(width: 64, height: 64)
+                BroadcastPicker()
+                    .frame(height: 64)
+            }
+        }
+    }
+
+    private var screenRecordingView: some View {
+
+            VStack(spacing: .xl) {
+                screenRecording
+                MainButton(text: "Trim Recording", type: .secondary) {
+                }
+            }
+    }
+
+    @ViewBuilder
+    private var screenRecording: some View {
+
+        if let screenRecording = viewModel.screenRecording {
+            
+            HStack(alignment: .top, spacing: .xl) {
+
+                Image(uiImage: screenRecording.thumbnail ?? .settings)
+                    .resizable()
+                    .frame(width: 80, height: 80)
+                    .aspectRatio(contentMode: .fit)
+                    .onTapGesture {
+                        self.isVideoEditorPresent = true
+                    }
+
+                VStack(alignment: .leading) {
+                    Text("Recorded Video")
+                        .font(.body4)
+                        .foregroundStyle(.text)
+
+                    HStack {
+                        Text("Duration: ")
+                            .font(.body4)
+                            .foregroundStyle(.text)
+
+                        Text(screenRecording.duration.positionalTime)
+                            .font(.body2)
+                            .foregroundStyle(.text)
+                        
+                    }
+
+                    HStack {
+                        Text("Recorded on: ")
+                            .font(.body4)
+                            .foregroundStyle(.text)
+
+                        Text(screenRecording.recordingDate?.formattedString() ?? "")
+                            .font(.body2)
+                            .foregroundStyle(.text)
+                    }
+                }
             }
         }
     }

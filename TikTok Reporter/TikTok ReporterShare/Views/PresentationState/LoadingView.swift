@@ -12,18 +12,28 @@ struct LoadingView: View {
     // MARK: - Body
 
     var body: some View {
+
         VStack(spacing: .xxl) {
+
             ProgressView()
                 .progressViewStyle(CircularProgressViewStyle())
                 .scaleEffect(2.0, anchor: .center)
                 .tint(.basicRed)
-            Text("Loading TikTok Reporter...")
+
+            Text(Strings.loading)
                 .font(.heading5)
         }
     }
 }
 
+// MARK: - Preview
+
 #Preview {
     LoadingView()
 }
 
+// MARK: - Strings
+
+private enum Strings {
+    static let loading = "Loading TikTok Reporter..."
+}

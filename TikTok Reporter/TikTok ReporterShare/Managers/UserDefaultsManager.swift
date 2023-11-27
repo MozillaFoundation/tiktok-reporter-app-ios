@@ -19,11 +19,13 @@ final class UserDefaultsManager {
 
     // MARK: - UserDefaults
 
-    private var userDefaults = UserDefaults(suiteName: "group.org.mozilla.ios.TikTok-Reporter")
+    private var userDefaults = UserDefaults(suiteName: Strings.appGroupID)
 
     // MARK: - Methods
 
     func getOnboardingStatus() -> Bool {
+
+        // TODO: - Remove JSONDecoder from here.
         guard
             let data = userDefaults?.data(forKey: Keys.hasCompletedOnboarding.rawValue),
             let hasCompletedOnboarding = try? JSONDecoder().decode(Bool.self, from: data)
@@ -35,6 +37,7 @@ final class UserDefaultsManager {
     }
 
     func getStudy() -> Study? {
+
         guard
             let data = userDefaults?.data(forKey: Keys.study.rawValue),
             let study = try? JSONDecoder().decode(Study.self, from: data)
@@ -56,4 +59,11 @@ final class UserDefaultsManager {
 
         return tikTokLink
     }
+}
+
+// MARK: - Strings
+
+private enum Strings {
+    // App Group
+    static let appGroupID = "group.org.mozilla.ios.TikTok-Reporter"
 }

@@ -31,20 +31,22 @@ extension FormView {
     
         private lazy var otherField: FormUIRepresentable = {
 
-            return FormUIRepresentable(formItem: FormItem(id: "", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: "Suggest a category", maxLines: 1, multiline: false))))
+            return FormUIRepresentable(formItem: FormItem(id: "", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: Strings.otherFieldPlaceholder, maxLines: 1, multiline: false))))
         }()
 
         // MARK: - Lifecycle
 
         init(formUIContainer: FormUIContainer, currentStudy: Study, link: String) {
+
             self.formUIContainer = formUIContainer
             self.currentStudy = currentStudy
             self.link = link
 
             self.formUIContainer.items.forEach { formItem in
+
                 if case let .dropDown(fieldItem) = formItem.formItem.field, fieldItem.hasOtherOption {
                     self.otherFieldId = formItem.id
-                    self.otherId = fieldItem.options.first(where: { $0.title.lowercased() == "other" })?.id
+                    self.otherId = fieldItem.options.first(where: { $0.title.lowercased() == Strings.otherTitle })?.id
                 }
             }
         
@@ -57,9 +59,9 @@ extension FormView {
         func load() {
             state = .loading
 
-            guard let url = URL(string: "https://tiktok-reporter-app-be-jbrlktowcq-ew.a.run.app/studies/by-country-code") else {
+            guard let url = URL(string: Strings.studiesURL) else {
                 state = .failed
-                NotificationCenter.default.post(name: NSNotification.Name("close"), object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(Strings.closeNotificationName), object: nil)
                 return
             }
 
@@ -80,7 +82,7 @@ extension FormView {
                         apiStudies.contains(where: { $0.id == currentStudy.id && $0.isActive })
                     else {
                         state = .failed
-                        NotificationCenter.default.post(name: NSNotification.Name("close"), object: nil)
+                        NotificationCenter.default.post(name: NSNotification.Name(Strings.closeNotificationName), object: nil)
                         return
                     }
 
@@ -119,3 +121,11 @@ extension FormView {
     }
 }
 
+// MARK: - Strings
+
+private enum Strings {
+    static let otherFieldPlaceholder = "Suggest a category"
+    static let otherTitle = "other"
+    static let studiesURL = "https://tiktok-reporter-app-be-jbrlktowcq-ew.a.run.app/studies/by-country-code"
+    static let closeNotificationName = "close"
+}

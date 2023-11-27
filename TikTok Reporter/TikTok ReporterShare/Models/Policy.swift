@@ -22,4 +22,3 @@ struct Policy: Codable {
 }
 
 extension Policy: Hashable {}
-

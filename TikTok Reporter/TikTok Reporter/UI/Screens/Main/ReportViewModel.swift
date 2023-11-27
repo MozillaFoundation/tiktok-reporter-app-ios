@@ -8,6 +8,35 @@
 import SwiftUI
 import AVFoundation
 
+
+struct ScreenRecording {
+
+    // MARK: - Properties
+
+    private(set) var asset: AVAsset
+
+    private(set) var thumbnail: UIImage?
+    private(set) var duration: CMTime = .zero
+    private(set) var recordingDate: Date? = nil
+
+    // MARK: - Lifecycle
+
+    init(asset: AVAsset) {
+        self.asset = asset
+    }
+
+    // MARK: - Methods
+
+    mutating func loadMetadata() async throws {
+        self.duration = try await asset.load(.duration)
+        self.recordingDate = try await asset.load(.creationDate)?.load(.dateValue)
+    }
+
+    mutating func setThumbnail(_ thumbnail: UIImage) {
+        self.thumbnail = thumbnail
+    }
+}
+
 extension ReportView {
     
     // MARK: - ViewModel
@@ -32,6 +61,10 @@ extension ReportView {
         var formUIContainer: FormUIContainer
         @Published
         var didUpdateMainField: Bool = false
+        @Published
+        var screenRecording: ScreenRecording?
+
+        var videoFileURL: URL?
 
         var tabs = ["Report a link", "Record a session"]
         
@@ -77,14 +110,56 @@ extension ReportView {
 
         func loadRecording() {
             guard
-                let fileURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.org.mozilla.ios.TikTok-Reporter")?.appendingPathComponent("screenShare.mov"),
-                FileManager().fileExists(atPath: fileURL.path)
+                let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.org.mozilla.ios.TikTok-Reporter")?.appendingPathComponent("Library/Documents/screenRecording.mp4"),
+                let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
             else {
                 return
             }
-        
-            let asset = AVAsset(url: fileURL)
-            let reader = try! AVAssetReader(asset: asset)
+
+            do {
+                
+                guard FileManager.default.fileExists(atPath: containerURL.path) else {
+                    return
+                }
+                
+                let destinationURL = documentsURL.appendingPathComponent("screenRecording.mp4")
+
+                try? FileManager.default.removeItem(at: destinationURL)
+                try FileManager.default.copyItem(at: containerURL, to: destinationURL)
+
+                self.videoFileURL = destinationURL
+                
+                let asset = AVURLAsset(url: destinationURL)
+                var screenRecording = ScreenRecording(asset: asset)
+
+                state = .loading
+
+                Task.init {
+                    do {
+                        try await screenRecording.loadMetadata()
+
+                        await MainActor.run {
+                            asset.generateThumbnail { image in
+                                DispatchQueue.main.async {
+                                    screenRecording.setThumbnail(image ?? .settings)
+
+                                    self.screenRecording = screenRecording
+                                    self.didUpdateMainField = true
+                                    self.state = .success
+                                }
+                            }
+                        }
+                    } catch {
+                        print("ScreenRecordingData load failed")
+                        state = .failed
+                    }
+                }
+
+                
+            } catch {
+                print("Error when copying file to local sandbox.")
+                state = .failed
+            }
         }
 
         func cancelReport() {
@@ -94,6 +169,20 @@ extension ReportView {
             didUpdateMainField = false
 
             appState.clearLink()
+        }
+    
+        func cancelRecording() {
+            // TODO: - Move to constant
+            guard 
+                let fileURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.org.mozilla.ios.TikTok-Reporter")?.appendingPathComponent("Library/Documents/screenRecording.mp4"),
+                FileManager.default.fileExists(atPath: fileURL.path)
+            else {
+                return
+            }
+
+            try? FileManager.default.removeItem(at: fileURL)
+            didUpdateMainField = false
+            screenRecording = nil
         }
     }
 }
