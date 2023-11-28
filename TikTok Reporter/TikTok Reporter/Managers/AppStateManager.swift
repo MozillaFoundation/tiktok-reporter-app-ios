@@ -28,8 +28,10 @@ final class AppStateManager: ObservableObject {
     var emailAddress: String?
     @Published
     var onboardingFlow: OnboardingFlow? = nil
+
+    // TODO: - Check if it's needed
     var tikTokLink: String? = nil
-    
+
     private lazy var userDefaults = UserDefaults.standard
     private lazy var appGroupUserDefaults = UserDefaults(suiteName: "group.org.mozilla.ios.TikTok-Reporter")
 

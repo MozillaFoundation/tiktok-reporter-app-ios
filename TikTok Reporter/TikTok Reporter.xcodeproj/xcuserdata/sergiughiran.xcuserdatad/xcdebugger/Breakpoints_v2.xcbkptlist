@@ -7,33 +7,81 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C74A3B2D-B5B7-481A-8681-F89DE5572511"
-            shouldBeEnabled = "Yes"
+            uuid = "0EE0CBA1-FDFB-4A0E-A1D6-2007AFA41297"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TikTok ReporterScreenCapture/SampleHandler.swift"
+            filePath = "TikTok Reporter/UI/Screens/Main/ReportViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "broadcastFinished()"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "refreshRecording()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "466D4C99-651C-48F5-ADEC-D15D10F5F36A"
+            uuid = "D184B94D-3511-434F-B568-BCA2C1A93A3E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TikTok Reporter/Services/ScreenRecordingService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "loadFromAppGroup()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5D66480C-EE8F-4D21-B324-CA9462C95894"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TikTok Reporter/UI/Screens/Main/ReportViewModel.swift"
+            filePath = "TikTok Reporter/UI/Views/VideoEditor/VideoEditorView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "loadRecording()"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "videoEditorController(_:didSaveEditedVideoToPath:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5D66480C-EE8F-4D21-B324-CA9462C95894 - e60b95f007de0baf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TikTok_Reporter.VideoEditorDelegate.videoEditorController(_: __C.UIVideoEditorController, didSaveEditedVideoToPath: Swift.String) -&gt; ()"
+                  moduleName = "TikTok Reporter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergiughiran/Projects/TikTokReporter/TikTok%20Reporter/TikTok%20Reporter/UI/Views/VideoEditor/VideoEditorView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "5D66480C-EE8F-4D21-B324-CA9462C95894 - e60b95f007de0baf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TikTok_Reporter.VideoEditorDelegate.videoEditorController(_: __C.UIVideoEditorController, didSaveEditedVideoToPath: Swift.String) -&gt; ()"
+                  moduleName = "TikTok Reporter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergiughiran/Projects/TikTokReporter/TikTok%20Reporter/TikTok%20Reporter/UI/Views/VideoEditor/VideoEditorView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

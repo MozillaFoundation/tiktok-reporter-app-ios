@@ -9,10 +9,18 @@ import Foundation
 
 extension Date {
 
-    func formattedString() -> String {
+    func formattedDateString() -> String {
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy at HH:mm"
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+
+        return dateFormatter.string(from: self)
+    }
+
+    func formattedTimeString() -> String {
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
 
         return dateFormatter.string(from: self)
     }

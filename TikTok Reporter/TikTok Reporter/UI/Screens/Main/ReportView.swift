@@ -15,11 +15,7 @@ struct ReportView: View {
     var viewModel: ViewModel
 
     @State
-    var recordStarted: Bool = false
-    @State
     var text: String = ""
-    @State
-    var isVideoEditorPresent: Bool = false
 
     @Environment(\.scenePhase) var scenePhase
 
@@ -43,6 +39,21 @@ struct ReportView: View {
                 }
             }
         }
+        .sheet(isPresented: $viewModel.routingState.videoEditor) {
+
+            if let path = viewModel.screenRecordingURL?.path {
+
+                VideoEditorView(videoFilePath: path, trimmedVideoPath: $viewModel.trimmedVideoPath)
+                    .onChange(of: viewModel.trimmedVideoPath) { path in
+
+                        guard path != nil else {
+                            return
+                        }
+
+                        self.viewModel.updateScreenRecording()
+                    }
+            }
+        }
     }
 
     // MARK: - Views
@@ -62,14 +73,12 @@ struct ReportView: View {
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
         }
-        .sheet(isPresented: $isVideoEditorPresent) {
-            VideoEditorView(videoFilePath: viewModel.videoFileURL!.path)
-        }
     }
 
     private var reportTab: some View {
         
         VStack {
+
             FormView(viewModel: .init(formUIContainer: $viewModel.formUIContainer, didUpdateMainField: $viewModel.didUpdateMainField))
 
             VStack {
@@ -105,6 +114,7 @@ struct ReportView: View {
                         screenRecordingView
                     }
 
+                    // TODO: - Verify how we add this component after GLEAN integration
                     MainTextField(text: $text, isValid: .constant(true), isEnabled: .constant(true), placeholder: "Comments(optional)", isMultiline: true)
                 }
                 .padding(.xl)
@@ -112,7 +122,7 @@ struct ReportView: View {
 
             VStack {
                 MainButton(text: "Submit Report", type: .action) {
-                    
+                    // TODO: - Add logic once GLEAN is integrated
                 }
 
                 if viewModel.didUpdateMainField {
@@ -124,10 +134,12 @@ struct ReportView: View {
             .padding(.horizontal, .xl)
         }
         .onChange(of: scenePhase) { newPhase in
-            if newPhase == .active {
-                viewModel.loadRecording()
-                print("Active")
+            
+            guard newPhase == .active else {
+                return
             }
+                
+            viewModel.refreshRecording()
         }
     }
 
@@ -152,6 +164,7 @@ struct ReportView: View {
             VStack(spacing: .xl) {
                 screenRecording
                 MainButton(text: "Trim Recording", type: .secondary) {
+                    viewModel.routingState.videoEditor = true
                 }
             }
     }
@@ -163,13 +176,12 @@ struct ReportView: View {
             
             HStack(alignment: .top, spacing: .xl) {
 
+                // TODO: - Find other solution than .settings
                 Image(uiImage: screenRecording.thumbnail ?? .settings)
                     .resizable()
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: 80, height: 80)
-                    .aspectRatio(contentMode: .fit)
-                    .onTapGesture {
-                        self.isVideoEditorPresent = true
-                    }
+                    .clipped()
 
                 VStack(alignment: .leading) {
                     Text("Recorded Video")
@@ -187,14 +199,17 @@ struct ReportView: View {
                         
                     }
 
-                    HStack {
-                        Text("Recorded on: ")
-                            .font(.body4)
-                            .foregroundStyle(.text)
+                    if let recordingDate = screenRecording.recordingDate {
 
-                        Text(screenRecording.recordingDate?.formattedString() ?? "")
-                            .font(.body2)
-                            .foregroundStyle(.text)
+                        HStack {
+                            Text("Recorded on: ")
+                                .font(.body4)
+                                .foregroundStyle(.text)
+                            
+                            Text(recordingDate.formattedDateString() + " at " + recordingDate.formattedTimeString())
+                                .font(.body2)
+                                .foregroundStyle(.text)
+                        }
                     }
                 }
             }
