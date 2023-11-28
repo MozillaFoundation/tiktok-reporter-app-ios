@@ -28,16 +28,17 @@ struct AlertView: View {
                 .opacity(0.5)
                 .ignoresSafeArea()
 
-            VStack(spacing: .xl) {
+            VStack(alignment: .leading, spacing: .xl) {
 
                 Text(title)
                     .font(.heading5)
                     .foregroundStyle(.text)
-                    .padding(.top, .xl)
+                    .padding([.top, .horizontal], .xl)
 
                 Text(description)
                     .font(.body2)
                     .foregroundStyle(.text)
+                    .padding(.horizontal, .xl)
 
                 HStack(spacing: .l) {
                     secondaryButton()

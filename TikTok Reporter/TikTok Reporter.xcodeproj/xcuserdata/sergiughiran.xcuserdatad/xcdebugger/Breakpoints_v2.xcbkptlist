@@ -3,4 +3,86 @@
    uuid = "E36D9C7B-67DA-42E9-9BF4-6044A5F34A8E"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0EE0CBA1-FDFB-4A0E-A1D6-2007AFA41297"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TikTok Reporter/UI/Screens/Main/ReportViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "refreshRecording()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D184B94D-3511-434F-B568-BCA2C1A93A3E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TikTok Reporter/Services/ScreenRecordingService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "loadFromAppGroup()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5D66480C-EE8F-4D21-B324-CA9462C95894"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TikTok Reporter/UI/Views/VideoEditor/VideoEditorView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "videoEditorController(_:didSaveEditedVideoToPath:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5D66480C-EE8F-4D21-B324-CA9462C95894 - e60b95f007de0baf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TikTok_Reporter.VideoEditorDelegate.videoEditorController(_: __C.UIVideoEditorController, didSaveEditedVideoToPath: Swift.String) -&gt; ()"
+                  moduleName = "TikTok Reporter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergiughiran/Projects/TikTokReporter/TikTok%20Reporter/TikTok%20Reporter/UI/Views/VideoEditor/VideoEditorView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "5D66480C-EE8F-4D21-B324-CA9462C95894 - e60b95f007de0baf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TikTok_Reporter.VideoEditorDelegate.videoEditorController(_: __C.UIVideoEditorController, didSaveEditedVideoToPath: Swift.String) -&gt; ()"
+                  moduleName = "TikTok Reporter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergiughiran/Projects/TikTokReporter/TikTok%20Reporter/TikTok%20Reporter/UI/Views/VideoEditor/VideoEditorView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

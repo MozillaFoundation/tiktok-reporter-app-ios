@@ -60,7 +60,9 @@ struct MainButton: View {
     // MARK: - Body
     
     var body: some View {
+
         Button(action: action, label: {
+
             ZStack {
                 Rectangle()
                     .foregroundStyle(type.backgroundColor)
@@ -74,3 +76,8 @@ struct MainButton: View {
     }
 }
 
+// MARK: - Preview
+
+#Preview {
+    MainButton(action: {})
+}

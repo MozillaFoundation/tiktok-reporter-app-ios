@@ -27,6 +27,10 @@ private struct StudiesServiceKey: InjectionKey {
     static var currentValue: StudiesServicing = StudiesService()
 }
 
+private struct ScreenRecordingServiceKey: InjectionKey {
+    static var currentValue: ScreenRecordingServicing = ScreenRecordingService()
+}
+
 // MARK: - Injected Values
 
 extension InjectedValues {
@@ -48,6 +52,11 @@ extension InjectedValues {
     var studiesService: StudiesServicing {
         get { Self[StudiesServiceKey.self] }
         set { Self[StudiesServiceKey.self] = newValue }
+    }
+
+    var screenRecordingService: ScreenRecordingServicing {
+        get { Self[ScreenRecordingServiceKey.self] }
+        set { Self[ScreenRecordingServiceKey.self] = newValue }
     }
 }
 

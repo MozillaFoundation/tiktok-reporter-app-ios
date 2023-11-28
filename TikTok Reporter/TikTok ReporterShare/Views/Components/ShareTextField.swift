@@ -46,8 +46,9 @@ struct ShareTextField: View {
             }
             
             if !isValid {
+
                 HStack {
-                    Text("This field cannot be empty")
+                    Text(Strings.error)
                         .font(.body2)
                         .foregroundStyle(.error)
                     Spacer()
@@ -134,7 +135,14 @@ struct ShareTextField: View {
     }
 }
 
+// MARK: - Preview
+
 #Preview {
     ShareTextField(text: .constant(""), isValid: .constant(true), isEnabled: .constant(true), placeholder: "Placeholder", isMultiline: true)
 }
 
+// MARK: - Strings
+
+private enum Strings {
+    static let error = "This field cannot be empty"
+}
