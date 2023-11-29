@@ -55,6 +55,8 @@ struct AlertView: View {
     }
 }
 
+// MARK: - Preview
+
 #Preview {
     AlertView(isPresented: .constant(true), title: "Title", description: "Description", secondaryButton: { MainButton() {} })
 }

@@ -14,6 +14,7 @@ protocol HTTPClient {
 struct APIClient: HTTPClient {
 
     func perform<T: Decodable>(request: APIRequest) async throws -> T {
+
         let (data, response) = try await URLSession.shared.data(for: request.asURLRequest())
 
         let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 400

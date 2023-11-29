@@ -29,52 +29,54 @@ final class AppStateManager: ObservableObject {
     @Published
     var onboardingFlow: OnboardingFlow? = nil
 
-    // TODO: - Check if it's needed
-    var tikTokLink: String? = nil
-
     private lazy var userDefaults = UserDefaults.standard
-    private lazy var appGroupUserDefaults = UserDefaults(suiteName: "group.org.mozilla.ios.TikTok-Reporter")
 
     // MARK: - Lifecycle
 
     init() {
+
         AppStateKey.allCases.forEach({
+
             switch $0 {
             case .study:
                 self.study = getValue(for: .study)
+
             case .hasAcceptedGeneralTerms:
                 self.hasAcceptedGeneralTerms = getValue(for: .hasAcceptedGeneralTerms) ?? false
+
             case .hasCompletedOnboarding:
                 self.hasCompletedOnboarding = getValue(for: .hasCompletedOnboarding) ?? false
+
             case .emailAddress:
                 self.emailAddress = getValue(for: .emailAddress)
             }
         })
-        
-        self.tikTokLink = getLink()
     }
 
     // MARK: - CRUD
 
     func save<T: Encodable>(_ value: T, for key: AppStateKey) throws {
+
         let data = try JSONEncoder().encode(value)
         userDefaults.setValue(data, forKey: key.rawValue)
-
-        appGroupUserDefaults?.setValue(data, forKey: key.rawValue)
 
         switch key {
         case .study:
             self.study = getValue(for: .study)
+
         case .hasAcceptedGeneralTerms:
             self.hasAcceptedGeneralTerms = getValue(for: .hasAcceptedGeneralTerms) ?? false
+
         case .hasCompletedOnboarding:
             self.hasCompletedOnboarding = getValue(for: .hasCompletedOnboarding) ?? false
+
         case .emailAddress:
             self.emailAddress = getValue(for: .emailAddress)
         }
     }
 
     func clearAll() {
+
         AppStateKey.allCases.forEach {
             userDefaults.removeObject(forKey: $0.rawValue)
         }
@@ -100,21 +102,6 @@ final class AppStateManager: ObservableObject {
         }
     }
 
-    // MARK: - Link
-
-    func clearLink() {
-        self.tikTokLink = nil
-        self.appGroupUserDefaults?.removeObject(forKey: "TikTokLink")
-    }
-
-    func getLink() -> String? {
-        return appGroupUserDefaults?.value(forKey: "TikTokLink") as? String
-    }
-
-    func refreshLink() {
-        self.tikTokLink = appGroupUserDefaults?.value(forKey: "TikTokLink") as? String
-    }
-
     // MARK: - Private Methods
 
     private func getValue<T: Decodable>(for key: AppStateKey) -> T? {
@@ -124,4 +111,10 @@ final class AppStateManager: ObservableObject {
 
         return try? JSONDecoder().decode(T.self, from: data)
     }
+}
+
+// MARK: - Strings
+
+private enum Strings {
+    static let appGroupID = "group.org.mozilla.ios.TikTok-Reporter"
 }

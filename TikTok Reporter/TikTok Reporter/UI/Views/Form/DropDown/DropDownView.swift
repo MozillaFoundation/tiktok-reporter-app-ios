@@ -24,8 +24,10 @@ struct DropDownView: View {
     var body: some View {
 
         Menu {
+
             picker
         } label: {
+
             VStack(alignment: .leading) {
                 pickerLabel
 
@@ -41,7 +43,9 @@ struct DropDownView: View {
     private var picker: some View {
 
         Picker(placeholder, selection: $selected) {
+
             ForEach(options) { option in
+
                 Text(option.title)
                     .tag(option.id)
             }
@@ -54,12 +58,15 @@ struct DropDownView: View {
     private var pickerLabel: some View {
 
             HStack {
+
                 Text(selectedTitle(with: selected))
                     .font(.body1)
                     .foregroundStyle(.text)
                     .padding(.leading, .m)
+
                 Spacer()
-                Image(systemName: "chevron.down")
+
+                Image(.chevronDown)
                     .padding(.trailing, .m)
             }
             .frame(height: 40.0)
@@ -70,7 +77,7 @@ struct DropDownView: View {
     private var errorLabel: some View {
 
         HStack {
-            Text("This field cannot be empty")
+            Text(Strings.errorMessage)
                 .font(.body2)
                 .foregroundStyle(.error)
             Spacer()
@@ -84,6 +91,14 @@ struct DropDownView: View {
     }
 }
 
+// MARK: - Preview
+
 #Preview {
     DropDownView(selected: .constant("Option"), isValid: .constant(true), options: [DropDownOption(id: "1", title: "Option 1"), DropDownOption(id: "2", title: "Option 2")], placeholder: "Category")
+}
+
+// MARK: - Strings
+
+private enum Strings {
+    static let errorMessage = "This field cannot be empty"
 }

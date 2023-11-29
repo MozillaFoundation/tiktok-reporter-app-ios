@@ -9,13 +9,10 @@ import Foundation
 
 enum StudiesAPI: APIRequest {
     case getStudies
-    case getOnboarding(id: String)
 
     var method: APIMethod {
         switch self {
         case .getStudies:
-            return .GET
-        case .getOnboarding:
             return .GET
         }
     }
@@ -24,16 +21,12 @@ enum StudiesAPI: APIRequest {
         switch self {
         case .getStudies:
             return "studies/by-country-code"
-        case let .getOnboarding(id):
-            return "onboarding/".appending(id)
         }
     }
 
     var body: [String : Any]? {
         switch self {
         case .getStudies:
-            return nil
-        case .getOnboarding:
             return nil
         }
     }

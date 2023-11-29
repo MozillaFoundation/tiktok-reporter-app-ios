@@ -16,12 +16,18 @@ struct SettingsRow: View {
     // MARK: - Body
     
     var body: some View {
+
         VStack(spacing: .xl) {
+
             HStack {
+
                 Text(title)
                     .font(.body2)
                     .foregroundStyle(.text)
+
                 Spacer()
+
+                // TODO: - Add correct asset
                 Image(systemName: "chevron.right")
                     .foregroundStyle(.text)
             }
@@ -33,6 +39,8 @@ struct SettingsRow: View {
         .frame(height: 72.0)
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     SettingsRow(title: "ROW")

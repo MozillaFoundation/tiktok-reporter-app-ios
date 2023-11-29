@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-protocol Enabling {
-    var isActive: Bool { get }
-}
-
 struct RadioButtonGroup<Option, RadioButton>: View where Option: Hashable, RadioButton: View {
 
     // MARK: - Properties
@@ -48,6 +44,7 @@ struct RadioButtonGroup<Option, RadioButton>: View where Option: Hashable, Radio
     // MARK: - Methods
 
     private func isDisabled(_ option: Option) -> Bool {
+
         if let enabling = option as? Enabling {
             return !enabling.isActive
         }

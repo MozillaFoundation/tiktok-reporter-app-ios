@@ -7,34 +7,25 @@
 
 import SwiftUI
 
-class VideoEditorDelegate: NSObject, UIVideoEditorControllerDelegate, UINavigationControllerDelegate, ObservableObject {
-    
-    @Binding
-    var trimmedVideoPath: String?
-
-    init(trimmedVideoPath: Binding<String?>) {
-        self._trimmedVideoPath = trimmedVideoPath
-        super.init()
-    }
-
-    func videoEditorController(_ editor: UIVideoEditorController, didSaveEditedVideoToPath editedVideoPath: String) {
-        self.trimmedVideoPath = editedVideoPath
-    }
-}
-
 struct VideoEditorView: UIViewControllerRepresentable {
-    
+
+    // MARK: - Properties
+
     var videoFilePath: String
     @Binding
     var trimmedVideoPath: String?
     @ObservedObject
     private var delegate: VideoEditorDelegate
 
+    // MARK: - Lifecycle
+
     init(videoFilePath: String, trimmedVideoPath: Binding<String?>) {
         self.videoFilePath = videoFilePath
         self._trimmedVideoPath = trimmedVideoPath
         self.delegate = VideoEditorDelegate(trimmedVideoPath: _trimmedVideoPath)
     }
+
+    // MARK: - Methods
 
     func makeUIViewController(context: Context) -> UIVideoEditorController {
         let controller = UIVideoEditorController()
@@ -45,6 +36,5 @@ struct VideoEditorView: UIViewControllerRepresentable {
         return controller
     }
     
-    func updateUIViewController(_ uiViewController: UIVideoEditorController, context: Context) {
-    }
+    func updateUIViewController(_ uiViewController: UIVideoEditorController, context: Context) {}
 }

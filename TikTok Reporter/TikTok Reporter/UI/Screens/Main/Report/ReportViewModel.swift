@@ -8,41 +8,13 @@
 import SwiftUI
 import AVFoundation
 
-
-struct ScreenRecording {
-
-    // MARK: - Properties
-
-    private(set) var asset: AVAsset
-
-    private(set) var thumbnail: UIImage?
-    private(set) var duration: CMTime = .zero
-    private(set) var recordingDate: Date? = nil
-
-    // MARK: - Lifecycle
-
-    init(asset: AVAsset) {
-        self.asset = asset
-    }
-
-    // MARK: - Methods
-
-    mutating func loadMetadata() async throws {
-        self.duration = try await asset.load(.duration)
-        self.recordingDate = try await asset.load(.creationDate)?.load(.dateValue)
-    }
-
-    mutating func setThumbnail(_ thumbnail: UIImage) {
-        self.thumbnail = thumbnail
-    }
-}
-
 extension ReportView {
 
     // MARK: - Routing
 
     struct Routing {
         var videoEditor: Bool = false
+        var submissionResult: Bool = false
     }
     
     // MARK: - ViewModel
@@ -64,6 +36,10 @@ extension ReportView {
         var screenRecordingURL: URL? {
             screenRecordingService.localURL
         }
+
+        var hasScreenRecording: Bool {
+            return tabs.contains(.recordSession)
+        }
         
         @Published
         var state: PresentationState = .success
@@ -83,8 +59,7 @@ extension ReportView {
         @Published
         var trimmedVideoPath: String?
         
-        // TODO: - Check if study supports record feature
-        var tabs = ["Report a link", "Record a session"]
+        var tabs: [FormTab]
         
         // MARK: - Lifecycle
         
@@ -94,8 +69,17 @@ extension ReportView {
             self.appState = appState
             
             self.formUIContainer = FormUIMapper.map(form: form)
+            self.tabs = [.reportLink]
+
+            if let study = appState.study, study.supportsRecording {
+                tabs.append(.recordSession)
+            }
             
             self.load()
+
+            guard tabs.contains(.recordSession) else {
+                return
+            }
 
             if let asset = try? screenRecordingService.loadRecording() {
                 self.setupScreenRecording(with: asset)
@@ -142,35 +126,6 @@ extension ReportView {
             }
 
             setupScreenRecording(with: asset)
-            
-//            guard
-//                screenRecording == nil,
-//                let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.org.mozilla.ios.TikTok-Reporter")?.appendingPathComponent("Library/Documents/screenRecording.mp4"),
-//                let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-//            else {
-//                assertionFailure("Either AppGroup or Documents directory not found.")
-//                return
-//            }
-//            
-//            do {
-//                
-//                guard FileManager.default.fileExists(atPath: containerURL.path) else {
-//                    return
-//                }
-//                
-//                let destinationURL = documentsURL.appendingPathComponent("screenRecording.mp4")
-//                
-//                try FileManager.default.removeItem(at: destinationURL)
-//                try FileManager.default.copyItem(at: containerURL, to: destinationURL)
-//                try FileManager.default.removeItem(at: containerURL)
-//                
-//                self.videoFileURL = destinationURL
-//                
-//                try loadScreenRecording(at: destinationURL)
-//            } catch {
-//                print("Error when copying file to local sandbox.")
-//                state = .failed
-//            }
         }
 
         func updateScreenRecording() {
@@ -221,9 +176,6 @@ extension ReportView {
             formUIContainer.items[0].isEnabled = true
             
             didUpdateMainField = false
-
-            // TODO: - Check if it's still needed
-            appState.clearLink()
         }
         
         func cancelRecording() {

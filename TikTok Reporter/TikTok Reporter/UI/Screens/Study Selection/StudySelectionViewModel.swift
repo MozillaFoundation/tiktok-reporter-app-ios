@@ -82,7 +82,8 @@ extension StudySelectionView {
                             selected = studies.first(where: { $0.isActive })
                         }
 
-                        state = .success
+//                        state = .success
+                        state = .failed
                     }
                 } catch let error {
                     // TODO: - Handle error

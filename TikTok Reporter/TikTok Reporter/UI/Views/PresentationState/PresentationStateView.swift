@@ -13,6 +13,8 @@ struct PresentationStateView<ViewModel: PresentationStateObject, Content: View>:
 
     @ObservedObject
     private var viewModel: ViewModel
+    @State
+    private var shouldReload: Bool = false
 
     private var content: Content
 
@@ -31,14 +33,25 @@ struct PresentationStateView<ViewModel: PresentationStateObject, Content: View>:
 
             switch viewModel.state {
             case .failed:
-                // TODO: - Add error
-                Text("Error")
+
+                ErrorView(shouldReload: $shouldReload)
+                    .onChange(of: shouldReload) { shouldReload in
+                        guard shouldReload else {
+                            return
+                        }
+
+                        viewModel.load()
+                        self.shouldReload = false
+                    }
             case .idle:
+
                 IdleView()
             case .loading:
+
                 LoadingView()
                     .frame(width: reader.size.width, height: reader.size.height)
             case .success:
+
                 content
                     .frame(width: reader.size.width)
             }

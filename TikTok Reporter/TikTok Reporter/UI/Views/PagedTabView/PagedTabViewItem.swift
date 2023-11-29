@@ -24,14 +24,18 @@ struct PagedTabViewItem: View {
     var body: some View {
         
         Button(action: {
+
             withAnimation {
                 selectedTab = tab
             }
         }, label: {
+
             VStack {
+
                 Text(title)
                     .font(.body3)
                     .foregroundStyle(selectedTab == tab ? .text : .disabled)
+
                 if selectedTab == tab {
                     Capsule()
                         .foregroundStyle(.basicRed)
@@ -50,9 +54,3 @@ struct PagedTabViewItem: View {
         .animation(.spring, value: selectedTab)
     }
 }
-
-// MARK: - Preview
-
-//#Preview {
-//    PagedTabViewItem(selectedTab: .constant(0), title: "Report a link", tab: 0)
-//}
