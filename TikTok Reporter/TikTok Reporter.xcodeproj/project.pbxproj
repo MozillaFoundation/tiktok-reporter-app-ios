@@ -15,6 +15,9 @@
 		684A23E82B177682001B83AA /* ZillaSlab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 684A23E52B177681001B83AA /* ZillaSlab-Bold.ttf */; };
 		684A23E92B177682001B83AA /* ZillaSlab-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 684A23E62B177681001B83AA /* ZillaSlab-Light.ttf */; };
 		684A23EB2B177698001B83AA /* NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 684A23EA2B177698001B83AA /* NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf */; };
+		684A23ED2B178D93001B83AA /* FormTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684A23EC2B178D93001B83AA /* FormTab.swift */; };
+		684A23F02B178F12001B83AA /* SubmissionSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684A23EF2B178F12001B83AA /* SubmissionSuccessView.swift */; };
+		684A23F22B17922D001B83AA /* ScreenRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684A23F12B17922D001B83AA /* ScreenRecording.swift */; };
 		6858A6942B0E694A0076A91A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6858A6932B0E69490076A91A /* ReplayKit.framework */; };
 		6858A6972B0E694A0076A91A /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858A6962B0E694A0076A91A /* SampleHandler.swift */; };
 		6858A69E2B0E694A0076A91A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6858A6932B0E69490076A91A /* ReplayKit.framework */; };
@@ -182,6 +185,9 @@
 		684A23E52B177681001B83AA /* ZillaSlab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZillaSlab-Bold.ttf"; sourceTree = "<group>"; };
 		684A23E62B177681001B83AA /* ZillaSlab-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZillaSlab-Light.ttf"; sourceTree = "<group>"; };
 		684A23EA2B177698001B83AA /* NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf"; sourceTree = "<group>"; };
+		684A23EC2B178D93001B83AA /* FormTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTab.swift; sourceTree = "<group>"; };
+		684A23EF2B178F12001B83AA /* SubmissionSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionSuccessView.swift; sourceTree = "<group>"; };
+		684A23F12B17922D001B83AA /* ScreenRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRecording.swift; sourceTree = "<group>"; };
 		6858A6912B0E69490076A91A /* TikTok ReporterScreenCapture.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TikTok ReporterScreenCapture.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6858A6932B0E69490076A91A /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		6858A6962B0E694A0076A91A /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
@@ -360,6 +366,30 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		684A23EE2B178EEF001B83AA /* SubmissionSuccessView */ = {
+			isa = PBXGroup;
+			children = (
+				684A23EF2B178F12001B83AA /* SubmissionSuccessView.swift */,
+			);
+			path = SubmissionSuccessView;
+			sourceTree = "<group>";
+		};
+		684A23F32B1792EA001B83AA /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				685F304A2B027DB400D585C3 /* ReportView.swift */,
+				685F304C2B02B56700D585C3 /* ReportViewModel.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		684A23F42B1792F1001B83AA /* Record */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
 		6858A6922B0E69490076A91A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,8 +438,8 @@
 		685F30442B026AA600D585C3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				685F304A2B027DB400D585C3 /* ReportView.swift */,
-				685F304C2B02B56700D585C3 /* ReportViewModel.swift */,
+				684A23F42B1792F1001B83AA /* Record */,
+				684A23F32B1792EA001B83AA /* Report */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -557,6 +587,7 @@
 		689FF0102AF176D400C9FE51 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				684A23EE2B178EEF001B83AA /* SubmissionSuccessView */,
 				68014FBE2B150457005DE2E2 /* VideoEditor */,
 				68C885FE2B0F8F180022043E /* BroadcastPicker */,
 				685F30522B02C44400D585C3 /* Settings Row */,
@@ -583,6 +614,8 @@
 				689FF05B2AF3E7E600C9FE51 /* Onboarding.swift */,
 				689FF0862AFD379200C9FE51 /* FormUIRepresentable.swift */,
 				688371692B06B49800542EC7 /* OnboardingFlow.swift */,
+				684A23EC2B178D93001B83AA /* FormTab.swift */,
+				684A23F12B17922D001B83AA /* ScreenRecording.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1157,6 +1190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				685F30472B02799600D585C3 /* PagedTabView.swift in Sources */,
+				684A23ED2B178D93001B83AA /* FormTab.swift in Sources */,
 				685F30492B027A1B00D585C3 /* PagedTabViewItem.swift in Sources */,
 				689FF0772AFACBFE00C9FE51 /* FormView.swift in Sources */,
 				689FF01B2AF193D200C9FE51 /* CGFloat+Spacing.swift in Sources */,
@@ -1164,6 +1198,7 @@
 				689FF0752AFA2C9200C9FE51 /* OnboardingFormView.swift in Sources */,
 				689FF0622AF5153200C9FE51 /* RadioButton.swift in Sources */,
 				689FF0852AFCE86700C9FE51 /* DropDownView.swift in Sources */,
+				684A23F22B17922D001B83AA /* ScreenRecording.swift in Sources */,
 				689FF03B2AF297E100C9FE51 /* InjectionKey.swift in Sources */,
 				681A89F62B16934200FD1CAB /* Enabling.swift in Sources */,
 				68C886002B0F8F280022043E /* BroadcastPicker.swift in Sources */,
@@ -1205,6 +1240,7 @@
 				689FF0192AF17EBD00C9FE51 /* CustomAlertModifier.swift in Sources */,
 				689FF04C2AF300C000C9FE51 /* PresentationStateView.swift in Sources */,
 				689FF0222AF259F400C9FE51 /* PolicyViewModel.swift in Sources */,
+				684A23F02B178F12001B83AA /* SubmissionSuccessView.swift in Sources */,
 				689FF0722AF977E200C9FE51 /* MainTextField.swift in Sources */,
 				681A89F82B176EB000FD1CAB /* ErrorView.swift in Sources */,
 				6883716A2B06B49800542EC7 /* OnboardingFlow.swift in Sources */,

@@ -51,6 +51,7 @@ struct ReportView: View {
                         }
 
                         self.viewModel.updateScreenRecording()
+                        self.viewModel.routingState.videoEditor = false
                     }
             }
         }
@@ -62,38 +63,51 @@ struct ReportView: View {
 
         VStack {
 
-            PagedTabView(selectedTab: $viewModel.selectedTab, tabs: viewModel.tabs)
+            PagedTabView(selectedTab: $viewModel.selectedTab, tabs: viewModel.tabs.compactMap({ $0.tabTitle }))
                 .background(.white)
 
             TabView(selection: $viewModel.selectedTab) {
+
                 reportTab
                     .tag(0)
-                recordTab
-                    .tag(1)
+
+                if viewModel.hasScreenRecording {
+                    recordTab
+                        .tag(1)
+                }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
         }
     }
 
+    @ViewBuilder
     private var reportTab: some View {
         
-        VStack {
+        if viewModel.routingState.submissionResult {
 
-            FormView(viewModel: .init(formUIContainer: $viewModel.formUIContainer, didUpdateMainField: $viewModel.didUpdateMainField))
+            SubmissionSuccessView(isPresented: $viewModel.routingState.submissionResult)
+        } else {
 
             VStack {
-                MainButton(text: "Submit Report", type: .action) {
-                    let isValid = viewModel.formUIContainer.validate()
-                    print(isValid)
-                }
-            
-                if viewModel.didUpdateMainField {
-                    MainButton(text: "Cancel Report", type: .secondary) {
-                        viewModel.cancelReport()
+                
+                FormView(viewModel: .init(formUIContainer: $viewModel.formUIContainer, didUpdateMainField: $viewModel.didUpdateMainField))
+                
+                VStack {
+                    
+                    MainButton(text: Strings.submitTitle, type: .action) {
+                        let isValid = viewModel.formUIContainer.validate()
+                        // TODO: - Send report to GLEAN
+                        viewModel.routingState.submissionResult = true
+                    }
+                    
+                    if viewModel.didUpdateMainField {
+                        MainButton(text: Strings.cancelTitle, type: .secondary) {
+                            viewModel.cancelReport()
+                        }
                     }
                 }
+                .padding(.horizontal, .xl)
             }
-            .padding(.horizontal, .xl)
         }
     }
 
@@ -104,6 +118,7 @@ struct ReportView: View {
             ScrollView {
 
                 VStack(alignment: .leading, spacing: .xl) {
+                    // TODO: - Add string update on video loaded
                     Text("To start screen recording, tap the button below. Then, open your TikTok app and record your session while you scroll the FYP. To stop recording, press the timer. You’ll be asked to share more information and submit this form.")
                         .font(.body2)
                         .foregroundStyle(.text)
@@ -121,12 +136,12 @@ struct ReportView: View {
             }
 
             VStack {
-                MainButton(text: "Submit Report", type: .action) {
+                MainButton(text: Strings.submitTitle, type: .action) {
                     // TODO: - Add logic once GLEAN is integrated
                 }
 
                 if viewModel.didUpdateMainField {
-                    MainButton(text: "Cancel Report", type: .secondary) {
+                    MainButton(text: Strings.cancelTitle, type: .secondary) {
                         viewModel.cancelRecording()
                     }
                 }
@@ -146,7 +161,7 @@ struct ReportView: View {
     private var recordScreenView: some View {
 
         VStack(alignment: .center, spacing: .l) {
-            Text("Record a TikTok session")
+            Text(Strings.recordTitle)
                 .font(.heading5)
             
             ZStack {
@@ -163,7 +178,7 @@ struct ReportView: View {
 
             VStack(spacing: .xl) {
                 screenRecording
-                MainButton(text: "Trim Recording", type: .secondary) {
+                MainButton(text: Strings.trimTitle, type: .secondary) {
                     viewModel.routingState.videoEditor = true
                 }
             }
@@ -184,12 +199,12 @@ struct ReportView: View {
                     .clipped()
 
                 VStack(alignment: .leading) {
-                    Text("Recorded Video")
+                    Text(Strings.recordedVideo)
                         .font(.body4)
                         .foregroundStyle(.text)
 
                     HStack {
-                        Text("Duration: ")
+                        Text(Strings.duration)
                             .font(.body4)
                             .foregroundStyle(.text)
 
@@ -202,7 +217,7 @@ struct ReportView: View {
                     if let recordingDate = screenRecording.recordingDate {
 
                         HStack {
-                            Text("Recorded on: ")
+                            Text(Strings.recordingDate)
                                 .font(.body4)
                                 .foregroundStyle(.text)
                             
@@ -217,6 +232,20 @@ struct ReportView: View {
     }
 }
 
+// MARK: - Preview
+
 #Preview {
     ReportView(viewModel: .init(form: PreviewHelper.mockReportForm, appState: AppStateManager()))
+}
+
+// MARK: - Strings
+
+private enum Strings {
+    static let submitTitle = "Submit Report"
+    static let cancelTitle = "Cancel Report"
+    static let recordTitle = "Record a TikTok session"
+    static let trimTitle = "Trim Recording"
+    static let recordedVideo = "Recorded Video"
+    static let duration = "Duration:"
+    static let recordingDate = "Recorded on:"
 }
