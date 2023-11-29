@@ -11,6 +11,10 @@
 		681A89F42B16904F00FD1CAB /* VideoEditorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681A89F32B16904F00FD1CAB /* VideoEditorDelegate.swift */; };
 		681A89F62B16934200FD1CAB /* Enabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681A89F52B16934200FD1CAB /* Enabling.swift */; };
 		681A89F82B176EB000FD1CAB /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681A89F72B176EB000FD1CAB /* ErrorView.swift */; };
+		684A23E72B177682001B83AA /* ZillaSlab-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 684A23E42B177681001B83AA /* ZillaSlab-Regular.ttf */; };
+		684A23E82B177682001B83AA /* ZillaSlab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 684A23E52B177681001B83AA /* ZillaSlab-Bold.ttf */; };
+		684A23E92B177682001B83AA /* ZillaSlab-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 684A23E62B177681001B83AA /* ZillaSlab-Light.ttf */; };
+		684A23EB2B177698001B83AA /* NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 684A23EA2B177698001B83AA /* NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf */; };
 		6858A6942B0E694A0076A91A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6858A6932B0E69490076A91A /* ReplayKit.framework */; };
 		6858A6972B0E694A0076A91A /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858A6962B0E694A0076A91A /* SampleHandler.swift */; };
 		6858A69E2B0E694A0076A91A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6858A6932B0E69490076A91A /* ReplayKit.framework */; };
@@ -174,6 +178,10 @@
 		681A89F72B176EB000FD1CAB /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		683A20442B0BB70F006F8AE5 /* TikTok Reporter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TikTok Reporter.entitlements"; sourceTree = "<group>"; };
 		683A20452B0BB7A7006F8AE5 /* TikTok ReporterShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TikTok ReporterShare.entitlements"; sourceTree = "<group>"; };
+		684A23E42B177681001B83AA /* ZillaSlab-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZillaSlab-Regular.ttf"; sourceTree = "<group>"; };
+		684A23E52B177681001B83AA /* ZillaSlab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZillaSlab-Bold.ttf"; sourceTree = "<group>"; };
+		684A23E62B177681001B83AA /* ZillaSlab-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZillaSlab-Light.ttf"; sourceTree = "<group>"; };
+		684A23EA2B177698001B83AA /* NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf"; sourceTree = "<group>"; };
 		6858A6912B0E69490076A91A /* TikTok ReporterScreenCapture.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TikTok ReporterScreenCapture.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6858A6932B0E69490076A91A /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		6858A6962B0E694A0076A91A /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
@@ -341,6 +349,17 @@
 			path = VideoEditor;
 			sourceTree = "<group>";
 		};
+		684A23E32B17765C001B83AA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				684A23EA2B177698001B83AA /* NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf */,
+				684A23E52B177681001B83AA /* ZillaSlab-Bold.ttf */,
+				684A23E62B177681001B83AA /* ZillaSlab-Light.ttf */,
+				684A23E42B177681001B83AA /* ZillaSlab-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		6858A6922B0E69490076A91A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +488,7 @@
 		688CA46A2B0CC14C001A7BBE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				684A23E32B17765C001B83AA /* Fonts */,
 				688CA46B2B0CC164001A7BBE /* Colors.xcassets */,
 				688CA4902B0CEB35001A7BBE /* Images.xcassets */,
 			);
@@ -1104,8 +1124,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				684A23E72B177682001B83AA /* ZillaSlab-Regular.ttf in Resources */,
+				684A23E92B177682001B83AA /* ZillaSlab-Light.ttf in Resources */,
 				688CA46C2B0CC164001A7BBE /* Colors.xcassets in Resources */,
+				684A23E82B177682001B83AA /* ZillaSlab-Bold.ttf in Resources */,
 				688CA4912B0CEB35001A7BBE /* Images.xcassets in Resources */,
+				684A23EB2B177698001B83AA /* NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1691,6 +1715,7 @@
 				INFOPLIST_FILE = "TikTok ReporterShare/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "TikTok ReporterShare";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1722,6 +1747,7 @@
 				INFOPLIST_FILE = "TikTok ReporterShare/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "TikTok ReporterShare";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

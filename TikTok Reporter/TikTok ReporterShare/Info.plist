@@ -24,5 +24,12 @@
 		<key>NSExtensionPrincipalClass</key>
 		<string>ShareViewController</string>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>ZillaSlab-Bold.ttf</string>
+		<string>ZillaSlab-Regular.ttf</string>
+		<string>ZillaSlab-Light.ttf</string>
+		<string>NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf</string>
+	</array>
 </dict>
 </plist>
