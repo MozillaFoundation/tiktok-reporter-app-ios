@@ -47,7 +47,7 @@ struct MainTextField: View {
             
             if !isValid {
                 HStack {
-                    Text("This field cannot be empty")
+                    Text(Strings.errorMessage)
                         .font(.body2)
                         .foregroundStyle(.error)
                     Spacer()
@@ -134,6 +134,14 @@ struct MainTextField: View {
     }
 }
 
+// MARK: - Preview
+
 #Preview {
     MainTextField(text: .constant(""), isValid: .constant(true), isEnabled: .constant(true), placeholder: "Placeholder", isMultiline: true)
+}
+
+// MARK: - Strings
+
+private enum Strings {
+    static let errorMessage = "This field cannot be empty"
 }

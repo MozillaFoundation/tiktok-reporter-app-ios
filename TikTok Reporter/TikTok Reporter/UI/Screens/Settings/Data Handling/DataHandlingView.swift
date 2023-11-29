@@ -28,15 +28,15 @@ struct DataHandlingView: View {
 
         VStack(alignment: .leading, spacing: .xl) {
 
-            Text("Data Handling")
+            Text(Strings.title)
                 .font(.heading3)
                 .foregroundStyle(.text)
 
             VStack(spacing: .m) {
 
-                MainButton(text: "Download My Data", type: .secondary) {
+                MainButton(text: Strings.downloadTitle, type: .secondary) {
                 }
-                MainButton(text: "Delete My Data", type: .secondary) {
+                MainButton(text: Strings.deleteTitle, type: .secondary) {
                 }
             }
 
@@ -46,6 +46,16 @@ struct DataHandlingView: View {
     }
 }
 
+// MARK: - Preview
+
 #Preview {
     DataHandlingView()
+}
+
+// MARK: - Strings
+
+private enum Strings {
+    static let title = "Data Handling"
+    static let downloadTitle = "Download My Data"
+    static let deleteTitle = "Delete My Data"
 }

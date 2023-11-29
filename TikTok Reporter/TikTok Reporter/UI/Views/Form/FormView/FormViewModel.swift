@@ -8,17 +8,6 @@
 import SwiftUI
 
 extension FormView {
-    
-    struct FormAction: Identifiable {
-        var id: String {
-            title
-        }
-        var title: String
-        var action: () -> ()
-        var buttonType: ButtonType
-        var shouldValidate: Bool
-        var isAlwaysVisible: Bool
-    }
 
     // MARK: - ViewModel
 
@@ -36,19 +25,21 @@ extension FormView {
     
         private lazy var otherField: FormUIRepresentable = {
 
-            return FormUIRepresentable(formItem: FormItem(id: "", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: "Suggest a category", maxLines: 1, multiline: false))))
+            return FormUIRepresentable(formItem: FormItem(id: "", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: Strings.otherFieldTitle, maxLines: 1, multiline: false))))
         }()
 
         // MARK: - Lifecycle
 
         init(formUIContainer: Binding<FormUIContainer>, didUpdateMainField: Binding<Bool>) {
+
             self._formUIContainer = formUIContainer
             self._didUpdateMainField = didUpdateMainField
 
             self.formUIContainer.items.forEach { formItem in
+
                 if case let .dropDown(fieldItem) = formItem.formItem.field, fieldItem.hasOtherOption {
                     self.otherFieldId = formItem.id
-                    self.otherId = fieldItem.options.first(where: { $0.title.lowercased() == "other" })?.id
+                    self.otherId = fieldItem.options.first(where: { $0.title.lowercased() == Strings.otherTitle })?.id
                 }
             }
         }
@@ -56,6 +47,7 @@ extension FormView {
         // MARK: - Methods
 
         func insertOther() {
+
             guard
                 let otherFieldId = otherFieldId,
                 let dropDownIndex = formUIContainer.items.firstIndex(where: { $0.formItem.id == otherFieldId })
@@ -67,6 +59,7 @@ extension FormView {
         }
 
         func removeOther() {
+            // TODO: - Check bug where the other field is not removed when it's text property isn't empty
             guard let otherFieldIndex = formUIContainer.items.firstIndex(of: otherField) else {
                 return
             }
@@ -74,4 +67,11 @@ extension FormView {
             formUIContainer.items.remove(at: otherFieldIndex)
         }
     }
+}
+
+// MARK: - Strings
+
+private enum Strings {
+    static let otherFieldTitle = "Suggest a category"
+    static let otherTitle = "other"
 }

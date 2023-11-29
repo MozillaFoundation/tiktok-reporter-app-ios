@@ -21,7 +21,9 @@ struct PagedTabView: View {
     // MARK: - Body
 
     var body: some View {
+
         HStack {
+
             ForEach(Array(zip(tabs.indices, tabs)), id: \.0) { tab, title in
                 PagedTabViewItem(selectedTab: $selectedTab, title: title, tab: tab, namespace: namespace.self)
             }

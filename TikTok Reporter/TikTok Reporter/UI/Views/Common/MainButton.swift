@@ -60,11 +60,15 @@ struct MainButton: View {
     // MARK: - Body
     
     var body: some View {
+
         Button(action: action, label: {
+
             ZStack {
+
                 Rectangle()
                     .foregroundStyle(type.backgroundColor)
                     .border(type.borderColor, width: 2)
+
                 Text(text)
                     .font(.body3)
                     .foregroundStyle(type.foregroundColor)

@@ -40,29 +40,35 @@ struct OnboardingPageView: View {
     // MARK: - Views
 
     private var title: some View {
+
         Text(onboardingStep.title)
             .font(.heading3)
             .foregroundStyle(.text)
     }
 
     private var subtitle: some View {
+
         Text(onboardingStep.subtitle)
             .font(.heading5)
             .foregroundStyle(.basicRed)
     }
 
     private var description: some View {
+
         Text(onboardingStep.description)
             .font(.body1)
             .foregroundStyle(.text)
     }
 
     private var image: some View {
+
         AsyncImage(url: URL(string: onboardingStep.imageUrl)!) { image in
+
             image
                 .resizable()
                 .aspectRatio(contentMode: .fit)
         } placeholder: {
+
             ProgressView()
                 .progressViewStyle(CircularProgressViewStyle())
                 .scaleEffect(2.0, anchor: .center)
@@ -72,11 +78,14 @@ struct OnboardingPageView: View {
     }
 
     private var details: some View {
+
         Text(onboardingStep.details!)
             .font(.body2)
             .foregroundStyle(.text)
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     OnboardingPageView(onboardingStep:

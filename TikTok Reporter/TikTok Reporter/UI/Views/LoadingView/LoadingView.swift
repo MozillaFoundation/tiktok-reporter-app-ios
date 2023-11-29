@@ -23,6 +23,8 @@ struct LoadingView: View {
     }
 }
 
+// MARK: - Preview
+
 #Preview {
     LoadingView()
 }

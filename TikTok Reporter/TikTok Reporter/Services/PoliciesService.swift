@@ -21,6 +21,7 @@ final class PoliciesService: PoliciesServicing {
     // MARK: - Methods
 
     func getTermsAndConditions() async throws -> Policy? {
+
         let policies: [Policy] = try await apiClient.perform(request: PoliciesAPI.getAppPolicies)
         return policies.first(where: { $0.type == .termsOfService })
     }

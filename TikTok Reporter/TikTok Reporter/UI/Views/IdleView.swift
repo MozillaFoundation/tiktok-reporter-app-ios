@@ -12,13 +12,18 @@ struct IdleView: View {
     // MARK: - Body
 
     var body: some View {
+
         ScrollView {
+
             VStack(spacing: .xl) {
+
                 Image(.empty)
-                Text("No studies available")
+
+                Text(Strings.title)
                     .font(.heading3)
                     .foregroundStyle(.text)
-                Text("We are sorry to announce that there are no studies available for your location.\n\n Come back at a later date to check if any new study has been opened.")
+
+                Text(Strings.description)
                     .font(.heading5)
                     .multilineTextAlignment(.center)
                     .foregroundStyle(.text)
@@ -32,4 +37,11 @@ struct IdleView: View {
 
 #Preview {
     IdleView()
+}
+
+// MARK: - Strings
+
+private enum Strings {
+    static let title = "No studies available"
+    static let description = "We are sorry to announce that there are no studies available for your location.\n\n Come back at a later date to check if any new study has been opened."
 }

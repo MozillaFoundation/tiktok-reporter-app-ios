@@ -37,6 +37,7 @@ struct RadioButton: View {
                 Circle()
                     .frame(width: 20, height: 20)
                     .foregroundStyle(isActive ? .control : .inactive)
+
                 Circle()
                     .frame(width: 8, height: 8)
                     .foregroundStyle(.invertedText)
@@ -56,6 +57,7 @@ struct RadioButton: View {
                 .font(.body1)
                 .foregroundStyle(isActive ? .text : .inactive)
                 .multilineTextAlignment(.leading)
+
             Text(description)
                 .font(.body2)
                 .foregroundStyle(isActive ? .text : .inactive)
@@ -63,6 +65,8 @@ struct RadioButton: View {
         }
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     RadioButton(title: "Button", description: "This is a radio button", isActive: false, isSelected: true)

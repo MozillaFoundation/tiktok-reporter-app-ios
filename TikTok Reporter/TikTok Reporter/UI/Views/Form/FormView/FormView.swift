@@ -19,7 +19,9 @@ struct FormView: View {
     var body: some View {
         
         VStack {
+
             ScrollView {
+
                 VStack(alignment: .leading, spacing: .xl) {
                     formItems
                 }
@@ -69,6 +71,7 @@ struct FormView: View {
                     
                     DropDownView(selected: $field.stringValue, isValid: $field.isValid, options: fieldInfo.options, placeholder: fieldInfo.placeholder)
                         .onChange(of: field.stringValue) { selected in
+
                             guard let otherId = viewModel.otherId, selected == otherId else {
                                 viewModel.removeOther()
                                 return
@@ -90,6 +93,8 @@ struct FormView: View {
         }
     }
 }
+
+// MARK: - Preview
     
 #Preview {
     FormView(viewModel: .init(formUIContainer: .constant(FormUIMapper.map(form: PreviewHelper.mockReportForm)), didUpdateMainField: .constant(false)))

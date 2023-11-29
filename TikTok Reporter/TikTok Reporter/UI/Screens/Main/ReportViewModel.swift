@@ -221,9 +221,6 @@ extension ReportView {
             formUIContainer.items[0].isEnabled = true
             
             didUpdateMainField = false
-
-            // TODO: - Check if it's still needed
-            appState.clearLink()
         }
         
         func cancelRecording() {

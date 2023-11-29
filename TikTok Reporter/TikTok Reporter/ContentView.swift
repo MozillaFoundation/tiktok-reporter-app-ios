@@ -27,6 +27,7 @@ struct ContentView: View {
     
     @ViewBuilder
     private var content: some View {
+
         if !appState.hasAcceptedGeneralTerms {
             
             PolicyView(viewModel: .init(appState: appState))
