@@ -18,6 +18,9 @@
 		684A23ED2B178D93001B83AA /* FormTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684A23EC2B178D93001B83AA /* FormTab.swift */; };
 		684A23F02B178F12001B83AA /* SubmissionSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684A23EF2B178F12001B83AA /* SubmissionSuccessView.swift */; };
 		684A23F22B17922D001B83AA /* ScreenRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684A23F12B17922D001B83AA /* ScreenRecording.swift */; };
+		684E2F2C2B1F2636006A05C8 /* Glean in Frameworks */ = {isa = PBXBuildFile; productRef = 684E2F2B2B1F2636006A05C8 /* Glean */; };
+		684E2F2E2B1F2645006A05C8 /* Glean in Frameworks */ = {isa = PBXBuildFile; productRef = 684E2F2D2B1F2645006A05C8 /* Glean */; };
+		684E2F312B1F2773006A05C8 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E2F302B1F2773006A05C8 /* Metrics.swift */; };
 		6858A6942B0E694A0076A91A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6858A6932B0E69490076A91A /* ReplayKit.framework */; };
 		6858A6972B0E694A0076A91A /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858A6962B0E694A0076A91A /* SampleHandler.swift */; };
 		6858A69E2B0E694A0076A91A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6858A6932B0E69490076A91A /* ReplayKit.framework */; };
@@ -188,6 +191,7 @@
 		684A23EC2B178D93001B83AA /* FormTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTab.swift; sourceTree = "<group>"; };
 		684A23EF2B178F12001B83AA /* SubmissionSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionSuccessView.swift; sourceTree = "<group>"; };
 		684A23F12B17922D001B83AA /* ScreenRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRecording.swift; sourceTree = "<group>"; };
+		684E2F302B1F2773006A05C8 /* Metrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		6858A6912B0E69490076A91A /* TikTok ReporterScreenCapture.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TikTok ReporterScreenCapture.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6858A6932B0E69490076A91A /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		6858A6962B0E694A0076A91A /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
@@ -319,6 +323,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				684E2F2C2B1F2636006A05C8 /* Glean in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +345,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				684E2F2E2B1F2645006A05C8 /* Glean in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +394,14 @@
 			children = (
 			);
 			path = Record;
+			sourceTree = "<group>";
+		};
+		684E2F2F2B1F2773006A05C8 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				684E2F302B1F2773006A05C8 /* Metrics.swift */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		6858A6922B0E69490076A91A /* Frameworks */ = {
@@ -852,6 +866,7 @@
 		68CBF9672AEB9F2F006D03FC /* TikTok Reporter */ = {
 			isa = PBXGroup;
 			children = (
+				684E2F2F2B1F2773006A05C8 /* Generated */,
 				683A20442B0BB70F006F8AE5 /* TikTok Reporter.entitlements */,
 				689FF08B2AFD4EBD00C9FE51 /* Managers */,
 				689FF0882AFD410700C9FE51 /* Helpers */,
@@ -989,6 +1004,7 @@
 				68CBF9622AEB9F2F006D03FC /* Frameworks */,
 				68CBF9632AEB9F2F006D03FC /* Resources */,
 				68FA99582B0BA34400D65D43 /* Embed Foundation Extensions */,
+				684E2F322B1F2795006A05C8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -998,6 +1014,9 @@
 				6858A6A92B0E694A0076A91A /* PBXTargetDependency */,
 			);
 			name = "TikTok Reporter";
+			packageProductDependencies = (
+				684E2F2B2B1F2636006A05C8 /* Glean */,
+			);
 			productName = "TikTok Reporter";
 			productReference = 68CBF9652AEB9F2F006D03FC /* TikTok Reporter.app */;
 			productType = "com.apple.product-type.application";
@@ -1051,6 +1070,9 @@
 			dependencies = (
 			);
 			name = "TikTok ReporterShare";
+			packageProductDependencies = (
+				684E2F2D2B1F2645006A05C8 /* Glean */,
+			);
 			productName = "TikTok ReporterShare";
 			productReference = 68FA994D2B0BA34400D65D43 /* TikTok ReporterShare.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -1096,6 +1118,9 @@
 				Base,
 			);
 			mainGroup = 68CBF95C2AEB9F2F006D03FC;
+			packageReferences = (
+				684E2F2A2B1F2636006A05C8 /* XCRemoteSwiftPackageReference "glean-swift" */,
+			);
 			productRefGroup = 68CBF9662AEB9F2F006D03FC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1168,6 +1193,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		684E2F322B1F2795006A05C8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/metrics.yaml",
+				"$(SRCROOT)/pings.yaml",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/TikTok\\ Reporter/Generated/Metrics.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nbash \"$PWD/sdk_generator.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6858A68D2B0E69490076A91A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1196,6 +1244,7 @@
 				689FF01B2AF193D200C9FE51 /* CGFloat+Spacing.swift in Sources */,
 				689FF0872AFD379200C9FE51 /* FormUIRepresentable.swift in Sources */,
 				689FF0752AFA2C9200C9FE51 /* OnboardingFormView.swift in Sources */,
+				684E2F312B1F2773006A05C8 /* Metrics.swift in Sources */,
 				689FF0622AF5153200C9FE51 /* RadioButton.swift in Sources */,
 				689FF0852AFCE86700C9FE51 /* DropDownView.swift in Sources */,
 				684A23F22B17922D001B83AA /* ScreenRecording.swift in Sources */,
@@ -1580,6 +1629,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"TikTok Reporter/Preview Content\"";
 				DEVELOPMENT_TEAM = 43AQ936H96;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TikTok-Reporter-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1619,6 +1669,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"TikTok Reporter/Preview Content\"";
 				DEVELOPMENT_TEAM = 43AQ936H96;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TikTok-Reporter-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1870,6 +1921,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		684E2F2A2B1F2636006A05C8 /* XCRemoteSwiftPackageReference "glean-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mozilla/glean-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 56.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		684E2F2B2B1F2636006A05C8 /* Glean */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 684E2F2A2B1F2636006A05C8 /* XCRemoteSwiftPackageReference "glean-swift" */;
+			productName = Glean;
+		};
+		684E2F2D2B1F2645006A05C8 /* Glean */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 684E2F2A2B1F2636006A05C8 /* XCRemoteSwiftPackageReference "glean-swift" */;
+			productName = Glean;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 68CBF95D2AEB9F2F006D03FC /* Project object */;
 }
