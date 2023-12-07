@@ -21,6 +21,8 @@
 		684E2F2C2B1F2636006A05C8 /* Glean in Frameworks */ = {isa = PBXBuildFile; productRef = 684E2F2B2B1F2636006A05C8 /* Glean */; };
 		684E2F2E2B1F2645006A05C8 /* Glean in Frameworks */ = {isa = PBXBuildFile; productRef = 684E2F2D2B1F2645006A05C8 /* Glean */; };
 		684E2F312B1F2773006A05C8 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E2F302B1F2773006A05C8 /* Metrics.swift */; };
+		684E2F342B20B3B5006A05C8 /* GleanManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E2F332B20B3B5006A05C8 /* GleanManager.swift */; };
+		684E2F362B20BBCF006A05C8 /* FormJSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E2F352B20BBCF006A05C8 /* FormJSONMapper.swift */; };
 		6858A6942B0E694A0076A91A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6858A6932B0E69490076A91A /* ReplayKit.framework */; };
 		6858A6972B0E694A0076A91A /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858A6962B0E694A0076A91A /* SampleHandler.swift */; };
 		6858A69E2B0E694A0076A91A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6858A6932B0E69490076A91A /* ReplayKit.framework */; };
@@ -101,7 +103,7 @@
 		689FF07E2AFBF6CF00C9FE51 /* OnboardingFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF07D2AFBF6CF00C9FE51 /* OnboardingFormViewModel.swift */; };
 		689FF0812AFCDAF000C9FE51 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0802AFCDAF000C9FE51 /* SliderView.swift */; };
 		689FF0852AFCE86700C9FE51 /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0842AFCE86700C9FE51 /* DropDownView.swift */; };
-		689FF0872AFD379200C9FE51 /* FormUIRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0862AFD379200C9FE51 /* FormUIRepresentable.swift */; };
+		689FF0872AFD379200C9FE51 /* FormInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0862AFD379200C9FE51 /* FormInputField.swift */; };
 		689FF08A2AFD411B00C9FE51 /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0892AFD411B00C9FE51 /* PreviewHelper.swift */; };
 		689FF08D2AFD4F1E00C9FE51 /* AppStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF08C2AFD4F1E00C9FE51 /* AppStateManager.swift */; };
 		68A978F32B16610300A17156 /* ScreenRecordingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A978F22B16610300A17156 /* ScreenRecordingService.swift */; };
@@ -192,6 +194,8 @@
 		684A23EF2B178F12001B83AA /* SubmissionSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionSuccessView.swift; sourceTree = "<group>"; };
 		684A23F12B17922D001B83AA /* ScreenRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRecording.swift; sourceTree = "<group>"; };
 		684E2F302B1F2773006A05C8 /* Metrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
+		684E2F332B20B3B5006A05C8 /* GleanManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GleanManager.swift; sourceTree = "<group>"; };
+		684E2F352B20BBCF006A05C8 /* FormJSONMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormJSONMapper.swift; sourceTree = "<group>"; };
 		6858A6912B0E69490076A91A /* TikTok ReporterScreenCapture.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TikTok ReporterScreenCapture.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6858A6932B0E69490076A91A /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		6858A6962B0E694A0076A91A /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
@@ -274,7 +278,7 @@
 		689FF07D2AFBF6CF00C9FE51 /* OnboardingFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFormViewModel.swift; sourceTree = "<group>"; };
 		689FF0802AFCDAF000C9FE51 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		689FF0842AFCE86700C9FE51 /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
-		689FF0862AFD379200C9FE51 /* FormUIRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormUIRepresentable.swift; sourceTree = "<group>"; };
+		689FF0862AFD379200C9FE51 /* FormInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInputField.swift; sourceTree = "<group>"; };
 		689FF0892AFD411B00C9FE51 /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
 		689FF08C2AFD4F1E00C9FE51 /* AppStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateManager.swift; sourceTree = "<group>"; };
 		68A978F22B16610300A17156 /* ScreenRecordingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRecordingService.swift; sourceTree = "<group>"; };
@@ -626,7 +630,7 @@
 				689FF0572AF3E03500C9FE51 /* Study.swift */,
 				689FF0592AF3E7BF00C9FE51 /* Form.swift */,
 				689FF05B2AF3E7E600C9FE51 /* Onboarding.swift */,
-				689FF0862AFD379200C9FE51 /* FormUIRepresentable.swift */,
+				689FF0862AFD379200C9FE51 /* FormInputField.swift */,
 				688371692B06B49800542EC7 /* OnboardingFlow.swift */,
 				684A23EC2B178D93001B83AA /* FormTab.swift */,
 				684A23F12B17922D001B83AA /* ScreenRecording.swift */,
@@ -816,6 +820,7 @@
 			children = (
 				689FF0892AFD411B00C9FE51 /* PreviewHelper.swift */,
 				681A89F52B16934200FD1CAB /* Enabling.swift */,
+				684E2F352B20BBCF006A05C8 /* FormJSONMapper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -824,6 +829,7 @@
 			isa = PBXGroup;
 			children = (
 				689FF08C2AFD4F1E00C9FE51 /* AppStateManager.swift */,
+				684E2F332B20B3B5006A05C8 /* GleanManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1242,7 +1248,7 @@
 				685F30492B027A1B00D585C3 /* PagedTabViewItem.swift in Sources */,
 				689FF0772AFACBFE00C9FE51 /* FormView.swift in Sources */,
 				689FF01B2AF193D200C9FE51 /* CGFloat+Spacing.swift in Sources */,
-				689FF0872AFD379200C9FE51 /* FormUIRepresentable.swift in Sources */,
+				689FF0872AFD379200C9FE51 /* FormInputField.swift in Sources */,
 				689FF0752AFA2C9200C9FE51 /* OnboardingFormView.swift in Sources */,
 				684E2F312B1F2773006A05C8 /* Metrics.swift in Sources */,
 				689FF0622AF5153200C9FE51 /* RadioButton.swift in Sources */,
@@ -1270,6 +1276,7 @@
 				689FF05C2AF3E7E600C9FE51 /* Onboarding.swift in Sources */,
 				689FF03D2AF2983100C9FE51 /* InjectedValues.swift in Sources */,
 				689FF0652AF6787900C9FE51 /* OnboardingView.swift in Sources */,
+				684E2F342B20B3B5006A05C8 /* GleanManager.swift in Sources */,
 				688371682B05246100542EC7 /* DataHandlingView.swift in Sources */,
 				689FF0542AF3A4EA00C9FE51 /* RadioButtonGroup.swift in Sources */,
 				685F30542B02C45200D585C3 /* SettingsRow.swift in Sources */,
@@ -1286,6 +1293,7 @@
 				68A978F32B16610300A17156 /* ScreenRecordingService.swift in Sources */,
 				689FF0812AFCDAF000C9FE51 /* SliderView.swift in Sources */,
 				6892A4FB2B14AC320023BCA8 /* CMTime+Positional.swift in Sources */,
+				684E2F362B20BBCF006A05C8 /* FormJSONMapper.swift in Sources */,
 				689FF0192AF17EBD00C9FE51 /* CustomAlertModifier.swift in Sources */,
 				689FF04C2AF300C000C9FE51 /* PresentationStateView.swift in Sources */,
 				689FF0222AF259F400C9FE51 /* PolicyViewModel.swift in Sources */,

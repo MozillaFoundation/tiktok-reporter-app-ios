@@ -26,7 +26,7 @@ extension OnboardingFormView {
         // MARK: - Properties
 
         @Published
-        var formUIContainer: FormUIContainer
+        var formUIContainer: FormInputContainer
         @Published
         var didUpdateMainField = false
         var location: Location
@@ -42,9 +42,21 @@ extension OnboardingFormView {
         // MARK: - Methods
 
         func saveData() {
-            // TODO: - Add Glean integration
-            guard formUIContainer.validate() else {
+            guard 
+                formUIContainer.validate(),
+                let emailItem = formUIContainer.items.first,
+                !emailItem.stringValue.isEmpty
+            else {
                 return
+            }
+
+            let emailAddress = emailItem.stringValue
+            
+            do {
+                GleanManager.submitText(emailAddress, metricType: .email)
+                try appState.save(emailAddress, for: .emailAddress)
+            } catch {
+                assertionFailure(error.localizedDescription)
             }
 
             switch location {

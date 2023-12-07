@@ -61,6 +61,7 @@ struct ReportView: View {
 
     private var content: some View {
 
+        // TODO: - Would be best to separate the report and record tabs in separate View + ViewModel components to clean up code. Due to project time constraints this was left as-is.
         VStack {
 
             PagedTabView(selectedTab: $viewModel.selectedTab, tabs: viewModel.tabs.compactMap({ $0.tabTitle }))
@@ -95,8 +96,7 @@ struct ReportView: View {
                 VStack {
                     
                     MainButton(text: Strings.submitTitle, type: .action) {
-                        let isValid = viewModel.formUIContainer.validate()
-                        // TODO: - Send report to GLEAN
+                        viewModel.sendReport()
                         viewModel.routingState.submissionResult = true
                     }
                     
@@ -191,8 +191,7 @@ struct ReportView: View {
             
             HStack(alignment: .top, spacing: .xl) {
 
-                // TODO: - Find other solution than .settings
-                Image(uiImage: screenRecording.thumbnail ?? .settings)
+                Image(uiImage: screenRecording.thumbnail ?? .error)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 80, height: 80)

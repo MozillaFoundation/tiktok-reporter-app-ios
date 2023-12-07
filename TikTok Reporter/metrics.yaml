@@ -29,12 +29,13 @@ tiktok_report:
       - jessed@mozillafoundation.org
     expires: never
 
-  name:
-    type: string
+  fields:
+    type: text
     send_in_pings:
       - titok-report
     description: |
-      Some description about what this contains.
+      Some description about what this contains. This is a json dump
+      of the "fields" in the example I was given.
     bugs:
       - A link to the bug/ticket for the implementation
     data_reviews:
@@ -45,7 +46,7 @@ tiktok_report:
       - jessed@mozillafoundation.org
     expires: never
 
-  fields:
+  email:
     type: text
     send_in_pings:
       - titok-report

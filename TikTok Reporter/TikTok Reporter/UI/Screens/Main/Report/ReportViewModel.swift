@@ -49,7 +49,7 @@ extension ReportView {
         @Published
         var selectedTab: Int = 0
         @Published
-        var formUIContainer: FormUIContainer
+        var formUIContainer: FormInputContainer
 
         @Published
         var didUpdateMainField: Bool = false
@@ -139,6 +139,40 @@ extension ReportView {
             self.setupScreenRecording(with: newAsset)
         }
 
+        func sendReport() {
+            guard
+                formUIContainer.validate(),
+                let studyId = appState.study?.id,
+                let uuid = UUID(uuidString: studyId)
+            else {
+                return
+            }
+
+            do {
+
+                let jsonForm = try FormJSONMapper.map(self.formUIContainer)
+                GleanManager.submitText(jsonForm, metricType: .fields)
+                // TODO: - Should we send these at once or sequentially?
+                GleanManager.submitUUID(uuid)
+            } catch {
+                assertionFailure(error.localizedDescription)
+            }
+        }
+    
+        func cancelReport() {
+            formUIContainer.items[0].stringValue = ""
+            formUIContainer.items[0].isEnabled = true
+            
+            didUpdateMainField = false
+        }
+        
+        func cancelRecording() {
+            try? screenRecordingService.removeRecording()
+
+            didUpdateMainField = false
+            screenRecording = nil
+        }
+
         // MARK: - Private Methods
     
         private func setupScreenRecording(with asset: AVAsset) {
@@ -169,20 +203,6 @@ extension ReportView {
                     state = .failed
                 }
             }
-        }
-        
-        func cancelReport() {
-            formUIContainer.items[0].stringValue = ""
-            formUIContainer.items[0].isEnabled = true
-            
-            didUpdateMainField = false
-        }
-        
-        func cancelRecording() {
-            try? screenRecordingService.removeRecording()
-
-            didUpdateMainField = false
-            screenRecording = nil
         }
     }
 }

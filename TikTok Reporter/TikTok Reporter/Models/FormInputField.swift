@@ -1,5 +1,5 @@
 //
-//  FormUIRepresentable.swift
+//  FormInputField.swift
 //  TikTok Reporter
 //
 //  Created by Sergiu Ghiran on 09.11.2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FormUIRepresentable: Hashable, Identifiable {
+struct FormInputField: Hashable, Identifiable {
     let id: String
     let formItem: FormItem
     
@@ -44,11 +44,34 @@ struct FormUIRepresentable: Hashable, Identifiable {
     }
 }
 
-struct FormUIContainer {
+extension FormInputField: Encodable {
+
+    enum CodingKeys: String, CodingKey {
+        case formItem
+        case inputValue
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(formItem, forKey: .formItem)
+
+        switch formItem.field {
+        case .textField, .dropDown:
+            try container.encode(stringValue, forKey: .inputValue)
+        case .slider:
+            try container.encode(doubleValue, forKey: .inputValue)
+        }
+    }
+}
+
+struct FormInputContainer: Encodable {
 
     // MARK: - Properties
 
-    var items: [FormUIRepresentable]
+    let id: String
+    let name: String
+    var items: [FormInputField]
 
     // MARK: - Methods
 
@@ -62,7 +85,7 @@ struct FormUIContainer {
 }
 
 struct FormUIMapper {
-    static func map(form: Form) -> FormUIContainer {
-        return FormUIContainer(items: form.fields.map({ FormUIRepresentable(formItem: $0) }))
+    static func map(form: Form) -> FormInputContainer {
+        return FormInputContainer(id: form.id, name: form.name, items: form.fields.map({ FormInputField(formItem: $0) }))
     }
 }

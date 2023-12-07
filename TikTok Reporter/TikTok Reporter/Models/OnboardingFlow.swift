@@ -7,6 +7,7 @@
 
 import Foundation
 
+// TODO: - Rename
 enum TestOnboardingStep: Equatable {
     case policy(Policy)
     case onboarding(Onboarding)

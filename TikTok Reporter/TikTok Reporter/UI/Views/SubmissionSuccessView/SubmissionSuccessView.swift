@@ -34,7 +34,7 @@ struct SubmissionSuccessView: View {
                     Spacer()
                     Image(.success)
 
-                    Text("Thank you!\nReport submitted.")
+                    Text(Strings.title)
                         .font(.body5)
                         .foregroundStyle(.success)
                         .multilineTextAlignment(.center)
@@ -42,10 +42,10 @@ struct SubmissionSuccessView: View {
                 }
             }
 
-            MainButton(text: "I'm done", type: .secondary) {
+            MainButton(text: Strings.buttonTitle, type: .secondary) {
                 self.isPresented = false
             }
-            Text("To receive a copy of your report on your email and to get follow up information about our study, go to Settings")
+            Text(Strings.description)
                 .font(.body2)
                 .foregroundStyle(.disabled)
         }
@@ -57,4 +57,12 @@ struct SubmissionSuccessView: View {
 
 #Preview {
     SubmissionSuccessView(isPresented: .constant(true))
+}
+
+// MARK: - Strings
+
+private enum Strings {
+    static let title = "Thank you!\nReport submitted."
+    static let description = "To receive a copy of your report on your email and to get follow up information about our study, go to Settings"
+    static let buttonTitle = "I'm done"
 }

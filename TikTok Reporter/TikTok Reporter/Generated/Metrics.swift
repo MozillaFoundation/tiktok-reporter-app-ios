@@ -25,10 +25,22 @@ extension GleanMetrics {
             // Intentionally left private, no external user can instantiate a new global object.
         }
 
-        public static let info = BuildInfo(buildDate: DateComponents(calendar: Calendar.current, timeZone: TimeZone(abbreviation: "UTC"), year: 2023, month: 12, day: 5, hour: 9, minute: 44, second: 2))
+        public static let info = BuildInfo(buildDate: DateComponents(calendar: Calendar.current, timeZone: TimeZone(abbreviation: "UTC"), year: 2023, month: 12, day: 7, hour: 11, minute: 4, second: 9))
     }
 
     enum TiktokReport {
+        /// Some description about what this contains. This is a json dump
+        /// of the "fields" in the example I was given.
+        static let email = TextMetricType( // generated from tiktok_report.email
+            CommonMetricData(
+                category: "tiktok_report",
+                name: "email",
+                sendInPings: ["titok-report"],
+                lifetime: .ping,
+                disabled: false
+            )
+        )
+
         /// Some description about what this contains. This is a json dump
         /// of the "fields" in the example I was given.
         static let fields = TextMetricType( // generated from tiktok_report.fields
@@ -52,17 +64,6 @@ extension GleanMetrics {
             )
         )
 
-        /// Some description about what this contains.
-        static let name = StringMetricType( // generated from tiktok_report.name
-            CommonMetricData(
-                category: "tiktok_report",
-                name: "name",
-                sendInPings: ["titok-report"],
-                lifetime: .ping,
-                disabled: false
-            )
-        )
-
     }
 
     class Pings {
@@ -74,7 +75,7 @@ extension GleanMetrics {
         /// Some description about what this contains.
         let tiktokRequest = Ping<NoReasonCodes>(
             name: "tiktok-request",
-            includeClientId: false,
+            includeClientId: true,
             sendIfEmpty: false,
             preciseTimestamps: true,
             reasonCodes: []

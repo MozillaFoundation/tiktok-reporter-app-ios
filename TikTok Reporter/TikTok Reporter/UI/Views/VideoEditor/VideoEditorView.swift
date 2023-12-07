@@ -31,6 +31,7 @@ struct VideoEditorView: UIViewControllerRepresentable {
         let controller = UIVideoEditorController()
     
         controller.videoPath = videoFilePath
+        controller.videoQuality = .typeHigh
         controller.delegate = delegate
 
         return controller

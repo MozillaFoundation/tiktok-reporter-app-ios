@@ -19,18 +19,18 @@ extension FormView {
         private(set) var otherFieldId: String? = nil
 
         @Binding
-        var formUIContainer: FormUIContainer
+        var formUIContainer: FormInputContainer
         @Binding
         var didUpdateMainField: Bool
     
-        private lazy var otherField: FormUIRepresentable = {
+        private lazy var otherField: FormInputField = {
 
-            return FormUIRepresentable(formItem: FormItem(id: "", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: Strings.otherFieldTitle, maxLines: 1, multiline: false))))
+            return FormInputField(formItem: FormItem(id: "", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: Strings.otherFieldTitle, maxLines: 1, multiline: false))))
         }()
 
         // MARK: - Lifecycle
 
-        init(formUIContainer: Binding<FormUIContainer>, didUpdateMainField: Binding<Bool>) {
+        init(formUIContainer: Binding<FormInputContainer>, didUpdateMainField: Binding<Bool>) {
 
             self._formUIContainer = formUIContainer
             self._didUpdateMainField = didUpdateMainField

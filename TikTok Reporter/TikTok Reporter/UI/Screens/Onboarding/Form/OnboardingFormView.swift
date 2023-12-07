@@ -50,15 +50,19 @@ struct OnboardingFormView: View {
     }
     
     private var buttons: some View {
+
         VStack(spacing: .m) {
+
             if viewModel.didUpdateMainField {
-                MainButton(text: "Save", type: .primary) {
+
+                MainButton(text: Strings.saveTitle, type: .primary) {
                     viewModel.saveData()
                 }
             }
 
             if viewModel.location == .onboarding {
-                MainButton(text: "Skip", type: .secondary) {
+
+                MainButton(text: Strings.skipTitle, type: .secondary) {
                     viewModel.skip()
                 }
             }
@@ -67,6 +71,15 @@ struct OnboardingFormView: View {
     }
 }
 
+// MARK: - Preview
+
 #Preview {
     OnboardingFormView(viewModel: .init(appState: AppStateManager(), form: PreviewHelper.mockOnboardingForm))
+}
+
+// MARK: - Strings
+
+private enum Strings {
+    static let saveTitle = "Save"
+    static let skipTitle = "Skip"
 }
