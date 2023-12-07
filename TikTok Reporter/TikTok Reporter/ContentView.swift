@@ -51,7 +51,7 @@ struct ContentView: View {
 
         } else if let form = appState.study?.form {
 
-            ReportView(viewModel: .init(form: form, appState: appState))
+            MainView(viewModel: .init(form: form, appState: appState))
         }
     }
 }
