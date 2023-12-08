@@ -15,7 +15,7 @@ enum Constants {
 
 enum APIMethod: String {
     case GET
-    case PUSH
+    case POST
     case PUT
     case PATCH
     case DELETE
@@ -25,7 +25,8 @@ protocol APIRequest {
     var method: APIMethod { get }
     var path: String { get }
 
-    var body: [String: Any]? { get }
+    var body: Data? { get }
+    var headers: [String: String]? { get }
 
     func asURLRequest() throws -> URLRequest
 }
@@ -39,17 +40,16 @@ extension APIRequest {
 
         var urlRequest = URLRequest(url: url)
 
-        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        if let headers {
+            headers.forEach { (key, value) in
+                urlRequest.addValue(value, forHTTPHeaderField: key)
+            }
+        }
+        
         urlRequest.httpMethod = method.rawValue
         urlRequest.cachePolicy = .reloadIgnoringLocalCacheData
 
-        if let body = body {
-            do {
-                urlRequest.httpBody = try JSONSerialization.data(withJSONObject: body)
-            } catch {
-                assertionFailure(error.localizedDescription)
-            }
-        }
+        urlRequest.httpBody = body
 
         return urlRequest
     }

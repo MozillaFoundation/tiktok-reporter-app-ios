@@ -116,7 +116,7 @@ struct RecordView: View {
         VStack {
 
             MainButton(text: Strings.submitTitle, type: .action) {
-                // TODO: - Add logic once GLEAN is integrated
+                viewModel.submitRecording()
             }
 
             if viewModel.didUpdateMainField {

@@ -27,6 +27,9 @@
 		684E2F3A2B21F048006A05C8 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E2F392B21F048006A05C8 /* RecordViewModel.swift */; };
 		684E2F3C2B224052006A05C8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E2F3B2B224052006A05C8 /* MainView.swift */; };
 		684E2F3E2B2241CF006A05C8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E2F3D2B2241CF006A05C8 /* MainViewModel.swift */; };
+		684E2F402B225A2C006A05C8 /* RecordingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E2F3F2B225A2C006A05C8 /* RecordingAPI.swift */; };
+		684E2F422B2313BC006A05C8 /* MultipartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E2F412B2313BC006A05C8 /* MultipartRequest.swift */; };
+		684E2F442B2314A9006A05C8 /* Data+Append.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E2F432B2314A9006A05C8 /* Data+Append.swift */; };
 		6858A6942B0E694A0076A91A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6858A6932B0E69490076A91A /* ReplayKit.framework */; };
 		6858A6972B0E694A0076A91A /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858A6962B0E694A0076A91A /* SampleHandler.swift */; };
 		6858A69E2B0E694A0076A91A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6858A6932B0E69490076A91A /* ReplayKit.framework */; };
@@ -204,6 +207,9 @@
 		684E2F392B21F048006A05C8 /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
 		684E2F3B2B224052006A05C8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		684E2F3D2B2241CF006A05C8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		684E2F3F2B225A2C006A05C8 /* RecordingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingAPI.swift; sourceTree = "<group>"; };
+		684E2F412B2313BC006A05C8 /* MultipartRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartRequest.swift; sourceTree = "<group>"; };
+		684E2F432B2314A9006A05C8 /* Data+Append.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Append.swift"; sourceTree = "<group>"; };
 		6858A6912B0E69490076A91A /* TikTok ReporterScreenCapture.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TikTok ReporterScreenCapture.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6858A6932B0E69490076A91A /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		6858A6962B0E694A0076A91A /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
@@ -684,6 +690,7 @@
 			children = (
 				689FF0352AF25C4400C9FE51 /* PoliciesAPI.swift */,
 				689FF05D2AF3E80300C9FE51 /* StudiesAPI.swift */,
+				684E2F3F2B225A2C006A05C8 /* RecordingAPI.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -833,6 +840,7 @@
 				689FF0892AFD411B00C9FE51 /* PreviewHelper.swift */,
 				681A89F52B16934200FD1CAB /* Enabling.swift */,
 				684E2F352B20BBCF006A05C8 /* FormJSONMapper.swift */,
+				684E2F412B2313BC006A05C8 /* MultipartRequest.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -958,6 +966,7 @@
 				6892A4F82B1495CD0023BCA8 /* AVAsset+Thumbnail.swift */,
 				6892A4FA2B14AC320023BCA8 /* CMTime+Positional.swift */,
 				6892A4FC2B14AE5F0023BCA8 /* Date+Formatted.swift */,
+				684E2F432B2314A9006A05C8 /* Data+Append.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1261,6 +1270,7 @@
 				689FF0772AFACBFE00C9FE51 /* FormView.swift in Sources */,
 				689FF01B2AF193D200C9FE51 /* CGFloat+Spacing.swift in Sources */,
 				684E2F3E2B2241CF006A05C8 /* MainViewModel.swift in Sources */,
+				684E2F422B2313BC006A05C8 /* MultipartRequest.swift in Sources */,
 				689FF0872AFD379200C9FE51 /* FormInputField.swift in Sources */,
 				689FF0752AFA2C9200C9FE51 /* OnboardingFormView.swift in Sources */,
 				684E2F3A2B21F048006A05C8 /* RecordViewModel.swift in Sources */,
@@ -1271,9 +1281,11 @@
 				689FF03B2AF297E100C9FE51 /* InjectionKey.swift in Sources */,
 				681A89F62B16934200FD1CAB /* Enabling.swift in Sources */,
 				68C886002B0F8F280022043E /* BroadcastPicker.swift in Sources */,
+				684E2F402B225A2C006A05C8 /* RecordingAPI.swift in Sources */,
 				68CBF96B2AEB9F2F006D03FC /* ContentView.swift in Sources */,
 				689FF04E2AF3019E00C9FE51 /* LoadingView.swift in Sources */,
 				689FF08D2AFD4F1E00C9FE51 /* AppStateManager.swift in Sources */,
+				684E2F442B2314A9006A05C8 /* Data+Append.swift in Sources */,
 				689FF0492AF3002900C9FE51 /* PresentationState.swift in Sources */,
 				689FF0562AF3DEC600C9FE51 /* StudySelectionViewModel.swift in Sources */,
 				689FF03F2AF298AD00C9FE51 /* Injected.swift in Sources */,

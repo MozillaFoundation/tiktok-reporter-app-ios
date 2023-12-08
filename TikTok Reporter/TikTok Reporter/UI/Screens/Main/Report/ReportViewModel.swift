@@ -74,7 +74,7 @@ extension ReportView {
                         
                         state = .success
                     }
-                } catch let error {
+                } catch {
                     state = .failed
                     print(error.localizedDescription)
                 }

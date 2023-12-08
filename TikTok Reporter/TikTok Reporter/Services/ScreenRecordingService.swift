@@ -18,9 +18,16 @@ protocol ScreenRecordingServicing {
     func loadRecording() throws -> AVAsset
     func removeRecording() throws
     func updateLocalRecording(with path: String) throws -> AVAsset
+
+    func uploadRecording() async throws -> String?
 }
 
 final class ScreenRecordingService: ScreenRecordingServicing {
+
+    // MARK: - Injected
+
+    @Injected(\.apiClient)
+    private var apiClient: HTTPClient
 
     // MARK: - Properties
 
@@ -71,6 +78,18 @@ final class ScreenRecordingService: ScreenRecordingServicing {
         return try loadRecording()
     }
 
+    func uploadRecording() async throws -> String? {
+
+        guard let localData = self.loadLocalData() else {
+            return nil
+        }
+
+        var multipartRequest = MultipartRequest()
+        multipartRequest.add(key: "file", fileName: Strings.fileName, fileMimeType: "video/mp4", fileData: localData)
+
+        return try await apiClient.perform(request: RecordingAPI.uploadRecording(contentType: multipartRequest.httpHeader, body: multipartRequest.httpBody))
+    }
+
     // MARK: - Private Methods
 
     private func loadFromLocal() -> URL? {
@@ -103,6 +122,19 @@ final class ScreenRecordingService: ScreenRecordingServicing {
         try fileManager.removeItem(atPath: appGroupURL.path)
 
         return localURL
+    }
+
+    private func loadLocalData() -> Data? {
+
+        guard 
+            let localURL,
+            fileManager.fileExists(atPath: localURL.path),
+            let data = try? Data(contentsOf: localURL)
+        else {
+            return nil
+        }
+
+        return data
     }
 }
 

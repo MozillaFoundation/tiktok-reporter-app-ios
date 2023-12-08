@@ -28,7 +28,7 @@ extension RecordView {
         // MARK: - Properties
 
         @Published
-        var state: PresentationState = .idle
+        var state: PresentationState = .success
         @Published
         var routingState: Routing = .init()
 
@@ -85,6 +85,24 @@ extension RecordView {
             }
 
             self.setupScreenRecording(with: newAsset)
+        }
+
+        func submitRecording() {
+
+            state = .loading
+
+            Task {
+
+                do {
+
+                    let remoteURL = try await screenRecordingService.uploadRecording()
+                    state = .success
+                    // TODO: - Upload URL to Glean
+                } catch {
+                    state = .failed
+                    print(error.localizedDescription)
+                }
+            }
         }
 
         func cancelRecording() {

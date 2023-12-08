@@ -24,10 +24,17 @@ enum StudiesAPI: APIRequest {
         }
     }
 
-    var body: [String : Any]? {
+    var body: Data? {
         switch self {
         case .getStudies:
             return nil
+        }
+    }
+
+    var headers: [String : String]? {
+        switch self {
+        case .getStudies:
+            return ["Content-Type": "application/json"]
         }
     }
 }
