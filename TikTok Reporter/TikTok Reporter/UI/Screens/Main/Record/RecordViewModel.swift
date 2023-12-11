@@ -14,6 +14,7 @@ extension RecordView {
 
     struct Routing {
         var videoEditor: Bool = false
+        var submissionResult: Bool = false
     }
 
     // MARK: - ViewModel
@@ -104,6 +105,9 @@ extension RecordView {
                     gleanManager.submit()
 
                     state = .success
+
+                    self.cancelRecording()
+                    self.routingState.submissionResult = true
                 } catch {
                     state = .failed
                     print(error.localizedDescription)

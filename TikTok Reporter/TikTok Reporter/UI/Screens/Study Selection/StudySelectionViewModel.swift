@@ -85,7 +85,6 @@ extension StudySelectionView {
                         state = .success
                     }
                 } catch let error {
-                    // TODO: - Handle error
                     state = .failed
                     print(error.localizedDescription)
                 }
@@ -93,7 +92,6 @@ extension StudySelectionView {
         }
     
         func saveStudy() {
-            // TODO: - Show error to user
             guard let study = selected else {
                 return
             }
@@ -106,7 +104,6 @@ extension StudySelectionView {
 
                 appState.setOnboarding(with: study)
             } catch let error {
-                // TODO: - Add error handling
                 print(error.localizedDescription)
             }
         }

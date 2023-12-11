@@ -110,6 +110,7 @@ extension ReportView {
 
                 gleanManager.submit()
 
+                cancelReport()
                 routingState.submissionResult = true
             } catch {
                 assertionFailure(error.localizedDescription)

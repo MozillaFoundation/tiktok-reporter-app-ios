@@ -25,7 +25,6 @@ final class UserDefaultsManager {
 
     func getOnboardingStatus() -> Bool {
 
-        // TODO: - Remove JSONDecoder from here.
         guard
             let data = userDefaults?.data(forKey: Keys.hasCompletedOnboarding.rawValue),
             let hasCompletedOnboarding = try? JSONDecoder().decode(Bool.self, from: data)

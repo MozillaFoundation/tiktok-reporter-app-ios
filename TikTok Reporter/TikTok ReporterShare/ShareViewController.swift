@@ -34,7 +34,6 @@ class ShareViewController: UIViewController {
             return
         }
 
-        // TODO: - Add link validation
         guard
             let extensionItem = extensionContext?.inputItems.first as? NSExtensionItem,
             let itemProvider = extensionItem.attachments?.first

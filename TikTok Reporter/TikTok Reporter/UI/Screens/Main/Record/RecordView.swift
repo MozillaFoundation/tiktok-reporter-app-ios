@@ -52,32 +52,38 @@ struct RecordView: View {
 
     // MARK: - Views
 
+    @ViewBuilder
     private var content: some View {
         
-        VStack {
+        if viewModel.routingState.submissionResult {
 
-            ScrollView {
+            SubmissionSuccessView(isPresented: $viewModel.routingState.submissionResult)
+        } else {
+            VStack {
 
-                VStack(alignment: .leading, spacing: .xl) {
+                ScrollView {
 
-                    let hasVideoRecording = viewModel.screenRecording != nil
-                    
-                    Text(hasVideoRecording ? Strings.recordingTitle : Strings.noRecordingTitle)
-                        .font(.body2)
-                        .foregroundStyle(.text)
-                    
-                    if hasVideoRecording {
-                        screenRecordingView
-                    } else {
-                        recordScreenView
+                    VStack(alignment: .leading, spacing: .xl) {
+
+                        let hasVideoRecording = viewModel.screenRecording != nil
+                        
+                        Text(hasVideoRecording ? Strings.recordingTitle : Strings.noRecordingTitle)
+                            .font(.body2)
+                            .foregroundStyle(.text)
+                        
+                        if hasVideoRecording {
+                            screenRecordingView
+                        } else {
+                            recordScreenView
+                        }
+
+                        MainTextField(text: $viewModel.videoComments, isValid: .constant(true), isEnabled: .constant(true), placeholder: Strings.commentsPlaceholder, isMultiline: true)
                     }
-
-                    MainTextField(text: $viewModel.videoComments, isValid: .constant(true), isEnabled: .constant(true), placeholder: Strings.commentsPlaceholder, isMultiline: true)
+                    .padding(.xl)
                 }
-                .padding(.xl)
-            }
 
-            self.buttonStack
+                self.buttonStack
+            }
         }
     }
 

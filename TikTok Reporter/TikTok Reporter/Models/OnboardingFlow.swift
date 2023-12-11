@@ -7,8 +7,7 @@
 
 import Foundation
 
-// TODO: - Rename
-enum TestOnboardingStep: Equatable {
+enum OnboardingStepType: Equatable {
     case policy(Policy)
     case onboarding(Onboarding)
     case form(Form)
@@ -16,11 +15,11 @@ enum TestOnboardingStep: Equatable {
 
 struct OnboardingFlow {
 
-    let steps: [TestOnboardingStep]
-    var currentStep: TestOnboardingStep?
+    let steps: [OnboardingStepType]
+    var currentStep: OnboardingStepType?
 
     init(study: Study) {
-        var onboardingSteps = [TestOnboardingStep]()
+        var onboardingSteps = [OnboardingStepType]()
 
         if let policy = study.policies.first(where: { $0.type == .termsOfService }) {
             onboardingSteps.append(.policy(policy))
@@ -38,7 +37,7 @@ struct OnboardingFlow {
         self.currentStep = onboardingSteps.first
     }
 
-    mutating func nextStep() -> TestOnboardingStep? {
+    mutating func nextStep() -> OnboardingStepType? {
         guard
             let currentStep = currentStep,
             let index = steps.firstIndex(of: currentStep),

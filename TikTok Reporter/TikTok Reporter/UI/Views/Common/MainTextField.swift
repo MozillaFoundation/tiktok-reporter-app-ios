@@ -109,7 +109,7 @@ struct MainTextField: View {
                 .font(.body2)
                 .padding(.horizontal, .xs)
                 .background(.white)
-                .opacity(opacity)
+                .opacity(text.isEmpty ? 0.0 : 1.0)
                 .onChange(of: text) { newValue in
                     withAnimation {
                         opacity = newValue.isEmpty ? 0.0 : 1.0

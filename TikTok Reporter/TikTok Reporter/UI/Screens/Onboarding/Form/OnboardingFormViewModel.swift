@@ -39,6 +39,14 @@ extension OnboardingFormView {
             self.appState = appState
             self.location = location
             self.formUIContainer = FormInputMapper.map(form: form)
+
+            if
+                location == .settings,
+                let emailAddress = appState.emailAddress,
+                !formUIContainer.items.isEmpty
+            {
+                formUIContainer.items[0].stringValue = emailAddress
+            }
         }
 
         // MARK: - Methods
@@ -65,10 +73,11 @@ extension OnboardingFormView {
 
             switch location {
             case .onboarding:
+
                 appState.updateOnboarding()
-            case .settings:
-                // TODO: - Verify
-                print("Save tapped")
+            default:
+
+                break
             }
             
         }

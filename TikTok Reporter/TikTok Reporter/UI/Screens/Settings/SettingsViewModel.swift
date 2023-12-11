@@ -21,6 +21,7 @@ extension SettingsView {
         var privacyPolicy: Policy?
         var study: Study?
         var onboardingForm: Form?
+        var emailAddress: String?
 
         // MARK: - Lifecycle
 
@@ -31,6 +32,7 @@ extension SettingsView {
             self.privacyPolicy = appState.study?.policies.first(where: { $0.type == .privacyPolicy })
             self.study = appState.study
             self.onboardingForm = appState.study?.onboarding?.form
+            self.emailAddress = appState.emailAddress
         }
     }
 }

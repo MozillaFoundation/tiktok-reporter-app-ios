@@ -66,8 +66,10 @@ struct SettingsView: View {
                     }
                 }
 
-                NavigationLink(destination: DataHandlingView()) {
-                    dataHandlingRow
+                if let emailAddress = viewModel.emailAddress {
+                    NavigationLink(destination: DataHandlingView()) {
+                        dataHandlingRow
+                    }
                 }
             }
         }
