@@ -18,9 +18,9 @@ final class JSONMapper {
     // MARK: - Methods
 
     static func map(_ value: Encodable) throws -> String {
-            
+
         let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
+        encoder.outputFormatting = .withoutEscapingSlashes
 
         let jsonData = try encoder.encode(value)
         
@@ -28,6 +28,6 @@ final class JSONMapper {
             throw JSONError.mappingError
         }
 
-        return NSString(string: jsonString) as String
+        return jsonString
     }
 }

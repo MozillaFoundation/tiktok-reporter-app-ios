@@ -96,11 +96,13 @@ struct StudySelectionView: View {
     }
     
     private var radioButtons: some View {
+
         RadioButtonGroup(selection: $viewModel.selected, options: viewModel.studies) { isSelected, study in
+
             RadioButton(title: study?.name ?? "", description: study?.description ?? "", isActive: study?.isActive ?? true, isSelected: isSelected)
         }
         .onChange(of: viewModel.selected) { [oldValue = viewModel.selected] newValue in
-            // TODO: - Clean up if needed
+
             guard viewModel.viewState != .empty, (oldValue?.id ?? "") == viewModel.prefilledStudy?.id ?? "" else {
                 return
             }
@@ -110,6 +112,8 @@ struct StudySelectionView: View {
         }
     }
 }
+
+
 
 #Preview {
     StudySelectionView(viewModel: .init(appState: AppStateManager()))

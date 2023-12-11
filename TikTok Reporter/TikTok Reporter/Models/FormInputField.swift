@@ -8,6 +8,9 @@
 import Foundation
 
 struct FormInputField: Hashable, Identifiable {
+
+    // MARK: - Properties
+
     let id: String
     let formItem: FormItem
     
@@ -17,6 +20,8 @@ struct FormInputField: Hashable, Identifiable {
 
     var isValid: Bool = true
     var isEnabled: Bool = true
+
+    // MARK: - Lifecycle
 
     init(formItem: FormItem) {
         self.formItem = formItem
@@ -30,6 +35,8 @@ struct FormInputField: Hashable, Identifiable {
         }
     }
 
+    // MARK: - Methods
+
     mutating func validate() {
         guard formItem.isRequired else {
             return
@@ -41,6 +48,12 @@ struct FormInputField: Hashable, Identifiable {
         default:
             return
         }
+    }
+
+    mutating func reset() {
+        stringValue = ""
+        boolValue = false
+        doubleValue = 0.0
     }
 }
 
@@ -82,9 +95,15 @@ struct FormInputContainer: Encodable {
 
         return !items.contains(where: { $0.isValid == false })
     }
+
+    mutating func reset() {
+        for index in items.indices {
+            items[index].reset()
+        }
+    }
 }
 
-struct FormUIMapper {
+struct FormInputMapper {
     static func map(form: Form) -> FormInputContainer {
         return FormInputContainer(id: form.id, name: form.name, items: form.fields.map({ FormInputField(formItem: $0) }))
     }

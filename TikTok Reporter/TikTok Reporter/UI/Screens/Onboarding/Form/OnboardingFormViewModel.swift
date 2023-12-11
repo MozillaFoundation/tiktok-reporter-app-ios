@@ -22,6 +22,8 @@ extension OnboardingFormView {
         // MARK: - Injected
 
         private var appState: AppStateManager
+        @Injected(\.gleanManager)
+        private var gleanManager: GleanManaging
 
         // MARK: - Properties
 
@@ -36,7 +38,7 @@ extension OnboardingFormView {
         init(appState: AppStateManager, form: Form, location: Location = .onboarding) {
             self.appState = appState
             self.location = location
-            self.formUIContainer = FormUIMapper.map(form: form)
+            self.formUIContainer = FormInputMapper.map(form: form)
         }
 
         // MARK: - Methods
@@ -53,7 +55,9 @@ extension OnboardingFormView {
             let emailAddress = emailItem.stringValue
             
             do {
-                GleanManager.submitText(emailAddress, metricType: .email)
+                gleanManager.setEmail(emailAddress)
+                gleanManager.submit()
+
                 try appState.save(emailAddress, for: .emailAddress)
             } catch {
                 assertionFailure(error.localizedDescription)
@@ -63,6 +67,7 @@ extension OnboardingFormView {
             case .onboarding:
                 appState.updateOnboarding()
             case .settings:
+                // TODO: - Verify
                 print("Save tapped")
             }
             

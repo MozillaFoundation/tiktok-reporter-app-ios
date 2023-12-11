@@ -24,6 +24,8 @@ extension RecordView {
 
         @Injected(\.screenRecordingService)
         private var screenRecordingService: ScreenRecordingServicing
+        @Injected(\.gleanManager)
+        private var gleanManager: GleanManaging
 
         // MARK: - Properties
 
@@ -95,9 +97,13 @@ extension RecordView {
 
                 do {
 
-                    let remoteURL = try await screenRecordingService.uploadRecording()
+                    let storage = try await screenRecordingService.uploadRecording()
+                    let jsonString = try JSONMapper.map(storage)
+
+                    gleanManager.setScreenRecording(jsonString)
+                    gleanManager.submit()
+
                     state = .success
-                    // TODO: - Upload URL to Glean
                 } catch {
                     state = .failed
                     print(error.localizedDescription)

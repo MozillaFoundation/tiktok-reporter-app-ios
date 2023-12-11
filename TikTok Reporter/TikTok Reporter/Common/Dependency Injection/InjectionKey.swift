@@ -31,6 +31,10 @@ private struct ScreenRecordingServiceKey: InjectionKey {
     static var currentValue: ScreenRecordingServicing = ScreenRecordingService()
 }
 
+private struct GleanManagerKey: InjectionKey {
+    static var currentValue: GleanManaging = GleanManager()
+}
+
 // MARK: - Injected Values
 
 extension InjectedValues {
@@ -57,6 +61,13 @@ extension InjectedValues {
     var screenRecordingService: ScreenRecordingServicing {
         get { Self[ScreenRecordingServiceKey.self] }
         set { Self[ScreenRecordingServiceKey.self] = newValue }
+    }
+
+    // MARK: - Managers
+
+    var gleanManager: GleanManaging {
+        get { Self[GleanManagerKey.self] }
+        set { Self[GleanManagerKey.self] = newValue }
     }
 }
 

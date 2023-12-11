@@ -59,8 +59,8 @@ class ShareViewController: UIViewController {
 
                 DispatchQueue.main.async {
 
-                    let formUIContainer = FormUIMapper.map(form: form)
-                    let formViewController = UIHostingController(rootView: FormView(viewModel: .init(formUIContainer: formUIContainer, currentStudy: study, link: link)))
+                    let formInputContainer = FormInputMapper.map(form: form)
+                    let formViewController = UIHostingController(rootView: FormView(viewModel: .init(formInputContainer: formInputContainer, currentStudy: study, link: link)))
 
                     self.addChild(formViewController)
                     self.view.addSubview(formViewController.view)
@@ -80,9 +80,17 @@ class ShareViewController: UIViewController {
             return
         }
 
-        NotificationCenter.default.addObserver(forName: NSNotification.Name(Strings.closeNotificationName), object: nil, queue: nil) { _ in
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(Strings.closeNotificationName), object: nil, queue: nil) { notification in
+            guard 
+                let success = notification.userInfo?["success"] as? Bool,
+                !success
+            else {
+                self.close()
+                return
+            }
+            
             DispatchQueue.main.async {
-                // TODO: - Modify to treat all cases
+                
                 self.showAlert(withTitle: Strings.genericErrorTitle, description: Strings.genericErrorDescription)
             }
         }

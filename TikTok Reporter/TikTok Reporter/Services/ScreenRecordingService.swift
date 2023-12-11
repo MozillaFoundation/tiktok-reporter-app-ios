@@ -19,7 +19,7 @@ protocol ScreenRecordingServicing {
     func removeRecording() throws
     func updateLocalRecording(with path: String) throws -> AVAsset
 
-    func uploadRecording() async throws -> String?
+    func uploadRecording() async throws -> RecordingStorage?
 }
 
 final class ScreenRecordingService: ScreenRecordingServicing {
@@ -78,7 +78,7 @@ final class ScreenRecordingService: ScreenRecordingServicing {
         return try loadRecording()
     }
 
-    func uploadRecording() async throws -> String? {
+    func uploadRecording() async throws -> RecordingStorage? {
 
         guard let localData = self.loadLocalData() else {
             return nil

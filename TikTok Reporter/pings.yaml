@@ -7,7 +7,7 @@
 ---
 $schema: moz://mozilla.org/schemas/glean/pings/2-0-0
 
-tiktok-request:
+tiktok-report:
   description: |
     Some description of the ping
   include_client_id: true

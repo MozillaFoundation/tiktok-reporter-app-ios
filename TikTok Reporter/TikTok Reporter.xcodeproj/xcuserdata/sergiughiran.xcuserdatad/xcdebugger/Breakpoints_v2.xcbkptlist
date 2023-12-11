@@ -7,63 +7,94 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0EE0CBA1-FDFB-4A0E-A1D6-2007AFA41297"
+            uuid = "51BE3EFF-D6E2-48C7-90C8-88591B0D94E5"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TikTok Reporter/UI/Screens/Main/ReportViewModel.swift"
+            filePath = "TikTok ReporterShare/Views/Form/FormViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "refreshRecording()"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "submitReport()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "83AE30EC-B873-4EFD-84E6-99DEE204B8D1"
+            uuid = "84E0AABF-0E5E-4436-9429-E63ADE2899DB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TikTok Reporter/UI/Screens/Main/Record/RecordViewModel.swift"
+            filePath = "TikTok ReporterShare/Views/Form/FormViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "submitRecording()"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "submitReport()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "96FCA4DE-C0B5-48BA-B604-AD30127BF9E6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TikTok Reporter/Managers/GleanManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "setFields(_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "83AE30EC-B873-4EFD-84E6-99DEE204B8D1 - afc128bbef12969a"
+                  uuid = "96FCA4DE-C0B5-48BA-B604-AD30127BF9E6 - fee4316494b68a83"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "TikTok_Reporter.RecordView.ViewModel.cancelRecording() -&gt; ()"
-                  moduleName = "TikTok Reporter"
+                  symbolName = "TikTok_ReporterShare.GleanManager.setFields(Swift.String) -&gt; ()"
+                  moduleName = "TikTok ReporterShare"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sergiughiran/Projects/TikTokReporter/TikTok%20Reporter/TikTok%20Reporter/UI/Screens/Main/Record/RecordViewModel.swift"
+                  urlString = "file:///Users/sergiughiran/Projects/TikTokReporter/TikTok%20Reporter/TikTok%20Reporter/Managers/GleanManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "93"
-                  endingLineNumber = "93"
-                  offsetFromSymbolStart = "300">
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "64">
                </Location>
                <Location
-                  uuid = "83AE30EC-B873-4EFD-84E6-99DEE204B8D1 - 65be4d0945af30cf"
+                  uuid = "96FCA4DE-C0B5-48BA-B604-AD30127BF9E6 - a99fdd737d3520b3"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "TikTok_Reporter.RecordView.ViewModel.submitRecording() -&gt; ()"
+                  symbolName = "TikTok_Reporter.GleanManager.setFields(Swift.String) -&gt; ()"
                   moduleName = "TikTok Reporter"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sergiughiran/Projects/TikTokReporter/TikTok%20Reporter/TikTok%20Reporter/UI/Screens/Main/Record/RecordViewModel.swift"
+                  urlString = "file:///Users/sergiughiran/Projects/TikTokReporter/TikTok%20Reporter/TikTok%20Reporter/Managers/GleanManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "116">
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "96FCA4DE-C0B5-48BA-B604-AD30127BF9E6 - a99fdd737d3523d9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TikTok_Reporter.GleanManager.setFields(Swift.String) -&gt; ()"
+                  moduleName = "TikTok Reporter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergiughiran/Projects/TikTokReporter/TikTok%20Reporter/TikTok%20Reporter/Managers/GleanManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "64">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -71,127 +102,80 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B936CC32-8B38-4CCB-BB71-86135AEE3D05"
+            uuid = "FD6EF079-5DA1-45A1-BE4D-C81B618CBF49"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TikTok Reporter/UI/Screens/Main/Record/RecordViewModel.swift"
+            filePath = "TikTok Reporter/Managers/GleanManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "submitRecording()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "05899BA2-9F05-46F8-90C7-61703F8D4914"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TikTok Reporter/UI/Screens/Main/Record/RecordViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "submitRecording()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AC27C1A4-FC28-4B77-A084-2DF75D092A95"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TikTok Reporter/Networking/APIClient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "upload(_:request:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "29281A7C-812A-498C-A766-4BEFC709F6F0"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TikTok Reporter/Networking/APIClient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "upload(_:request:)"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "submit()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "29281A7C-812A-498C-A766-4BEFC709F6F0 - 394ba4d2c6c750d2"
+                  uuid = "FD6EF079-5DA1-45A1-BE4D-C81B618CBF49 - 22955fa1dac850cf"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for TikTok_Reporter.APIClient.upload&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(_: Foundation.URL, request: TikTok_Reporter.APIRequest) async throws -&gt; &#x3c4;_0_0"
-                  moduleName = "TikTok Reporter"
+                  symbolName = "TikTok_ReporterShare.GleanManager.submit() -&gt; ()"
+                  moduleName = "TikTok ReporterShare"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sergiughiran/Projects/TikTokReporter/TikTok%20Reporter/TikTok%20Reporter/Networking/APIClient.swift"
+                  urlString = "file:///Users/sergiughiran/Projects/TikTokReporter/TikTok%20Reporter/TikTok%20Reporter/Managers/GleanManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "104">
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "108">
                </Location>
                <Location
-                  uuid = "29281A7C-812A-498C-A766-4BEFC709F6F0 - 159aee573152ad28"
+                  uuid = "FD6EF079-5DA1-45A1-BE4D-C81B618CBF49 - 9d9cdf5c356c37df"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for TikTok_Reporter.APIClient.upload&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(_: Foundation.URL, request: TikTok_Reporter.APIRequest) async throws -&gt; &#x3c4;_0_0"
+                  symbolName = "TikTok_Reporter.GleanManager.submit() -&gt; ()"
                   moduleName = "TikTok Reporter"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sergiughiran/Projects/TikTokReporter/TikTok%20Reporter/TikTok%20Reporter/Networking/APIClient.swift"
+                  urlString = "file:///Users/sergiughiran/Projects/TikTokReporter/TikTok%20Reporter/TikTok%20Reporter/Managers/GleanManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "40">
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "108">
                </Location>
                <Location
-                  uuid = "29281A7C-812A-498C-A766-4BEFC709F6F0 - 8fb83fc668e814d0"
+                  uuid = "FD6EF079-5DA1-45A1-BE4D-C81B618CBF49 - 9d9cdf5c356c30a5"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for TikTok_Reporter.APIClient.upload&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(_: Foundation.URL, request: TikTok_Reporter.APIRequest) async throws -&gt; &#x3c4;_0_0"
+                  symbolName = "TikTok_Reporter.GleanManager.submit() -&gt; ()"
                   moduleName = "TikTok Reporter"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sergiughiran/Projects/TikTokReporter/TikTok%20Reporter/TikTok%20Reporter/Networking/APIClient.swift"
+                  urlString = "file:///Users/sergiughiran/Projects/TikTokReporter/TikTok%20Reporter/TikTok%20Reporter/Managers/GleanManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "88">
-               </Location>
-               <Location
-                  uuid = "29281A7C-812A-498C-A766-4BEFC709F6F0 - 2ad10b4dbbfd6ad1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for TikTok_Reporter.APIClient.upload&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(_: Foundation.URL, request: TikTok_Reporter.APIRequest) async throws -&gt; &#x3c4;_0_0"
-                  moduleName = "TikTok Reporter"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sergiughiran/Projects/TikTokReporter/TikTok%20Reporter/TikTok%20Reporter/Networking/APIClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "36">
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "108">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2C883635-6F87-4E04-8C53-03B9148FBF92"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TikTok Reporter/Managers/GleanManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "setup(isMainProcess:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

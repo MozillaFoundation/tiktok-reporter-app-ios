@@ -29,7 +29,7 @@ final class AppStateManager: ObservableObject {
     @Published
     var onboardingFlow: OnboardingFlow? = nil
 
-    private lazy var userDefaults = UserDefaults.standard
+    private lazy var userDefaults = UserDefaults(suiteName: Strings.appGroupID)
 
     // MARK: - Lifecycle
 
@@ -58,7 +58,7 @@ final class AppStateManager: ObservableObject {
     func save<T: Encodable>(_ value: T, for key: AppStateKey) throws {
 
         let data = try JSONEncoder().encode(value)
-        userDefaults.setValue(data, forKey: key.rawValue)
+        userDefaults?.setValue(data, forKey: key.rawValue)
 
         switch key {
         case .study:
@@ -78,7 +78,7 @@ final class AppStateManager: ObservableObject {
     func clearAll() {
 
         AppStateKey.allCases.forEach {
-            userDefaults.removeObject(forKey: $0.rawValue)
+            userDefaults?.removeObject(forKey: $0.rawValue)
         }
 
         self.study = nil
@@ -105,7 +105,7 @@ final class AppStateManager: ObservableObject {
     // MARK: - Private Methods
 
     private func getValue<T: Decodable>(for key: AppStateKey) -> T? {
-        guard let data = userDefaults.data(forKey: key.rawValue) else {
+        guard let data = userDefaults?.data(forKey: key.rawValue) else {
             return nil
         }
 

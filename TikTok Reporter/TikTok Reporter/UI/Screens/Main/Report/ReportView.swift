@@ -42,7 +42,6 @@ struct ReportView: View {
                     MainButton(text: Strings.submitTitle, type: .action) {
 
                         viewModel.sendReport()
-                        viewModel.routingState.submissionResult = true
                     }
                     
                     if viewModel.didUpdateMainField {

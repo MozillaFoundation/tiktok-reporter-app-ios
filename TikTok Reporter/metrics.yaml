@@ -16,7 +16,7 @@ tiktok_report:
   identifier:
     type: uuid
     send_in_pings:
-      - titok-report
+      - tiktok-report
     description: |
       Some description about what this contains.
     bugs:
@@ -32,7 +32,24 @@ tiktok_report:
   fields:
     type: text
     send_in_pings:
-      - titok-report
+      - tiktok-report
+    description: |
+      Some description about what this contains. This is a json dump
+      of the "fields" in the example I was given.
+    bugs:
+      - A link to the bug/ticket for the implementation
+    data_reviews:
+      - A link to the data review
+    data_sensitivity:
+      - stored_content
+    notification_emails:
+      - jessed@mozillafoundation.org
+    expires: never
+
+  email:
+    type: text
+    send_in_pings:
+      - tiktok-report
     description: |
       Some description about what this contains. This is a json dump
       of the "fields" in the example I was given.
@@ -46,10 +63,10 @@ tiktok_report:
       - jessed@mozillafoundation.org
     expires: never
 
-  email:
+  screen_recording:
     type: text
     send_in_pings:
-      - titok-report
+      - tiktok-report
     description: |
       Some description about what this contains. This is a json dump
       of the "fields" in the example I was given.

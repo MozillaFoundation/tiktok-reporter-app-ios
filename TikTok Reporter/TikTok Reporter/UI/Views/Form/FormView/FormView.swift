@@ -11,8 +11,8 @@ struct FormView: View {
     
     // MARK: - Properties
     
-    @ObservedObject
-    private(set) var viewModel: ViewModel
+    @StateObject
+    var viewModel: ViewModel
     
     // MARK: - Body
     
@@ -97,5 +97,5 @@ struct FormView: View {
 // MARK: - Preview
     
 #Preview {
-    FormView(viewModel: .init(formUIContainer: .constant(FormUIMapper.map(form: PreviewHelper.mockReportForm)), didUpdateMainField: .constant(false)))
+    FormView(viewModel: .init(formUIContainer: .constant(FormInputMapper.map(form: PreviewHelper.mockReportForm)), didUpdateMainField: .constant(false)))
 }

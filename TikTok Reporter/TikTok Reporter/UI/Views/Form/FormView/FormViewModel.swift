@@ -25,7 +25,7 @@ extension FormView {
     
         private lazy var otherField: FormInputField = {
 
-            return FormInputField(formItem: FormItem(id: "", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: Strings.otherFieldTitle, maxLines: 1, multiline: false))))
+            return FormInputField(formItem: FormItem(id: "other", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: Strings.otherFieldTitle, maxLines: 1, multiline: false))))
         }()
 
         // MARK: - Lifecycle
@@ -59,8 +59,7 @@ extension FormView {
         }
 
         func removeOther() {
-            // TODO: - Check bug where the other field is not removed when it's text property isn't empty
-            guard let otherFieldIndex = formUIContainer.items.firstIndex(of: otherField) else {
+            guard let otherFieldIndex = formUIContainer.items.firstIndex(where: { $0.id == otherField.id }) else {
                 return
             }
 

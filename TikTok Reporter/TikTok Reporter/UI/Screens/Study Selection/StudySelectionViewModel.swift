@@ -123,7 +123,7 @@ extension StudySelectionView {
 enum TestStudyProvider {
     static let study: Study =
         Study(
-            id: "1",
+            id: "bccb3130-95db-11ee-b9d1-0242ac120002",
             name: "Test Onboarding Study",
             description: "This is a local study.",
             isActive: true,

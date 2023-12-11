@@ -24,6 +24,8 @@ extension ReportView {
         
         @Injected(\.studiesService)
         private var studiesService: StudiesServicing
+        @Injected(\.gleanManager)
+        private var gleanManager: GleanManaging
         
         // MARK: - Properties
         
@@ -46,7 +48,7 @@ extension ReportView {
             self.form = form
             self.appState = appState
             
-            self.formUIContainer = FormUIMapper.map(form: form)
+            self.formUIContainer = FormInputMapper.map(form: form)
 
             self.load()
         }
@@ -92,19 +94,21 @@ extension ReportView {
 
             do {
 
-                let jsonForm = try FormJSONMapper.map(self.formUIContainer)
-                GleanManager.submitText(jsonForm, metricType: .fields)
-                // TODO: - Should we send these at once or sequentially?
-                GleanManager.submitUUID(uuid)
+                let jsonForm = try JSONMapper.map(self.formUIContainer)
+
+                gleanManager.setFields(jsonForm)
+                gleanManager.setIdentifier(uuid)
+
+                gleanManager.submit()
+
+                routingState.submissionResult = true
             } catch {
                 assertionFailure(error.localizedDescription)
             }
         }
     
         func cancelReport() {
-            formUIContainer.items[0].stringValue = ""
-            formUIContainer.items[0].isEnabled = true
-            
+            formUIContainer.reset()
             didUpdateMainField = false
         }
     }
