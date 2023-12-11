@@ -31,15 +31,23 @@ extension ReportView {
         
         private(set) var form: Form
         private(set) var appState: AppStateManager
+
+        private(set) var otherId: String? = nil
+        private(set) var otherFieldId: String? = nil
         
         @Published
         var state: PresentationState = .success
         @Published
         var routingState: Routing = .init()
         @Published
-        var formUIContainer: FormInputContainer
+        var formInputContainer: FormInputContainer
         @Published
         var didUpdateMainField: Bool = false
+
+        private lazy var otherField: FormInputField = {
+
+            return FormInputField(formItem: FormItem(id: "other", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: Strings.otherFieldTitle, maxLines: 1, multiline: false))))
+        }()
         
         // MARK: - Lifecycle
         
@@ -48,7 +56,8 @@ extension ReportView {
             self.form = form
             self.appState = appState
             
-            self.formUIContainer = FormInputMapper.map(form: form)
+            self.formInputContainer = FormInputMapper.map(form: form)
+            self.setupFormItems()
 
             self.load()
         }
@@ -85,7 +94,7 @@ extension ReportView {
 
         func sendReport() {
             guard
-                formUIContainer.validate(),
+                formInputContainer.validate(),
                 let studyId = appState.study?.id,
                 let uuid = UUID(uuidString: studyId)
             else {
@@ -94,7 +103,7 @@ extension ReportView {
 
             do {
 
-                let jsonForm = try JSONMapper.map(self.formUIContainer)
+                let jsonForm = try JSONMapper.map(self.formInputContainer)
 
                 gleanManager.setFields(jsonForm)
                 gleanManager.setIdentifier(uuid)
@@ -108,8 +117,28 @@ extension ReportView {
         }
     
         func cancelReport() {
-            formUIContainer.reset()
+            formInputContainer.reset()
             didUpdateMainField = false
         }
+
+        // MARK: - Private Methods
+
+        private func setupFormItems() {
+
+            self.formInputContainer.items.forEach { formItem in
+
+                if case let .dropDown(fieldItem) = formItem.formItem.field, fieldItem.hasOtherOption {
+                    self.otherFieldId = formItem.id
+                    self.otherId = fieldItem.options.first(where: { $0.title.lowercased() == Strings.otherTitle })?.id
+                }
+            }
+        }
     }
+}
+
+// MARK: - Strings
+
+private enum Strings {
+    static let otherFieldTitle = "Suggest a category"
+    static let otherTitle = "other"
 }

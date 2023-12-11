@@ -86,6 +86,14 @@ struct FormInputContainer: Encodable {
     let name: String
     var items: [FormInputField]
 
+    // MARK: - Lifecycle
+
+    init(id: String, name: String, items: [FormInputField]) {
+        self.id = id
+        self.name = name
+        self.items = items
+    }
+
     // MARK: - Methods
 
     mutating func validate() -> Bool {
@@ -100,6 +108,28 @@ struct FormInputContainer: Encodable {
         for index in items.indices {
             items[index].reset()
         }
+    }
+
+    mutating func updateOtherField(_ didSelectOther: Bool, on dropDown: FormInputField) {
+
+        guard 
+            let itemIndex = items.firstIndex(of: dropDown),
+            itemIndex < items.count
+        else {
+            return
+        }
+
+        if didSelectOther {
+
+            items.insert(otherField(for: dropDown.id), at: itemIndex + 1)
+        } else {
+            items.remove(at: itemIndex + 1)
+        }
+    }
+
+    private func otherField(for dropDownId: String) -> FormInputField {
+
+        return FormInputField(formItem: FormItem(id: dropDownId + "-other", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: "Other", maxLines: 1, multiline: false))))
     }
 }
 

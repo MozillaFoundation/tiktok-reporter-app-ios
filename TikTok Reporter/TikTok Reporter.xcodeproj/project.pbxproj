@@ -112,7 +112,6 @@
 		689FF0722AF977E200C9FE51 /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0712AF977E200C9FE51 /* MainTextField.swift */; };
 		689FF0752AFA2C9200C9FE51 /* OnboardingFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0742AFA2C9200C9FE51 /* OnboardingFormView.swift */; };
 		689FF0772AFACBFE00C9FE51 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0762AFACBFE00C9FE51 /* FormView.swift */; };
-		689FF07C2AFBE35000C9FE51 /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF07B2AFBE35000C9FE51 /* FormViewModel.swift */; };
 		689FF07E2AFBF6CF00C9FE51 /* OnboardingFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF07D2AFBF6CF00C9FE51 /* OnboardingFormViewModel.swift */; };
 		689FF0812AFCDAF000C9FE51 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0802AFCDAF000C9FE51 /* SliderView.swift */; };
 		689FF0852AFCE86700C9FE51 /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0842AFCE86700C9FE51 /* DropDownView.swift */; };
@@ -275,7 +274,6 @@
 		689FF0712AF977E200C9FE51 /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
 		689FF0742AFA2C9200C9FE51 /* OnboardingFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFormView.swift; sourceTree = "<group>"; };
 		689FF0762AFACBFE00C9FE51 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
-		689FF07B2AFBE35000C9FE51 /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
 		689FF07D2AFBF6CF00C9FE51 /* OnboardingFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFormViewModel.swift; sourceTree = "<group>"; };
 		689FF0802AFCDAF000C9FE51 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		689FF0842AFCE86700C9FE51 /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
@@ -733,7 +731,6 @@
 			isa = PBXGroup;
 			children = (
 				689FF0762AFACBFE00C9FE51 /* FormView.swift */,
-				689FF07B2AFBE35000C9FE51 /* FormViewModel.swift */,
 			);
 			path = FormView;
 			sourceTree = "<group>";
@@ -1287,7 +1284,6 @@
 				6892A4F92B1495CD0023BCA8 /* AVAsset+Thumbnail.swift in Sources */,
 				689FF0362AF25C4400C9FE51 /* PoliciesAPI.swift in Sources */,
 				68FA99472B0B69D400D65D43 /* View+Keyboard.swift in Sources */,
-				689FF07C2AFBE35000C9FE51 /* FormViewModel.swift in Sources */,
 				68CBF9AB2AEC18B0006D03FC /* Font+Extension.swift in Sources */,
 				689FF05E2AF3E80300C9FE51 /* StudiesAPI.swift in Sources */,
 				685F30412AFE92F500D585C3 /* IdleView.swift in Sources */,

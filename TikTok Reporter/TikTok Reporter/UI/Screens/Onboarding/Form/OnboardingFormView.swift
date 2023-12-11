@@ -44,7 +44,8 @@ struct OnboardingFormView: View {
             ScrollView {
 
                 // TODO: - Try to avoid re-initializing ViewModel on each re-draw
-                FormView(viewModel: .init(formUIContainer: $viewModel.formUIContainer, didUpdateMainField: $viewModel.didUpdateMainField))
+//                FormView(viewModel: .init(formInputFields: $viewModel.formUIContainer.items, didUpdateMainField: $viewModel.didUpdateMainField))
+                FormView(formInputContainer: $viewModel.formUIContainer, didUpdateMainField: $viewModel.didUpdateMainField)
             }
         }
     }

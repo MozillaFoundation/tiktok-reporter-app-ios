@@ -35,7 +35,7 @@ struct ReportView: View {
 
             VStack {
                 
-                FormView(viewModel: .init(formUIContainer: $viewModel.formUIContainer, didUpdateMainField: $viewModel.didUpdateMainField))
+                FormView(formInputContainer: $viewModel.formInputContainer, didUpdateMainField: $viewModel.didUpdateMainField)
                 
                 VStack {
                     
