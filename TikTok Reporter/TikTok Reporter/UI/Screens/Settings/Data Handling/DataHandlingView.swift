@@ -9,6 +9,11 @@ import SwiftUI
 
 struct DataHandlingView: View {
 
+    // MARK: - Properties
+
+    @StateObject
+    var viewModel: ViewModel
+
     // MARK: - Body
 
     var body: some View {
@@ -35,8 +40,11 @@ struct DataHandlingView: View {
             VStack(spacing: .m) {
 
                 MainButton(text: Strings.downloadTitle, type: .secondary) {
+                    viewModel.requestDataDownload()
                 }
+
                 MainButton(text: Strings.deleteTitle, type: .secondary) {
+                    viewModel.requestDataDelete()
                 }
             }
 
@@ -49,7 +57,7 @@ struct DataHandlingView: View {
 // MARK: - Preview
 
 #Preview {
-    DataHandlingView()
+    DataHandlingView(viewModel: .init(appState: AppStateManager()))
 }
 
 // MARK: - Strings

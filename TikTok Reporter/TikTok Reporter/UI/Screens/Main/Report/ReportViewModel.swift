@@ -105,9 +105,7 @@ extension ReportView {
 
                 let jsonForm = try JSONMapper.map(self.formInputContainer)
 
-                gleanManager.setFields(jsonForm)
-                gleanManager.setIdentifier(uuid)
-
+                gleanManager.setFields(jsonForm, identifier: uuid)
                 gleanManager.submit()
 
                 cancelReport()

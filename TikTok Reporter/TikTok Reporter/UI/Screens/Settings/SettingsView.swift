@@ -36,17 +36,20 @@ struct SettingsView: View {
             VStack(alignment: .leading) {
 
                 settings
+
                 NavigationLink(destination: AboutView()) {
                     aboutRow
                 }
 
                 if let study = viewModel.study {
+
                     NavigationLink(destination: StudySelectionView(viewModel: .init(appState: viewModel.appState, viewState: .prefilled(study)))) {
                         studiesRow
                     }
                 }
 
                 if let form = viewModel.onboardingForm {
+
                     NavigationLink(
                         destination: OnboardingFormView(viewModel: .init(appState: viewModel.appState, form: form, location: .settings))
                     ) {
@@ -55,19 +58,22 @@ struct SettingsView: View {
                 }
 
                 if let termsAndConditions = viewModel.termsAndConditions {
+
                     NavigationLink(destination: PolicyView(viewModel: .init(appState: viewModel.appState, policyType: .specific(termsAndConditions), hasActions: false))) {
                         termsRow
                     }
                 }
 
                 if let termsAndConditions = viewModel.privacyPolicy {
+
                     NavigationLink(destination: PolicyView(viewModel: .init(appState: viewModel.appState, policyType: .specific(termsAndConditions), hasActions: false))) {
                         privacyRow
                     }
                 }
 
-                if let emailAddress = viewModel.emailAddress {
-                    NavigationLink(destination: DataHandlingView()) {
+                if viewModel.emailAddress != nil {
+
+                    NavigationLink(destination: DataHandlingView(viewModel: .init(appState: viewModel.appState))) {
                         dataHandlingRow
                     }
                 }

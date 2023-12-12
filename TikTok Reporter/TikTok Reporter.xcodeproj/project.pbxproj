@@ -135,6 +135,7 @@
 		68FA99472B0B69D400D65D43 /* View+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA99462B0B69D400D65D43 /* View+Keyboard.swift */; };
 		68FA99502B0BA34400D65D43 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA994F2B0BA34400D65D43 /* ShareViewController.swift */; };
 		68FA99572B0BA34400D65D43 /* TikTok ReporterShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 68FA994D2B0BA34400D65D43 /* TikTok ReporterShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		68FB5B6B2B28865A003FF139 /* DataHandlingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FB5B6A2B28865A003FF139 /* DataHandlingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -302,6 +303,7 @@
 		68FA994D2B0BA34400D65D43 /* TikTok ReporterShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TikTok ReporterShare.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68FA994F2B0BA34400D65D43 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		68FA99542B0BA34400D65D43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68FB5B6A2B28865A003FF139 /* DataHandlingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandlingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -510,6 +512,7 @@
 			isa = PBXGroup;
 			children = (
 				688371672B05246100542EC7 /* DataHandlingView.swift */,
+				68FB5B6A2B28865A003FF139 /* DataHandlingViewModel.swift */,
 			);
 			path = "Data Handling";
 			sourceTree = "<group>";
@@ -1249,6 +1252,7 @@
 				689FF05C2AF3E7E600C9FE51 /* Onboarding.swift in Sources */,
 				689FF03D2AF2983100C9FE51 /* InjectedValues.swift in Sources */,
 				689FF0652AF6787900C9FE51 /* OnboardingView.swift in Sources */,
+				68FB5B6B2B28865A003FF139 /* DataHandlingViewModel.swift in Sources */,
 				684E2F342B20B3B5006A05C8 /* GleanManager.swift in Sources */,
 				688371682B05246100542EC7 /* DataHandlingView.swift in Sources */,
 				689FF0542AF3A4EA00C9FE51 /* RadioButtonGroup.swift in Sources */,

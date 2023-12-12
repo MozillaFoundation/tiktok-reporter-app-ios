@@ -40,7 +40,7 @@ extension FormView {
 
         init(formInputContainer: FormInputContainer, currentStudy: Study, link: String) {
             
-            self.gleanManager.setup(isMainProcess: false)
+            self.gleanManager.setup()
 
             self.formInputContainer = formInputContainer
             self.currentStudy = currentStudy
@@ -130,9 +130,7 @@ extension FormView {
 
                 let jsonForm = try JSONMapper.map(formInputContainer)
 
-                gleanManager.setFields(jsonForm)
-                gleanManager.setIdentifier(uuid)
-
+                gleanManager.setFields(jsonForm, identifier: uuid)
                 gleanManager.submit()
 
                 NotificationCenter

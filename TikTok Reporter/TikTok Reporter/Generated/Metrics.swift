@@ -25,24 +25,63 @@ extension GleanMetrics {
             // Intentionally left private, no external user can instantiate a new global object.
         }
 
-        public static let info = BuildInfo(buildDate: DateComponents(calendar: Calendar.current, timeZone: TimeZone(abbreviation: "UTC"), year: 2023, month: 12, day: 11, hour: 19, minute: 3, second: 25))
+        public static let info = BuildInfo(buildDate: DateComponents(calendar: Calendar.current, timeZone: TimeZone(abbreviation: "UTC"), year: 2023, month: 12, day: 12, hour: 7, minute: 16, second: 49))
     }
 
-    enum TiktokReport {
-        /// Some description about what this contains. This is a json dump
-        /// of the "fields" in the example I was given.
-        static let email = TextMetricType( // generated from tiktok_report.email
+    enum DownloadData {
+        /// Participant-provided email address to fulfill data download request.
+        static let email = TextMetricType( // generated from download_data.email
             CommonMetricData(
-                category: "tiktok_report",
+                category: "download_data",
                 name: "email",
-                sendInPings: ["tiktok-report"],
+                sendInPings: ["download-data"],
                 lifetime: .ping,
                 disabled: false
             )
         )
 
-        /// Some description about what this contains. This is a json dump
-        /// of the "fields" in the example I was given.
+        /// A unique identifier for the app installation.
+        static let identifier = UuidMetricType( // generated from download_data.identifier
+            CommonMetricData(
+                category: "download_data",
+                name: "identifier",
+                sendInPings: ["download-data"],
+                lifetime: .ping,
+                disabled: false
+            )
+        )
+
+    }
+
+    enum Email {
+        /// Optionally participant-provided email address.
+        static let email = TextMetricType( // generated from email.email
+            CommonMetricData(
+                category: "email",
+                name: "email",
+                sendInPings: ["email"],
+                lifetime: .ping,
+                disabled: false
+            )
+        )
+
+        /// A unique identifier for the app installation.
+        static let identifier = UuidMetricType( // generated from email.identifier
+            CommonMetricData(
+                category: "email",
+                name: "identifier",
+                sendInPings: ["email"],
+                lifetime: .ping,
+                disabled: false
+            )
+        )
+
+    }
+
+    enum TiktokReport {
+        /// A JSON structure with information about a report.  Includes the reported video
+        /// ID, as well as additional participant-provided fields that depend on the study
+        /// specification.
         static let fields = TextMetricType( // generated from tiktok_report.fields
             CommonMetricData(
                 category: "tiktok_report",
@@ -53,7 +92,7 @@ extension GleanMetrics {
             )
         )
 
-        /// Some description about what this contains.
+        /// A unique identifier for the app installation.
         static let identifier = UuidMetricType( // generated from tiktok_report.identifier
             CommonMetricData(
                 category: "tiktok_report",
@@ -64,13 +103,26 @@ extension GleanMetrics {
             )
         )
 
-        /// Some description about what this contains. This is a json dump
-        /// of the "fields" in the example I was given.
-        static let screenRecording = TextMetricType( // generated from tiktok_report.screen_recording
+    }
+
+    enum TiktokScreenRecording {
+        /// The GCS path to which the screen recording was uploaded.
+        static let data = TextMetricType( // generated from tiktok_screen_recording.data
             CommonMetricData(
-                category: "tiktok_report",
-                name: "screen_recording",
-                sendInPings: ["tiktok-report"],
+                category: "tiktok_screen_recording",
+                name: "data",
+                sendInPings: ["screen-recording"],
+                lifetime: .ping,
+                disabled: false
+            )
+        )
+
+        /// A unique identifier for the app installation.
+        static let identifier = UuidMetricType( // generated from tiktok_screen_recording.identifier
+            CommonMetricData(
+                category: "tiktok_screen_recording",
+                name: "identifier",
+                sendInPings: ["screen-recording"],
                 lifetime: .ping,
                 disabled: false
             )
@@ -84,7 +136,34 @@ extension GleanMetrics {
             // Intentionally left private, no external user can instantiate a new global object.
         }
 
-        /// Some description about what this contains.
+        /// A ping sent to indicate that the participant has requested their data.
+        let downloadData = Ping<NoReasonCodes>(
+            name: "download-data",
+            includeClientId: true,
+            sendIfEmpty: false,
+            preciseTimestamps: true,
+            reasonCodes: []
+        )
+
+        /// A ping sent to indicate that the participant has provided an email.
+        let email = Ping<NoReasonCodes>(
+            name: "email",
+            includeClientId: true,
+            sendIfEmpty: false,
+            preciseTimestamps: true,
+            reasonCodes: []
+        )
+
+        /// A ping sent to indicate that the participant has submitted a screen recording.
+        let screenRecording = Ping<NoReasonCodes>(
+            name: "screen-recording",
+            includeClientId: true,
+            sendIfEmpty: false,
+            preciseTimestamps: true,
+            reasonCodes: []
+        )
+
+        /// A ping sent to indicate that the participant has reported a video.
         let tiktokReport = Ping<NoReasonCodes>(
             name: "tiktok-report",
             includeClientId: true,

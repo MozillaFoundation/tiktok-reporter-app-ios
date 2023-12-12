@@ -18,15 +18,16 @@ tiktok_report:
     send_in_pings:
       - tiktok-report
     description: |
-      Some description about what this contains.
+      A unique identifier for the app installation.
     bugs:
-      - A link to the bug/ticket for the implementation
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1869236
     data_reviews:
-      - A link to the data review
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1858684
     data_sensitivity:
       - highly_sensitive
     notification_emails:
       - jessed@mozillafoundation.org
+      - rebeccar@mozillafoundation.org
     expires: never
 
   fields:
@@ -34,48 +35,121 @@ tiktok_report:
     send_in_pings:
       - tiktok-report
     description: |
-      Some description about what this contains. This is a json dump
-      of the "fields" in the example I was given.
+      A JSON structure with information about a report.  Includes the reported video ID, as well as additional participant-provided fields that depend on the study specification.
     bugs:
-      - A link to the bug/ticket for the implementation
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1869236
     data_reviews:
-      - A link to the data review
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1858684
     data_sensitivity:
       - stored_content
     notification_emails:
       - jessed@mozillafoundation.org
+      - rebeccar@mozillafoundation.org
+    expires: never
+
+
+email:
+  identifier:
+    type: uuid
+    send_in_pings:
+      - email
+    description: |
+      A unique identifier for the app installation.
+    bugs:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1869236
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1858684
+    data_sensitivity:
+      - highly_sensitive
+    notification_emails:
+      - jessed@mozillafoundation.org
+      - rebeccar@mozillafoundation.org
     expires: never
 
   email:
     type: text
     send_in_pings:
-      - tiktok-report
+      - email
     description: |
-      Some description about what this contains. This is a json dump
-      of the "fields" in the example I was given.
+      Optionally participant-provided email address.
     bugs:
-      - A link to the bug/ticket for the implementation
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1869236
     data_reviews:
-      - A link to the data review
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1858684
     data_sensitivity:
       - highly_sensitive
     notification_emails:
       - jessed@mozillafoundation.org
+      - rebeccar@mozillafoundation.org
     expires: never
 
-  screen_recording:
-    type: text
+
+tiktok_screen_recording:
+  identifier:
+    type: uuid
     send_in_pings:
-      - tiktok-report
+      - screen-recording
     description: |
-      Some description about what this contains. This is a json dump
-      of the "fields" in the example I was given.
+      A unique identifier for the app installation.
     bugs:
-      - A link to the bug/ticket for the implementation
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1869236
     data_reviews:
-      - A link to the data review
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1858684
     data_sensitivity:
       - highly_sensitive
     notification_emails:
       - jessed@mozillafoundation.org
+      - rebeccar@mozillafoundation.org
+    expires: never
+
+  data:
+    type: text
+    send_in_pings:
+      - screen-recording
+    description: |
+      The GCS path to which the screen recording was uploaded.
+    bugs:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1869236
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1858684
+    data_sensitivity:
+      - highly_sensitive
+    notification_emails:
+      - jessed@mozillafoundation.org
+      - rebeccar@mozillafoundation.org
+    expires: never
+
+download_data:
+  identifier:
+    type: uuid
+    send_in_pings:
+      - download-data
+    description: |
+      A unique identifier for the app installation.
+    bugs:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1869236
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1858684
+    data_sensitivity:
+      - highly_sensitive
+    notification_emails:
+      - jessed@mozillafoundation.org
+      - rebeccar@mozillafoundation.org
+    expires: never
+
+  email:
+    type: text
+    send_in_pings:
+      - download-data
+    description: |
+      Participant-provided email address to fulfill data download request.
+    bugs:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1869236
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1858684
+    data_sensitivity:
+      - highly_sensitive
+    notification_emails:
+      - jessed@mozillafoundation.org
+      - rebeccar@mozillafoundation.org
     expires: never
