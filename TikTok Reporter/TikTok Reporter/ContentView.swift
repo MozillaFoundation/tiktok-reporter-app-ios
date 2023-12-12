@@ -24,7 +24,7 @@ struct ContentView: View {
         }
         .tint(.text)
         .onAppear {
-            gleanManager.setup(isMainProcess: true)
+            gleanManager.setup()
         }
     }
 

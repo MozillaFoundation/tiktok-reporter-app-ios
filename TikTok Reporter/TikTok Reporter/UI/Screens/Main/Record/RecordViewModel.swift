@@ -30,12 +30,13 @@ extension RecordView {
 
         // MARK: - Properties
 
+        private var appState: AppStateManager
+
         @Published
         var state: PresentationState = .success
         @Published
         var routingState: Routing = .init()
 
-        
         @Published
         var screenRecording: ScreenRecording?
         @Published
@@ -52,7 +53,9 @@ extension RecordView {
 
         // MARK: - Lifecycle
 
-        init() {
+        init(appState: AppStateManager) {
+
+            self.appState = appState
             load()
         }
 
@@ -92,6 +95,14 @@ extension RecordView {
 
         func submitRecording() {
 
+            guard
+                let study = appState.study,
+                let uuid = UUID(uuidString: study.id)
+            else {
+                state = .failed
+                return
+            }
+
             state = .loading
 
             Task {
@@ -101,7 +112,7 @@ extension RecordView {
                     let storage = try await screenRecordingService.uploadRecording()
                     let jsonString = try JSONMapper.map(storage)
 
-                    gleanManager.setScreenRecording(jsonString)
+                    gleanManager.setScreenRecording(jsonString, identifier: uuid)
                     gleanManager.submit()
 
                     state = .success

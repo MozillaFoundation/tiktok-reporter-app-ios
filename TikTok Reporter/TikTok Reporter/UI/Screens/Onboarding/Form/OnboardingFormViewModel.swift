@@ -52,10 +52,13 @@ extension OnboardingFormView {
         // MARK: - Methods
 
         func saveData() {
-            guard 
+
+            guard
                 formUIContainer.validate(),
                 let emailItem = formUIContainer.items.first,
-                !emailItem.stringValue.isEmpty
+                !emailItem.stringValue.isEmpty,
+                let study = appState.study,
+                let uuid = UUID(uuidString: study.id)
             else {
                 return
             }
@@ -63,7 +66,8 @@ extension OnboardingFormView {
             let emailAddress = emailItem.stringValue
             
             do {
-                gleanManager.setEmail(emailAddress)
+
+                gleanManager.setEmail(emailAddress, identifier: uuid)
                 gleanManager.submit()
 
                 try appState.save(emailAddress, for: .emailAddress)

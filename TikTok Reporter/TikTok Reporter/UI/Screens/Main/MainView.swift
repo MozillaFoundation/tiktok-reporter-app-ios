@@ -69,10 +69,6 @@ struct MainView: View {
 
     private var recordTab: some View {
 
-        RecordView(viewModel: .init())
+        RecordView(viewModel: .init(appState: viewModel.appState))
     }
 }
-
-// MARK: - Preview
-
-// 

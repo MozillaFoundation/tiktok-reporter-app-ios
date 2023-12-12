@@ -185,7 +185,7 @@ struct RecordView: View {
 // MARK: - Preview
 
 #Preview {
-    RecordView(viewModel: .init())
+    RecordView(viewModel: .init(appState: AppStateManager()))
 }
 
 // MARK: - Strings
