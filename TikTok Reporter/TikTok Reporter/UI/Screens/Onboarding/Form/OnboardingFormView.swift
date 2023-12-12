@@ -43,22 +43,25 @@ struct OnboardingFormView: View {
 
             ScrollView {
 
-                // TODO: - Try to avoid re-initializing ViewModel on each re-draw
-                FormView(viewModel: .init(formUIContainer: $viewModel.formUIContainer, didUpdateMainField: $viewModel.didUpdateMainField))
+                FormView(formInputContainer: $viewModel.formUIContainer, didUpdateMainField: $viewModel.didUpdateMainField)
             }
         }
     }
     
     private var buttons: some View {
+
         VStack(spacing: .m) {
+
             if viewModel.didUpdateMainField {
-                MainButton(text: "Save", type: .primary) {
+
+                MainButton(text: Strings.saveTitle, type: .primary) {
                     viewModel.saveData()
                 }
             }
 
             if viewModel.location == .onboarding {
-                MainButton(text: "Skip", type: .secondary) {
+
+                MainButton(text: Strings.skipTitle, type: .secondary) {
                     viewModel.skip()
                 }
             }
@@ -67,6 +70,15 @@ struct OnboardingFormView: View {
     }
 }
 
+// MARK: - Preview
+
 #Preview {
     OnboardingFormView(viewModel: .init(appState: AppStateManager(), form: PreviewHelper.mockOnboardingForm))
+}
+
+// MARK: - Strings
+
+private enum Strings {
+    static let saveTitle = "Save"
+    static let skipTitle = "Skip"
 }

@@ -20,11 +20,12 @@ struct TikTok_ReporterApp: App {
     var body: some Scene {
 
         WindowGroup {
+
             if isActive {
+
                 ContentView()
                     .onAppear {
                         UITextView.appearance().backgroundColor = .clear
-                        // TODO: - Update to use asset
                         UINavigationBar.appearance().backIndicatorImage = UIImage(named: "backImage")
                         UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "backImage")
                         UINavigationBar.appearance().tintColor = UIColor(named: "text")
@@ -36,13 +37,10 @@ struct TikTok_ReporterApp: App {
     }
 }
 
-// TODO: - Move in separate class
-
 extension UINavigationController {
 
   open override func viewWillLayoutSubviews() {
     super.viewWillLayoutSubviews()
     navigationBar.topItem?.backButtonDisplayMode = .minimal
   }
-
 }

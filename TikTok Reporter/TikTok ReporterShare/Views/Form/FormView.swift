@@ -11,8 +11,8 @@ struct FormView: View {
     
     // MARK: - Properties
     
-    @ObservedObject
-    private(set) var viewModel: ViewModel
+    @StateObject
+    var viewModel: ViewModel
     
     // MARK: - Body
     
@@ -21,6 +21,7 @@ struct FormView: View {
         NavigationView {
 
             PresentationStateView(viewModel: viewModel) {
+
                 self.content
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
@@ -48,6 +49,7 @@ struct FormView: View {
         ScrollView {
 
             VStack(alignment: .leading, spacing: .s) {
+
                 formItems
             }
             .padding(.xl)
@@ -59,15 +61,13 @@ struct FormView: View {
         VStack {
 
             MainButton(text: Strings.submitTitle, type: .action) {
-                guard viewModel.formUIContainer.validate() else {
-                    return
-                }
 
-                NotificationCenter.default.post(name: NSNotification.Name(Strings.closeNotificationName), object: nil)
+                viewModel.submitReport()
             }
         
             MainButton(text: Strings.cancelTitle, type: .secondary) {
-                NotificationCenter.default.post(name: NSNotification.Name(Strings.closeNotificationName), object: nil)
+
+                viewModel.cancelReport()
             }
         }
         .padding(.horizontal, .xl)
@@ -75,7 +75,7 @@ struct FormView: View {
 
     private var formItems: some View {
 
-        ForEach($viewModel.formUIContainer.items) { $field in
+        ForEach($viewModel.formInputContainer.items) { $field in
             
             VStack(alignment: .leading, spacing: .m) {
 
@@ -98,13 +98,13 @@ struct FormView: View {
                     
                 case let .textField(fieldInfo):
                     
-                    ShareTextField(text: $field.stringValue, isValid: $field.isValid, isEnabled: $field.isEnabled, placeholder: fieldInfo.placeholder, isMultiline: fieldInfo.multiline)
+                    MainTextField(text: $field.stringValue, isValid: $field.isValid, isEnabled: $field.isEnabled, placeholder: fieldInfo.placeholder, isMultiline: fieldInfo.multiline)
                 case let .slider(fieldInfo):
                     
-                    ShareSlider(value: $field.doubleValue, max: fieldInfo.max, step: fieldInfo.step, leftLabel: fieldInfo.leftLabel, rightLabel: fieldInfo.rightLabel)
+                    SliderView(value: $field.doubleValue, max: fieldInfo.max, step: fieldInfo.step, leftLabel: fieldInfo.leftLabel, rightLabel: fieldInfo.rightLabel)
                 case let .dropDown(fieldInfo):
                     
-                    ShareDropDown(selected: $field.stringValue, isValid: $field.isValid, options: fieldInfo.options, placeholder: fieldInfo.placeholder)
+                    DropDownView(selected: $field.stringValue, isValid: $field.isValid, options: fieldInfo.options, placeholder: fieldInfo.placeholder)
                         .onChange(of: field.stringValue) { selected in
                             guard let otherId = viewModel.otherId, selected == otherId else {
                                 viewModel.removeOther()

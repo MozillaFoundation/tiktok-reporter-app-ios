@@ -15,6 +15,8 @@ extension FormView {
 
         // MARK: - Properties
 
+        private var gleanManager = GleanManager()
+
         private(set) var otherId: String? = nil
         private(set) var otherFieldId: String? = nil
         
@@ -24,25 +26,27 @@ extension FormView {
         private var link: String
 
         @Published
-        var formUIContainer: FormUIContainer
+        var formInputContainer: FormInputContainer
 
         @Published
         var state: PresentationState = .idle
     
-        private lazy var otherField: FormUIRepresentable = {
+        private lazy var otherField: FormInputField = {
 
-            return FormUIRepresentable(formItem: FormItem(id: "", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: Strings.otherFieldPlaceholder, maxLines: 1, multiline: false))))
+            return FormInputField(formItem: FormItem(id: "", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: Strings.otherFieldPlaceholder, maxLines: 1, multiline: false))))
         }()
 
         // MARK: - Lifecycle
 
-        init(formUIContainer: FormUIContainer, currentStudy: Study, link: String) {
+        init(formInputContainer: FormInputContainer, currentStudy: Study, link: String) {
+            
+            self.gleanManager.setup(isMainProcess: false)
 
-            self.formUIContainer = formUIContainer
+            self.formInputContainer = formInputContainer
             self.currentStudy = currentStudy
             self.link = link
 
-            self.formUIContainer.items.forEach { formItem in
+            self.formInputContainer.items.forEach { formItem in
 
                 if case let .dropDown(fieldItem) = formItem.formItem.field, fieldItem.hasOtherOption {
                     self.otherFieldId = formItem.id
@@ -57,11 +61,14 @@ extension FormView {
         // MARK: - Methods
 
         func load() {
+
             state = .loading
 
             guard let url = URL(string: Strings.studiesURL) else {
+
                 state = .failed
                 NotificationCenter.default.post(name: NSNotification.Name(Strings.closeNotificationName), object: nil)
+
                 return
             }
 
@@ -91,32 +98,80 @@ extension FormView {
             }
         }
 
-        func preFillLink() {
-            guard formUIContainer.items.count > 0 else {
-                return
-            }
-
-            formUIContainer.items[0].stringValue = link
-            formUIContainer.items[0].isEnabled = false
-        }
-
         func insertOther() {
             guard
                 let otherFieldId = otherFieldId,
-                let dropDownIndex = formUIContainer.items.firstIndex(where: { $0.formItem.id == otherFieldId })
+                let dropDownIndex = formInputContainer.items.firstIndex(where: { $0.formItem.id == otherFieldId })
             else {
                 return
             }
 
-            formUIContainer.items.insert(otherField, at: dropDownIndex + 1)
+            formInputContainer.items.insert(otherField, at: dropDownIndex + 1)
         }
 
         func removeOther() {
-            guard let otherFieldIndex = formUIContainer.items.firstIndex(of: otherField) else {
+            guard let otherFieldIndex = formInputContainer.items.firstIndex(of: otherField) else {
                 return
             }
 
-            formUIContainer.items.remove(at: otherFieldIndex)
+            formInputContainer.items.remove(at: otherFieldIndex)
+        }
+
+        func submitReport() {
+
+            guard 
+                formInputContainer.validate(),
+                let uuid = UUID(uuidString: currentStudy.id)
+            else {
+                return
+            }
+        
+            do {
+
+                let jsonForm = try JSONMapper.map(formInputContainer)
+
+                gleanManager.setFields(jsonForm)
+                gleanManager.setIdentifier(uuid)
+
+                gleanManager.submit()
+
+                NotificationCenter
+                    .default
+                    .post(
+                        name: NSNotification.Name(Strings.closeNotificationName),
+                        object: nil,
+                        userInfo: [
+                            "success": true
+                        ]
+                    )
+            } catch {
+                assertionFailure(error.localizedDescription)
+            }
+        }
+
+        func cancelReport() {
+
+            NotificationCenter
+                .default
+                .post(
+                    name: NSNotification.Name(Strings.closeNotificationName),
+                    object: nil,
+                    userInfo: [
+                        "success": true
+                    ]
+                )
+        }
+
+        // MARK: - Private Methods
+
+        private func preFillLink() {
+
+            guard formInputContainer.items.count > 0 else {
+                return
+            }
+
+            formInputContainer.items[0].stringValue = link
+            formInputContainer.items[0].isEnabled = false
         }
     }
 }

@@ -13,53 +13,41 @@ extension ReportView {
     // MARK: - Routing
 
     struct Routing {
-        var videoEditor: Bool = false
         var submissionResult: Bool = false
     }
     
     // MARK: - ViewModel
     
-    class ViewModel: PresentationStateObject {
+    final class ViewModel: PresentationStateObject {
         
         // MARK: - Injected
         
         @Injected(\.studiesService)
         private var studiesService: StudiesServicing
-        @Injected(\.screenRecordingService)
-        private var screenRecordingService: ScreenRecordingServicing
+        @Injected(\.gleanManager)
+        private var gleanManager: GleanManaging
         
         // MARK: - Properties
         
         private(set) var form: Form
         private(set) var appState: AppStateManager
-        
-        var screenRecordingURL: URL? {
-            screenRecordingService.localURL
-        }
 
-        var hasScreenRecording: Bool {
-            return tabs.contains(.recordSession)
-        }
+        private(set) var otherId: String? = nil
+        private(set) var otherFieldId: String? = nil
         
         @Published
         var state: PresentationState = .success
         @Published
         var routingState: Routing = .init()
-
         @Published
-        var selectedTab: Int = 0
-        @Published
-        var formUIContainer: FormUIContainer
-
+        var formInputContainer: FormInputContainer
         @Published
         var didUpdateMainField: Bool = false
 
-        @Published
-        var screenRecording: ScreenRecording?
-        @Published
-        var trimmedVideoPath: String?
-        
-        var tabs: [FormTab]
+        private lazy var otherField: FormInputField = {
+
+            return FormInputField(formItem: FormItem(id: "other", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: Strings.otherFieldTitle, maxLines: 1, multiline: false))))
+        }()
         
         // MARK: - Lifecycle
         
@@ -68,22 +56,10 @@ extension ReportView {
             self.form = form
             self.appState = appState
             
-            self.formUIContainer = FormUIMapper.map(form: form)
-            self.tabs = [.reportLink]
+            self.formInputContainer = FormInputMapper.map(form: form)
+            self.setupFormItems()
 
-            if let study = appState.study, study.supportsRecording {
-                tabs.append(.recordSession)
-            }
-            
             self.load()
-
-            guard tabs.contains(.recordSession) else {
-                return
-            }
-
-            if let asset = try? screenRecordingService.loadRecording() {
-                self.setupScreenRecording(with: asset)
-            }
         }
         
         // MARK: - Methods
@@ -109,80 +85,61 @@ extension ReportView {
                         
                         state = .success
                     }
-                } catch let error {
+                } catch {
                     state = .failed
                     print(error.localizedDescription)
                 }
             }
         }
-        
-        func refreshRecording() {
 
-            guard 
-                screenRecording == nil,
-                let asset = try? screenRecordingService.loadRecording()
-            else {
-                return
-            }
-
-            setupScreenRecording(with: asset)
-        }
-
-        func updateScreenRecording() {
+        func sendReport() {
             guard
-                let trimmedVideoPath,
-                let newAsset = try? screenRecordingService.updateLocalRecording(with: trimmedVideoPath)
+                formInputContainer.validate(),
+                let studyId = appState.study?.id,
+                let uuid = UUID(uuidString: studyId)
             else {
                 return
             }
 
-            self.setupScreenRecording(with: newAsset)
+            do {
+
+                let jsonForm = try JSONMapper.map(self.formInputContainer)
+
+                gleanManager.setFields(jsonForm)
+                gleanManager.setIdentifier(uuid)
+
+                gleanManager.submit()
+
+                cancelReport()
+                routingState.submissionResult = true
+            } catch {
+                assertionFailure(error.localizedDescription)
+            }
+        }
+    
+        func cancelReport() {
+            formInputContainer.reset()
+            didUpdateMainField = false
         }
 
         // MARK: - Private Methods
-    
-        private func setupScreenRecording(with asset: AVAsset) {
-            
-            var screenRecording = ScreenRecording(asset: asset)
-            
-            state = .loading
-            
-            Task.init {
-                do {
-                    try await screenRecording.loadMetadata()
-                    
-                    await MainActor.run {
-                        
-                        asset.generateThumbnail { image in
-                            
-                            DispatchQueue.main.async {
-                                screenRecording.setThumbnail(image ?? .settings)
-                                
-                                self.screenRecording = screenRecording
-                                self.didUpdateMainField = true
-                                self.state = .success
-                            }
-                        }
-                    }
-                } catch {
-                    print("ScreenRecordingData load failed")
-                    state = .failed
+
+        private func setupFormItems() {
+
+            self.formInputContainer.items.forEach { formItem in
+
+                if case let .dropDown(fieldItem) = formItem.formItem.field, fieldItem.hasOtherOption {
+                    self.otherFieldId = formItem.id
+                    self.otherId = fieldItem.options.first(where: { $0.title.lowercased() == Strings.otherTitle })?.id
                 }
             }
         }
-        
-        func cancelReport() {
-            formUIContainer.items[0].stringValue = ""
-            formUIContainer.items[0].isEnabled = true
-            
-            didUpdateMainField = false
-        }
-        
-        func cancelRecording() {
-            try? screenRecordingService.removeRecording()
-
-            didUpdateMainField = false
-            screenRecording = nil
-        }
     }
+}
+
+// MARK: - Strings
+
+private enum Strings {
+    static let otherFieldTitle = "Suggest a category"
+    static let otherTitle = "other"
 }

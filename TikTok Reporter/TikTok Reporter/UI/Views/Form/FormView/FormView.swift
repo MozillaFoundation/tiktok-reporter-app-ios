@@ -11,8 +11,10 @@ struct FormView: View {
     
     // MARK: - Properties
     
-    @ObservedObject
-    private(set) var viewModel: ViewModel
+    @Binding
+    var formInputContainer: FormInputContainer
+    @Binding
+    var didUpdateMainField: Bool
     
     // MARK: - Body
     
@@ -23,7 +25,8 @@ struct FormView: View {
             ScrollView {
 
                 VStack(alignment: .leading, spacing: .xl) {
-                    formItems
+                    
+                    self.formItems
                 }
                 .padding(.xl)
             }
@@ -37,7 +40,7 @@ struct FormView: View {
 
     private var formItems: some View {
 
-        ForEach($viewModel.formUIContainer.items) { $field in
+        ForEach($formInputContainer.items) { $field in
             
             VStack(alignment: .leading, spacing: .m) {
 
@@ -72,23 +75,25 @@ struct FormView: View {
                     DropDownView(selected: $field.stringValue, isValid: $field.isValid, options: fieldInfo.options, placeholder: fieldInfo.placeholder)
                         .onChange(of: field.stringValue) { selected in
 
-                            guard let otherId = viewModel.otherId, selected == otherId else {
-                                viewModel.removeOther()
+                            guard 
+                                fieldInfo.hasOtherOption,
+                                let otherOption = fieldInfo.options.last?.id
+                            else {
                                 return
                             }
 
-                            viewModel.insertOther()
+                            formInputContainer.updateOtherField(selected == otherOption, on: field)
                         }
                 }
             }
-            .onChange(of: viewModel.formUIContainer.items[0].stringValue) { newValue in
+            .onChange(of: formInputContainer.items[0].stringValue) { newValue in
                 
                 guard !newValue.isEmpty else {
-                    viewModel.didUpdateMainField = false
+                    didUpdateMainField = false
                     return
                 }
 
-                viewModel.didUpdateMainField = true
+                didUpdateMainField = true
             }
         }
     }
@@ -97,5 +102,12 @@ struct FormView: View {
 // MARK: - Preview
     
 #Preview {
-    FormView(viewModel: .init(formUIContainer: .constant(FormUIMapper.map(form: PreviewHelper.mockReportForm)), didUpdateMainField: .constant(false)))
+    FormView(formInputContainer: .constant(FormInputMapper.map(form: PreviewHelper.mockReportForm)), didUpdateMainField: .constant(false))
+}
+
+// MARK: - Strings
+
+private enum Strings {
+    static let otherFieldTitle = "Suggest a category"
+    static let otherTitle = "other"
 }

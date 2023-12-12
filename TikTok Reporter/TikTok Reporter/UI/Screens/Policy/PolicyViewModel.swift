@@ -74,9 +74,8 @@ extension PolicyView {
                         state = .success
                     }
                 } catch let error {
-                    // TODO: - Handle error
                     state = .failed
-                    print(error.localizedDescription)
+                    assertionFailure(error.localizedDescription)
                 }
             }
         }
@@ -95,8 +94,7 @@ extension PolicyView {
                 }
                 
             } catch let error {
-                // TODO: - Show Error
-                print(error.localizedDescription)
+                assertionFailure(error.localizedDescription)
             }
         }
     }

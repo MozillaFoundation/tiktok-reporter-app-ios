@@ -13,6 +13,8 @@ struct ContentView: View {
     
     @ObservedObject
     var appState = AppStateManager()
+    @Injected(\.gleanManager)
+    private var gleanManager: GleanManaging
 
     // MARK: - Body
 
@@ -21,6 +23,9 @@ struct ContentView: View {
             content
         }
         .tint(.text)
+        .onAppear {
+            gleanManager.setup(isMainProcess: true)
+        }
     }
 
     // MARK: - Views
@@ -51,7 +56,7 @@ struct ContentView: View {
 
         } else if let form = appState.study?.form {
 
-            ReportView(viewModel: .init(form: form, appState: appState))
+            MainView(viewModel: .init(form: form, appState: appState))
         }
     }
 }

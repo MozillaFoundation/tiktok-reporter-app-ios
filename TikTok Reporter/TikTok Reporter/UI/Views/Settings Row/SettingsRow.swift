@@ -27,8 +27,7 @@ struct SettingsRow: View {
 
                 Spacer()
 
-                // TODO: - Add correct asset
-                Image(systemName: "chevron.right")
+                Image(.rightChevron)
                     .foregroundStyle(.text)
             }
             

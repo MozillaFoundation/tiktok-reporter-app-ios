@@ -82,11 +82,9 @@ extension StudySelectionView {
                             selected = studies.first(where: { $0.isActive })
                         }
 
-//                        state = .success
-                        state = .failed
+                        state = .success
                     }
                 } catch let error {
-                    // TODO: - Handle error
                     state = .failed
                     print(error.localizedDescription)
                 }
@@ -94,7 +92,6 @@ extension StudySelectionView {
         }
     
         func saveStudy() {
-            // TODO: - Show error to user
             guard let study = selected else {
                 return
             }
@@ -107,7 +104,6 @@ extension StudySelectionView {
 
                 appState.setOnboarding(with: study)
             } catch let error {
-                // TODO: - Add error handling
                 print(error.localizedDescription)
             }
         }
@@ -124,7 +120,7 @@ extension StudySelectionView {
 enum TestStudyProvider {
     static let study: Study =
         Study(
-            id: "1",
+            id: "bccb3130-95db-11ee-b9d1-0242ac120002",
             name: "Test Onboarding Study",
             description: "This is a local study.",
             isActive: true,

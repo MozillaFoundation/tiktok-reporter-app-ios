@@ -20,7 +20,7 @@ struct APIClient: HTTPClient {
         let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 400
 
         switch statusCode {
-        case 200:
+        case 200, 201:
             do {
                 return try JSONDecoder().decode(T.self, from: data)
             } catch {

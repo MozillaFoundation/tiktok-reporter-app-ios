@@ -24,10 +24,17 @@ enum PoliciesAPI: APIRequest {
         }
     }
 
-    var body: [String : Any]? {
+    var body: Data? {
         switch self {
         case .getAppPolicies:
             return nil
+        }
+    }
+
+    var headers: [String : String]? {
+        switch self {
+        case .getAppPolicies:
+            return ["Content-Type": "application/json"]
         }
     }
 }
