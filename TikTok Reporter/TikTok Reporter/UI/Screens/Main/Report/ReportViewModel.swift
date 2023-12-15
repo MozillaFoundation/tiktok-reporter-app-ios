@@ -75,8 +75,6 @@ extension ReportView {
             Task {
                 do {
                     var apiStudies: [Study]? = try await studiesService.getStudies()
-                    // TODO: - Remove before release
-                    apiStudies?.append(TestStudyProvider.study)
                     
                     try await MainActor.run {
                         if let studies = apiStudies, !studies.contains(where: { $0.id == study.id && $0.isActive }) {
