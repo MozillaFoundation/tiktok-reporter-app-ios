@@ -1165,7 +1165,6 @@
 			);
 			outputPaths = (
 				"$(SRCROOT)/TikTok\\ Reporter/Generated/Metrics.swift",
-				"$(SRCROOT)/TikTok\\ ReporterShare/Generated/Metrics.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
