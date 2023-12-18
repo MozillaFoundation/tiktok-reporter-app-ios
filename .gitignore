@@ -101,5 +101,5 @@ iOSInjectionProject/
 # End of https://www.toptal.com/developers/gitignore/api/swift,xcode
 
 .venv/
-TikTok\ Reporter/Generated
-TikTok\ ReporterShare/Generated
+TikTok\ Reporter/TikTok\ Reporter/Generated
+TikTok\ Reporter/TikTok\ ReporterShare/Generated
