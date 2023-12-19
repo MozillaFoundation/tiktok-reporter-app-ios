@@ -28,3 +28,16 @@ This is done because of how Glean works. It has a build time script that generat
 
 This step needs to be done only for the first run. After that, you will have your files in `Generated/Metrics.swift`.
 
+
+### Edge Cases
+
+1. ```Error: Build input file cannot be found ...```
+- This error can show up in case the files in `{Project}/Generated` are present in the project navigator, but are not present in the file system (they show up with a red text).
+- To solve the issue:
+  - Manually remove (Cmd + backspace) the files from both the `TikTok Reporter` and `TikTok ReporterShare` folders and try building the project again.
+2. ```Error: glean_parser fail```
+- This error can show up if the Glean-generated files present in the hidden `.venv/` folder are outdated.
+- To solve this issue:
+  - Manually delete the `.venv` folder and build the project again.
+
+
