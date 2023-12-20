@@ -6,25 +6,41 @@ This is the Mozilla repository for the TikTok Reporter iOS application.
 
 ## Run Locally
 
-Clone the project
+1. Clone the project
 
 ```bash
   git clone git@github.com:MozillaFoundation/tiktok-reporter-app-ios.git
 ```
 
-Go to the project directory
+2. Go to the project directory
 
 ```bash
   cd my-project
 ```
 
-If this is your first time running the project:
+3. If this is your first time running the project:
 
-```bash
+```
   Go into GleanManager.swift and comment out the content of each function. (just the content, not the signature), then build the project.
 ```
 
 This is done because of how Glean works. It has a build time script that generates the Swift code needed for using the framework, but, because this is your first time running it means you don't have anything generated, and so, the build will fail before Glean has a chance to generate it's files. (i.e. GleanManager uses Glean files before they are generated).
+
+4. After a succesfull build, check that you have the `Generated/Metrics.swift` file both in TikTok Reporter and in TikTok ReporterShare folders.
+
+5. If not:
+
+```
+  Right click on TikTok Reporter and then select Add files to (...). Select the Generated folder and add it to the project
+```
+
+6. Do the same for TikTok ReporterShare.
+
+```
+  Un-comment all of the methods in GleanManager.swift (check step 3.)
+```
+
+7. You should now be able to run the project and any changes done in Glean whould be reflected automatially.
 
 This step needs to be done only for the first run. After that, you will have your files in `Generated/Metrics.swift`.
 
