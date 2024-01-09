@@ -1,0 +1,56 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+# This file defines the pings that are recorded by the Glean JavaScript SDK.
+
+---
+$schema: moz://mozilla.org/schemas/glean/pings/2-0-0
+
+tiktok-report:
+  description: |
+    A ping sent to indicate that the participant has reported a video.
+  include_client_id: true
+  bugs:
+    - https://bugzilla.mozilla.org/show_bug.cgi?id=1869236
+  data_reviews:
+    - https://bugzilla.mozilla.org/show_bug.cgi?id=1858684
+  notification_emails:
+    - jessed@mozillafoundation.org
+    - rebeccar@mozillafoundation.org
+
+email:
+  description: |
+    A ping sent to indicate that the participant has provided an email.
+  include_client_id: true
+  bugs:
+    - https://bugzilla.mozilla.org/show_bug.cgi?id=1869236
+  data_reviews:
+    - https://bugzilla.mozilla.org/show_bug.cgi?id=1858684
+  notification_emails:
+    - jessed@mozillafoundation.org
+    - rebeccar@mozillafoundation.org
+
+download-data:
+  description: |
+    A ping sent to indicate that the participant has requested their data.
+  include_client_id: true
+  bugs:
+    - https://bugzilla.mozilla.org/show_bug.cgi?id=1869236
+  data_reviews:
+    - https://bugzilla.mozilla.org/show_bug.cgi?id=1858684
+  notification_emails:
+    - jessed@mozillafoundation.org
+    - rebeccar@mozillafoundation.org
+
+screen-recording:
+  description: |
+    A ping sent to indicate that the participant has submitted a screen recording.
+  include_client_id: true
+  bugs:
+    - https://bugzilla.mozilla.org/show_bug.cgi?id=1869236
+  data_reviews:
+    - https://bugzilla.mozilla.org/show_bug.cgi?id=1858684
+  notification_emails:
+    - jessed@mozillafoundation.org
+    - rebeccar@mozillafoundation.org
