@@ -27,6 +27,7 @@ extension OnboardingView {
         init(appState: AppStateManager, onboarding: Onboarding) {
             self.appState = appState
             self.steps = onboarding.steps
+            self.steps.sort { $0.order < $1.order }
         }
  
         // MARK: - Methods
