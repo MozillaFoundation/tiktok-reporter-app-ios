@@ -136,6 +136,7 @@
 		68FA99502B0BA34400D65D43 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA994F2B0BA34400D65D43 /* ShareViewController.swift */; };
 		68FA99572B0BA34400D65D43 /* TikTok ReporterShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 68FA994D2B0BA34400D65D43 /* TikTok ReporterShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		68FB5B6B2B28865A003FF139 /* DataHandlingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FB5B6A2B28865A003FF139 /* DataHandlingViewModel.swift */; };
+		A98946322B56D0CA002F3AE6 /* AttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98946312B56D0CA002F3AE6 /* AttributedString+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -304,6 +305,7 @@
 		68FA994F2B0BA34400D65D43 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		68FA99542B0BA34400D65D43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68FB5B6A2B28865A003FF139 /* DataHandlingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandlingViewModel.swift; sourceTree = "<group>"; };
+		A98946312B56D0CA002F3AE6 /* AttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributedString+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -897,6 +899,7 @@
 				6892A4FA2B14AC320023BCA8 /* CMTime+Positional.swift */,
 				6892A4FC2B14AE5F0023BCA8 /* Date+Formatted.swift */,
 				684E2F432B2314A9006A05C8 /* Data+Append.swift */,
+				A98946312B56D0CA002F3AE6 /* AttributedString+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1215,6 +1218,7 @@
 				684A23ED2B178D93001B83AA /* FormTab.swift in Sources */,
 				685F30492B027A1B00D585C3 /* PagedTabViewItem.swift in Sources */,
 				689FF0772AFACBFE00C9FE51 /* FormView.swift in Sources */,
+				A98946322B56D0CA002F3AE6 /* AttributedString+Extension.swift in Sources */,
 				689FF01B2AF193D200C9FE51 /* CGFloat+Spacing.swift in Sources */,
 				684E2F3E2B2241CF006A05C8 /* MainViewModel.swift in Sources */,
 				684E2F422B2313BC006A05C8 /* MultipartRequest.swift in Sources */,
