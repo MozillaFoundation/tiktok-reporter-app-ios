@@ -66,9 +66,7 @@ struct PolicyView: View {
                         .font(.heading5)
                         .foregroundStyle(.text)
                     
-                    let policyText = (try? AttributedString(styledMarkdown: viewModel.policy?.text ?? "")) ?? AttributedString()
-                    
-                    Text(policyText)
+                    Text(viewModel.policyText)
                         .font(.body2)
                         .tint(.blue)
                         .foregroundStyle(.black)

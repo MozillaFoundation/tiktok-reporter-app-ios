@@ -41,6 +41,10 @@ extension PolicyView {
         var state: PresentationState = .idle
         @Published
         var policy: Policy? = nil
+        
+        var policyText: AttributedString {
+            (try? AttributedString(styledMarkdown: policy?.text ?? "")) ?? AttributedString()
+        }
 
         var hasActions: Bool
 
