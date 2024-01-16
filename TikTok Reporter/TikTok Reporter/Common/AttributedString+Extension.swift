@@ -40,7 +40,7 @@ extension AttributedString {
             }
             
             if intentRange.lowerBound != output.startIndex {
-                output.characters.insert(contentsOf: "\n", at: intentRange.lowerBound)
+                output.characters.insert(contentsOf: "\n\n", at: intentRange.lowerBound)
             }
         }
 
