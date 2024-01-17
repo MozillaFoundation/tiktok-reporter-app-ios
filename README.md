@@ -1,4 +1,3 @@
-
 # TikTok Reporter
 
 This is the Mozilla repository for the TikTok Reporter iOS application.
