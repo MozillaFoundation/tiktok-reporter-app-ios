@@ -13,6 +13,12 @@ struct MainView: View {
 
     @StateObject
     var viewModel: ViewModel
+    
+    @State
+    var isSettingViewNavigationActive: Bool = false
+    
+    let settingsPageClickedPublisher = NotificationCenter.default.publisher(for: Notification.Name(Strings.settingActionNotificationName))
+    
 
     // MARK: - Body
 
@@ -27,11 +33,16 @@ struct MainView: View {
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink(destination: SettingsView(viewModel: .init(appState: viewModel.appState))) {
+                    
+                    NavigationLink(destination: SettingsView(viewModel: .init(appState: viewModel.appState)),
+                                   isActive: $isSettingViewNavigationActive) {
                         Image(.settings)
                             .renderingMode(.original)
                     }
                 }
+            }
+            .onReceive(settingsPageClickedPublisher) { output in
+                isSettingViewNavigationActive = true
             }
     }
 
@@ -70,5 +81,10 @@ struct MainView: View {
     private var recordTab: some View {
 
         RecordView(viewModel: .init(appState: viewModel.appState))
+    }
+    
+
+    private enum Strings {
+        static var settingActionNotificationName = "settingDidClicked"
     }
 }
