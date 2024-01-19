@@ -48,6 +48,22 @@ struct RecordView: View {
                 
             viewModel.refreshRecording()
         }
+        .customAlert(
+            title: Strings.cancelReportAlertTitle,
+            description: Strings.cancelReportAlertDescription,
+            isPresented: $viewModel.routingState.alert,
+            secondaryButton: {
+                MainButton(text: Strings.cancelReportAlertSecondaryButtonTitle, type: .secondary) {
+                    viewModel.routingState.alert = false
+                }
+            },
+            primaryButton: {
+                MainButton(text: Strings.cancelReportAlertPrimaryButtonTitle, type: .primary) {
+                    viewModel.cancelRecording()
+                    viewModel.routingState.alert = false
+                }
+            }
+        )
     }
 
     // MARK: - Views
@@ -76,7 +92,13 @@ struct RecordView: View {
                         } else {
                             recordScreenView
                         }
-
+                        
+                        if viewModel.didUserTryToSubmitWithoutRecording {
+                            Text(Strings.submitReportWarning)
+                                .font(.body2)
+                                .foregroundStyle(.error)
+                        }
+                        
                         MainTextField(text: $viewModel.videoComments, isValid: .constant(true), isEnabled: .constant(true), placeholder: Strings.commentsPlaceholder, isMultiline: true)
                     }
                     .padding(.xl)
@@ -128,7 +150,7 @@ struct RecordView: View {
             if viewModel.didUpdateMainField {
 
                 MainButton(text: Strings.cancelTitle, type: .secondary) {
-                    viewModel.cancelRecording()
+                    viewModel.routingState.alert = true
                 }
             }
         }
@@ -201,4 +223,9 @@ private enum Strings {
     static let commentsPlaceholder = "Comments(optional)"
     static let noRecordingTitle = "To start screen recording, tap the button below. Then, open your TikTok app and record your session while you scroll the FYP. To stop recording, press the timer. You’ll be asked to share more information and submit this form."
     static let recordingTitle = "You’ve recorded a TikTok session. Fill out some information then submit the form."
+    static let submitReportWarning = "Create a recording in order to submit the report."
+    static let cancelReportAlertTitle = "Cancel Report?"
+    static let cancelReportAlertDescription = "Are you sure you want to cancel the report? All the data entered will be deleted"
+    static let cancelReportAlertPrimaryButtonTitle = "Delete"
+    static let cancelReportAlertSecondaryButtonTitle = "Keep"
 }

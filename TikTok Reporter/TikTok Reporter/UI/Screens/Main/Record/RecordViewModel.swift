@@ -13,6 +13,7 @@ extension RecordView {
     // MARK: - Routing
 
     struct Routing {
+        var alert: Bool = false
         var videoEditor: Bool = false
         var submissionResult: Bool = false
     }
@@ -46,6 +47,9 @@ extension RecordView {
 
         @Published
         var videoComments: String = ""
+        
+        @Published
+        var didUserTryToSubmitWithoutRecording: Bool = false
 
         var screenRecordingURL: URL? {
             screenRecordingService.localURL
@@ -94,7 +98,12 @@ extension RecordView {
         }
 
         func submitRecording() {
-
+            
+            guard screenRecording != nil else {
+                didUserTryToSubmitWithoutRecording = true
+                return
+            }
+                        
             guard
                 let study = appState.study,
                 let uuid = UUID(uuidString: study.id)
@@ -154,6 +163,7 @@ extension RecordView {
                                 
                                 self.screenRecording = screenRecording
                                 self.didUpdateMainField = true
+                                self.didUserTryToSubmitWithoutRecording = false
                                 self.state = .success
                             }
                         }
