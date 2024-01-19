@@ -78,13 +78,14 @@ extension FormInputField: Encodable {
     }
 }
 
-struct FormInputContainer: Encodable {
+struct FormInputContainer: Encodable, Hashable {
 
     // MARK: - Properties
 
     let id: String
     let name: String
     var items: [FormInputField]
+    
 
     // MARK: - Lifecycle
 
@@ -102,6 +103,14 @@ struct FormInputContainer: Encodable {
         }
 
         return !items.contains(where: { $0.isValid == false })
+    }
+    
+    mutating func getFirstUnvalidatedItem() -> Int? {
+        for index in 0..<items.count {
+            items[index].validate()
+        }
+        
+        return items.firstIndex { $0.isValid == false }
     }
 
     mutating func reset() {

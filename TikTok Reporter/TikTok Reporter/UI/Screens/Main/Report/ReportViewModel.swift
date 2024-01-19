@@ -36,6 +36,9 @@ extension ReportView {
         private(set) var otherFieldId: String? = nil
         
         @Published
+        var formShouldScrollToNotValidatedScope: Bool = false
+        
+        @Published
         var state: PresentationState = .success
         @Published
         var routingState: Routing = .init()
@@ -91,8 +94,12 @@ extension ReportView {
         }
 
         func sendReport() {
+            guard formInputContainer.validate() else {
+                formShouldScrollToNotValidatedScope = true
+                return
+            }
+            
             guard
-                formInputContainer.validate(),
                 let studyId = appState.study?.id,
                 let uuid = UUID(uuidString: studyId)
             else {

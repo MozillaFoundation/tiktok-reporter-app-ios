@@ -16,19 +16,33 @@ struct FormView: View {
     @Binding
     var didUpdateMainField: Bool
     
+    @Binding
+    var shouldScrollToNonValidatedContext: Bool
+    
     // MARK: - Body
     
     var body: some View {
         
         VStack {
 
-            ScrollView {
+            ScrollViewReader { scrollProxy in
+                
+                ScrollView {
 
-                VStack(alignment: .leading, spacing: .xl) {
-                    
-                    self.formItems
+                    VStack(alignment: .leading, spacing: .xl) {
+                        
+                        self.formItems
+                    }
+                    .padding(.xl)
                 }
-                .padding(.xl)
+                .onChange(of: shouldScrollToNonValidatedContext) { value in
+                    guard value,
+                          let firstIndexForNonValidated = formInputContainer.getFirstUnvalidatedItem() else { return }
+                    
+                    withAnimation {
+                        scrollProxy.scrollTo(firstIndexForNonValidated)
+                    }
+                }
             }
         }
         .onTapGesture {
@@ -39,8 +53,7 @@ struct FormView: View {
     // MARK: - Views
 
     private var formItems: some View {
-
-        ForEach($formInputContainer.items) { $field in
+        ForEach(Array($formInputContainer.items.enumerated()), id: \.offset) { index, $field in
             
             VStack(alignment: .leading, spacing: .m) {
 
@@ -67,12 +80,16 @@ struct FormView: View {
                 case let .textField(fieldInfo):
                     
                     MainTextField(text: $field.stringValue, isValid: $field.isValid, isEnabled: $field.isEnabled, placeholder: fieldInfo.placeholder, isMultiline: fieldInfo.multiline)
+                        .id(index)
+                    
                 case let .slider(fieldInfo):
                     
                     SliderView(value: $field.doubleValue, max: fieldInfo.max, step: fieldInfo.step, leftLabel: fieldInfo.leftLabel, rightLabel: fieldInfo.rightLabel)
+                        .id(index)
                 case let .dropDown(fieldInfo):
                     
                     DropDownView(selected: $field.stringValue, isValid: $field.isValid, options: fieldInfo.options, placeholder: fieldInfo.placeholder)
+                        .id(index)
                         .onChange(of: field.stringValue) { selected in
 
                             guard 
@@ -102,7 +119,9 @@ struct FormView: View {
 // MARK: - Preview
     
 #Preview {
-    FormView(formInputContainer: .constant(FormInputMapper.map(form: PreviewHelper.mockReportForm)), didUpdateMainField: .constant(false))
+    FormView(formInputContainer: .constant(FormInputMapper.map(form: PreviewHelper.mockReportForm)), 
+             didUpdateMainField: .constant(false),
+             shouldScrollToNonValidatedContext: .constant(false))
 }
 
 // MARK: - Strings
