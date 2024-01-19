@@ -17,7 +17,7 @@ struct LoadingView: View {
                 .progressViewStyle(CircularProgressViewStyle())
                 .scaleEffect(2.0, anchor: .center)
                 .tint(.basicRed)
-            Text("Loading TikTok Reporter...")
+            Text("Loading")
                 .font(.heading5)
         }
     }
