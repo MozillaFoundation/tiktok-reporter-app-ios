@@ -35,7 +35,9 @@ struct ReportView: View {
 
             VStack {
                 
-                FormView(formInputContainer: $viewModel.formInputContainer, didUpdateMainField: $viewModel.didUpdateMainField)
+                FormView(formInputContainer: $viewModel.formInputContainer,
+                         didUpdateMainField: $viewModel.didUpdateMainField,
+                         shouldScrollToNonValidatedContext: $viewModel.formShouldScrollToNotValidatedScope)
                 
                 VStack {
                     
@@ -53,6 +55,12 @@ struct ReportView: View {
                 }
                 .padding(.horizontal, .xl)
             }
+            .onChange(of: viewModel.formShouldScrollToNotValidatedScope) { newValue in
+                guard newValue else { return }
+                viewModel.formShouldScrollToNotValidatedScope = false
+            }
+            
+            
         }
     }
 }
