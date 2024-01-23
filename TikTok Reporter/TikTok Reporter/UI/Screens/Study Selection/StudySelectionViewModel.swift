@@ -83,7 +83,7 @@ extension StudySelectionView {
                         state = .success
                     }
                 } catch let error {
-                    state = .failed
+                    state = .failed(error)
                     print(error.localizedDescription)
                 }
             }

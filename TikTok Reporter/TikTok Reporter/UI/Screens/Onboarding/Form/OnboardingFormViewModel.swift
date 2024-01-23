@@ -32,6 +32,9 @@ extension OnboardingFormView {
         @Published
         var didUpdateMainField = false
         var location: Location
+        
+        @Published
+        var shouldFormScrollToNonValidatedScope: Bool = false
 
         // MARK: - Lifecycle
 

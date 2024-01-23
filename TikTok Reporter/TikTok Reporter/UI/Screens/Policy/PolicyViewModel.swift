@@ -41,6 +41,10 @@ extension PolicyView {
         var state: PresentationState = .idle
         @Published
         var policy: Policy? = nil
+        
+        var policyText: AttributedString {
+            (try? AttributedString(styledMarkdown: policy?.text ?? "")) ?? AttributedString()
+        }
 
         var hasActions: Bool
 
@@ -74,8 +78,7 @@ extension PolicyView {
                         state = .success
                     }
                 } catch let error {
-                    state = .failed
-                    assertionFailure(error.localizedDescription)
+                    state = .failed(error)
                 }
             }
         }

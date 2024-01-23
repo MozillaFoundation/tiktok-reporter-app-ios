@@ -43,7 +43,9 @@ struct OnboardingFormView: View {
 
             ScrollView {
 
-                FormView(formInputContainer: $viewModel.formUIContainer, didUpdateMainField: $viewModel.didUpdateMainField)
+                FormView(formInputContainer: $viewModel.formUIContainer,
+                         didUpdateMainField: $viewModel.didUpdateMainField, 
+                         shouldScrollToNonValidatedContext: $viewModel.shouldFormScrollToNonValidatedScope)
             }
         }
     }

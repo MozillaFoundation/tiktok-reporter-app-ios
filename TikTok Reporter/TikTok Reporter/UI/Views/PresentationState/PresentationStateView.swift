@@ -32,9 +32,8 @@ struct PresentationStateView<ViewModel: PresentationStateObject, Content: View>:
         GeometryReader { reader in
 
             switch viewModel.state {
-            case .failed:
-
-                ErrorView(shouldReload: $shouldReload)
+            case .failed(let error):
+                ErrorView(shouldReload: $shouldReload, error: error)
                     .onChange(of: shouldReload) { shouldReload in
                         guard shouldReload else {
                             return

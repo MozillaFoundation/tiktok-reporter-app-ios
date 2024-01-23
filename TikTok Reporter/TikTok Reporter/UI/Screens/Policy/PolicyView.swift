@@ -65,9 +65,11 @@ struct PolicyView: View {
                     Text(viewModel.policy?.subtitle ?? "")
                         .font(.heading5)
                         .foregroundStyle(.text)
-                    Text(viewModel.policy?.text ?? "")
+                    
+                    Text(viewModel.policyText)
                         .font(.body2)
-                        .foregroundStyle(.text)
+                        .tint(.blue)
+                        .foregroundStyle(.black)
                 }
             }
             .padding(.xl)

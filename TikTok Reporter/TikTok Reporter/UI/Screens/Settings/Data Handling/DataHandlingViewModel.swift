@@ -13,6 +13,11 @@ extension DataHandlingView {
 
     final class ViewModel: ObservableObject {
 
+        struct Routing {
+            var noEmailAlert: Bool = false
+            var deleteDataAlert: Bool = false
+        }
+        
         // MARK: - Injected
 
         @Injected(\.gleanManager)
@@ -21,6 +26,13 @@ extension DataHandlingView {
         // MARK: - Properties
 
         private var appState: AppStateManager
+        
+        // MARK: - Published
+        @Published
+        var routing: Routing = .init()
+        
+        @Published
+        var isUserDataDeleted: Bool = false
 
         // MARK: - Lifecycle
 
@@ -36,6 +48,7 @@ extension DataHandlingView {
                 let study = appState.study,
                 let uuid = UUID(uuidString: study.id)
             else {
+                routing.noEmailAlert = true
                 return
             }
 
@@ -43,7 +56,12 @@ extension DataHandlingView {
         }
 
         func requestDataDelete() {
+            routing.deleteDataAlert = true
+        }
+        
+        func deleteUserData() {
             gleanManager.setDeleteData()
+            isUserDataDeleted = true
         }
     }
 }

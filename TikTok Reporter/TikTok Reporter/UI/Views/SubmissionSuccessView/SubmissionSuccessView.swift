@@ -45,9 +45,31 @@ struct SubmissionSuccessView: View {
             MainButton(text: Strings.buttonTitle, type: .secondary) {
                 self.isPresented = false
             }
-            Text(Strings.description)
-                .font(.body2)
-                .foregroundStyle(.disabled)
+
+            
+            VStack(alignment: .leading) {
+                Text(Strings.settingDescription)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .font(.body2)
+                    .foregroundStyle(.disabled)
+
+                NavigationLink {
+                    EmptyView()
+                } label: {
+                    HStack {
+                        Button(action: {
+                            NotificationCenter.default.post(name: NSNotification.Name(Strings.settingActionNotificationName), object: nil)
+                        }) {
+                            Text(Strings.settingButtonTitle)
+                                .foregroundColor(.basicRed)
+                                .font(.body2)
+                                .underline()
+                        }
+                    }
+                }
+                
+                
+            }
         }
         .padding(.horizontal, .xl)
     }
@@ -65,4 +87,7 @@ private enum Strings {
     static let title = "Thank you!\nReport submitted."
     static let description = "To receive a copy of your report on your email and to get follow up information about our study, go to Settings"
     static let buttonTitle = "I'm done"
+    static let settingDescription = "To receive a copy of your report on your email and to get follow up information about our study, go to "
+    static let settingButtonTitle = "Settings"
+    static let settingActionNotificationName = "settingDidClicked"
 }
