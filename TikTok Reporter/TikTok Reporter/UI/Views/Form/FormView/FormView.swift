@@ -15,7 +15,6 @@ struct FormView: View {
     var formInputContainer: FormInputContainer
     @Binding
     var didUpdateMainField: Bool
-    
     @Binding
     var shouldScrollToNonValidatedContext: Bool
     

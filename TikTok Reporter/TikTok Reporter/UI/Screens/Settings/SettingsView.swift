@@ -71,11 +71,8 @@ struct SettingsView: View {
                     }
                 }
 
-                if viewModel.emailAddress != nil {
-
-                    NavigationLink(destination: DataHandlingView(viewModel: .init(appState: viewModel.appState))) {
-                        dataHandlingRow
-                    }
+                NavigationLink(destination: DataHandlingView(viewModel: .init(appState: viewModel.appState))) {
+                    dataHandlingRow
                 }
             }
         }
