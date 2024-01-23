@@ -56,7 +56,7 @@ struct OnboardingFormView: View {
 
             if viewModel.didUpdateMainField {
 
-                MainButton(text: Strings.nextTitle, type: .primary) {
+                MainButton(text: Strings.saveTitle, type: .primary) {
                     viewModel.saveData()
                 }
             }
@@ -81,6 +81,6 @@ struct OnboardingFormView: View {
 // MARK: - Strings
 
 private enum Strings {
-    static let nextTitle = "Next"
+    static let saveTitle = "Save"
     static let skipTitle = "Skip"
 }
