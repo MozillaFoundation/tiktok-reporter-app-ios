@@ -61,7 +61,7 @@ struct FormView: View {
 
                 if let label = field.formItem.label, !label.isEmpty {
                     Text(label)
-                        .font(.body1)
+                        .font(.heading3)
                         .foregroundStyle(.text)
                 }
 
@@ -88,18 +88,11 @@ struct FormView: View {
                         .id(index)
                 case let .dropDown(fieldInfo):
                     
-                    DropDownView(selected: $field.stringValue, isValid: $field.isValid, options: fieldInfo.options, placeholder: fieldInfo.placeholder)
+                    DropDownView(selected: $field.stringValue, isValid: $field.isValid, options: fieldInfo.options, placeholder: fieldInfo.placeholder, hasOtherOption: fieldInfo.hasOtherOption)
                         .id(index)
                         .onChange(of: field.stringValue) { selected in
-
-                            guard 
-                                fieldInfo.hasOtherOption,
-                                let otherOption = fieldInfo.options.last?.id
-                            else {
-                                return
-                            }
-
-                            formInputContainer.updateOtherField(selected == otherOption, on: field)
+                            guard fieldInfo.hasOtherOption else { return }
+                            formInputContainer.updateOtherField(selected == "-otherDropdownItem", on: field)
                         }
                 }
             }

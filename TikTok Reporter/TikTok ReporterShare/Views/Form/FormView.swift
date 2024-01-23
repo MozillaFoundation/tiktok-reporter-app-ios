@@ -104,7 +104,7 @@ struct FormView: View {
                     SliderView(value: $field.doubleValue, max: fieldInfo.max, step: fieldInfo.step, leftLabel: fieldInfo.leftLabel, rightLabel: fieldInfo.rightLabel)
                 case let .dropDown(fieldInfo):
                     
-                    DropDownView(selected: $field.stringValue, isValid: $field.isValid, options: fieldInfo.options, placeholder: fieldInfo.placeholder)
+                    DropDownView(selected: $field.stringValue, isValid: $field.isValid, options: fieldInfo.options, placeholder: fieldInfo.placeholder, hasOtherOption: fieldInfo.hasOtherOption)
                         .onChange(of: field.stringValue) { selected in
                             guard let otherId = viewModel.otherId, selected == otherId else {
                                 viewModel.removeOther()
