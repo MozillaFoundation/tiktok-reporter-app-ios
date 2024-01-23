@@ -108,7 +108,7 @@ extension RecordView {
                 let study = appState.study,
                 let uuid = UUID(uuidString: study.id)
             else {
-                state = .failed
+                state = .failed(nil)
                 return
             }
 
@@ -129,7 +129,7 @@ extension RecordView {
                     self.cancelRecording()
                     self.routingState.submissionResult = true
                 } catch {
-                    state = .failed
+                    state = .failed(error)
                     print(error.localizedDescription)
                 }
             }
@@ -170,7 +170,7 @@ extension RecordView {
                     }
                 } catch {
                     print("ScreenRecordingData load failed")
-                    state = .failed
+                    state = .failed(error)
                 }
             }
         }

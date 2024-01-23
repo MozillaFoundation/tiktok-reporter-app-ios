@@ -78,8 +78,7 @@ extension PolicyView {
                         state = .success
                     }
                 } catch let error {
-                    state = .failed
-                    // TODO: if it's internet issue there will be another message
+                    state = .failed(error)
                 }
             }
         }

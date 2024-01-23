@@ -66,7 +66,7 @@ extension FormView {
 
             guard let url = URL(string: Strings.studiesURL) else {
 
-                state = .failed
+                state = .failed(nil)
                 NotificationCenter.default.post(name: NSNotification.Name(Strings.closeNotificationName), object: nil)
 
                 return
@@ -88,7 +88,7 @@ extension FormView {
                         let apiStudies = try? JSONDecoder().decode([Study].self, from: data),
                         apiStudies.contains(where: { $0.id == currentStudy.id && $0.isActive })
                     else {
-                        state = .failed
+                        state = .failed(nil)
                         NotificationCenter.default.post(name: NSNotification.Name(Strings.closeNotificationName), object: nil)
                         return
                     }
