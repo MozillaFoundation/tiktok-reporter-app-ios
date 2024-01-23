@@ -14,6 +14,7 @@ extension ReportView {
 
     struct Routing {
         var submissionResult: Bool = false
+        var alert: Bool = false
     }
     
     // MARK: - ViewModel
