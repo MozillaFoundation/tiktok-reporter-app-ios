@@ -73,7 +73,7 @@ struct OnboardingPageView: View {
                 .progressViewStyle(CircularProgressViewStyle())
                 .scaleEffect(2.0, anchor: .center)
         }
-        .frame(height: 320)
+        .frame(width: UIScreen.main.bounds.width * 0.43)
         .frame(maxWidth: .infinity)
     }
 
