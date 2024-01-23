@@ -79,7 +79,7 @@ extension PolicyView {
                     }
                 } catch let error {
                     state = .failed
-                    assertionFailure(error.localizedDescription)
+                    // TODO: if it's internet issue there will be another message
                 }
             }
         }
