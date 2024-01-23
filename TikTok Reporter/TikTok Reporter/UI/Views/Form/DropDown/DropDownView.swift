@@ -16,8 +16,10 @@ struct DropDownView: View {
     @Binding
     var isValid: Bool
 
-    var options: [DropDownOption]
+    @State var options: [DropDownOption]
     var placeholder: String
+    
+    var hasOtherOption: Bool
     
     // MARK: - Body
 
@@ -52,6 +54,15 @@ struct DropDownView: View {
         }
         .onChange(of: selected) { _ in
             isValid = true
+        }
+        .onAppear {
+            checkDropdownHasOtherOption()
+        }
+    }
+    
+    private func checkDropdownHasOtherOption() {
+        if hasOtherOption {
+            options.append(DropDownOption(id: "-otherDropdownItem", title: "Other"))
         }
     }
 
@@ -94,7 +105,11 @@ struct DropDownView: View {
 // MARK: - Preview
 
 #Preview {
-    DropDownView(selected: .constant("Option"), isValid: .constant(true), options: [DropDownOption(id: "1", title: "Option 1"), DropDownOption(id: "2", title: "Option 2")], placeholder: "Category")
+    DropDownView(selected: .constant("Option"), isValid: .constant(true), 
+                 options: [DropDownOption(id: "1", title: "Option 1"),
+                           DropDownOption(id: "2", title: "Option 2")],
+                 placeholder: "Category",
+                 hasOtherOption: true)
 }
 
 // MARK: - Strings
