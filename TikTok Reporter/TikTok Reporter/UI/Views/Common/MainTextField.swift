@@ -25,7 +25,7 @@ struct MainTextField: View {
     var opacity: CGFloat = 0.0
     
     @State
-    private var limitCount = 200
+    private var limitCount = 500
     
     @State
     var isLimitEnabled: Bool = true
@@ -153,4 +153,5 @@ struct MainTextField: View {
 
 private enum Strings {
     static let errorMessage = "This field cannot be empty"
+    static let notValidatedURLErrorMessage = "Please paste a TikTok link"
 }
