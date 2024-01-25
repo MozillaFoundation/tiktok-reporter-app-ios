@@ -24,6 +24,12 @@ struct MainTextField: View {
     @State
     var opacity: CGFloat = 0.0
     
+    @State
+    private var limitCount = 200
+    
+    @State
+    var isLimitEnabled: Bool = true
+    
     // MARK: - Body
     
     var body: some View {
@@ -67,6 +73,7 @@ struct MainTextField: View {
             .border(isValid ? .text : .error, width: isEnabled ? 1.0 : 0.0)
             .padding(.top, isEnabled ? .s : 0.0)
             .disabled(!isEnabled)
+            .limitCharacters($text, limit: limitCount, isEnabled: isLimitEnabled)
     }
     
     @ViewBuilder
@@ -86,6 +93,7 @@ struct MainTextField: View {
                 }
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.top, .s)
+                .limitCharacters($text, limit: limitCount, isEnabled: isLimitEnabled)
         } else {
             
             TextEditor(text: $text)
@@ -99,6 +107,7 @@ struct MainTextField: View {
                 }
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.top, .s)
+                .limitCharacters($text, limit: limitCount, isEnabled: isLimitEnabled)
         }
     }
     
