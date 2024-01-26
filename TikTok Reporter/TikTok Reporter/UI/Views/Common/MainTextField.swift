@@ -68,12 +68,11 @@ struct MainTextField: View {
         
         TextField(placeholder, text: $text)
             .font(.body1)
-            .padding(isEnabled ? .m : 0.0)
+            .padding(.m)
             .frame(height: 40.0)
-            .border(isValid ? .text : .error, width: isEnabled ? 1.0 : 0.0)
-            .padding(.top, isEnabled ? .s : 0.0)
+            .border(isValid ? .text : .error, width: isEnabled ? 1.0 : 1.0)
+            .padding(.top, .s)
             .disabled(!isEnabled)
-            .limitCharacters($text, limit: limitCount, isEnabled: isLimitEnabled)
     }
     
     @ViewBuilder
@@ -93,7 +92,6 @@ struct MainTextField: View {
                 }
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.top, .s)
-                .limitCharacters($text, limit: limitCount, isEnabled: isLimitEnabled)
         } else {
             
             TextEditor(text: $text)
@@ -107,7 +105,6 @@ struct MainTextField: View {
                 }
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.top, .s)
-                .limitCharacters($text, limit: limitCount, isEnabled: isLimitEnabled)
         }
     }
     
