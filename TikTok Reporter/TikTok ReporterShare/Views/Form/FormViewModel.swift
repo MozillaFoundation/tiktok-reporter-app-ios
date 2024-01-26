@@ -12,7 +12,12 @@ extension FormView {
     // MARK: - ViewModel
 
     final class ViewModel: PresentationStateObject {
-
+        
+        // MARK: - Routing
+        struct Routing {
+            var submissionSuccessful: Bool = false
+        }
+        
         // MARK: - Properties
 
         private var gleanManager = GleanManager()
@@ -30,6 +35,9 @@ extension FormView {
 
         @Published
         var state: PresentationState = .idle
+        
+        @Published
+        var routing: Routing = .init()
     
         private lazy var otherField: FormInputField = {
 
@@ -133,15 +141,7 @@ extension FormView {
                 gleanManager.setFields(jsonForm, identifier: uuid)
                 gleanManager.submit()
 
-                NotificationCenter
-                    .default
-                    .post(
-                        name: NSNotification.Name(Strings.closeNotificationName),
-                        object: nil,
-                        userInfo: [
-                            "success": true
-                        ]
-                    )
+                routing.submissionSuccessful = true
             } catch {
                 assertionFailure(error.localizedDescription)
             }
