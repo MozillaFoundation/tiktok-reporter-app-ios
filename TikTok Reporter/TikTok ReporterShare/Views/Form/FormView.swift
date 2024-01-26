@@ -22,13 +22,20 @@ struct FormView: View {
 
             PresentationStateView(viewModel: viewModel) {
 
-                self.content
-                    .navigationBarTitleDisplayMode(.inline)
-                    .toolbar {
-                        ToolbarItem(placement: .topBarLeading) {
-                            Image(.header)
+                if viewModel.routing.submissionSuccessful {
+                    SubmissionSuccessView(isPresented: $viewModel.routing.submissionSuccessful,
+                                          isPresentedFromShareExtension: true)
+                } else {
+                    self.content
+                        .navigationBarTitleDisplayMode(.inline)
+                        .toolbar {
+                            ToolbarItem(placement: .topBarLeading) {
+                                Image(.header)
+                            }
                         }
-                    }
+                }
+                
+                
             }
         }
     }

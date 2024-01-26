@@ -136,6 +136,9 @@
 		68FA99502B0BA34400D65D43 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA994F2B0BA34400D65D43 /* ShareViewController.swift */; };
 		68FA99572B0BA34400D65D43 /* TikTok ReporterShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 68FA994D2B0BA34400D65D43 /* TikTok ReporterShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		68FB5B6B2B28865A003FF139 /* DataHandlingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FB5B6A2B28865A003FF139 /* DataHandlingViewModel.swift */; };
+		A91324472B628D1600EA54D9 /* LimitCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91324462B628D1600EA54D9 /* LimitCharacters.swift */; };
+		A91324482B628DF100EA54D9 /* LimitCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91324462B628D1600EA54D9 /* LimitCharacters.swift */; };
+		A91324492B62A01100EA54D9 /* SubmissionSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684A23EF2B178F12001B83AA /* SubmissionSuccessView.swift */; };
 		A98946322B56D0CA002F3AE6 /* AttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98946312B56D0CA002F3AE6 /* AttributedString+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -305,6 +308,7 @@
 		68FA994F2B0BA34400D65D43 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		68FA99542B0BA34400D65D43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68FB5B6A2B28865A003FF139 /* DataHandlingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandlingViewModel.swift; sourceTree = "<group>"; };
+		A91324462B628D1600EA54D9 /* LimitCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitCharacters.swift; sourceTree = "<group>"; };
 		A98946312B56D0CA002F3AE6 /* AttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributedString+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -726,6 +730,7 @@
 		689FF06F2AF977BB00C9FE51 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A91324452B628D0700EA54D9 /* Helper */,
 				689FF0162AF17BCC00C9FE51 /* MainButton.swift */,
 				689FF0712AF977E200C9FE51 /* MainTextField.swift */,
 			);
@@ -915,6 +920,14 @@
 				68FA99542B0BA34400D65D43 /* Info.plist */,
 			);
 			path = "TikTok ReporterShare";
+			sourceTree = "<group>";
+		};
+		A91324452B628D0700EA54D9 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				A91324462B628D1600EA54D9 /* LimitCharacters.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1294,6 +1307,7 @@
 				689FF05E2AF3E80300C9FE51 /* StudiesAPI.swift in Sources */,
 				685F30412AFE92F500D585C3 /* IdleView.swift in Sources */,
 				688371652B0422AD00542EC7 /* SettingsViewModel.swift in Sources */,
+				A91324472B628D1600EA54D9 /* LimitCharacters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1328,9 +1342,11 @@
 				6823D9ED2B31808A0086F485 /* Metrics.swift in Sources */,
 				684E2F642B24C92A006A05C8 /* DropDownView.swift in Sources */,
 				68FA99502B0BA34400D65D43 /* ShareViewController.swift in Sources */,
+				A91324482B628DF100EA54D9 /* LimitCharacters.swift in Sources */,
 				684E2F602B24C8FB006A05C8 /* Font+Extension.swift in Sources */,
 				684E2F532B24C628006A05C8 /* Form.swift in Sources */,
 				684E2F672B24C93E006A05C8 /* MainButton.swift in Sources */,
+				A91324492B62A01100EA54D9 /* SubmissionSuccessView.swift in Sources */,
 				684E2F572B24C662006A05C8 /* Enabling.swift in Sources */,
 				688CA4852B0CC535001A7BBE /* FormView.swift in Sources */,
 				684E2F582B24C862006A05C8 /* GleanManager.swift in Sources */,

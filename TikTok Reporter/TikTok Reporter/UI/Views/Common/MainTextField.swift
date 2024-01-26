@@ -24,6 +24,12 @@ struct MainTextField: View {
     @State
     var opacity: CGFloat = 0.0
     
+    @State
+    private var limitCount = 500
+    
+    @State
+    var isLimitEnabled: Bool = true
+    
     // MARK: - Body
     
     var body: some View {
@@ -62,10 +68,10 @@ struct MainTextField: View {
         
         TextField(placeholder, text: $text)
             .font(.body1)
-            .padding(isEnabled ? .m : 0.0)
+            .padding(.m)
             .frame(height: 40.0)
-            .border(isValid ? .text : .error, width: isEnabled ? 1.0 : 0.0)
-            .padding(.top, isEnabled ? .s : 0.0)
+            .border(isValid ? .text : .error, width: isEnabled ? 1.0 : 1.0)
+            .padding(.top, .s)
             .disabled(!isEnabled)
     }
     
@@ -144,4 +150,5 @@ struct MainTextField: View {
 
 private enum Strings {
     static let errorMessage = "This field cannot be empty"
+    static let notValidatedURLErrorMessage = "Please paste a TikTok link"
 }

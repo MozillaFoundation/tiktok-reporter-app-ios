@@ -14,6 +14,9 @@ struct SubmissionSuccessView: View {
     @Binding
     var isPresented: Bool
 
+    @State
+    var isPresentedFromShareExtension: Bool = false
+    
     // MARK: - Body
 
     var body: some View {
@@ -44,34 +47,57 @@ struct SubmissionSuccessView: View {
 
             MainButton(text: Strings.buttonTitle, type: .secondary) {
                 self.isPresented = false
+                
+                
+                if isPresentedFromShareExtension {
+                    postCloseNotificationForShareExt()
+                }
             }
 
             
-            VStack(alignment: .leading) {
-                Text(Strings.settingDescription)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .font(.body2)
-                    .foregroundStyle(.disabled)
+            if !isPresentedFromShareExtension {
+                
+                VStack(alignment: .leading) {
+                    Text(Strings.settingDescription)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .font(.body2)
+                        .foregroundStyle(.disabled)
 
-                NavigationLink {
-                    EmptyView()
-                } label: {
-                    HStack {
-                        Button(action: {
-                            NotificationCenter.default.post(name: NSNotification.Name(Strings.settingActionNotificationName), object: nil)
-                        }) {
-                            Text(Strings.settingButtonTitle)
-                                .foregroundColor(.basicRed)
-                                .font(.body2)
-                                .underline()
+                    NavigationLink {
+                        EmptyView()
+                    } label: {
+                        HStack {
+                            Button(action: {
+                                NotificationCenter.default.post(name: NSNotification.Name(Strings.settingActionNotificationName), object: nil)
+                            }) {
+                                Text(Strings.settingButtonTitle)
+                                    .foregroundColor(.basicRed)
+                                    .font(.body2)
+                                    .underline()
+                            }
                         }
                     }
+                    
+                    
                 }
                 
-                
             }
+                        
         }
         .padding(.horizontal, .xl)
+    }
+}
+
+private extension SubmissionSuccessView {
+    func postCloseNotificationForShareExt() {
+        NotificationCenter
+            .default
+            .post(
+                name: NSNotification.Name(Strings.closeNotificationName),
+                object: nil,
+                userInfo: [
+                    "success": true
+                ])
     }
 }
 
@@ -90,4 +116,6 @@ private enum Strings {
     static let settingDescription = "To receive a copy of your report on your email and to get follow up information about our study, go to "
     static let settingButtonTitle = "Settings"
     static let settingActionNotificationName = "settingDidClicked"
+    
+    static let closeNotificationName = "close"
 }
