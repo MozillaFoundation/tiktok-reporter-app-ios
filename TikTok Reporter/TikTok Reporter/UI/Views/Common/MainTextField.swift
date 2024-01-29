@@ -22,6 +22,9 @@ struct MainTextField: View {
     var isMultiline: Bool
     
     @State
+    var isTikTokLink: Bool = false
+    
+    @State
     var opacity: CGFloat = 0.0
     
     @State
@@ -43,21 +46,17 @@ struct MainTextField: View {
                 } else {
                     textField
                         .onChange(of: text) { _ in
-                            isValid = true
+                            guard isTikTokLink else {
+                                isValid = true
+                                return
+                            }
+                            
+                            isValid = validateTikTokLink(linkURL: text)
                         }
                 }
                 
                 placeholderView
                     .padding(.leading, .s)
-            }
-            
-            if !isValid {
-                HStack {
-                    Text(Strings.errorMessage)
-                        .font(.body2)
-                        .foregroundStyle(.error)
-                    Spacer()
-                }
             }
         }
     }
@@ -66,45 +65,61 @@ struct MainTextField: View {
     
     private var textField: some View {
         
-        TextField(placeholder, text: $text)
-            .font(.body1)
-            .padding(.m)
-            .frame(height: 40.0)
-            .border(isValid ? .text : .error, width: isEnabled ? 1.0 : 1.0)
-            .padding(.top, .s)
-            .disabled(!isEnabled)
+        VStack {
+            TextField(placeholder, text: $text)
+                .font(.body1)
+                .padding(.m)
+                .frame(height: 40.0)
+                .border(isValid ? .text : .error, width: isEnabled ? 1.0 : 1.0)
+                .padding(.top, .s)
+                .disabled(!isEnabled)
+                .limitCharacters($text, limit: 500, isEnabled: isLimitEnabled)
+            
+            if isLimitEnabled {
+                textFieldCharacterCountView
+            }
+        }
     }
     
     @ViewBuilder
     private var multilineTextField: some View {
         
-        if #available(iOS 16, *) {
+        VStack {
             
-            TextEditor(text: $text)
-                .font(.body1)
-                .padding(.horizontal, .s)
-                .padding(.vertical, .xs)
-                .frame(minHeight: 104.0)
-                .border(.text, width: 1.0)
-                .scrollContentBackground(.hidden)
-                .background {
-                    editorBackground
-                }
-                .fixedSize(horizontal: false, vertical: true)
-                .padding(.top, .s)
-        } else {
+            if #available(iOS 16, *) {
+                
+                TextEditor(text: $text)
+                    .font(.body1)
+                    .padding(.horizontal, .s)
+                    .padding(.vertical, .xs)
+                    .frame(minHeight: 104.0)
+                    .border(.text, width: 1.0)
+                    .scrollContentBackground(.hidden)
+                    .background {
+                        editorBackground
+                    }
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.top, .s)
+                    .limitCharacters($text, limit: 500, isEnabled: isLimitEnabled)
+            } else {
+                
+                TextEditor(text: $text)
+                    .font(.body1)
+                    .padding(.horizontal, .s)
+                    .padding(.vertical, .xs)
+                    .frame(minHeight: 104.0)
+                    .border(.text, width: 1.0)
+                    .background {
+                        editorBackground
+                    }
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.top, .s)
+                    .limitCharacters($text, limit: 500, isEnabled: isLimitEnabled)
+            }
             
-            TextEditor(text: $text)
-                .font(.body1)
-                .padding(.horizontal, .s)
-                .padding(.vertical, .xs)
-                .frame(minHeight: 104.0)
-                .border(.text, width: 1.0)
-                .background {
-                    editorBackground
-                }
-                .fixedSize(horizontal: false, vertical: true)
-                .padding(.top, .s)
+            if isLimitEnabled {
+                textFieldCharacterCountView
+            }
         }
     }
     
@@ -121,8 +136,24 @@ struct MainTextField: View {
                         opacity = newValue.isEmpty ? 0.0 : 1.0
                     }
                 }
+                .limitCharacters($text, limit: 500, isEnabled: isLimitEnabled)
             Spacer()
         }
+    }
+    
+    private var textFieldCharacterCountView: some View {
+        HStack {
+            if !isValid {
+                Text(generateTikTokValidationErrorMessage())
+                    .font(.body2)
+                    .foregroundStyle(.error)
+                    .padding(.top, 5)
+            }
+            Spacer()
+            Text("\(text.count)/\(limitCount)")
+                .font(.caption)
+        }
+        .foregroundStyle(Color.black)
     }
     
     private var editorBackground: some View {
@@ -138,6 +169,24 @@ struct MainTextField: View {
         }
         .padding(.m)
     }
+    
+    func validateTikTokLink(linkURL: String) -> Bool {
+        guard let tiktokUrlComponents = URLComponents(string: linkURL),
+              let tiktokURLHost = tiktokUrlComponents.host else {
+            isValid = false
+            return false
+        }
+        
+        let isValid = Strings.validTikTokLinks.contains(where: { $0 == tiktokURLHost })
+        return isValid
+    }
+    
+    func generateTikTokValidationErrorMessage() -> String {
+        guard isTikTokLink else {
+            return Strings.errorMessage
+        }
+        return Strings.notValidatedURLErrorMessage
+    }
 }
 
 // MARK: - Preview
@@ -151,4 +200,5 @@ struct MainTextField: View {
 private enum Strings {
     static let errorMessage = "This field cannot be empty"
     static let notValidatedURLErrorMessage = "Please paste a TikTok link"
+    static let validTikTokLinks = ["tiktok.com", "www.tiktok.com", "vm.tiktok.com"]
 }

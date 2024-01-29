@@ -41,7 +41,7 @@ extension FormView {
     
         private lazy var otherField: FormInputField = {
 
-            return FormInputField(formItem: FormItem(id: "", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: Strings.otherFieldPlaceholder, maxLines: 1, multiline: false))))
+            return FormInputField(formItem: FormItem(id: "", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: Strings.otherFieldPlaceholder, maxLines: 1, multiline: false, isTikTokLink: false))))
         }()
 
         // MARK: - Lifecycle

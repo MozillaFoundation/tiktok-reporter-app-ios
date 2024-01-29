@@ -50,7 +50,7 @@ extension ReportView {
 
         private lazy var otherField: FormInputField = {
 
-            return FormInputField(formItem: FormItem(id: "other", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: Strings.otherFieldTitle, maxLines: 1, multiline: false))))
+            return FormInputField(formItem: FormItem(id: "other", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: Strings.otherFieldTitle, maxLines: 1, multiline: false, isTikTokLink: false))))
         }()
         
         // MARK: - Lifecycle

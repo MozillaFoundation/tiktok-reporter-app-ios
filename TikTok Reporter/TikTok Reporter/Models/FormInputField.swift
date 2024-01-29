@@ -138,7 +138,7 @@ struct FormInputContainer: Encodable, Hashable {
 
     private func otherField(for dropDownId: String) -> FormInputField {
 
-        return FormInputField(formItem: FormItem(id: dropDownId + "-other", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: Strings.otherFieldTitle, maxLines: 1, multiline: false))))
+        return FormInputField(formItem: FormItem(id: dropDownId + "-other", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: Strings.otherFieldTitle, maxLines: 1, multiline: false, isTikTokLink: false))))
     }
 }
 

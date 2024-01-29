@@ -25,7 +25,7 @@ struct FormItem: Codable, Hashable, Identifiable {
         case id, label, description, isRequired
     }
     
-    init(id: String, label: String?, description: String?, isRequired: Bool, field: FormField) {
+    init(id: String, label: String?, description: String?, isRequired: Bool, field: FormField, isTikTokLink: Bool? = false) {
         self.id = id
         self.label = label
         self.description = description
@@ -50,7 +50,7 @@ struct FormItem: Codable, Hashable, Identifiable {
         try container.encode(label, forKey: .label)
         try container.encode(description, forKey: .description)
         try container.encode(isRequired, forKey: .isRequired)
-
+        
         try field.encode(to: encoder)
     }
 }
@@ -68,6 +68,7 @@ enum FormField: Codable, Hashable {
 
     enum CodingKeys: String, CodingKey {
         case type
+        case isTikTokLink
     }
 
     init(from decoder: Decoder) throws {
@@ -110,6 +111,7 @@ struct TextFieldFormField: Codable, Hashable {
     let placeholder: String
     let maxLines: Int
     let multiline: Bool
+    let isTikTokLink: Bool?
 }
 
 // MARK: - DropDown

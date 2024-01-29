@@ -15,8 +15,9 @@ struct LimitCharacters: ViewModifier {
     func body(content: Content) -> some View {
         content
             .onReceive(text.publisher.collect()) {
-                if isEnabled {
+                if isEnabled, text.count > limit {
                     self.text = String($0.prefix(limit))
+                    return
                 }
             }
     }
