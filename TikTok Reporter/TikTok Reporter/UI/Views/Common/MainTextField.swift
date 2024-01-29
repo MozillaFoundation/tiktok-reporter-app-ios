@@ -22,6 +22,9 @@ struct MainTextField: View {
     var isMultiline: Bool
     
     @State
+    var isTikTokLink: Bool = false
+    
+    @State
     var opacity: CGFloat = 0.0
     
     @State
@@ -43,21 +46,17 @@ struct MainTextField: View {
                 } else {
                     textField
                         .onChange(of: text) { _ in
-                            isValid = true
+                            guard isTikTokLink else {
+                                isValid = true
+                                return
+                            }
+                            
+                            isValid = validateTikTokLink(linkURL: text)
                         }
                 }
                 
                 placeholderView
                     .padding(.leading, .s)
-            }
-            
-            if !isValid {
-                HStack {
-                    Text(Strings.errorMessage)
-                        .font(.body2)
-                        .foregroundStyle(.error)
-                    Spacer()
-                }
             }
         }
     }
@@ -144,12 +143,17 @@ struct MainTextField: View {
     
     private var textFieldCharacterCountView: some View {
         HStack {
+            if !isValid {
+                Text(generateTikTokValidationErrorMessage())
+                    .font(.body2)
+                    .foregroundStyle(.error)
+                    .padding(.top, 5)
+            }
             Spacer()
             Text("\(text.count)/\(limitCount)")
                 .font(.caption)
-        }.frame(height: 40)
-            .foregroundStyle(Color.black)
-            .padding(.top, -10)
+        }
+        .foregroundStyle(Color.black)
     }
     
     private var editorBackground: some View {
@@ -165,6 +169,24 @@ struct MainTextField: View {
         }
         .padding(.m)
     }
+    
+    func validateTikTokLink(linkURL: String) -> Bool {
+        guard let tiktokUrlComponents = URLComponents(string: linkURL),
+              let tiktokURLHost = tiktokUrlComponents.host else {
+            isValid = false
+            return false
+        }
+        
+        let isValid = Strings.validTikTokLinks.contains(where: { $0 == tiktokURLHost })
+        return isValid
+    }
+    
+    func generateTikTokValidationErrorMessage() -> String {
+        guard isTikTokLink else {
+            return Strings.errorMessage
+        }
+        return Strings.notValidatedURLErrorMessage
+    }
 }
 
 // MARK: - Preview
@@ -178,4 +200,5 @@ struct MainTextField: View {
 private enum Strings {
     static let errorMessage = "This field cannot be empty"
     static let notValidatedURLErrorMessage = "Please paste a TikTok link"
+    static let validTikTokLinks = ["tiktok.com", "www.tiktok.com", "vm.tiktok.com"]
 }

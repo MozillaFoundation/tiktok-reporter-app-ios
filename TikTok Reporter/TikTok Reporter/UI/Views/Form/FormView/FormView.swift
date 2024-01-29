@@ -77,8 +77,7 @@ struct FormView: View {
                 switch field.formItem.field {
                     
                 case let .textField(fieldInfo):
-                    
-                    MainTextField(text: $field.stringValue, isValid: $field.isValid, isEnabled: $field.isEnabled, placeholder: fieldInfo.placeholder, isMultiline: fieldInfo.multiline)
+                    MainTextField(text: $field.stringValue, isValid: $field.isValid, isEnabled: $field.isEnabled, placeholder: fieldInfo.placeholder, isMultiline: fieldInfo.multiline, isTikTokLink: fieldInfo.isTikTokLink ?? false)
                         .id(index)
                     
                 case let .slider(fieldInfo):
