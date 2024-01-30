@@ -51,9 +51,16 @@ struct FormInputField: Hashable, Identifiable {
     }
 
     mutating func reset() {
-        stringValue = ""
         boolValue = false
         doubleValue = 0.0
+
+        switch formItem.field {
+        case .dropDown(let dropDownFormField):
+            stringValue = dropDownFormField.selected
+        default:
+            stringValue = ""
+        }
+
     }
 }
 
