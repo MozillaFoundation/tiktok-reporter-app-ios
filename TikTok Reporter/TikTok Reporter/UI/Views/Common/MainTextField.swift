@@ -45,14 +45,6 @@ struct MainTextField: View {
                     multilineTextField
                 } else {
                     textField
-                        .onChange(of: text) { _ in
-                            guard isTikTokLink else {
-                                isValid = true
-                                return
-                            }
-                            
-                            isValid = validateTikTokLink(linkURL: text)
-                        }
                 }
                 
                 placeholderView
@@ -67,14 +59,24 @@ struct MainTextField: View {
         
         VStack {
             TextField(placeholder, text: $text)
+                .onChange(of: text) { textChange in
+                    if isLimitEnabled, textChange.count > limitCount {
+                        text = String(text.prefix(limitCount))
+                    }
+                    
+                    guard isTikTokLink else {
+                        isValid = true
+                        return
+                    }
+                    
+                    isValid = validateTikTokLink(linkURL: text)
+                }
                 .font(.body1)
                 .padding(.m)
                 .frame(height: 40.0)
                 .border(isValid ? .text : .error, width: isEnabled ? 1.0 : 1.0)
                 .padding(.top, .s)
                 .disabled(!isEnabled)
-                .limitCharacters($text, limit: 500, isEnabled: isLimitEnabled)
-            
             if isLimitEnabled {
                 textFieldCharacterCountView
             }
@@ -89,6 +91,12 @@ struct MainTextField: View {
             if #available(iOS 16, *) {
                 
                 TextEditor(text: $text)
+                    .onChange(of: text) { textChange in
+                        guard isLimitEnabled else { return }
+                        if textChange.count > limitCount {
+                            text = String(text.prefix(limitCount))
+                        }
+                    }
                     .font(.body1)
                     .padding(.horizontal, .s)
                     .padding(.vertical, .xs)
@@ -100,10 +108,15 @@ struct MainTextField: View {
                     }
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.top, .s)
-                    .limitCharacters($text, limit: 500, isEnabled: isLimitEnabled)
             } else {
                 
                 TextEditor(text: $text)
+                    .onChange(of: text) { textChange in
+                        guard isLimitEnabled else { return }
+                        if textChange.count > limitCount {
+                            text = String(text.prefix(limitCount))
+                        }
+                    }
                     .font(.body1)
                     .padding(.horizontal, .s)
                     .padding(.vertical, .xs)
@@ -114,7 +127,6 @@ struct MainTextField: View {
                     }
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.top, .s)
-                    .limitCharacters($text, limit: 500, isEnabled: isLimitEnabled)
             }
             
             if isLimitEnabled {
@@ -136,7 +148,6 @@ struct MainTextField: View {
                         opacity = newValue.isEmpty ? 0.0 : 1.0
                     }
                 }
-                .limitCharacters($text, limit: 500, isEnabled: isLimitEnabled)
             Spacer()
         }
     }
