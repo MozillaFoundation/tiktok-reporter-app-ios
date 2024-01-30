@@ -116,6 +116,8 @@ extension ReportView {
 
                 cancelReport()
                 routingState.submissionResult = true
+                
+                NotificationCenter.default.post(name: NSNotification.Name(Strings.formDidPublished), object: nil)
             } catch {
                 assertionFailure(error.localizedDescription)
             }
@@ -146,4 +148,5 @@ extension ReportView {
 private enum Strings {
     static let otherFieldTitle = "Suggest a category"
     static let otherTitle = "other"
+    static let formDidPublished = "formDidPublish"
 }
