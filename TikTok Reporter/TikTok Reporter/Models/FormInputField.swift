@@ -43,7 +43,13 @@ struct FormInputField: Hashable, Identifiable {
         }
 
         switch formItem.field {
-        case .textField, .dropDown:
+        case .textField(let textFieldFormField):
+            if let isTikTokLink = textFieldFormField.isTikTokLink, isTikTokLink {
+                isValid = validateTikTokLink(linkURL: stringValue)
+            } else {
+                isValid = !stringValue.isEmpty
+            }
+        case .dropDown:
             isValid = !stringValue.isEmpty
         default:
             return
@@ -61,11 +67,21 @@ struct FormInputField: Hashable, Identifiable {
             stringValue = ""
         }
 
+        isValid = true
     }
 }
 
 extension FormInputField: Encodable {
 
+    func validateTikTokLink(linkURL: String) -> Bool {
+        guard let tiktokUrlComponents = URLComponents(string: linkURL),
+              let tiktokURLHost = tiktokUrlComponents.host else {
+            return false
+        }
+        
+        return Strings.validTikTokLinks.contains(where: { $0 == tiktokURLHost })
+    }
+    
     enum CodingKeys: String, CodingKey {
         case formItem
         case inputValue
@@ -157,4 +173,5 @@ struct FormInputMapper {
 
 private enum Strings {
     static let otherFieldTitle = "Suggest a category"
+    static let validTikTokLinks = ["tiktok.com", "www.tiktok.com", "vm.tiktok.com"]
 }
