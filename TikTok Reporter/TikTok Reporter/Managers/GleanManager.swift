@@ -17,6 +17,7 @@ protocol GleanManaging {
     func setDeleteData()
     func submit()
     func submitEmail()
+    func submitScreenRecording()
 }
 
 final class GleanManager: GleanManaging {
@@ -89,6 +90,10 @@ final class GleanManager: GleanManaging {
     
     func submitEmail() {
         GleanMetrics.Pings.shared.email.submit()
+    }
+    
+    func submitScreenRecording() {
+        GleanMetrics.Pings.shared.screenRecording.submit()
     }
 }
 
