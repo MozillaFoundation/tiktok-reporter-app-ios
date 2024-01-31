@@ -78,6 +78,7 @@ final class GleanManager: GleanManaging {
 
     func setDeleteData() {
         Glean.shared.setUploadEnabled(false)
+        Glean.shared.setUploadEnabled(true)
     }
 
     // MARK: - Submit
