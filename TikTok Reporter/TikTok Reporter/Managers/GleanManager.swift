@@ -16,6 +16,7 @@ protocol GleanManaging {
     func setDownloadData(email: String, identifier: UUID)
     func setDeleteData()
     func submit()
+    func submitEmail()
 }
 
 final class GleanManager: GleanManaging {
@@ -84,6 +85,10 @@ final class GleanManager: GleanManaging {
 
     func submit() {
         GleanMetrics.Pings.shared.tiktokReport.submit()
+    }
+    
+    func submitEmail() {
+        GleanMetrics.Pings.shared.email.submit()
     }
 }
 

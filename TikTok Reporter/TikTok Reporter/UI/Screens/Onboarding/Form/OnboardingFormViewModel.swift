@@ -71,7 +71,8 @@ extension OnboardingFormView {
             do {
 
                 gleanManager.setEmail(emailAddress, identifier: uuid)
-                gleanManager.submit()
+                
+                gleanManager.submitEmail()
 
                 try appState.save(emailAddress, for: .emailAddress)
             } catch {
