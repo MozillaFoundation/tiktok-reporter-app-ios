@@ -122,7 +122,7 @@ extension RecordView {
                     let jsonString = try JSONMapper.map(storage)
 
                     gleanManager.setScreenRecording(jsonString, identifier: uuid)
-                    gleanManager.submit()
+                    gleanManager.submitScreenRecording()
 
                     state = .success
 
