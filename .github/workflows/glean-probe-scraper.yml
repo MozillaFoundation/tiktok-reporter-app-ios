@@ -2,5 +2,14 @@
 name: Glean probe-scraper
 on: [push, pull_request]
 jobs:
-  glean-probe-scraper:
-    uses: mozilla/probe-scraper/.github/workflows/glean.yaml@main
+  probe-scraper:
+    name: Glean probe-scraper
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Validate Glean metrics via probe-scraper, and if appropriate publish changes
+        run: |-
+          curl --fail-with-body https://us-west1-moz-fx-data-probe-s-prod-2bc3.cloudfunctions.net/glean-push --data '{
+            "url": "${{github.server_url}}/${{github.repository}}",
+            "commit":"${{github.sha}}",
+            "branch":"${{github.ref_name}}"
+          }'
