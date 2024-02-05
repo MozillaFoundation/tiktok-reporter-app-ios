@@ -24,6 +24,7 @@
 		<key>NSExtensionPrincipalClass</key>
 		<string>ShareViewController</string>
 	</dict>
+    <key>ITSAppUsesNonExemptEncryption</key><false/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>ZillaSlab-Bold.ttf</string>
