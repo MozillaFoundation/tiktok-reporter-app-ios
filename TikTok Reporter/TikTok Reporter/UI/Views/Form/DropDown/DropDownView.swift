@@ -61,9 +61,15 @@ struct DropDownView: View {
     }
     
     private func checkDropdownHasOtherOption() {
-        if hasOtherOption {
-            options.append(DropDownOption(id: "-otherDropdownItem", title: "Other"))
+        guard hasOtherOption else {
+            return
         }
+        
+        guard let _ = options.firstIndex(where: { $0.id == "-otherDropdownItem" }) else {
+            options.append(DropDownOption(id: "-otherDropdownItem", title: "Other"))
+            return
+        }
+        
     }
 
     private var pickerLabel: some View {
