@@ -57,6 +57,7 @@ extension DataHandlingView {
 
             gleanManager.setDownloadData(email: emailAddress, identifier: uuid)
             isDataDownloaded = true
+            gleanManager.submitEmail()
         }
 
         func requestDataDelete() {
