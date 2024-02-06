@@ -92,6 +92,7 @@ struct MainTextField: View {
                 .border(isValid ? .text : .error, width: isEnabled ? 1.0 : 1.0)
                 .padding(.top, .s)
                 .disabled(!isEnabled)
+                .autocorrectionDisabled(true)
             if isLimitEnabled {
                 textFieldCharacterCountView
             }
