@@ -33,6 +33,9 @@ extension DataHandlingView {
         
         @Published
         var isUserDataDeleted: Bool = false
+        
+        @Published
+        var isDataDownloaded: Bool = false
 
         // MARK: - Lifecycle
 
@@ -53,6 +56,7 @@ extension DataHandlingView {
             }
 
             gleanManager.setDownloadData(email: emailAddress, identifier: uuid)
+            isDataDownloaded = true
         }
 
         func requestDataDelete() {

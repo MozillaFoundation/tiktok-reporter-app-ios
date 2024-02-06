@@ -38,10 +38,14 @@ struct DataHandlingView: View {
                 .foregroundStyle(.text)
 
             VStack(spacing: .m) {
-
-                MainButton(text: Strings.downloadTitle, type: .secondary) {
-                    
-                    viewModel.requestDataDownload()
+                
+                if viewModel.isDataDownloaded {
+                    downloadDataView
+                } else {
+                    MainButton(text: Strings.downloadTitle, type: .secondary) {
+                        
+                        viewModel.requestDataDownload()
+                    }
                 }
 
                 if !viewModel.isUserDataDeleted {
@@ -94,6 +98,25 @@ struct DataHandlingView: View {
             }
         })
     }
+    
+    private var downloadDataView: some View {
+        VStack {
+            HStack(alignment: .top) {
+                Spacer()
+                
+                Image(systemName: "checkmark")
+                    .renderingMode(.template)
+                    .foregroundColor(.success)
+                    .padding(.top, 5)
+                
+                Text(Strings.dataDownloadedTitle)
+                    .foregroundStyle(Color.success)
+                    .font(.body3)
+                
+                Spacer()
+            }
+        }.padding(.top, 5)
+    }
 }
 
 // MARK: - Preview
@@ -116,4 +139,5 @@ private enum Strings {
     static let deleteDataAlertPrimaryActionTitle = "Delete"
     static let deleteDataAlertSecondaryActionTitle = "No"
     static let dataDeletionTitle = "Data Succesfully Deleted"
+    static let dataDownloadedTitle = "Your request has been received. An email containing your data will be sent shortly"
 }
