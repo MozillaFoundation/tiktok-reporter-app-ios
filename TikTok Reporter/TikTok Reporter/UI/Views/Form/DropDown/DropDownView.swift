@@ -38,6 +38,9 @@ struct DropDownView: View {
                 }
             }
         }
+        .onAppear {
+            checkDropdownHasOtherOption()
+        }
     }
 
     // MARK: - Views
@@ -54,9 +57,6 @@ struct DropDownView: View {
         }
         .onChange(of: selected) { _ in
             isValid = true
-        }
-        .onAppear {
-            checkDropdownHasOtherOption()
         }
     }
     
