@@ -120,8 +120,10 @@ extension RecordView {
 
                     let storage = try await screenRecordingService.uploadRecording()
                     let jsonString = try JSONMapper.map(storage)
-
-                    gleanManager.setScreenRecording(jsonString, identifier: uuid)
+                    
+                    let jsonStringToScreenRecording = prepareScreenRecording(jsonString: jsonString)
+                    
+                    gleanManager.setScreenRecording(jsonStringToScreenRecording, identifier: uuid)
                     gleanManager.submitScreenRecording()
 
                     state = .success
@@ -135,6 +137,25 @@ extension RecordView {
             }
         }
 
+        func prepareScreenRecording(jsonString: String) -> String {
+            var screenRecordingDict: [String: Any] = [:]
+            
+            if let jsonDataRepresentation = jsonString.data(using: .utf8),
+               let jsonObject = try? JSONSerialization.jsonObject(with: jsonDataRepresentation) as? [String:Any] {
+                screenRecordingDict["recordingInfo"] = jsonObject
+            }
+            
+            screenRecordingDict["comments"] = videoComments
+            
+            guard let jsonSerializedData = try? JSONSerialization.data(withJSONObject: screenRecordingDict, options: .prettyPrinted) else {
+                return jsonString
+            }
+            
+            guard let jsonSerializedString = String(data: jsonSerializedData, encoding: .utf8) else { return jsonString }
+            
+            return jsonSerializedString
+        }
+        
         func cancelRecording() {
             try? screenRecordingService.removeRecording()
 
