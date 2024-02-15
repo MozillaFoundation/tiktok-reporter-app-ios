@@ -113,12 +113,11 @@ struct FormView: View {
                     
                     DropDownView(selected: $field.stringValue, isValid: $field.isValid, options: fieldInfo.options, placeholder: fieldInfo.placeholder, hasOtherOption: fieldInfo.hasOtherOption)
                         .onChange(of: field.stringValue) { selected in
-                            guard let otherId = viewModel.otherId, selected == otherId else {
+                            if selected == Strings.otherItemId {
+                                viewModel.insertOther()
+                            } else {
                                 viewModel.removeOther()
-                                return
                             }
-
-                            viewModel.insertOther()
                         }
                 }
             }
@@ -129,6 +128,8 @@ struct FormView: View {
 // MARK: - Strings
 
 private enum Strings {
+    // Other
+    static let otherItemId = "-otherDropdownItem"
 
     // Buttons
     static let submitTitle = "Submit Report"

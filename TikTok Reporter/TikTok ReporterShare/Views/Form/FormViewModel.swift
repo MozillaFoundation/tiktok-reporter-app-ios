@@ -40,8 +40,11 @@ extension FormView {
         var routing: Routing = .init()
     
         private lazy var otherField: FormInputField = {
-
-            return FormInputField(formItem: FormItem(id: "", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: Strings.otherFieldPlaceholder, maxLines: 1, multiline: false, isTikTokLink: false))))
+            return FormInputField(formItem: FormItem(id: Strings.otherItemId,
+                                                     label: nil,
+                                                     description: nil,
+                                                     isRequired: true,
+                                                     field: .textField(TextFieldFormField(placeholder: Strings.otherFieldPlaceholder, maxLines: 1, multiline: false, isTikTokLink: false))))
         }()
 
         // MARK: - Lifecycle
@@ -106,7 +109,11 @@ extension FormView {
             }
         }
 
+        var isOtherFieldAdded: Bool { formInputContainer.items.contains(where: { $0.id == Strings.otherItemId }) == true }
+        
         func insertOther() {
+            guard !isOtherFieldAdded else { return }
+            
             guard
                 let otherFieldId = otherFieldId,
                 let dropDownIndex = formInputContainer.items.firstIndex(where: { $0.formItem.id == otherFieldId })
@@ -122,6 +129,7 @@ extension FormView {
                 return
             }
 
+            guard let otherFieldIndex = formInputContainer.items.firstIndex(where: { $0.id == Strings.otherItemId }) else { return }
             formInputContainer.items.remove(at: otherFieldIndex)
         }
 
@@ -181,4 +189,7 @@ private enum Strings {
     static let otherTitle = "other"
     static let studiesURL = "https://tiktok-reporter-app-be-jbrlktowcq-ew.a.run.app/studies/by-country-code"
     static let closeNotificationName = "close"
+    
+    // Other
+    static let otherItemId = "-otherDropdownItem"
 }

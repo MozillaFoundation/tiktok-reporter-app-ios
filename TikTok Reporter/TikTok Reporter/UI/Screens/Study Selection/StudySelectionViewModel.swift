@@ -77,7 +77,7 @@ extension StudySelectionView {
                         self.studies = studies.filter({ $0.form != nil })
 
                         if selected == nil {
-                            selected = studies.first(where: { $0.isActive })
+                            selected = self.studies.first(where: { $0.isActive })
                         }
 
                         state = .success
