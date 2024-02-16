@@ -163,6 +163,7 @@ extension RecordView {
 
             didUpdateMainField = false
             screenRecording = nil
+            videoComments = ""
         }
 
         // MARK: - Private Methods
