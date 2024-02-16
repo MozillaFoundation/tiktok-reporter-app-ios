@@ -113,6 +113,8 @@ extension RecordView {
             }
 
             state = .loading
+            
+            videoComments = ""
 
             Task {
 
