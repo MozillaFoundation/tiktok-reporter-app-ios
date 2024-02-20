@@ -43,7 +43,7 @@ extension PolicyView {
         var policy: Policy? = nil
         
         var policyText: AttributedString {
-            (try? AttributedString(styledMarkdown: policy?.text ?? "")) ?? AttributedString()
+            (try? AttributedString(styledMarkdown: policy?.text.replacingOccurrences(of: "\\n", with: "\n") ?? "")) ?? AttributedString()
         }
 
         var hasActions: Bool
