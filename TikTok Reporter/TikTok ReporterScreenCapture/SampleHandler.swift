@@ -14,6 +14,9 @@ enum BroadcastError: Error {
 
 class SampleHandler: RPBroadcastSampleHandler {
     
+    private let broadcastLimitSeconds: TimeInterval = 60 * 10
+    private var stopBroadcastTimer: Timer?
+    
     // MARK: - AVAssetWriter
     
     private var assetWriter: AVAssetWriter?
@@ -84,11 +87,18 @@ class SampleHandler: RPBroadcastSampleHandler {
     // MARK: - Methods
 
     override func broadcastStarted(withSetupInfo setupInfo: [String : NSObject]?) {
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            self.stopBroadcastTimer = Timer.scheduledTimer(timeInterval: broadcastLimitSeconds, target: self, selector: #selector(self.stopBroadcast), userInfo: nil, repeats: false)
+        }
 
+        
         do {
             try assetWriter = AVAssetWriter(outputURL: tempURL, fileType: .mp4)
             try start()
         } catch {
+            stopBroadcastTimer?.invalidate()
             assertionFailure(error.localizedDescription)
             finishBroadcastWithError(error)
             return
@@ -107,6 +117,7 @@ class SampleHandler: RPBroadcastSampleHandler {
 
         do {
             try finish()
+            stopBroadcastTimer?.invalidate()
         } catch {
             assertionFailure(error.localizedDescription)
             return
@@ -257,4 +268,14 @@ private enum Strings {
     static let appGroupID = "group.org.mozilla.ios.TikTok-Reporter"
     static let filePath = "Library/Documents/"
     static let writerQueueLabel = "BroadcastExtension.assetWriterQueue"
+}
+
+private extension SampleHandler {
+    @objc
+    func stopBroadcast() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            finishBroadcastGracefully(self)
+        }
+    }
 }
