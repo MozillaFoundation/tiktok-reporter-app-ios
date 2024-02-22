@@ -139,6 +139,7 @@
 		A91324472B628D1600EA54D9 /* LimitCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91324462B628D1600EA54D9 /* LimitCharacters.swift */; };
 		A91324482B628DF100EA54D9 /* LimitCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91324462B628D1600EA54D9 /* LimitCharacters.swift */; };
 		A91324492B62A01100EA54D9 /* SubmissionSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684A23EF2B178F12001B83AA /* SubmissionSuccessView.swift */; };
+		A95A90422B7F7E88004A15F3 /* BroadcastUploadHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = A95A90412B7F7E88004A15F3 /* BroadcastUploadHelpers.m */; };
 		A98946322B56D0CA002F3AE6 /* AttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98946312B56D0CA002F3AE6 /* AttributedString+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -309,6 +310,9 @@
 		68FA99542B0BA34400D65D43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68FB5B6A2B28865A003FF139 /* DataHandlingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandlingViewModel.swift; sourceTree = "<group>"; };
 		A91324462B628D1600EA54D9 /* LimitCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitCharacters.swift; sourceTree = "<group>"; };
+		A95A903F2B7F7E76004A15F3 /* BroadcastUploadHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BroadcastUploadHelpers.h; sourceTree = "<group>"; };
+		A95A90402B7F7E88004A15F3 /* TikTok ReporterScreenCapture-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TikTok ReporterScreenCapture-Bridging-Header.h"; sourceTree = "<group>"; };
+		A95A90412B7F7E88004A15F3 /* BroadcastUploadHelpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BroadcastUploadHelpers.m; sourceTree = "<group>"; };
 		A98946312B56D0CA002F3AE6 /* AttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributedString+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -426,6 +430,7 @@
 		6858A6952B0E694A0076A91A /* TikTok ReporterScreenCapture */ = {
 			isa = PBXGroup;
 			children = (
+				A95A903E2B7F7E67004A15F3 /* Helper */,
 				6858A6B12B0E698C0076A91A /* TikTok ReporterScreenCapture.entitlements */,
 				6858A6962B0E694A0076A91A /* SampleHandler.swift */,
 				6858A6982B0E694A0076A91A /* Info.plist */,
@@ -930,6 +935,16 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		A95A903E2B7F7E67004A15F3 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				A95A903F2B7F7E76004A15F3 /* BroadcastUploadHelpers.h */,
+				A95A90412B7F7E88004A15F3 /* BroadcastUploadHelpers.m */,
+				A95A90402B7F7E88004A15F3 /* TikTok ReporterScreenCapture-Bridging-Header.h */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1061,6 +1076,7 @@
 				TargetAttributes = {
 					6858A6902B0E69490076A91A = {
 						CreatedOnToolsVersion = 15.0.1;
+						LastSwiftMigration = 1510;
 					};
 					6858A69C2B0E694A0076A91A = {
 						CreatedOnToolsVersion = 15.0.1;
@@ -1211,6 +1227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A95A90422B7F7E88004A15F3 /* BroadcastUploadHelpers.m in Sources */,
 				6858A6972B0E694A0076A91A /* SampleHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1395,13 +1412,12 @@
 		6858A6AB2B0E694A0076A91A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "TikTok ReporterScreenCapture/TikTok ReporterScreenCapture.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 43AQ936H96;
+				DEVELOPMENT_TEAM = 43AQ936H96;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TikTok ReporterScreenCapture/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "TikTok ReporterScreenCapture";
@@ -1416,12 +1432,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-Reporter.TikTok-ReporterScreenCapture";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Bitrise TikTok-ReporterScreenCapture";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "TikTok ReporterScreenCapture/Helper/TikTok ReporterScreenCapture-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1430,13 +1447,12 @@
 		6858A6AC2B0E694A0076A91A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "TikTok ReporterScreenCapture/TikTok ReporterScreenCapture.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 43AQ936H96;
+				DEVELOPMENT_TEAM = 43AQ936H96;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TikTok ReporterScreenCapture/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "TikTok ReporterScreenCapture";
@@ -1451,12 +1467,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-Reporter.TikTok-ReporterScreenCapture";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Bitrise TikTok-ReporterScreenCapture";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "TikTok ReporterScreenCapture/Helper/TikTok ReporterScreenCapture-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1466,11 +1482,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 43AQ936H96;
+				DEVELOPMENT_TEAM = 43AQ936H96;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TikTok ReporterScreenCaptureSetupUI/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "TikTok ReporterScreenCaptureSetupUI";
@@ -1484,7 +1498,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-Reporter.TikTok-ReporterScreenCaptureSetupUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Bitrise TikTok-Reporter.TikTok-ReporterScreenCaptu";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1496,11 +1509,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 43AQ936H96;
+				DEVELOPMENT_TEAM = 43AQ936H96;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TikTok ReporterScreenCaptureSetupUI/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "TikTok ReporterScreenCaptureSetupUI";
@@ -1514,7 +1525,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-Reporter.TikTok-ReporterScreenCaptureSetupUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Bitrise TikTok-Reporter.TikTok-ReporterScreenCaptu";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1649,12 +1659,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "TikTok Reporter/TikTok Reporter.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TikTok Reporter/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 43AQ936H96;
+				DEVELOPMENT_TEAM = 43AQ936H96;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1674,7 +1682,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-Reporter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Bitrise org.mozilla.ios.TikTok-Reporter";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1692,12 +1699,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "TikTok Reporter/TikTok Reporter.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TikTok Reporter/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 43AQ936H96;
+				DEVELOPMENT_TEAM = 43AQ936H96;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1717,7 +1722,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-Reporter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Bitrise org.mozilla.ios.TikTok-Reporter";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1786,18 +1790,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 43AQ936H96;
+				DEVELOPMENT_TEAM = 43AQ936H96;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-ReporterUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Bitrise org.mozilla.ios.TikTok-ReporterUITests";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1813,18 +1814,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 43AQ936H96;
+				DEVELOPMENT_TEAM = 43AQ936H96;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-ReporterUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Bitrise org.mozilla.ios.TikTok-ReporterUITests";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1840,11 +1838,9 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "TikTok ReporterShare/TikTok ReporterShare.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 43AQ936H96;
+				DEVELOPMENT_TEAM = 43AQ936H96;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TikTok ReporterShare/Info.plist";
@@ -1861,7 +1857,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-Reporter.TikTok-ReporterShare";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Bitrise TikTok-Reporter.TikTok-ReporterShare";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1877,11 +1872,9 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "TikTok ReporterShare/TikTok ReporterShare.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 43AQ936H96;
+				DEVELOPMENT_TEAM = 43AQ936H96;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TikTok ReporterShare/Info.plist";
@@ -1898,7 +1891,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-Reporter.TikTok-ReporterShare";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Bitrise TikTok-Reporter.TikTok-ReporterShare";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
