@@ -20,7 +20,7 @@ enum PoliciesAPI: APIRequest {
     var path: String {
         switch self {
         case .getAppPolicies:
-            return "policies"
+            return "policies/app"
         }
     }
 
