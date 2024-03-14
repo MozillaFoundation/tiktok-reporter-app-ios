@@ -30,7 +30,7 @@ struct PolicyView: View {
         .navigationBarBackButtonHidden(!viewModel.appState.hasCompletedOnboarding)
         .customAlert(
             title: "Review the terms & conditions",
-            description: "Please read these terms and conditions carefully before using TikTok Reporter.",
+            description: "Please read these terms and conditions carefully before using TT Reporter.",
             isPresented: $viewModel.routingState.alert) {
                 MainButton(text: "Got it", type: .secondary) {
                     viewModel.routingState.alert = false

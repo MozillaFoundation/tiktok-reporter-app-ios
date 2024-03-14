@@ -82,7 +82,7 @@ struct StudySelectionView: View {
     
     private var studyDescription: some View {
 
-        Text("We may choose to run a few different studies simultaneously. These are the studies available to you based on the information you provided.")
+        Text("We may choose to run a few different studies simultaneously. These are the studies available to you based on location information from your IP address.")
             .font(.body2)
             .foregroundStyle(.text)
     }
