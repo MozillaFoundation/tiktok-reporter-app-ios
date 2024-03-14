@@ -29,7 +29,7 @@ struct AboutView: View {
         ScrollView {
 
             VStack(alignment: .leading, spacing: .xl) {
-                Text("About TikTok Reporter")
+                Text("About TT Reporter")
                     .font(.heading3)
                     .foregroundStyle(.text)
 
