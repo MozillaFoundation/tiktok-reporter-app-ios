@@ -1,7 +1,7 @@
 
-# TikTok Reporter
+# TT Reporter
 
-This is the Mozilla repository for the TikTok Reporter iOS application.
+This is the Mozilla repository for the TT Reporter iOS application.
 
 
 ## Run Locally

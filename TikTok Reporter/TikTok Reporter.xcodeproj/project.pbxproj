@@ -288,7 +288,7 @@
 		689FF08C2AFD4F1E00C9FE51 /* AppStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateManager.swift; sourceTree = "<group>"; };
 		68A978F22B16610300A17156 /* ScreenRecordingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRecordingService.swift; sourceTree = "<group>"; };
 		68C885FF2B0F8F280022043E /* BroadcastPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastPicker.swift; sourceTree = "<group>"; };
-		68CBF9652AEB9F2F006D03FC /* TikTok Reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TikTok Reporter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68CBF9652AEB9F2F006D03FC /* TT Reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TT Reporter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68CBF9682AEB9F2F006D03FC /* TikTok_ReporterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTok_ReporterApp.swift; sourceTree = "<group>"; };
 		68CBF96A2AEB9F2F006D03FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		68CBF96C2AEB9F31006D03FC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -821,7 +821,7 @@
 		68CBF9662AEB9F2F006D03FC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				68CBF9652AEB9F2F006D03FC /* TikTok Reporter.app */,
+				68CBF9652AEB9F2F006D03FC /* TT Reporter.app */,
 				68CBF9752AEB9F31006D03FC /* TikTok ReporterTests.xctest */,
 				68CBF97F2AEB9F31006D03FC /* TikTok ReporterUITests.xctest */,
 				68FA994D2B0BA34400D65D43 /* TikTok ReporterShare.appex */,
@@ -1004,7 +1004,7 @@
 				684E2F2B2B1F2636006A05C8 /* Glean */,
 			);
 			productName = "TikTok Reporter";
-			productReference = 68CBF9652AEB9F2F006D03FC /* TikTok Reporter.app */;
+			productReference = 68CBF9652AEB9F2F006D03FC /* TT Reporter.app */;
 			productType = "com.apple.product-type.application";
 		};
 		68CBF9742AEB9F31006D03FC /* TikTok ReporterTests */ = {
@@ -1686,7 +1686,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-Reporter";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "TT Reporter";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1728,7 +1728,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-Reporter";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "TT Reporter";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "org.mozilla.ios.TikTok-Reporter";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1814,7 +1814,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				TEST_TARGET_NAME = "TikTok Reporter";
+				TEST_TARGET_NAME = "TT Reporter";
 			};
 			name = Debug;
 		};

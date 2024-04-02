@@ -120,7 +120,7 @@ private enum Strings {
 
     // Errors
     static let onboardingErrorTitle = "Go through the onboarding first"
-    static let onboardingErrorDescription = "Because this is your first share, please open the TikTok Reporter app, choose a study, and complete the onboarding process before submitting a report. Thank you!"
+    static let onboardingErrorDescription = "Because this is your first share, please open the TT Reporter app, choose a study, and complete the onboarding process before submitting a report. Thank you!"
     static let genericErrorTitle = "Error"
     static let genericErrorDescription = "Something went wrong, please try again!"
     static let errorActionTitle = "OK"

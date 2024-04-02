@@ -86,7 +86,7 @@ struct SettingsView: View {
     }
 
     private var aboutRow: some View {
-        SettingsRow(title: "ABOUT TIKTOK REPORTER")
+        SettingsRow(title: "ABOUT TT REPORTER")
     }
 
     private var studiesRow: some View {
