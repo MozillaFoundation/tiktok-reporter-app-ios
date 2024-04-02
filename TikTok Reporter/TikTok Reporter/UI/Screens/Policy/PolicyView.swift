@@ -62,10 +62,12 @@ struct PolicyView: View {
 
                 VStack(alignment: .leading, spacing: .l) {
 
-                    Text(viewModel.policy?.subtitle ?? "")
-                        .font(.heading5)
-                        .foregroundStyle(.text)
-                    
+                    if (viewModel.policy?.subtitle.trimmingCharacters(in: .whitespacesAndNewlines)) != "" {
+                        Text(viewModel.policy?.subtitle ?? "")
+                            .font(.heading5)
+                            .foregroundStyle(.text)
+                    }
+
                     Text(viewModel.policyText)
                         .font(.body2)
                         .tint(.blue)
