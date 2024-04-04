@@ -74,6 +74,12 @@ struct OnboardingFormView: View {
                 }
             }
 
+            if viewModel.appState.hasCompletedOnboarding &&  viewModel.appState.emailAddress != nil && !viewModel.appState.emailAddress!.isEmpty {
+                MainButton(text: Strings.removeEmailTitle, type: .secondary) {
+                    viewModel.removeEmail()
+                }
+            }
+
             if viewModel.location == .onboarding {
 
                 MainButton(text: Strings.skipTitle, type: .secondary) {
@@ -96,5 +102,6 @@ struct OnboardingFormView: View {
 private enum Strings {
     static let saveTitle = "Save"
     static let skipTitle = "Skip"
+    static let removeEmailTitle = "Remove email"
     static let privacyPolicyMarkdown = "By providing your email address, you agree to Mozilla's [Privacy Notice](https://www.mozilla.org/privacy/)."
 }

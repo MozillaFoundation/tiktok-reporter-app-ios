@@ -100,12 +100,25 @@ extension OnboardingFormView {
 
                 appState.updateOnboarding()
             default:
-
                 break
             }
             
         }
-    
+
+        func removeEmail() {
+            guard
+                let study = appState.study,
+                let uuid = UUID(uuidString: study.id)
+            else {
+                return
+            }
+            let emptyEmail = ""
+
+            gleanManager.setEmail(emptyEmail, identifier: uuid)
+            gleanManager.submitEmail()
+            appState.clearEmail()
+        }
+
         func skip() {
             appState.updateOnboarding()
         }
