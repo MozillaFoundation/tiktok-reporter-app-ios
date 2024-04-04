@@ -22,7 +22,7 @@ extension OnboardingFormView {
         
         // MARK: - Injected
 
-        private var appState: AppStateManager
+        private(set) var appState: AppStateManager
         @Injected(\.gleanManager)
         private var gleanManager: GleanManaging
 
@@ -30,6 +30,7 @@ extension OnboardingFormView {
 
         @Published
         var formUIContainer: FormInputContainer
+        var privacyPolicyText: AttributedString
         @Published
         var didUpdateMainField = false
         @Published
@@ -51,6 +52,7 @@ extension OnboardingFormView {
             self.appState = appState
             self.location = location
             self.formUIContainer = FormInputMapper.map(form: form)
+            self.privacyPolicyText =  (try? AttributedString(styledMarkdown: Strings.privacyPolicyMarkdown)) ?? AttributedString()
 
             if
                 location == .settings || location == .dataHandling,
@@ -108,4 +110,10 @@ extension OnboardingFormView {
             appState.updateOnboarding()
         }
     }
+}
+
+// MARK: - Strings
+
+private enum Strings {
+    static let privacyPolicyMarkdown = "By providing your email address, you agree to Mozilla's [Privacy Notice](https://www.mozilla.org/privacy/)."
 }

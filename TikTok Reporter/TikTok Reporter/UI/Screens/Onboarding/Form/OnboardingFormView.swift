@@ -51,7 +51,14 @@ struct OnboardingFormView: View {
 
                 FormView(formInputContainer: $viewModel.formUIContainer,
                          didUpdateMainField: $viewModel.didUpdateMainField, 
-                         shouldScrollToNonValidatedContext: $viewModel.shouldFormScrollToNonValidatedScope)
+                         shouldScrollToNonValidatedContext: $viewModel.shouldFormScrollToNonValidatedScope,
+                         hasVerticalPadding: .constant(false))
+                if (viewModel.appState.hasCompletedOnboarding) {
+                    Text(viewModel.privacyPolicyText)
+                        .font(.body2)
+                        .tint(.blue)
+                        .foregroundStyle(.black)
+                }
             }
         }
     }
@@ -89,4 +96,5 @@ struct OnboardingFormView: View {
 private enum Strings {
     static let saveTitle = "Save"
     static let skipTitle = "Skip"
+    static let privacyPolicyMarkdown = "By providing your email address, you agree to Mozilla's [Privacy Notice](https://www.mozilla.org/privacy/)."
 }
