@@ -13,6 +13,7 @@ struct OnboardingFormView: View {
     
     @ObservedObject
     var viewModel: ViewModel
+    @Environment(\.presentationMode) private var presentationMode
     
     // MARK: - Body
     
@@ -34,6 +35,11 @@ struct OnboardingFormView: View {
         VStack {
             emailView
             buttons
+        }
+        .onReceive(viewModel.viewDismissalModePublisher) { isDataDownloaded in
+            if isDataDownloaded {
+                self.presentationMode.wrappedValue.dismiss()
+            }
         }
     }
     

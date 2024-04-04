@@ -17,6 +17,7 @@ struct Study: Codable {
     let policies: [Policy]
     let onboarding: Onboarding?
     let form: Form?
+    let dataDownloadForm: Form?
 }
 
 struct CountryCode: Codable {
