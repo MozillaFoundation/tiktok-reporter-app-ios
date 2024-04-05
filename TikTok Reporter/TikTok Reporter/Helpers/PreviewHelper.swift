@@ -38,7 +38,13 @@ enum PreviewHelper {
                 FormItem(id: "311", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: "TikTok link", maxLines: 1, multiline: false , isTikTokLink: false))),
                 FormItem(id: "312", label: nil, description: "Choose a category in which the video you want to report can be included. If you don’t find the category in the list, choose “other”.", isRequired: true, field: .dropDown(DropDownFormField(placeholder: "Category", options: [DropDownOption(id: "3121", title: "Option 1"), DropDownOption(id: "3122", title: "Option 2")], selected: "3121", hasOtherOption: true))),
                 FormItem(id: "313", label: "Severity", description: nil, isRequired: true, field: .slider(SliderFormField(max: 5, step: 1, leftLabel: "LOW", rightLabel: "HIGH")))
-            ])
+            ]),
+        dataDownloadForm: Form(
+            id: "32",
+            name: "Data handling form",
+            fields: [
+                FormItem(id: "314", label: nil, description: nil, isRequired: true, field: .textField(TextFieldFormField(placeholder: "Email address", maxLines: 1, multiline: false , isTikTokLink: false))),
+        ])
     )
     
     static let mockOnboarding = Onboarding(

@@ -13,6 +13,7 @@ struct OnboardingFormView: View {
     
     @ObservedObject
     var viewModel: ViewModel
+    @Environment(\.presentationMode) private var presentationMode
     
     // MARK: - Body
     
@@ -35,6 +36,11 @@ struct OnboardingFormView: View {
             emailView
             buttons
         }
+        .onReceive(viewModel.viewDismissalModePublisher) { isDataDownloaded in
+            if isDataDownloaded {
+                self.presentationMode.wrappedValue.dismiss()
+            }
+        }
     }
     
     private var emailView: some View {
@@ -45,7 +51,14 @@ struct OnboardingFormView: View {
 
                 FormView(formInputContainer: $viewModel.formUIContainer,
                          didUpdateMainField: $viewModel.didUpdateMainField, 
-                         shouldScrollToNonValidatedContext: $viewModel.shouldFormScrollToNonValidatedScope)
+                         shouldScrollToNonValidatedContext: $viewModel.shouldFormScrollToNonValidatedScope,
+                         hasVerticalPadding: .constant(false))
+                if (viewModel.appState.hasCompletedOnboarding) {
+                    Text(viewModel.privacyPolicyText)
+                        .font(.body2)
+                        .tint(.blue)
+                        .foregroundStyle(.black)
+                }
             }
         }
     }
@@ -58,6 +71,12 @@ struct OnboardingFormView: View {
 
                 MainButton(text: Strings.saveTitle, type: .primary) {
                     viewModel.saveData()
+                }
+            }
+
+            if viewModel.appState.hasCompletedOnboarding &&  viewModel.appState.emailAddress != nil && !viewModel.appState.emailAddress!.isEmpty {
+                MainButton(text: Strings.removeEmailTitle, type: .secondary) {
+                    viewModel.removeEmail()
                 }
             }
 
@@ -83,4 +102,6 @@ struct OnboardingFormView: View {
 private enum Strings {
     static let saveTitle = "Save"
     static let skipTitle = "Skip"
+    static let removeEmailTitle = "Remove email"
+    static let privacyPolicyMarkdown = "By providing your email address, you agree to Mozilla's [Privacy Notice](https://www.mozilla.org/privacy/)."
 }

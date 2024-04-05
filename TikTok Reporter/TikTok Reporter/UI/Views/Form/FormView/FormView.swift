@@ -17,6 +17,17 @@ struct FormView: View {
     var didUpdateMainField: Bool
     @Binding
     var shouldScrollToNonValidatedContext: Bool
+    @Binding
+    var hasVerticalPadding: Bool?
+
+    // MARK: - Lifecycle
+
+    init(formInputContainer: Binding<FormInputContainer>, didUpdateMainField: Binding<Bool>, shouldScrollToNonValidatedContext: Binding<Bool>, hasVerticalPadding: Binding<Bool?> = .constant(true)) {
+        _formInputContainer = formInputContainer
+        _didUpdateMainField = didUpdateMainField
+        _shouldScrollToNonValidatedContext = shouldScrollToNonValidatedContext
+        _hasVerticalPadding = hasVerticalPadding
+    }
     
     // MARK: - Body
     
@@ -32,7 +43,7 @@ struct FormView: View {
                         
                         self.formItems
                     }
-                    .padding(.xl)
+                    .padding(hasVerticalPadding ?? true ? .all : .horizontal, .xl)
                 }
                 .onChange(of: shouldScrollToNonValidatedContext) { value in
                     guard value,

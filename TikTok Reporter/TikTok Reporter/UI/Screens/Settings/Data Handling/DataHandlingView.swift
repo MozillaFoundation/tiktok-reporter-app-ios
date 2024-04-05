@@ -13,6 +13,15 @@ struct DataHandlingView: View {
 
     @StateObject
     var viewModel: ViewModel
+    @State var requestEmailScreen = false
+
+    var emailFormView: OnboardingFormView
+
+    init(viewModel: ViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+        emailFormView = OnboardingFormView(
+            viewModel: .init(appState: viewModel.appState, form: viewModel.form!, location: .dataHandling))
+    }
 
     // MARK: - Body
 
@@ -38,13 +47,22 @@ struct DataHandlingView: View {
                 .foregroundStyle(.text)
 
             VStack(spacing: .m) {
-                
-                if viewModel.isDataDownloaded {
+                if emailFormView.viewModel.isDataDownloaded || viewModel.isDataDownloaded {
                     downloadDataView
                 } else {
-                    MainButton(text: Strings.downloadTitle, type: .secondary) {
-                        
-                        viewModel.requestDataDownload()
+                    if viewModel.canRequestDataDownload() {
+                        MainButton(text: Strings.downloadTitle, type: .secondary) {
+                            viewModel.requestDataDownload()
+                        }
+                    } else {
+                        NavigationLink(
+                            destination: emailFormView,
+                            isActive: $viewModel.routing.requestEmailScreen
+                        ) {
+                            MainButton(text: Strings.downloadTitle, type: .secondary) {
+                                viewModel.requestEmailForDataDownload()
+                            }
+                        }
                     }
                 }
 
@@ -77,13 +95,6 @@ struct DataHandlingView: View {
             Spacer()
         }
         .padding(.l)
-        .customAlert(title: Strings.noEmailAlertTitle,
-                     description: Strings.noEmailAlertDescription,
-                     isPresented: $viewModel.routing.noEmailAlert) {
-            MainButton(text: Strings.noEmailAlertActionTitle, type: .secondary) {
-                viewModel.routing.noEmailAlert = false
-            }
-        }
         .customAlert(title: Strings.deleteDataAlertTitle,
                      description: Strings.deleteDataAlertDescription,
                      isPresented: $viewModel.routing.deleteDataAlert,
@@ -96,7 +107,10 @@ struct DataHandlingView: View {
                 viewModel.routing.deleteDataAlert = false
                 viewModel.deleteUserData()
             }
-        })
+        }).onDisappear {
+            emailFormView.viewModel.isDataDownloaded = false
+            viewModel.isDataDownloaded = false
+        }
     }
     
     private var downloadDataView: some View {
@@ -131,9 +145,6 @@ private enum Strings {
     static let title = "Data Handling"
     static let downloadTitle = "Download My Data"
     static let deleteTitle = "Delete My Data"
-    static let noEmailAlertTitle = "No email provided"
-    static let noEmailAlertDescription = "Please provide an email in order to get a copy of your data."
-    static let noEmailAlertActionTitle = "Got it"
     static let deleteDataAlertTitle = "Delete Data?"
     static let deleteDataAlertDescription = "Are you sure you want to delete all your data from the system?"
     static let deleteDataAlertPrimaryActionTitle = "Delete"
