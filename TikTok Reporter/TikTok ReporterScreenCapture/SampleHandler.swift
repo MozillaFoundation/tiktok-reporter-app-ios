@@ -25,7 +25,7 @@ class SampleHandler: RPBroadcastSampleHandler {
     private lazy var videoInput: AVAssetWriterInput = {
 
         let compressionProperties: [String: Any] = [
-            AVVideoExpectedSourceFrameRateKey: NSNumber(value: 60),
+            AVVideoExpectedSourceFrameRateKey: NSNumber(value: 20),
             AVVideoProfileLevelKey: "HEVC_Main_AutoLevel"
         ]
         
