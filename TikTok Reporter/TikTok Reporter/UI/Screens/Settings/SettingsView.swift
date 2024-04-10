@@ -90,11 +90,11 @@ struct SettingsView: View {
     }
 
     private var studiesRow: some View {
-        SettingsRow(title: "STUDIES")
+        SettingsRow(title: "PICK A STUDY")
     }
     
     private var emailRow: some View {
-        SettingsRow(title: "EMAIL ADDRESS")
+        SettingsRow(title: "SIGN UP FOR UPDATES")
     }
 
     private var termsRow: some View {
@@ -106,7 +106,7 @@ struct SettingsView: View {
     }
 
     private var dataHandlingRow: some View {
-        SettingsRow(title: "DATA HANDLING")
+        SettingsRow(title: "MANAGE YOUR DATA")
     }
 }
 

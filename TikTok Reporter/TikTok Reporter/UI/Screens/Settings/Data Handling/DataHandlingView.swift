@@ -142,11 +142,11 @@ struct DataHandlingView: View {
 // MARK: - Strings
 
 private enum Strings {
-    static let title = "Data Handling"
-    static let downloadTitle = "Download My Data"
-    static let deleteTitle = "Delete My Data"
+    static let title = "Manage Your Data"
+    static let downloadTitle = "Download Your Data"
+    static let deleteTitle = "Delete Your Data"
     static let deleteDataAlertTitle = "Delete Data?"
-    static let deleteDataAlertDescription = "Are you sure you want to delete all your data from the system?"
+    static let deleteDataAlertDescription = "Are you sure you want to delete all your data from our system?"
     static let deleteDataAlertPrimaryActionTitle = "Delete"
     static let deleteDataAlertSecondaryActionTitle = "No"
     static let dataDeletionTitle = "Data Succesfully Deleted"
