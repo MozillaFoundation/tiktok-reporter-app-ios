@@ -14,12 +14,14 @@ enum FileManagerError: Error {
 
 protocol ScreenRecordingServicing {
     var localURL: URL? { get }
-
+    
+    func getSignedURL() async throws -> String
+    
     func loadRecording() throws -> AVAsset
     func removeRecording() throws
     func updateLocalRecording(with path: String) throws -> AVAsset
 
-    func uploadRecording() async throws -> RecordingStorage?
+    func uploadRecording() async throws -> (SignedURL?, Bool)    
 }
 
 final class ScreenRecordingService: ScreenRecordingServicing {
@@ -78,16 +80,17 @@ final class ScreenRecordingService: ScreenRecordingServicing {
         return try loadRecording()
     }
 
-    func uploadRecording() async throws -> RecordingStorage? {
-
+    func uploadRecording() async throws -> (SignedURL?,Bool) {
+        
         guard let localData = self.loadLocalData() else {
-            return nil
+            return (nil, false)
         }
+        
+        let signedURL = try await getSignedURL()
+        let status = try await apiClient.performUpload(request: RecordingAPI.uploadRecordingV4(v4SignedURL: signedURL,body: localData))
+        
 
-        var multipartRequest = MultipartRequest()
-        multipartRequest.add(key: "file", fileName: Strings.fileName, fileMimeType: "video/mp4", fileData: localData)
-
-        return try await apiClient.perform(request: RecordingAPI.uploadRecording(contentType: multipartRequest.httpHeader, body: multipartRequest.httpBody))
+        return (SignedURL(url: signedURL), status)
     }
 
     // MARK: - Private Methods
@@ -136,6 +139,11 @@ final class ScreenRecordingService: ScreenRecordingServicing {
 
         return data
     }
+    
+    func getSignedURL() async throws -> String {
+        let signedURL: SignedURL = try await apiClient.perform(request: RecordingAPI.getSignedUrlPath)
+        return Strings.signedURLBase + signedURL.url
+    }
 }
 
 // MARK: - Strings
@@ -144,4 +152,5 @@ private enum Strings {
     static let fileName = "screenRecording.mp4"
     static let appGroupID = "group.org.mozilla.ios.TikTok-Reporter"
     static let appGroupFilePath = "Library/Documents/screenRecording.mp4"
+    static let signedURLBase = "https://storage.googleapis.com/regrets_reporter_recording_docs/"
 }
