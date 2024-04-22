@@ -29,11 +29,12 @@ struct AboutView: View {
         ScrollView {
 
             VStack(alignment: .leading, spacing: .xl) {
-                Text("About TT Reporter")
+                Text("About FYP Reporter")
                     .font(.heading3)
                     .foregroundStyle(.text)
 
-                Text("TT Reporter serves as a vital tool in an ongoing sociological study, seeking to understand the broader implications of content shared on TikTok. By reporting harmful videos, users contribute to a wealth of data that will be instrumental in identifying and addressing the social issues, influences, and trends within the platform.\n\n Join us in shaping the future of digital interaction by participating in this sociological study through “TT Reporter” Your reports make a difference in the quest to foster a safer, more informed, and socially conscious digital environment.\n\n Anonymous Reporting: SocialSafeguard ensures users can report troubling TikTok content discreetly, preserving their privacy.\n\n Categorization: Users can categorize the type of harm observed in videos, such as bullying, misinformation, hate speech, or other sociological factors.\n\n Commentary: The app allows users to provide context and insights, fostering a deeper understanding of the content’s impact.\n\n Data Collection: Reports are collated into a comprehensive database, allowing sociologists to analyze and identify trends and patterns.")
+                // TODO: link to privacy policy https://foundation.mozilla.org/en/fyp-reporter/privacy-notice/
+                Text("FYP Reporter is a tool that enables crowdsourced investigations into TikTok. It’s built by the nonprofit Mozilla. By using the app, you can participate in studies scrutinizing TikTok’s FYP algorithm. You’ll contribute to cutting-edge public interest research, which Mozilla uses to drive better public policy around tech platforms, advocate for greater transparency, and inform meaningful design interventions.\n\n FYP Reporter research participants can share videos and other TikTok content they encounter with Mozilla, providing context and comments about the content. Participants can also share screen recordings of their TikTok sessions with Mozilla. Learn more in our privacy policy.")
                     .font(.body2)
                     .foregroundStyle(.text)
             }

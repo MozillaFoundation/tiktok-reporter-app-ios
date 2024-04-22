@@ -128,5 +128,5 @@ extension OnboardingFormView {
 // MARK: - Strings
 
 private enum Strings {
-    static let privacyPolicyMarkdown = "By providing your email address, you agree to Mozilla's [Privacy Notice](https://www.mozilla.org/privacy/)."
+    static let privacyPolicyMarkdown = "By providing your email address, you agree to Mozilla's [Privacy Notice](https://foundation.mozilla.org/en/fyp-reporter/privacy-notice/)."
 }

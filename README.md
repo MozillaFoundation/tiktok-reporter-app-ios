@@ -1,7 +1,7 @@
 
-# TT Reporter
+# FYP Reporter
 
-This is the Mozilla repository for the TT Reporter iOS application.
+This is the Mozilla repository for the FYP Reporter iOS application.
 
 
 ## Run Locally

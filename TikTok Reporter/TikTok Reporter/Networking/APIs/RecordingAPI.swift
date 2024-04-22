@@ -36,7 +36,7 @@ enum RecordingAPI: APIRequest {
         case let .uploadRecording(contentType, _):
             return [
                 "Content-Type": contentType,
-                "X-API-Key": ProcessInfo.processInfo.environment["TTREPORTER_UPLOAD_API_KEY"] ?? ""
+                "X-API-Key": ProcessInfo.processInfo.environment["FYP_REPORTER_UPLOAD_API_KEY"] ?? ""
             ]
         }
     }
