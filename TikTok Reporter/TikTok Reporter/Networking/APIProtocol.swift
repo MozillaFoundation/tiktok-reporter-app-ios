@@ -34,7 +34,16 @@ protocol APIRequest {
 extension APIRequest {
 
     func asURLRequest() throws -> URLRequest {
-        guard let url = URL(string: Constants.URL.baseURL.appending(path)) else {
+        
+        var urlToRequest: URL?
+        
+        if let headers = headers, let contentType = headers["content-type"], contentType == "video/mp4" {
+            urlToRequest = URL(string: path)
+        } else {
+            urlToRequest = URL(string: Constants.URL.baseURL.appending(path))
+        }
+        
+        guard let url = urlToRequest else {
             throw APIError.invalidURL
         }
 

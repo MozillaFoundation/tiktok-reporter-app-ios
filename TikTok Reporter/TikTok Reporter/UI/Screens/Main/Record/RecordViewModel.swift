@@ -117,16 +117,21 @@ extension RecordView {
             videoComments = ""
 
             Task {
-
                 do {
+                    let (signedURL, uploadStatus) = try await screenRecordingService.uploadRecording()
 
-                    let storage = try await screenRecordingService.uploadRecording()
-                    let jsonString = try JSONMapper.map(storage)
+                    if !uploadStatus {
+                        state = .failed(nil)
+                        return
+                    }
                     
-                    let jsonStringToScreenRecording = prepareScreenRecording(jsonString: jsonString)
-                    
-                    gleanManager.setScreenRecording(jsonStringToScreenRecording, identifier: uuid)
-                    gleanManager.submitScreenRecording()
+                    if let signedURL = signedURL {
+                        let jsonString = try JSONMapper.map(signedURL)
+                        let jsonStringToScreenRecording = prepareScreenRecording(jsonString: jsonString)
+                        
+                        gleanManager.setScreenRecording(jsonStringToScreenRecording, identifier: uuid)
+                        gleanManager.submitScreenRecording()
+                    }
 
                     state = .success
 

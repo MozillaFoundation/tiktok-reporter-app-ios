@@ -141,6 +141,8 @@
 		A91324492B62A01100EA54D9 /* SubmissionSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684A23EF2B178F12001B83AA /* SubmissionSuccessView.swift */; };
 		A95A90422B7F7E88004A15F3 /* BroadcastUploadHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = A95A90412B7F7E88004A15F3 /* BroadcastUploadHelpers.m */; };
 		A98946322B56D0CA002F3AE6 /* AttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98946312B56D0CA002F3AE6 /* AttributedString+Extension.swift */; };
+		A989DAAE2BCE842000AC8062 /* SignedURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A989DAAD2BCE842000AC8062 /* SignedURL.swift */; };
+		A989DAAF2BCE842900AC8062 /* SignedURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A989DAAD2BCE842000AC8062 /* SignedURL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -314,6 +316,7 @@
 		A95A90402B7F7E88004A15F3 /* TikTok ReporterScreenCapture-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TikTok ReporterScreenCapture-Bridging-Header.h"; sourceTree = "<group>"; };
 		A95A90412B7F7E88004A15F3 /* BroadcastUploadHelpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BroadcastUploadHelpers.m; sourceTree = "<group>"; };
 		A98946312B56D0CA002F3AE6 /* AttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributedString+Extension.swift"; sourceTree = "<group>"; };
+		A989DAAD2BCE842000AC8062 /* SignedURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedURL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -594,6 +597,7 @@
 				684A23EC2B178D93001B83AA /* FormTab.swift */,
 				684A23F12B17922D001B83AA /* ScreenRecording.swift */,
 				684E2F452B23332F006A05C8 /* RecordingStorage.swift */,
+				A989DAAD2BCE842000AC8062 /* SignedURL.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1283,6 +1287,7 @@
 				6892A4FD2B14AE5F0023BCA8 /* Date+Formatted.swift in Sources */,
 				689FF05C2AF3E7E600C9FE51 /* Onboarding.swift in Sources */,
 				689FF03D2AF2983100C9FE51 /* InjectedValues.swift in Sources */,
+				A989DAAE2BCE842000AC8062 /* SignedURL.swift in Sources */,
 				689FF0652AF6787900C9FE51 /* OnboardingView.swift in Sources */,
 				68FB5B6B2B28865A003FF139 /* DataHandlingViewModel.swift in Sources */,
 				684E2F342B20B3B5006A05C8 /* GleanManager.swift in Sources */,
@@ -1374,6 +1379,7 @@
 				684E2F562B24C656006A05C8 /* PresentationState.swift in Sources */,
 				684E2F622B24C90F006A05C8 /* LoadingView.swift in Sources */,
 				684E2F5F2B24C8F6006A05C8 /* CGFloat+Spacing.swift in Sources */,
+				A989DAAF2BCE842900AC8062 /* SignedURL.swift in Sources */,
 				684E2F512B24C5F9006A05C8 /* Study.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
