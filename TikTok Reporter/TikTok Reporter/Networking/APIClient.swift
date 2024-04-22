@@ -9,6 +9,7 @@ import Foundation
 
 protocol HTTPClient {
     func perform<T: Decodable>(request: APIRequest) async throws -> T
+    func performUpload(request: APIRequest) async throws -> Bool
 }
 
 struct APIClient: HTTPClient {
@@ -28,6 +29,19 @@ struct APIClient: HTTPClient {
             }
         default:
             throw APIError.badRequest
+        }
+    }
+    
+    func performUpload(request: APIRequest) async throws -> Bool {
+        let (data, response) = try await URLSession.shared.data(for: request.asURLRequest())
+
+        let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 400
+
+        switch statusCode {
+        case 200, 201:
+            return true
+        default:
+            return false
         }
     }
 }
