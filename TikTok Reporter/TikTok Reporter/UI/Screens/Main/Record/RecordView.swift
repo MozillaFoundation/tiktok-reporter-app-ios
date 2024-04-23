@@ -223,7 +223,7 @@ private enum Strings {
     static let duration = "Duration:"
     static let recordingDate = "Recorded on:"
     static let commentsPlaceholder = "Comments(optional)"
-    static let noRecordingTitle = "Tap ‘Record my TikTok session’ to start screen recording. Open TikTok and record your session while you scroll the For You Page (FYP). Once you’re done, tap ‘Stop Recording.’ You’ll be asked to share more information and submit this form."
+    static let noRecordingTitle = "Tap ‘Record my TikTok session’ to start screen recording. Select ‘FYP ReporterScreenCapture’ and tap ‘Start Broadcast’, then tap outside the dialog to dismiss it. Open TikTok and record your session while you scroll the For You Page (FYP). Once you’re done, tap ‘Stop Recording’ or the circle below (which will be colored red while recording is on). You’ll be asked to share more information and submit this form."
     static let recordingTitle = "You’ve recorded a TikTok session. Fill out some information then submit the form."
     static let submitReportWarning = "Create a recording in order to submit the report."
     static let cancelReportAlertTitle = "Cancel Report?"
