@@ -1,6 +1,6 @@
 //
 //  BroadcastSetupViewController.swift
-//  TikTok ReporterScreenCaptureSetupUI
+//  FYP ReporterScreenCaptureSetupUI
 //
 //  Created by Sergiu Ghiran on 22.11.2023.
 //

@@ -58,8 +58,8 @@
 		6858A69E2B0E694A0076A91A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6858A6932B0E69490076A91A /* ReplayKit.framework */; };
 		6858A6A02B0E694A0076A91A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6858A69F2B0E694A0076A91A /* UIKit.framework */; };
 		6858A6A32B0E694A0076A91A /* BroadcastSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858A6A22B0E694A0076A91A /* BroadcastSetupViewController.swift */; };
-		6858A6A72B0E694A0076A91A /* TikTok ReporterScreenCaptureSetupUI.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6858A69D2B0E694A0076A91A /* TikTok ReporterScreenCaptureSetupUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		6858A6AA2B0E694A0076A91A /* TikTok ReporterScreenCapture.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6858A6912B0E69490076A91A /* TikTok ReporterScreenCapture.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6858A6A72B0E694A0076A91A /* FYP ReporterScreenCaptureSetupUI.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6858A69D2B0E694A0076A91A /* FYP ReporterScreenCaptureSetupUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6858A6AA2B0E694A0076A91A /* FYP ReporterScreenCapture.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6858A6912B0E69490076A91A /* FYP ReporterScreenCapture.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		685F30412AFE92F500D585C3 /* IdleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685F30402AFE92F500D585C3 /* IdleView.swift */; };
 		685F30472B02799600D585C3 /* PagedTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685F30462B02799600D585C3 /* PagedTabView.swift */; };
 		685F30492B027A1B00D585C3 /* PagedTabViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685F30482B027A1B00D585C3 /* PagedTabViewItem.swift */; };
@@ -134,7 +134,7 @@
 		68CBF9AD2AEC1C7A006D03FC /* NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68CBF9AC2AEC1C7A006D03FC /* NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf */; };
 		68FA99472B0B69D400D65D43 /* View+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA99462B0B69D400D65D43 /* View+Keyboard.swift */; };
 		68FA99502B0BA34400D65D43 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FA994F2B0BA34400D65D43 /* ShareViewController.swift */; };
-		68FA99572B0BA34400D65D43 /* TikTok ReporterShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 68FA994D2B0BA34400D65D43 /* TikTok ReporterShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		68FA99572B0BA34400D65D43 /* FYP ReporterShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 68FA994D2B0BA34400D65D43 /* FYP ReporterShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		68FB5B6B2B28865A003FF139 /* DataHandlingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FB5B6A2B28865A003FF139 /* DataHandlingViewModel.swift */; };
 		A91324472B628D1600EA54D9 /* LimitCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91324462B628D1600EA54D9 /* LimitCharacters.swift */; };
 		A91324482B628DF100EA54D9 /* LimitCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91324462B628D1600EA54D9 /* LimitCharacters.swift */; };
@@ -151,14 +151,14 @@
 			containerPortal = 68CBF95D2AEB9F2F006D03FC /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 6858A69C2B0E694A0076A91A;
-			remoteInfo = "TikTok ReporterScreenCaptureSetupUI";
+			remoteInfo = "FYP ReporterScreenCaptureSetupUI";
 		};
 		6858A6A82B0E694A0076A91A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 68CBF95D2AEB9F2F006D03FC /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 6858A6902B0E69490076A91A;
-			remoteInfo = "TikTok ReporterScreenCapture";
+			remoteInfo = "FYP ReporterScreenCapture";
 		};
 		68CBF9762AEB9F31006D03FC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -190,9 +190,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				68FA99572B0BA34400D65D43 /* TikTok ReporterShare.appex in Embed Foundation Extensions */,
-				6858A6A72B0E694A0076A91A /* TikTok ReporterScreenCaptureSetupUI.appex in Embed Foundation Extensions */,
-				6858A6AA2B0E694A0076A91A /* TikTok ReporterScreenCapture.appex in Embed Foundation Extensions */,
+				68FA99572B0BA34400D65D43 /* FYP ReporterShare.appex in Embed Foundation Extensions */,
+				6858A6A72B0E694A0076A91A /* FYP ReporterScreenCaptureSetupUI.appex in Embed Foundation Extensions */,
+				6858A6AA2B0E694A0076A91A /* FYP ReporterScreenCapture.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,15 +221,15 @@
 		684E2F412B2313BC006A05C8 /* MultipartRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartRequest.swift; sourceTree = "<group>"; };
 		684E2F432B2314A9006A05C8 /* Data+Append.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Append.swift"; sourceTree = "<group>"; };
 		684E2F452B23332F006A05C8 /* RecordingStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingStorage.swift; sourceTree = "<group>"; };
-		6858A6912B0E69490076A91A /* TikTok ReporterScreenCapture.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TikTok ReporterScreenCapture.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6858A6912B0E69490076A91A /* FYP ReporterScreenCapture.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "FYP ReporterScreenCapture.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6858A6932B0E69490076A91A /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		6858A6962B0E694A0076A91A /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
 		6858A6982B0E694A0076A91A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6858A69D2B0E694A0076A91A /* TikTok ReporterScreenCaptureSetupUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TikTok ReporterScreenCaptureSetupUI.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6858A69D2B0E694A0076A91A /* FYP ReporterScreenCaptureSetupUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "FYP ReporterScreenCaptureSetupUI.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6858A69F2B0E694A0076A91A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6858A6A22B0E694A0076A91A /* BroadcastSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSetupViewController.swift; sourceTree = "<group>"; };
 		6858A6A42B0E694A0076A91A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6858A6B12B0E698C0076A91A /* TikTok ReporterScreenCapture.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TikTok ReporterScreenCapture.entitlements"; sourceTree = "<group>"; };
+		6858A6B12B0E698C0076A91A /* FYP ReporterScreenCapture.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FYP ReporterScreenCapture.entitlements"; sourceTree = "<group>"; };
 		685F30402AFE92F500D585C3 /* IdleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleView.swift; sourceTree = "<group>"; };
 		685F30462B02799600D585C3 /* PagedTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedTabView.swift; sourceTree = "<group>"; };
 		685F30482B027A1B00D585C3 /* PagedTabViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedTabViewItem.swift; sourceTree = "<group>"; };
@@ -307,13 +307,13 @@
 		68CBF9AA2AEC18B0006D03FC /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		68CBF9AC2AEC1C7A006D03FC /* NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf"; sourceTree = "<group>"; };
 		68FA99462B0B69D400D65D43 /* View+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Keyboard.swift"; sourceTree = "<group>"; };
-		68FA994D2B0BA34400D65D43 /* TikTok ReporterShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TikTok ReporterShare.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68FA994D2B0BA34400D65D43 /* FYP ReporterShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "FYP ReporterShare.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68FA994F2B0BA34400D65D43 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		68FA99542B0BA34400D65D43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68FB5B6A2B28865A003FF139 /* DataHandlingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandlingViewModel.swift; sourceTree = "<group>"; };
 		A91324462B628D1600EA54D9 /* LimitCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitCharacters.swift; sourceTree = "<group>"; };
 		A95A903F2B7F7E76004A15F3 /* BroadcastUploadHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BroadcastUploadHelpers.h; sourceTree = "<group>"; };
-		A95A90402B7F7E88004A15F3 /* TikTok ReporterScreenCapture-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TikTok ReporterScreenCapture-Bridging-Header.h"; sourceTree = "<group>"; };
+		A95A90402B7F7E88004A15F3 /* FYP ReporterScreenCapture-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FYP ReporterScreenCapture-Bridging-Header.h"; sourceTree = "<group>"; };
 		A95A90412B7F7E88004A15F3 /* BroadcastUploadHelpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BroadcastUploadHelpers.m; sourceTree = "<group>"; };
 		A98946312B56D0CA002F3AE6 /* AttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributedString+Extension.swift"; sourceTree = "<group>"; };
 		A989DAAD2BCE842000AC8062 /* SignedURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedURL.swift; sourceTree = "<group>"; };
@@ -430,24 +430,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6858A6952B0E694A0076A91A /* TikTok ReporterScreenCapture */ = {
+		6858A6952B0E694A0076A91A /* FYP ReporterScreenCapture */ = {
 			isa = PBXGroup;
 			children = (
 				A95A903E2B7F7E67004A15F3 /* Helper */,
-				6858A6B12B0E698C0076A91A /* TikTok ReporterScreenCapture.entitlements */,
+				6858A6B12B0E698C0076A91A /* FYP ReporterScreenCapture.entitlements */,
 				6858A6962B0E694A0076A91A /* SampleHandler.swift */,
 				6858A6982B0E694A0076A91A /* Info.plist */,
 			);
-			path = "TikTok ReporterScreenCapture";
+			path = "FYP ReporterScreenCapture";
 			sourceTree = "<group>";
 		};
-		6858A6A12B0E694A0076A91A /* TikTok ReporterScreenCaptureSetupUI */ = {
+		6858A6A12B0E694A0076A91A /* FYP ReporterScreenCaptureSetupUI */ = {
 			isa = PBXGroup;
 			children = (
 				6858A6A22B0E694A0076A91A /* BroadcastSetupViewController.swift */,
 				6858A6A42B0E694A0076A91A /* Info.plist */,
 			);
-			path = "TikTok ReporterScreenCaptureSetupUI";
+			path = "FYP ReporterScreenCaptureSetupUI";
 			sourceTree = "<group>";
 		};
 		685F30422AFE94C100D585C3 /* Images */ = {
@@ -815,8 +815,8 @@
 				68CBF9782AEB9F31006D03FC /* TikTok ReporterTests */,
 				68CBF9822AEB9F31006D03FC /* TikTok ReporterUITests */,
 				68FA994E2B0BA34400D65D43 /* TikTok ReporterShare */,
-				6858A6952B0E694A0076A91A /* TikTok ReporterScreenCapture */,
-				6858A6A12B0E694A0076A91A /* TikTok ReporterScreenCaptureSetupUI */,
+				6858A6952B0E694A0076A91A /* FYP ReporterScreenCapture */,
+				6858A6A12B0E694A0076A91A /* FYP ReporterScreenCaptureSetupUI */,
 				6858A6922B0E69490076A91A /* Frameworks */,
 				68CBF9662AEB9F2F006D03FC /* Products */,
 			);
@@ -828,9 +828,9 @@
 				68CBF9652AEB9F2F006D03FC /* FYP Reporter.app */,
 				68CBF9752AEB9F31006D03FC /* TikTok ReporterTests.xctest */,
 				68CBF97F2AEB9F31006D03FC /* TikTok ReporterUITests.xctest */,
-				68FA994D2B0BA34400D65D43 /* TikTok ReporterShare.appex */,
-				6858A6912B0E69490076A91A /* TikTok ReporterScreenCapture.appex */,
-				6858A69D2B0E694A0076A91A /* TikTok ReporterScreenCaptureSetupUI.appex */,
+				68FA994D2B0BA34400D65D43 /* FYP ReporterShare.appex */,
+				6858A6912B0E69490076A91A /* FYP ReporterScreenCapture.appex */,
+				6858A69D2B0E694A0076A91A /* FYP ReporterScreenCaptureSetupUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -944,7 +944,7 @@
 			children = (
 				A95A903F2B7F7E76004A15F3 /* BroadcastUploadHelpers.h */,
 				A95A90412B7F7E88004A15F3 /* BroadcastUploadHelpers.m */,
-				A95A90402B7F7E88004A15F3 /* TikTok ReporterScreenCapture-Bridging-Header.h */,
+				A95A90402B7F7E88004A15F3 /* FYP ReporterScreenCapture-Bridging-Header.h */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -952,9 +952,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6858A6902B0E69490076A91A /* TikTok ReporterScreenCapture */ = {
+		6858A6902B0E69490076A91A /* FYP ReporterScreenCapture */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6858A6B02B0E694A0076A91A /* Build configuration list for PBXNativeTarget "TikTok ReporterScreenCapture" */;
+			buildConfigurationList = 6858A6B02B0E694A0076A91A /* Build configuration list for PBXNativeTarget "FYP ReporterScreenCapture" */;
 			buildPhases = (
 				6858A68D2B0E69490076A91A /* Sources */,
 				6858A68E2B0E69490076A91A /* Frameworks */,
@@ -964,14 +964,14 @@
 			);
 			dependencies = (
 			);
-			name = "TikTok ReporterScreenCapture";
-			productName = "TikTok ReporterScreenCapture";
-			productReference = 6858A6912B0E69490076A91A /* TikTok ReporterScreenCapture.appex */;
+			name = "FYP ReporterScreenCapture";
+			productName = "FYP ReporterScreenCapture";
+			productReference = 6858A6912B0E69490076A91A /* FYP ReporterScreenCapture.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		6858A69C2B0E694A0076A91A /* TikTok ReporterScreenCaptureSetupUI */ = {
+		6858A69C2B0E694A0076A91A /* FYP ReporterScreenCaptureSetupUI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6858A6AF2B0E694A0076A91A /* Build configuration list for PBXNativeTarget "TikTok ReporterScreenCaptureSetupUI" */;
+			buildConfigurationList = 6858A6AF2B0E694A0076A91A /* Build configuration list for PBXNativeTarget "FYP ReporterScreenCaptureSetupUI" */;
 			buildPhases = (
 				6858A6992B0E694A0076A91A /* Sources */,
 				6858A69A2B0E694A0076A91A /* Frameworks */,
@@ -981,9 +981,9 @@
 			);
 			dependencies = (
 			);
-			name = "TikTok ReporterScreenCaptureSetupUI";
-			productName = "TikTok ReporterScreenCaptureSetupUI";
-			productReference = 6858A69D2B0E694A0076A91A /* TikTok ReporterScreenCaptureSetupUI.appex */;
+			name = "FYP ReporterScreenCaptureSetupUI";
+			productName = "FYP ReporterScreenCaptureSetupUI";
+			productReference = 6858A69D2B0E694A0076A91A /* FYP ReporterScreenCaptureSetupUI.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		68CBF9642AEB9F2F006D03FC /* TikTok Reporter */ = {
@@ -1047,9 +1047,9 @@
 			productReference = 68CBF97F2AEB9F31006D03FC /* TikTok ReporterUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		68FA994C2B0BA34400D65D43 /* TikTok ReporterShare */ = {
+		68FA994C2B0BA34400D65D43 /* FYP ReporterShare */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 68FA995B2B0BA34400D65D43 /* Build configuration list for PBXNativeTarget "TikTok ReporterShare" */;
+			buildConfigurationList = 68FA995B2B0BA34400D65D43 /* Build configuration list for PBXNativeTarget "FYP ReporterShare" */;
 			buildPhases = (
 				68FA99492B0BA34400D65D43 /* Sources */,
 				68FA994A2B0BA34400D65D43 /* Frameworks */,
@@ -1060,12 +1060,12 @@
 			);
 			dependencies = (
 			);
-			name = "TikTok ReporterShare";
+			name = "FYP ReporterShare";
 			packageProductDependencies = (
 				684E2F2D2B1F2645006A05C8 /* Glean */,
 			);
 			productName = "TikTok ReporterShare";
-			productReference = 68FA994D2B0BA34400D65D43 /* TikTok ReporterShare.appex */;
+			productReference = 68FA994D2B0BA34400D65D43 /* FYP ReporterShare.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -1120,9 +1120,9 @@
 				68CBF9642AEB9F2F006D03FC /* TikTok Reporter */,
 				68CBF9742AEB9F31006D03FC /* TikTok ReporterTests */,
 				68CBF97E2AEB9F31006D03FC /* TikTok ReporterUITests */,
-				68FA994C2B0BA34400D65D43 /* TikTok ReporterShare */,
-				6858A6902B0E69490076A91A /* TikTok ReporterScreenCapture */,
-				6858A69C2B0E694A0076A91A /* TikTok ReporterScreenCaptureSetupUI */,
+				68FA994C2B0BA34400D65D43 /* FYP ReporterShare */,
+				6858A6902B0E69490076A91A /* FYP ReporterScreenCapture */,
+				6858A69C2B0E694A0076A91A /* FYP ReporterScreenCaptureSetupUI */,
 			);
 		};
 /* End PBXProject section */
@@ -1389,12 +1389,12 @@
 /* Begin PBXTargetDependency section */
 		6858A6A62B0E694A0076A91A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6858A69C2B0E694A0076A91A /* TikTok ReporterScreenCaptureSetupUI */;
+			target = 6858A69C2B0E694A0076A91A /* FYP ReporterScreenCaptureSetupUI */;
 			targetProxy = 6858A6A52B0E694A0076A91A /* PBXContainerItemProxy */;
 		};
 		6858A6A92B0E694A0076A91A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6858A6902B0E69490076A91A /* TikTok ReporterScreenCapture */;
+			target = 6858A6902B0E69490076A91A /* FYP ReporterScreenCapture */;
 			targetProxy = 6858A6A82B0E694A0076A91A /* PBXContainerItemProxy */;
 		};
 		68CBF9772AEB9F31006D03FC /* PBXTargetDependency */ = {
@@ -1409,7 +1409,7 @@
 		};
 		68FA99562B0BA34400D65D43 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 68FA994C2B0BA34400D65D43 /* TikTok ReporterShare */;
+			target = 68FA994C2B0BA34400D65D43 /* FYP ReporterShare */;
 			targetProxy = 68FA99552B0BA34400D65D43 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1419,14 +1419,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "TikTok ReporterScreenCapture/TikTok ReporterScreenCapture.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "FYP ReporterScreenCapture/FYP ReporterScreenCapture.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 43AQ936H96;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "TikTok ReporterScreenCapture/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "TikTok ReporterScreenCapture";
+				INFOPLIST_FILE = "FYP ReporterScreenCapture/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "FYP ReporterScreenCapture";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1443,7 +1443,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "TikTok ReporterScreenCapture/Helper/TikTok ReporterScreenCapture-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "FYP ReporterScreenCapture/Helper/FYP ReporterScreenCapture-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1454,7 +1454,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "TikTok ReporterScreenCapture/TikTok ReporterScreenCapture.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "FYP ReporterScreenCapture/FYP ReporterScreenCapture.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -1462,8 +1462,8 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 43AQ936H96;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "TikTok ReporterScreenCapture/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "TikTok ReporterScreenCapture";
+				INFOPLIST_FILE = "FYP ReporterScreenCapture/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "FYP ReporterScreenCapture";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1472,7 +1472,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-Reporter.TikTok-ReporterScreenCapture";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-Reporter.FYP-ReporterScreenCapture";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "org.mozilla.ios.TikTok-Reporter.TikTok-ReporterScr";
@@ -1481,7 +1481,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "TikTok ReporterScreenCapture/Helper/TikTok ReporterScreenCapture-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "FYP ReporterScreenCapture/Helper/FYP ReporterScreenCapture-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1495,8 +1495,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 43AQ936H96;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "TikTok ReporterScreenCaptureSetupUI/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "TikTok ReporterScreenCaptureSetupUI";
+				INFOPLIST_FILE = "FYP ReporterScreenCaptureSetupUI/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "FYP ReporterScreenCaptureSetupUI";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1524,8 +1524,8 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 43AQ936H96;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "TikTok ReporterScreenCaptureSetupUI/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "TikTok ReporterScreenCaptureSetupUI";
+				INFOPLIST_FILE = "FYP ReporterScreenCaptureSetupUI/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "FYP ReporterScreenCaptureSetupUI";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1533,7 +1533,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-Reporter.TikTok-ReporterScreenCaptureSetupUI";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-Reporter.FYP-ReporterScreenCaptureSetupUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "org.mozilla.ios.TikTok-Reporter.SetupUI";
@@ -1908,7 +1908,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-Reporter.TikTok-ReporterShare";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.mozilla.ios.TikTok-Reporter.FYP-ReporterShare";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "org.mozilla.ios.TikTok-Reporter.TikTok-ReporterSha";
@@ -1925,7 +1925,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6858A6AF2B0E694A0076A91A /* Build configuration list for PBXNativeTarget "TikTok ReporterScreenCaptureSetupUI" */ = {
+		6858A6AF2B0E694A0076A91A /* Build configuration list for PBXNativeTarget "FYP ReporterScreenCaptureSetupUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6858A6AD2B0E694A0076A91A /* Debug */,
@@ -1934,7 +1934,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6858A6B02B0E694A0076A91A /* Build configuration list for PBXNativeTarget "TikTok ReporterScreenCapture" */ = {
+		6858A6B02B0E694A0076A91A /* Build configuration list for PBXNativeTarget "FYP ReporterScreenCapture" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6858A6AB2B0E694A0076A91A /* Debug */,
@@ -1979,7 +1979,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		68FA995B2B0BA34400D65D43 /* Build configuration list for PBXNativeTarget "TikTok ReporterShare" */ = {
+		68FA995B2B0BA34400D65D43 /* Build configuration list for PBXNativeTarget "FYP ReporterShare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				68FA99592B0BA34400D65D43 /* Debug */,

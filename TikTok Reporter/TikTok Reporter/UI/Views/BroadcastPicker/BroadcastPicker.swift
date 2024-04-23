@@ -17,7 +17,7 @@ struct BroadcastPicker: UIViewRepresentable {
 
         let pickerView = RPSystemBroadcastPickerView(frame: CGRect(origin: .zero, size: CGSize(width: 64, height: 64)))
 
-        pickerView.preferredExtension = "org.mozilla.ios.TikTok-Reporter.TikTok-ReporterScreenCapture"
+        pickerView.preferredExtension = "org.mozilla.ios.TikTok-Reporter.FYP-ReporterScreenCapture"
         pickerView.showsMicrophoneButton = false
 
         containerView.addSubview(pickerView)
