@@ -33,9 +33,9 @@ struct AboutView: View {
                     .font(.heading3)
                     .foregroundStyle(.text)
 
-                // TODO: link to privacy policy https://foundation.mozilla.org/en/fyp-reporter/privacy-notice/
-                Text("FYP Reporter is a tool that enables crowdsourced investigations into TikTok. It’s built by the nonprofit Mozilla. By using the app, you can participate in studies scrutinizing TikTok’s FYP algorithm. You’ll contribute to cutting-edge public interest research, which Mozilla uses to drive better public policy around tech platforms, advocate for greater transparency, and inform meaningful design interventions.\n\n FYP Reporter research participants can share videos and other TikTok content they encounter with Mozilla, providing context and comments about the content. Participants can also share screen recordings of their TikTok sessions with Mozilla. Learn more in our privacy policy.")
+                Text((try? AttributedString(styledMarkdown: Strings.aboutMarkdown)) ?? AttributedString())
                     .font(.body2)
+                    .tint(.blue)
                     .foregroundStyle(.text)
             }
             .padding(.l)
@@ -47,3 +47,9 @@ struct AboutView: View {
     AboutView()
 }
 
+
+// MARK: - Strings
+
+private enum Strings {
+    static let aboutMarkdown = "FYP Reporter is a tool that enables crowdsourced investigations into TikTok. It’s built by the nonprofit Mozilla. By using the app, you can participate in studies scrutinizing TikTok’s FYP algorithm. You’ll contribute to cutting-edge public interest research, which Mozilla uses to drive better public policy around tech platforms, advocate for greater transparency, and inform meaningful design interventions.\n\n FYP Reporter research participants can share videos and other TikTok content they encounter with Mozilla, providing context and comments about the content. Participants can also share screen recordings of their TikTok sessions with Mozilla. Learn more in our [privacy policy](https://foundation.mozilla.org/en/fyp-reporter/privacy-notice/)."
+}
