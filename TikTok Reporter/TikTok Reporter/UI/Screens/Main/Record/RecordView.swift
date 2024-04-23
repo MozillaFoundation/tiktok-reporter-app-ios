@@ -143,8 +143,10 @@ struct RecordView: View {
         
         VStack {
 
-            MainButton(text: Strings.submitTitle, type: .action) {
-                viewModel.submitRecording()
+            if viewModel.didUpdateMainField {
+                MainButton(text: Strings.submitTitle, type: .action) {
+                    viewModel.submitRecording()
+                }
             }
 
             if viewModel.didUpdateMainField {
