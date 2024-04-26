@@ -87,6 +87,11 @@ final class AppStateManager: ObservableObject {
         self.emailAddress = nil
     }
 
+    func clearEmail() {
+        userDefaults?.removeObject(forKey: AppStateKey.emailAddress.rawValue)
+        self.emailAddress = nil
+    }
+
     // MARK: - Onboarding
 
     func setOnboarding(with study: Study) {

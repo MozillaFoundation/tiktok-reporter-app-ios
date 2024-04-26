@@ -14,7 +14,7 @@ extension DataHandlingView {
     final class ViewModel: ObservableObject {
 
         struct Routing {
-            var noEmailAlert: Bool = false
+            var requestEmailScreen: Bool = false
             var deleteDataAlert: Bool = false
         }
         
@@ -25,7 +25,9 @@ extension DataHandlingView {
 
         // MARK: - Properties
 
-        private var appState: AppStateManager
+        var form: Form?
+
+        private(set) var appState: AppStateManager
         
         // MARK: - Published
         @Published
@@ -41,9 +43,17 @@ extension DataHandlingView {
 
         init(appState: AppStateManager) {
             self.appState = appState
+            self.form = appState.study?.dataDownloadForm
         }
 
         // MARK: - Methods
+        func canRequestDataDownload() -> Bool {
+            return (appState.emailAddress != nil) && (appState.study?.id != nil)
+        }
+
+        func requestEmailForDataDownload() {
+            routing.requestEmailScreen = true
+        }
 
         func requestDataDownload() {
             guard 
@@ -51,7 +61,7 @@ extension DataHandlingView {
                 let study = appState.study,
                 let uuid = UUID(uuidString: study.id)
             else {
-                routing.noEmailAlert = true
+                routing.requestEmailScreen = true
                 return
             }
 

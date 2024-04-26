@@ -1,7 +1,7 @@
 
-# TikTok Reporter
+# FYP Reporter
 
-This is the Mozilla repository for the TikTok Reporter iOS application.
+This is the Mozilla repository for the FYP Reporter iOS application.
 
 
 ## Run Locally

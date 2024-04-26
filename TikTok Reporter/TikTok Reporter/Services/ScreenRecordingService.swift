@@ -152,5 +152,5 @@ private enum Strings {
     static let fileName = "screenRecording.mp4"
     static let appGroupID = "group.org.mozilla.ios.TikTok-Reporter"
     static let appGroupFilePath = "Library/Documents/screenRecording.mp4"
-    static let signedURLBase = "https://storage.googleapis.com/regrets_reporter_recording_docs/"
+    static let signedURLBase = "https://storage.googleapis.com/ttreporter_recordings/"
 }

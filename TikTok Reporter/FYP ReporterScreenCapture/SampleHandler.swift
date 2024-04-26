@@ -1,6 +1,6 @@
 //
 //  SampleHandler.swift
-//  TikTok ReporterScreenCapture
+//  FYP ReporterScreenCapture
 //
 //  Created by Sergiu Ghiran on 22.11.2023.
 //

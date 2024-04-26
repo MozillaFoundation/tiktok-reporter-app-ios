@@ -50,7 +50,7 @@ enum RecordingAPI: APIRequest {
         case let .uploadRecording(contentType, _):
             return [
                 "Content-Type": contentType,
-                "X-API-Key": "c11442cb-790c-40f9-a357-a8205841e1f4"
+                "X-API-Key": ProcessInfo.processInfo.environment["FYP_REPORTER_UPLOAD_API_KEY"] ?? ""
             ]
             
         case .getSignedUrlPath:

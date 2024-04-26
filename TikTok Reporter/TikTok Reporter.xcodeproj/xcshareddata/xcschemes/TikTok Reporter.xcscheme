@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "68CBF9642AEB9F2F006D03FC"
-               BuildableName = "TikTok Reporter.app"
+               BuildableName = "FYP Reporter.app"
                BlueprintName = "TikTok Reporter"
                ReferencedContainer = "container:TikTok Reporter.xcodeproj">
             </BuildableReference>
@@ -68,7 +68,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "68CBF9642AEB9F2F006D03FC"
-            BuildableName = "TikTok Reporter.app"
+            BuildableName = "FYP Reporter.app"
             BlueprintName = "TikTok Reporter"
             ReferencedContainer = "container:TikTok Reporter.xcodeproj">
          </BuildableReference>
@@ -85,7 +85,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "68CBF9642AEB9F2F006D03FC"
-            BuildableName = "TikTok Reporter.app"
+            BuildableName = "FYP Reporter.app"
             BlueprintName = "TikTok Reporter"
             ReferencedContainer = "container:TikTok Reporter.xcodeproj">
          </BuildableReference>

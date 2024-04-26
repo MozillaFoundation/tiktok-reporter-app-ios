@@ -1,6 +1,6 @@
 //
 //  BroadcastUploadHelpers.h
-//  TikTok ReporterScreenCapture
+//  FYP ReporterScreenCapture
 //
 //  Created by Emrah Korkmaz on 16.02.2024.
 //

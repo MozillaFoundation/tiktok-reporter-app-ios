@@ -16,7 +16,7 @@ enum FormTab: Equatable {
 
         switch self {
         case .reportLink:
-            return "Report a link"
+            return "Share a link"
         case .recordSession:
             return "Record a session"
         }
