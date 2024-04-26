@@ -55,7 +55,8 @@ enum RecordingAPI: APIRequest {
             
         case .getSignedUrlPath:
             return [
-                "content-type": "application/json"
+                "content-type": "application/json",
+                "X-API-Key": ProcessInfo.processInfo.environment["FYP_REPORTER_UPLOAD_API_KEY"] ?? ""
             ]
             
         case .uploadRecordingV4(_, _):
