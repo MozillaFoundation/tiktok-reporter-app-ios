@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import TikTok_Reporter
+@testable import FYP_Reporter
 
 final class TikTok_ReporterTests: XCTestCase {
 
