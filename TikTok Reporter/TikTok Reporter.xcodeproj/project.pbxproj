@@ -54,7 +54,6 @@
 		684E2F672B24C93E006A05C8 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FF0162AF17BCC00C9FE51 /* MainButton.swift */; };
 		684E2F682B24C978006A05C8 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681A89F72B176EB000FD1CAB /* ErrorView.swift */; };
 		6858A6942B0E694A0076A91A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6858A6932B0E69490076A91A /* ReplayKit.framework */; };
-		6858A6972B0E694A0076A91A /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858A6962B0E694A0076A91A /* SampleHandler.swift */; };
 		6858A69E2B0E694A0076A91A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6858A6932B0E69490076A91A /* ReplayKit.framework */; };
 		6858A6A02B0E694A0076A91A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6858A69F2B0E694A0076A91A /* UIKit.framework */; };
 		6858A6A32B0E694A0076A91A /* BroadcastSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858A6A22B0E694A0076A91A /* BroadcastSetupViewController.swift */; };
@@ -223,7 +222,6 @@
 		684E2F452B23332F006A05C8 /* RecordingStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingStorage.swift; sourceTree = "<group>"; };
 		6858A6912B0E69490076A91A /* FYP ReporterScreenCapture.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "FYP ReporterScreenCapture.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6858A6932B0E69490076A91A /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
-		6858A6962B0E694A0076A91A /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
 		6858A6982B0E694A0076A91A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6858A69D2B0E694A0076A91A /* FYP ReporterScreenCaptureSetupUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "FYP ReporterScreenCaptureSetupUI.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6858A69F2B0E694A0076A91A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -435,7 +433,6 @@
 			children = (
 				A95A903E2B7F7E67004A15F3 /* Helper */,
 				6858A6B12B0E698C0076A91A /* FYP ReporterScreenCapture.entitlements */,
-				6858A6962B0E694A0076A91A /* SampleHandler.swift */,
 				6858A6982B0E694A0076A91A /* Info.plist */,
 			);
 			path = "FYP ReporterScreenCapture";
@@ -1232,7 +1229,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A95A90422B7F7E88004A15F3 /* BroadcastUploadHelpers.m in Sources */,
-				6858A6972B0E694A0076A91A /* SampleHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
