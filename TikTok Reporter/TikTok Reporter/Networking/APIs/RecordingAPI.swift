@@ -61,7 +61,7 @@ enum RecordingAPI: APIRequest {
             
         case .uploadRecordingV4(_, _):
             return [
-                "content-type": "video/mp4"
+                "content-type": "video/mov"
             ]
         }
     }

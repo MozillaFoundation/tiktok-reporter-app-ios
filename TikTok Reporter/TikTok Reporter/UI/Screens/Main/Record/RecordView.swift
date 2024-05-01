@@ -7,6 +7,42 @@
 
 import SwiftUI
 
+
+
+struct BroadcastPickerView: UIViewControllerRepresentable {
+    typealias UIViewControllerType = BroadcastPicker
+
+    var didStopRecording: () -> Void
+
+    func makeUIViewController(context: Context) -> BroadcastPicker {
+        let broadcastPicker = BroadcastPicker()
+        broadcastPicker.delegate = context.coordinator
+        return broadcastPicker
+    }
+
+    func updateUIViewController(_ uiViewController: BroadcastPicker, context: Context) {
+        // Update the view controller if needed
+    }
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    class Coordinator: NSObject, BroadcastPickerDelegate {
+        var parent: BroadcastPickerView
+
+        init(_ parent: BroadcastPickerView) {
+            self.parent = parent
+        }
+
+        func didStopRecording() {
+            parent.didStopRecording()
+        }
+    }
+}
+
+
+
 struct RecordView: View {
 
     // MARK: - Properties
@@ -122,9 +158,9 @@ struct RecordView: View {
                     .fill(.divider)
                     .frame(width: 64, height: 64)
 
-                BroadcastPicker()
-                    .frame(height: 64)
-            }
+                BroadcastPickerView(didStopRecording: viewModel.refreshRecording)
+                    .frame(width: 64, height: 64)
+            }.frame(maxWidth: .infinity)
         }
     }
 

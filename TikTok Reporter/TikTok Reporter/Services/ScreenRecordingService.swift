@@ -13,7 +13,7 @@ enum FileManagerError: Error {
 }
 
 protocol ScreenRecordingServicing {
-    var localURL: URL? { get }
+    var localURL: URL { get }
     
     func getSignedURL() async throws -> String
     
@@ -35,7 +35,7 @@ final class ScreenRecordingService: ScreenRecordingServicing {
 
     private var fileManager = FileManager.default
 
-    var localURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(Strings.fileName)
+    var localURL = FileManager.default.temporaryDirectory.appendingPathComponent(Strings.fileName)
     private var appGroupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Strings.appGroupID )?.appendingPathComponent(Strings.appGroupFilePath)
 
     // MARK: - Methods
@@ -149,8 +149,8 @@ final class ScreenRecordingService: ScreenRecordingServicing {
 // MARK: - Strings
 
 private enum Strings {
-    static let fileName = "screenRecording.mp4"
+    static let fileName = "screenRecording.mov"
     static let appGroupID = "group.org.mozilla.ios.TikTok-Reporter"
-    static let appGroupFilePath = "Library/Documents/screenRecording.mp4"
+    static let appGroupFilePath = "Library/Documents/screenRecording.mov"
     static let signedURLBase = "https://storage.googleapis.com/ttreporter_recordings/"
 }
