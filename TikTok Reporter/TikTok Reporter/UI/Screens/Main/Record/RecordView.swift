@@ -82,8 +82,9 @@ struct RecordView: View {
                     VStack(alignment: .leading, spacing: .xl) {
 
                         let hasVideoRecording = viewModel.screenRecording != nil
+                        let explanationText = hasVideoRecording ? Strings.withRecordingText : Strings.noRecordingText
                         
-                        Text(hasVideoRecording ? Strings.recordingTitle : Strings.noRecordingTitle)
+                        Text(explanationText)
                             .font(.body2)
                             .foregroundStyle(.text)
                         
@@ -217,14 +218,14 @@ struct RecordView: View {
 private enum Strings {
     static let submitTitle = "Submit Report"
     static let cancelTitle = "Cancel Report"
-    static let recordTitle = "Record a TikTok session"
+    static let recordTitle = "Record my TikTok session"
     static let trimTitle = "Trim Recording"
     static let recordedVideo = "Recorded Video"
     static let duration = "Duration:"
     static let recordingDate = "Recorded on:"
     static let commentsPlaceholder = "Comments(optional)"
-    static let noRecordingTitle = "Tap ‘Record my TikTok session’ to start screen recording. Select ‘FYP ReporterScreenCapture’ and tap ‘Start Broadcast’, then tap outside the dialog to dismiss it. Open TikTok and record your session while you scroll the For You Page (FYP). Once you’re done, tap ‘Stop Recording’ or the circle below (which will be colored red while recording is on). You’ll be asked to share more information and submit this form."
-    static let recordingTitle = "You’ve recorded a TikTok session. Fill out some information then submit the form."
+    static let noRecordingText = "1. Tap ‘Record my TikTok session’ to start screen recording.\n\n2. Select ‘FYP ReporterScreenCapture’ and tap ‘Start Broadcast’, then tap outside the dialog to dismiss it.\n\n3. Open TikTok and record your session while you scroll the For You Page (FYP).\n\n4. Once you’re done, tap ‘Stop Recording’ or the red circle. You’ll be asked to share more information and submit this form."
+    static let withRecordingText = "You’ve recorded a TikTok session. Fill out some information then submit the form."
     static let submitReportWarning = "Create a recording in order to submit the report."
     static let cancelReportAlertTitle = "Cancel Report?"
     static let cancelReportAlertDescription = "Are you sure you want to cancel the report? All the data entered will be deleted"
