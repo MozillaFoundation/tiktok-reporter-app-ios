@@ -75,13 +75,15 @@ extension RecordView {
         }
 
         func refreshRecording() {
-
+            print("RefreshRecording")
             guard
                 screenRecording == nil,
                 let asset = try? screenRecordingService.loadRecording()
             else {
                 return
             }
+            print("Refreshed, got asset")
+            print(asset)
 
             setupScreenRecording(with: asset)
         }
@@ -182,7 +184,11 @@ extension RecordView {
             Task.init {
                 do {
                     try await screenRecording.loadMetadata()
-                    
+                }
+                catch {
+                    print("Error info: \(error)")
+                }
+                do {
                     await MainActor.run {
                         
                         asset.generateThumbnail { image in

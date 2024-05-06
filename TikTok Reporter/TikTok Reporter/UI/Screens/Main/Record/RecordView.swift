@@ -81,8 +81,7 @@ struct RecordView: View {
             guard newPhase == .active else {
                 return
             }
-                
-            viewModel.refreshRecording()
+//            viewModel.refreshRecording()
         }
         .customAlert(
             title: Strings.cancelReportAlertTitle,

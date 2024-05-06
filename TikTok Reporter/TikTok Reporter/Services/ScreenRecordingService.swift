@@ -53,7 +53,7 @@ final class ScreenRecordingService: ScreenRecordingServicing {
     func removeRecording() throws {
 
         guard
-            let localURL,
+//            let localURL,
             fileManager.fileExists(atPath: localURL.path)
         else {
             assertionFailure("Could not find recording to remove.")
@@ -65,7 +65,7 @@ final class ScreenRecordingService: ScreenRecordingServicing {
 
     func updateLocalRecording(with path: String) throws -> AVAsset {
         guard
-            let localURL,
+//            let localURL,
             fileManager.fileExists(atPath: path)
         else {
             throw FileManagerError.fileNotFound
@@ -96,9 +96,9 @@ final class ScreenRecordingService: ScreenRecordingServicing {
     // MARK: - Private Methods
 
     private func loadFromLocal() -> URL? {
-        
+        print("Load from local", localURL.path)
         guard
-            let localURL,
+//            let localURL,
             fileManager.fileExists(atPath: localURL.path)
         else {
             return nil
@@ -111,7 +111,7 @@ final class ScreenRecordingService: ScreenRecordingServicing {
 
         guard
             let appGroupURL,
-            let localURL,
+//            let localURL,
             fileManager.fileExists(atPath: appGroupURL.path)
         else {
             throw FileManagerError.fileNotFound
@@ -130,7 +130,7 @@ final class ScreenRecordingService: ScreenRecordingServicing {
     private func loadLocalData() -> Data? {
 
         guard 
-            let localURL,
+//            let localURL,
             fileManager.fileExists(atPath: localURL.path),
             let data = try? Data(contentsOf: localURL)
         else {

@@ -27,6 +27,7 @@ struct ScreenRecording {
     // MARK: - Methods
 
     mutating func loadMetadata() async throws {
+        print("Loading metadata from asset")
         self.duration = try await asset.load(.duration)
         self.recordingDate = try await asset.load(.creationDate)?.load(.dateValue)
     }
