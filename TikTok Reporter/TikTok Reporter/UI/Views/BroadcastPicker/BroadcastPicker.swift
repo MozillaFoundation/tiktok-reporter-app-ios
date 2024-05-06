@@ -89,31 +89,46 @@ class BroadcastPicker: UIViewController {
             let outputURL = FileManager.default.temporaryDirectory.appendingPathComponent("screenRecording").appendingPathExtension("mov")
             self.assetWriter = try? AVAssetWriter(outputURL: outputURL, fileType: .mov)
             self.videoInput = AVAssetWriterInput(mediaType: .video, outputSettings: nil)
-            self.audioInput = AVAssetWriterInput(mediaType: .audio, outputSettings: nil)
-            self.assetWriter?.add(self.videoInput!)
-            self.assetWriter?.add(self.audioInput!)
-            self.assetWriter?.startWriting()
-            self.assetWriter?.startSession(atSourceTime: .zero)
+//            self.audioInput = AVAssetWriterInput(mediaType: .audio, outputSettings: nil)
+            self.assetWriter!.add(self.videoInput!)
+//            self.assetWriter?.add(self.audioInput!)
+            sharedRecorder.isCameraEnabled = true
+            sharedRecorder.isMicrophoneEnabled = true
 
             sharedRecorder.startCapture(handler: { (sampleBuffer, bufferType, error) in
+
                 if let error = error {
                     print("Failed to capture sample buffer: \(error)")
                     return
                 }
+                if !CMSampleBufferDataIsReady(sampleBuffer) {
+                    print("Buffer not ready")
+                } else {
+                    if self.assetWriter!.status == AVAssetWriter.Status.unknown
+                    {
+                        self.assetWriter!.startWriting()
+                        self.assetWriter!.startSession(atSourceTime: CMSampleBufferGetPresentationTimeStamp(sampleBuffer))
+                    }
 
-                switch bufferType {
-                case .video:
-                    if self.videoInput?.isReadyForMoreMediaData == true {
-                        self.videoInput?.append(sampleBuffer)
+                    if self.assetWriter!.status == AVAssetWriter.Status.failed {
+                        print("Error occured, status = \(self.assetWriter!.status.rawValue), \(self.assetWriter!.error!.localizedDescription) \(String(describing: self.assetWriter!.error))")
+                        return
                     }
-                case .audioApp:
-                    if self.audioInput?.isReadyForMoreMediaData == true {
-                        self.audioInput?.append(sampleBuffer)
+                    switch bufferType {
+                    case .video:
+                        if self.videoInput!.isReadyForMoreMediaData == true {
+                            self.videoInput!.append(sampleBuffer)
+                        }
+                    case .audioApp:
+                        break
+                        //                    if self.audioInput?.isReadyForMoreMediaData == true {
+                        //                        self.audioInput?.append(sampleBuffer)
+                        //                    }
+                    case .audioMic:
+                        break // Ignore microphone audio
+                    @unknown default:
+                        break
                     }
-                case .audioMic:
-                    break // Ignore microphone audio
-                @unknown default:
-                    break
                 }
             }) { (error) in
                 if let error = error {
