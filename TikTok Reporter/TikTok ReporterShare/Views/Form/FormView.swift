@@ -28,11 +28,6 @@ struct FormView: View {
                 } else {
                     self.content
                         .navigationBarTitleDisplayMode(.inline)
-                        .toolbar {
-                            ToolbarItem(placement: .topBarLeading) {
-                                Image(.header)
-                            }
-                        }
                 }
                 
                 

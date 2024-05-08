@@ -22,11 +22,6 @@ struct PolicyView: View {
             self.content
         }
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Image(.header)
-            }
-        }
         .navigationBarBackButtonHidden(!viewModel.appState.hasCompletedOnboarding)
         .customAlert(
             title: "Review the terms & conditions",

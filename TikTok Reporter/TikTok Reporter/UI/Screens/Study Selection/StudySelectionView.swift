@@ -22,11 +22,6 @@ struct StudySelectionView: View {
             self.content
         }
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItemGroup(placement: .topBarLeading) {
-                Image(.header)
-            }
-        }
         .onAppear {
             viewModel.load()
         }
