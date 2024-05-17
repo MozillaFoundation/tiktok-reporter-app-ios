@@ -27,11 +27,6 @@ struct MainView: View {
         self.content
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-
-                ToolbarItem(placement: .topBarLeading) {
-                    Image(.header)
-                }
-                
                 ToolbarItem(placement: .topBarTrailing) {
                     
                     NavigationLink(destination: SettingsView(viewModel: .init(appState: viewModel.appState)),

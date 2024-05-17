@@ -23,11 +23,6 @@ struct OnboardingView: View {
         
         self.content
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Image(.header)
-                }
-            }
     }
     
     // MARK: - Views
