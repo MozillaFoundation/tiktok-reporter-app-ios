@@ -6,6 +6,29 @@
 //
 
 import SwiftUI
+import SDWebImage
+
+struct AnimatedImage: UIViewRepresentable {
+    let url: URL
+    @Binding var isLoading: Bool
+
+    func makeUIView(context: Self.Context) -> SDAnimatedImageView {
+        let imageView = SDAnimatedImageView()
+        imageView.contentMode = .bottomLeft
+        imageView.sd_setImage(with: url, placeholderImage: nil, options: .progressiveLoad) { _, _, _, _ in
+            self.isLoading = false
+        }
+        // Set imageView to fit the image within bounds of the parent
+        // https://stackoverflow.com/a/59745779
+        imageView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        imageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        return imageView
+    }
+
+    func updateUIView(_ uiView: SDAnimatedImageView, context: Self.Context) {
+        uiView.contentMode = .scaleAspectFit
+    }
+}
 
 struct OnboardingPageView: View {
 
@@ -14,6 +37,7 @@ struct OnboardingPageView: View {
     var onboardingStep: OnboardingStep
     @Binding
     var contentInset: CGFloat
+    @State private var isLoading = true
 
     // MARK: - Body
 
@@ -61,19 +85,23 @@ struct OnboardingPageView: View {
     }
 
     private var image: some View {
-
-        AsyncImage(url: URL(string: onboardingStep.imageUrl)!) { image in
-
-            image
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-        } placeholder: {
-
-            ProgressView()
-                .progressViewStyle(CircularProgressViewStyle())
-                .scaleEffect(2.0, anchor: .center)
+        Group {
+            if onboardingStep.imageUrl.hasSuffix(".gif") {
+                AnimatedImage(url: URL(string: onboardingStep.imageUrl)!, isLoading: $isLoading)
+                    .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height * 0.5)
+            } else {
+                AsyncImage(url: URL(string: onboardingStep.imageUrl)!) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                } placeholder: {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .scaleEffect(2.0, anchor: .center)
+                }
+                .frame(width: UIScreen.main.bounds.width * 0.43)
+            }
         }
-        .frame(width: UIScreen.main.bounds.width * 0.43)
         .frame(maxWidth: .infinity)
     }
 

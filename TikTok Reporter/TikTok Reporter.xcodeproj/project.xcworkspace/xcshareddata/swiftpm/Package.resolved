@@ -1,4 +1,5 @@
 {
+  "originHash" : "1d8a05d965e0ddebac57a1daf631f61d450d8b8a4f7c3e2bc380f600aab36db1",
   "pins" : [
     {
       "identity" : "glean-swift",
@@ -8,7 +9,16 @@
         "revision" : "aa9172bfe715a9f918dd95bf49d8f1b2363500a0",
         "version" : "56.0.0"
       }
+    },
+    {
+      "identity" : "sdwebimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImage.git",
+      "state" : {
+        "revision" : "5642d1ffe3dbe628592443bd14154e31929727b4",
+        "version" : "5.19.2"
+      }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
