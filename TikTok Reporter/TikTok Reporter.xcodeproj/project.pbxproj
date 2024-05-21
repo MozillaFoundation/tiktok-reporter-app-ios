@@ -143,7 +143,6 @@
 		A98946322B56D0CA002F3AE6 /* AttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98946312B56D0CA002F3AE6 /* AttributedString+Extension.swift */; };
 		A989DAAE2BCE842000AC8062 /* SignedURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A989DAAD2BCE842000AC8062 /* SignedURL.swift */; };
 		A989DAAF2BCE842900AC8062 /* SignedURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A989DAAD2BCE842000AC8062 /* SignedURL.swift */; };
-		DA3EACE42BF6D67400618D36 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = DA3EACE32BF6D67400618D36 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -342,7 +341,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA3EACE42BF6D67400618D36 /* SDWebImage in Frameworks */,
 				684E2F2C2B1F2636006A05C8 /* Glean in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1008,7 +1006,6 @@
 			name = "TikTok Reporter";
 			packageProductDependencies = (
 				684E2F2B2B1F2636006A05C8 /* Glean */,
-				DA3EACE32BF6D67400618D36 /* SDWebImage */,
 			);
 			productName = "TikTok Reporter";
 			productReference = 68CBF9652AEB9F2F006D03FC /* FYP Reporter.app */;
@@ -1115,7 +1112,6 @@
 			mainGroup = 68CBF95C2AEB9F2F006D03FC;
 			packageReferences = (
 				684E2F2A2B1F2636006A05C8 /* XCRemoteSwiftPackageReference "glean-swift" */,
-				DA3EACE22BF6D67400618D36 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 68CBF9662AEB9F2F006D03FC /* Products */;
 			projectDirPath = "";
@@ -2003,14 +1999,6 @@
 				minimumVersion = 56.0.0;
 			};
 		};
-		DA3EACE22BF6D67400618D36 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.19.2;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2023,11 +2011,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 684E2F2A2B1F2636006A05C8 /* XCRemoteSwiftPackageReference "glean-swift" */;
 			productName = Glean;
-		};
-		DA3EACE32BF6D67400618D36 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DA3EACE22BF6D67400618D36 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
