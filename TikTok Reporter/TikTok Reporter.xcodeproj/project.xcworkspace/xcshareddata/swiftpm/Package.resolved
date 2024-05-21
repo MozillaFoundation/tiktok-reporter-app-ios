@@ -1,5 +1,4 @@
 {
-  "originHash" : "1d8a05d965e0ddebac57a1daf631f61d450d8b8a4f7c3e2bc380f600aab36db1",
   "pins" : [
     {
       "identity" : "glean-swift",
