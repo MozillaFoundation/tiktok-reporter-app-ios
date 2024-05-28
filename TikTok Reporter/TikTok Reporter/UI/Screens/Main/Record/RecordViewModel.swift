@@ -31,7 +31,7 @@ extension RecordView {
 
         // MARK: - Properties
 
-        private var appState: AppStateManager
+        var appState: AppStateManager
 
         @Published
         var state: PresentationState = .success
@@ -44,6 +44,8 @@ extension RecordView {
         var didUpdateMainField: Bool = false
         @Published
         var trimmedVideoPath: String?
+        @Published
+        var recordingStatusChecker: Timer? = nil
 
         @Published
         var videoComments: String = ""
@@ -58,12 +60,33 @@ extension RecordView {
         // MARK: - Lifecycle
 
         init(appState: AppStateManager) {
-
             self.appState = appState
+            appState.userDefaults?.set(false, forKey: "broadcastStarted")
             load()
         }
 
         // MARK: - Methods
+
+        func startRecordingStatusChecker() {
+            // Don't start another timer if one exists
+            if (recordingStatusChecker != nil) {
+                return
+            }
+
+            recordingStatusChecker = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
+                print("Checking recording status")
+                let isRecording = self.appState.userDefaults?.bool(forKey: Strings.broadcastStateKey) == true
+                if isRecording {
+                    timer.invalidate()
+                    self.recordingStatusChecker = nil
+                }
+            }
+        }
+
+        func stopRecordingStatusChecker() {
+            recordingStatusChecker?.invalidate()
+            recordingStatusChecker = nil
+        }
 
         func load() {
 
@@ -174,7 +197,8 @@ extension RecordView {
         // MARK: - Private Methods
 
         private func setupScreenRecording(with asset: AVAsset) {
-            
+            stopRecordingStatusChecker()
+
             var screenRecording = ScreenRecording(asset: asset)
             
             state = .loading
@@ -204,4 +228,9 @@ extension RecordView {
             }
         }
     }
+}
+
+
+private enum Strings {
+    static let broadcastStateKey = "broadcastStarted"
 }

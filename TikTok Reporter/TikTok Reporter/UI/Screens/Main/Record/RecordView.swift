@@ -5,6 +5,7 @@
 //  Created by Sergiu Ghiran on 07.12.2023.
 //
 
+import ReplayKit
 import SwiftUI
 
 struct RecordView: View {
@@ -17,6 +18,12 @@ struct RecordView: View {
     @Environment(\.scenePhase)
     var scenePhase
 
+    let broadcastPicker: BroadcastPicker
+
+    init(viewModel: ViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+        self.broadcastPicker = BroadcastPicker(startRecordingStatusChecker: viewModel.startRecordingStatusChecker)
+    }
     // MARK: - Body
 
     var body: some View {
@@ -123,8 +130,15 @@ struct RecordView: View {
                     .fill(.divider)
                     .frame(width: 64, height: 64)
 
-                BroadcastPicker()
+                broadcastPicker
                     .frame(height: 64)
+            }
+
+            if viewModel.appState.userDefaults?.bool(forKey: Strings.broadcastStateKey) == true {
+                MainButton(text: Strings.stopRecording, type: .action) {
+                    broadcastPicker.showPickerView()
+                    viewModel.stopRecordingStatusChecker()
+                }
             }
         }
     }
@@ -218,6 +232,8 @@ struct RecordView: View {
 private enum Strings {
     static let submitTitle = "Submit Report"
     static let cancelTitle = "Cancel Report"
+    static let stopRecording = "Stop Recording"
+    static let broadcastStateKey = "broadcastStarted"
     static let recordTitle = "Record my TikTok session"
     static let trimTitle = "Trim Recording"
     static let recordedVideo = "Recorded Video"
