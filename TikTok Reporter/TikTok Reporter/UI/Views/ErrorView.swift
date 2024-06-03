@@ -34,7 +34,7 @@ struct ErrorView: View {
                     Image(.error)
                     
                     if !isErrorNetworkRelated {
-                        Text("Ups! Something went wrong")
+                        Text("Oops! Something went wrong")
                             .font(.heading3)
                             .foregroundStyle(.text)
 
