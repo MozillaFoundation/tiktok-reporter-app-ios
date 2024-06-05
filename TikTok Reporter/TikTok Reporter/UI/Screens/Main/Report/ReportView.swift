@@ -91,7 +91,7 @@ struct ReportView: View {
 // MARK: - Strings
 
 private enum Strings {
-    static let submitTitle = APIConfig.uploadApiKey ?? "fallback"
+    static let submitTitle = "Submit Report"
     static let cancelTitle = "Cancel Report"
     static let cancelReportAlertTitle = "Cancel Report?"
     static let cancelReportAlertDescription = "Are you sure you want to cancel the report? All the data entered will be deleted"
