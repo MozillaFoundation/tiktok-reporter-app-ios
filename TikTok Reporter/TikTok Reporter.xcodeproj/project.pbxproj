@@ -143,6 +143,7 @@
 		A98946322B56D0CA002F3AE6 /* AttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98946312B56D0CA002F3AE6 /* AttributedString+Extension.swift */; };
 		A989DAAE2BCE842000AC8062 /* SignedURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A989DAAD2BCE842000AC8062 /* SignedURL.swift */; };
 		A989DAAF2BCE842900AC8062 /* SignedURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A989DAAD2BCE842000AC8062 /* SignedURL.swift */; };
+		DA0583242C0FF87A009FE4AD /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0583212C0FF87A009FE4AD /* APIConfig.swift */; };
 		DA77C52F2BFD3F43005543EA /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = DA77C52E2BFD3F43005543EA /* SDWebImage */; };
 /* End PBXBuildFile section */
 
@@ -318,6 +319,7 @@
 		A95A90412B7F7E88004A15F3 /* BroadcastUploadHelpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BroadcastUploadHelpers.m; sourceTree = "<group>"; };
 		A98946312B56D0CA002F3AE6 /* AttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributedString+Extension.swift"; sourceTree = "<group>"; };
 		A989DAAD2BCE842000AC8062 /* SignedURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedURL.swift; sourceTree = "<group>"; };
+		DA0583212C0FF87A009FE4AD /* APIConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -840,6 +842,7 @@
 		68CBF9672AEB9F2F006D03FC /* TikTok Reporter */ = {
 			isa = PBXGroup;
 			children = (
+				DA0583232C0FF87A009FE4AD /* Secrets */,
 				6823D9E82B3180810086F485 /* Generated */,
 				683A20442B0BB70F006F8AE5 /* TikTok Reporter.entitlements */,
 				689FF08B2AFD4EBD00C9FE51 /* Managers */,
@@ -949,6 +952,14 @@
 				A95A90402B7F7E88004A15F3 /* FYP ReporterScreenCapture-Bridging-Header.h */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		DA0583232C0FF87A009FE4AD /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				DA0583212C0FF87A009FE4AD /* APIConfig.swift */,
+			);
+			path = Secrets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1313,6 +1324,7 @@
 				689FF0812AFCDAF000C9FE51 /* SliderView.swift in Sources */,
 				6892A4FB2B14AC320023BCA8 /* CMTime+Positional.swift in Sources */,
 				684E2F362B20BBCF006A05C8 /* JSONMapper.swift in Sources */,
+				DA0583242C0FF87A009FE4AD /* APIConfig.swift in Sources */,
 				689FF0192AF17EBD00C9FE51 /* CustomAlertModifier.swift in Sources */,
 				689FF04C2AF300C000C9FE51 /* PresentationStateView.swift in Sources */,
 				689FF0222AF259F400C9FE51 /* PolicyViewModel.swift in Sources */,

@@ -73,13 +73,6 @@
             ReferencedContainer = "container:TikTok Reporter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "FYP_REPORTER_UPLOAD_API_KEY"
-            value = "${FYP_REPORTER_UPLOAD_API_KEY}"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
