@@ -1003,7 +1003,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 68CBF9892AEB9F31006D03FC /* Build configuration list for PBXNativeTarget "TikTok Reporter" */;
 			buildPhases = (
-				DA0583152C0FD9EC009FE4AD /* ShellScript */,
 				68CBF9612AEB9F2F006D03FC /* Sources */,
 				68CBF9622AEB9F2F006D03FC /* Frameworks */,
 				68CBF9632AEB9F2F006D03FC /* Resources */,
@@ -1239,25 +1238,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nbash \"$PWD/sdk_generator.sh\" --output \"$PWD/TikTok ReporterShare/Generated\"\n";
-		};
-		DA0583152C0FD9EC009FE4AD /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/TikTok Reporter/Helpers/APIConfig.stencil",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/TikTok Reporter/Helpers/APIConfig.generated.swift",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd /Users/paul/Documents/Mozilla/tiktok-reporter-app-ios\n\nif [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n\necho \"Replace...\"\nsed -i .bak  \"s/{FYP_REPORTER_UPLOAD_API_KEY}/$FYP_REPORTER_UPLOAD_API_KEY/\" \"TikTok Reporter/TikTok Reporter/Secrets/APIConfig.swift\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
