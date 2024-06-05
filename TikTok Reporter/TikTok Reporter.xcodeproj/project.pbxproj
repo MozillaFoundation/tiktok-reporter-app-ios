@@ -1257,7 +1257,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd /Users/paul/Documents/Mozilla/tiktok-reporter-app-ios\n\nif [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n\nsed -i .bak  \"s/{FYP_REPORTER_UPLOAD_API_KEY}/$FYP_REPORTER_UPLOAD_API_KEY/\" \"TikTok Reporter/TikTok Reporter/Secrets/APIConfig.swift\"\n";
+			shellScript = "cd /Users/paul/Documents/Mozilla/tiktok-reporter-app-ios\n\nif [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n\necho \"Replace...\"\nsed -i .bak  \"s/{FYP_REPORTER_UPLOAD_API_KEY}/$FYP_REPORTER_UPLOAD_API_KEY/\" \"TikTok Reporter/TikTok Reporter/Secrets/APIConfig.swift\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
