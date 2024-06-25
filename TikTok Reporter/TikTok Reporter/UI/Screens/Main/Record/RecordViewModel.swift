@@ -177,7 +177,7 @@ extension RecordView {
             
             screenRecordingDict["comments"] = videoComments
             
-            guard let jsonSerializedData = try? JSONSerialization.data(withJSONObject: screenRecordingDict, options: .prettyPrinted) else {
+            guard let jsonSerializedData = try? JSONSerialization.data(withJSONObject: screenRecordingDict, options: [.withoutEscapingSlashes, .prettyPrinted]) else {
                 return jsonString
             }
             
