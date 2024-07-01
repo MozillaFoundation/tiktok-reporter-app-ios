@@ -31,10 +31,8 @@ struct BroadcastPicker: UIViewRepresentable {
     }
 
     func showPickerView() {
-        print("Called to show")
         for subview in pickerView.subviews {
             if let button = subview as? UIButton {
-                print("calling button")
                 button.sendActions(for: .touchUpInside)
             }
         }

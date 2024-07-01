@@ -74,7 +74,6 @@ extension RecordView {
             }
 
             recordingStatusChecker = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
-                print("Checking recording status")
                 let isRecording = self.appState.userDefaults?.bool(forKey: Strings.broadcastStateKey) == true
                 if isRecording {
                     timer.invalidate()
@@ -137,8 +136,6 @@ extension RecordView {
 
             state = .loading
             
-            videoComments = ""
-
             Task {
                 do {
                     let (signedURL, uploadStatus) = try await screenRecordingService.uploadRecording()
