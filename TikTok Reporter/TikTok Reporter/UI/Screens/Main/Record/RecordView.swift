@@ -107,7 +107,7 @@ struct RecordView: View {
                                 .foregroundStyle(.error)
                         }
                         
-                        MainTextField(text: $viewModel.videoComments, isValid: .constant(true), isEnabled: .constant(true), placeholder: Strings.commentsPlaceholder, isMultiline: true)
+                        MainTextField(text: $viewModel.videoComments, isValid: .constant(true), isEnabled: .constant(true), label: "", placeholder: Strings.commentsPlaceholder, isMultiline: true)
                     }
                     .padding(.xl)
                 }

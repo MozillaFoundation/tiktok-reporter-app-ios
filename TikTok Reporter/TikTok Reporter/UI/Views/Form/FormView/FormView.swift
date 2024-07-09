@@ -68,8 +68,8 @@ struct FormView: View {
             VStack(alignment: .leading, spacing: .m) {
 
                 // MARK: - Label
-
-                if let label = field.formItem.label, !label.isEmpty {
+                let label = field.formItem.label ?? ""
+                if !label.isEmpty {
                     Text(label)
                         .font(.heading3)
                         .foregroundStyle(.text)
@@ -88,7 +88,7 @@ struct FormView: View {
                 switch field.formItem.field {
                     
                 case let .textField(fieldInfo):
-                    MainTextField(text: $field.stringValue, isValid: $field.isValid, isEnabled: $field.isEnabled, placeholder: fieldInfo.placeholder, isMultiline: fieldInfo.multiline, isTikTokLink: fieldInfo.isTikTokLink ?? false)
+                MainTextField(text: $field.stringValue, isValid: $field.isValid, isEnabled: $field.isEnabled, label: label, placeholder: fieldInfo.placeholder, isMultiline: fieldInfo.multiline, isTikTokLink: fieldInfo.isTikTokLink ?? false)
                         .id(index)
                     
                 case let .slider(fieldInfo):
