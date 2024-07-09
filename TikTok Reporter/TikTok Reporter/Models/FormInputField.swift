@@ -82,7 +82,7 @@ extension FormInputField: Encodable {
             return false
         }
         
-        return Strings.validTikTokLinks.contains(where: { $0 == tiktokURLHost })
+        return Strings.validTikTokLinks.contains(where: { $0 == tiktokURLHost }) && tiktokUrlComponents.path.count > 1
     }
     
     // This is duplicated from MainTextField because this code is also duplicated

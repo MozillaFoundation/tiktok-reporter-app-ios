@@ -209,7 +209,7 @@ struct MainTextField: View {
             return false
         }
         
-        let isValid = Strings.validTikTokLinks.contains(where: { $0 == tiktokURLHost })
+        let isValid = Strings.validTikTokLinks.contains(where: { $0 == tiktokURLHost }) && tiktokUrlComponents.path.count > 1
         return isValid
     }
     
