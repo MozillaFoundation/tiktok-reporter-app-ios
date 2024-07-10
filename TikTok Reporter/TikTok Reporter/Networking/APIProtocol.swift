@@ -9,7 +9,7 @@ import Foundation
 
 enum Constants {
     enum URL {
-        static let baseURL: String = "https://tiktok-reporter-app-be-tf52yqfkfq-uc.a.run.app/"
+        static let baseURL: String = "https://tiktok-reporter-app-be-m2zdobyena-uc.a.run.app/"
     }
 }
 
