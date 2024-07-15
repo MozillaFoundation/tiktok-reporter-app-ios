@@ -142,7 +142,7 @@ final class ScreenRecordingService: ScreenRecordingServicing {
     
     func getSignedURL() async throws -> String {
         let signedURL: SignedURL = try await apiClient.perform(request: RecordingAPI.getSignedUrlPath)
-        return Strings.signedURLBase + signedURL.url
+        return signedURL.url
     }
 }
 
@@ -152,5 +152,5 @@ private enum Strings {
     static let fileName = "screenRecording.mp4"
     static let appGroupID = "group.org.mozilla.ios.TikTok-Reporter"
     static let appGroupFilePath = "Library/Documents/screenRecording.mp4"
-    static let signedURLBase = "https://storage.googleapis.com/ttreporter_recordings/"
+    static let signedURLBase = "https://storage.googleapis.com/ttreporter_recordings_prod/"
 }
