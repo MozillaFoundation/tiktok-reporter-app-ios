@@ -56,17 +56,25 @@ struct OnboardingView: View {
     private var buttons: some View {
 
         VStack(spacing: .m) {
-            MainButton(text: "Next", type: .primary) {
-                viewModel.nextStep()
-            }
-            
             if viewModel.currentStep > 0 {
-                MainButton(text: "Back", type: .secondary) {
-                    viewModel.previousStep()
+                HStack {
+                    MainButton(text: "Back", type: .secondary) {
+                        viewModel.previousStep()
+                    }
+                    .frame(maxWidth: .infinity)
+
+                    MainButton(text: "Next", type: .primary) {
+                        viewModel.nextStep()
+                    }
+                    .frame(maxWidth: .infinity)
+                }
+            } else {
+                MainButton(text: "Next", type: .primary) {
+                    viewModel.nextStep()
                 }
             }
 
-            if viewModel.currentStep < viewModel.steps.count - 1 {
+            if viewModel.currentStep == 0 {
                 MainButton(text: "Skip", type: .secondary) {
                     viewModel.skip()
                 }

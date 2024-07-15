@@ -19,6 +19,7 @@ struct MainTextField: View {
     @Binding
     var isEnabled: Bool
 
+    var label: String
     var placeholder: String
     var isMultiline: Bool
     
@@ -77,6 +78,10 @@ struct MainTextField: View {
                     
                     if isLimitEnabled, textChange.count > limitCount {
                         text = String(text.prefix(limitCount))
+                    }
+                    if isEmailField() {
+                        isValid = validateEmailAddress()
+                        return
                     }
                     
                     guard isTikTokLink else {
@@ -204,28 +209,44 @@ struct MainTextField: View {
             return false
         }
         
-        let isValid = Strings.validTikTokLinks.contains(where: { $0 == tiktokURLHost })
+        let isValid = Strings.validTikTokLinks.contains(where: { $0 == tiktokURLHost }) && tiktokUrlComponents.path.count > 1
         return isValid
     }
     
     func generateTikTokValidationErrorMessage() -> String {
+        if isEmailField() {
+            return Strings.errorMessageInvalidEmail
+        }
         guard isTikTokLink else {
             return Strings.errorMessage
         }
         return Strings.notValidatedURLErrorMessage
+    }
+
+    func validateEmailAddress() -> Bool {
+        // from https://stackoverflow.com/a/25471
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+
+        return emailPredicate.evaluate(with: text)
+    }
+
+    func isEmailField() -> Bool {
+        return label.lowercased().contains("email") || label.lowercased().contains("e-mail")
     }
 }
 
 // MARK: - Preview
 
 #Preview {
-    MainTextField(text: .constant(""), isValid: .constant(true), isEnabled: .constant(true), placeholder: "Placeholder", isMultiline: true)
+    MainTextField(text: .constant(""), isValid: .constant(true), isEnabled: .constant(true), label: "Label", placeholder: "Placeholder", isMultiline: true)
 }
 
 // MARK: - Strings
 
 private enum Strings {
     static let errorMessage = "This field cannot be empty"
+    static let errorMessageInvalidEmail = "Please enter a valid email address"
     static let notValidatedURLErrorMessage = "Please paste a TikTok link"
     static let validTikTokLinks = ["tiktok.com", "www.tiktok.com", "vm.tiktok.com"]
     static let formDidPublished = "formDidPublish"

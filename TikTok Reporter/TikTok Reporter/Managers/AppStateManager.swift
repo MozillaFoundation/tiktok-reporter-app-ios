@@ -29,7 +29,7 @@ final class AppStateManager: ObservableObject {
     @Published
     var onboardingFlow: OnboardingFlow? = nil
 
-    private lazy var userDefaults = UserDefaults(suiteName: Strings.appGroupID)
+    lazy var userDefaults = UserDefaults(suiteName: Strings.appGroupID)
 
     // MARK: - Lifecycle
 

@@ -48,6 +48,9 @@ struct FormInputField: Hashable, Identifiable {
                 isValid = validateTikTokLink(linkURL: stringValue)
             } else {
                 isValid = !stringValue.isEmpty
+                if isEmailField(label: formItem.label ?? "") {
+                    isValid = validateEmailAddress(str: stringValue)
+                }
             }
         case .dropDown:
             isValid = !stringValue.isEmpty
@@ -79,9 +82,22 @@ extension FormInputField: Encodable {
             return false
         }
         
-        return Strings.validTikTokLinks.contains(where: { $0 == tiktokURLHost })
+        return Strings.validTikTokLinks.contains(where: { $0 == tiktokURLHost }) && tiktokUrlComponents.path.count > 1
     }
     
+    // This is duplicated from MainTextField because this code is also duplicated
+    func validateEmailAddress(str: String) -> Bool {
+        // from https://stackoverflow.com/a/25471
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+
+        return emailPredicate.evaluate(with: str)
+    }
+
+    func isEmailField(label: String) -> Bool {
+        return label.lowercased().contains("email") || label.lowercased().contains("e-mail")
+    }
+
     enum CodingKeys: String, CodingKey {
         case formItem
         case inputValue

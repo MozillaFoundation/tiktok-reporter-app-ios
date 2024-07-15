@@ -80,13 +80,15 @@ struct DropDownView: View {
                     .font(.body1)
                     .foregroundStyle(.text)
                     .padding(.leading, .m)
+                    .multilineTextAlignment(.leading)
+                    .fixedSize(horizontal: false, vertical: true)
 
                 Spacer()
 
                 Image(.chevronDown)
                     .padding(.trailing, .m)
             }
-            .frame(height: 40.0)
+            .frame(minHeight: 40.0)
             .border(isValid ? .text : .error, width: 1.0)
         .tint(.text)
     }

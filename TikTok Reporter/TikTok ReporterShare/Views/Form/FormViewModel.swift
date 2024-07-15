@@ -187,7 +187,7 @@ extension FormView {
 private enum Strings {
     static let otherFieldPlaceholder = "Suggest a category"
     static let otherTitle = "other"
-    static let studiesURL = "https://tiktok-reporter-app-be-tf52yqfkfq-uc.a.run.app/studies/by-country-code"
+    static let studiesURL = "https://tiktok-reporter-app-be-m2zdobyena-uc.a.run.app/studies/by-country-code"
     static let closeNotificationName = "close"
     
     // Other

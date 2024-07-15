@@ -87,6 +87,8 @@ class SampleHandler: RPBroadcastSampleHandler {
     // MARK: - Methods
 
     override func broadcastStarted(withSetupInfo setupInfo: [String : NSObject]?) {
+        let userDefaults = UserDefaults(suiteName: Strings.appGroupID)
+        userDefaults?.set(true, forKey: Strings.broadcastStateKey)
         
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
@@ -114,6 +116,8 @@ class SampleHandler: RPBroadcastSampleHandler {
     }
     
     override func broadcastFinished() {
+        let userDefaults = UserDefaults(suiteName: Strings.appGroupID)
+        userDefaults?.set(false, forKey: Strings.broadcastStateKey)
 
         do {
             try finish()
@@ -268,6 +272,7 @@ private enum Strings {
     static let appGroupID = "group.org.mozilla.ios.TikTok-Reporter"
     static let filePath = "Library/Documents/"
     static let writerQueueLabel = "BroadcastExtension.assetWriterQueue"
+    static let broadcastStateKey = "broadcastStarted"
 }
 
 private extension SampleHandler {
